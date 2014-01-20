@@ -1,9 +1,9 @@
 //
 //  StrConsts__unsafe_unretained NSString* h
-//  AMDCom
+//  Taxi
 //
-//  Created by Zviad Jakhua on 6/12/13__unsafe_unretained NSString* 
-//  Copyright (c) 2013 aMindSolutions__unsafe_unretained NSString*  All rights reserved__unsafe_unretained NSString* 
+//  Created by Irakli Vashakidze on 1/20/14__unsafe_unretained NSString*
+//  Copyright (c) 2014 99S__unsafe_unretained NSString*  All rights reserved__unsafe_unretained NSString* 
 //
 
 extern const struct SettingsConst {

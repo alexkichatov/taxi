@@ -1,9 +1,9 @@
 //
 //  TXEvents.h
-//  AMDCom
+//  Taxi
 //
-//  Created by Zviad Jakhua on 11/8/13.
-//  Copyright (c) 2013 aMindSolutions. All rights reserved.
+//  Created by Irakli Vashakidze on 1/20/14.
+//  Copyright (c) 2014 99S. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

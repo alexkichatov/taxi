@@ -1,9 +1,9 @@
 //
 //  utils.m
-//  AMDCom
+//  Taxi
 //
-//  Created by Zviad Jakhua on 6/19/13.
-//  Copyright (c) 2013 aMindSolutions. All rights reserved.
+//  Created by Irakli Vashakidze on 1/20/14.
+//  Copyright (c) 2014 99S. All rights reserved.
 //
 
 #import "utils.h"
@@ -11,8 +11,8 @@
 #import "NSString+TXNSString.h"
 
 
-//load AMDCom resource bundle if not already loaded and retreive localized string by key
-NSString* AMDCLocalizedString(NSString* key, NSString* comment) {
+//load Taxi resource bundle if not already loaded and retreive localized string by key
+NSString* TXLocalizedString(NSString* key, NSString* comment) {
     static NSBundle* bundle = nil;
     
     if ( bundle == nil ) {

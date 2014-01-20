@@ -1,9 +1,9 @@
 //
 //  utils.h
-//  AMDCom
+//  Taxi
 //
-//  Created by Zviad Jakhua on 6/19/13.
-//  Copyright (c) 2013 aMindSolutions. All rights reserved.
+//  Created by Irakli Vashakidze on 1/20/14.
+//  Copyright (c) 2014 99S. All rights reserved.
 //
 
 #ifndef __AMDCUTILS__
@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "Macro.h"
 
-NSString* AMDCLocalizedString(NSString* key, NSString* comment);
+NSString* TXLocalizedString(NSString* key, NSString* comment);
 NSString* base64String(NSString* str);
 NSString* attachmentNameFromDao(NSString* type, NSString* amdcRowId, NSString* originalFileName);
 
