@@ -16,7 +16,7 @@ NSString* TXLocalizedString(NSString* key, NSString* comment) {
     static NSBundle* bundle = nil;
     
     if ( bundle == nil ) {
-        NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:Files.AMDCOM_RES_BUNDLE];
+        NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:Files.BUNDLE_PATH];
         bundle = [NSBundle bundleWithPath:path];
         DLogI(@"Current locale: %@, AMDCom Bundle localizations: %@", [[NSLocale currentLocale] localeIdentifier], [bundle localizations]);
     }

@@ -46,7 +46,7 @@ extern const struct SettingsConst {
 extern const struct Files {
     
     __unsafe_unretained NSString* SETTINGSFILE;
-    __unsafe_unretained NSString* AMDCOM_RES_BUNDLE;
+    __unsafe_unretained NSString* BUNDLE_PATH;
     __unsafe_unretained NSString* CDM_SERVER_FILE_NAME;
     __unsafe_unretained NSString* CDM_LOCAL_FILE_NAME;
     __unsafe_unretained NSString* METADATA_DIR_PATH;

@@ -28,6 +28,9 @@
 		3865DCF3188C21880044A0DC /* TXEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCF2188C21880044A0DC /* TXEvent.m */; };
 		38F01B7D188D72410071A539 /* NSString+TXNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B7C188D72410071A539 /* NSString+TXNSString.m */; };
 		38F01B80188D73520071A539 /* TXErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B7F188D73520071A539 /* TXErrorCodes.m */; };
+		38F01B93188D84240071A539 /* TXFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B92188D84240071A539 /* TXFileManager.m */; };
+		38F01B96188D84980071A539 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B95188D84980071A539 /* TXError.m */; };
+		38F01B98188D87820071A539 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38F01B97188D87820071A539 /* taxi.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,11 @@
 		38F01B7C188D72410071A539 /* NSString+TXNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TXNSString.m"; sourceTree = "<group>"; };
 		38F01B7E188D73520071A539 /* TXErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXErrorCodes.h; sourceTree = "<group>"; };
 		38F01B7F188D73520071A539 /* TXErrorCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXErrorCodes.m; sourceTree = "<group>"; };
+		38F01B91188D84240071A539 /* TXFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXFileManager.h; sourceTree = "<group>"; };
+		38F01B92188D84240071A539 /* TXFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXFileManager.m; sourceTree = "<group>"; };
+		38F01B94188D84980071A539 /* TXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXError.h; sourceTree = "<group>"; };
+		38F01B95188D84980071A539 /* TXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXError.m; sourceTree = "<group>"; };
+		38F01B97188D87820071A539 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,7 @@
 		3865DC9F188C13970044A0DC /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
+				38F01B97188D87820071A539 /* taxi.bundle */,
 				3865DCD1188C146F0044A0DC /* infra */,
 				3865DCA8188C13970044A0DC /* TXAppDelegate.h */,
 				3865DCA9188C13970044A0DC /* TXAppDelegate.m */,
@@ -217,6 +226,8 @@
 				3865DCEE188C1F4F0044A0DC /* utils.m */,
 				38F01B7B188D72410071A539 /* NSString+TXNSString.h */,
 				38F01B7C188D72410071A539 /* NSString+TXNSString.m */,
+				38F01B91188D84240071A539 /* TXFileManager.h */,
+				38F01B92188D84240071A539 /* TXFileManager.m */,
 			);
 			name = util;
 			path = infra/util;
@@ -227,6 +238,8 @@
 			children = (
 				38F01B7E188D73520071A539 /* TXErrorCodes.h */,
 				38F01B7F188D73520071A539 /* TXErrorCodes.m */,
+				38F01B94188D84980071A539 /* TXError.h */,
+				38F01B95188D84980071A539 /* TXError.m */,
 			);
 			name = error;
 			path = infra/error;
@@ -318,6 +331,7 @@
 			files = (
 				3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
+				38F01B98188D87820071A539 /* taxi.bundle in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,
 				3865DCA4188C13970044A0DC /* InfoPlist.strings in Resources */,
 			);
@@ -343,6 +357,8 @@
 				3865DCE6188C1B3B0044A0DC /* TXApp.m in Sources */,
 				38F01B80188D73520071A539 /* TXErrorCodes.m in Sources */,
 				3865DCEF188C1F4F0044A0DC /* StrConsts.m in Sources */,
+				38F01B93188D84240071A539 /* TXFileManager.m in Sources */,
+				38F01B96188D84980071A539 /* TXError.m in Sources */,
 				3865DCF0188C1F4F0044A0DC /* utils.m in Sources */,
 				38F01B7D188D72410071A539 /* NSString+TXNSString.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,

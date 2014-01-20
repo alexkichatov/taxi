@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>register</key>
+	<dict>
+		<key>bodyTemplate</key>
+		<string>{&quot;username&quot;: &quot;%@&quot;,&quot;password&quot; : %llu}</string>
+		<key>hasUrlBase</key>
+		<true/>
+		<key>url</key>
+		<string>/taxi-rest/register</string>
+		<key>httpMethod</key>
+		<string>POST</string>
+		<key>headers</key>
+		<dict>
+			<key>Authorization</key>
+			<string></string>
+		</dict>
+	</dict>
+</dict>
+</plist>

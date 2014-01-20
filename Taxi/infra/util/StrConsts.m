@@ -43,7 +43,7 @@ const struct SettingsConst  SettingsConst = {
 const struct Files Files = {
     
     .SETTINGSFILE           = @"amdcstgs.plist",
-    .AMDCOM_RES_BUNDLE      = @"amdcomres.bundle",
+    .BUNDLE_PATH            = @"taxi.bundle",
     .CDM_SERVER_FILE_NAME   = @"server.cdm",
     .CDM_LOCAL_FILE_NAME    = @"local.cdm",
     .METADATA_DIR_PATH      = @"metadata",
