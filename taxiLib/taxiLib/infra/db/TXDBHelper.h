@@ -1,5 +1,5 @@
 //
-//  TXError.h
+//  TXDBHelper.h
 //  Taxi
 //
 //  Created by Irakli Vashakidze on 1/20/14.
@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TXErrorCodes.h"
 
-@interface TXError : NSObject
+@interface TXDBHelper : NSObject
 
 @end

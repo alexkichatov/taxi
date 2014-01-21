@@ -64,7 +64,7 @@
 #define RLog(FORMAT, ...) fprintf(stderr,"%s, line - %d, %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 
-#define LocalizedStr(lsKey) AMDCLocalizedString(lsKey, nil)
+#define LocalizedStr(lsKey) TXLocalizedString(lsKey, nil)
 
 
 #define BUNDLE_VERSION  [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey]

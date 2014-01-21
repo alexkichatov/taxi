@@ -22,15 +22,7 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
-		3865DCE6188C1B3B0044A0DC /* TXApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCE5188C1B3B0044A0DC /* TXApp.m */; };
-		3865DCEF188C1F4F0044A0DC /* StrConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCEC188C1F4F0044A0DC /* StrConsts.m */; };
-		3865DCF0188C1F4F0044A0DC /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCEE188C1F4F0044A0DC /* utils.m */; };
-		3865DCF3188C21880044A0DC /* TXEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCF2188C21880044A0DC /* TXEvent.m */; };
-		38F01B7D188D72410071A539 /* NSString+TXNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B7C188D72410071A539 /* NSString+TXNSString.m */; };
-		38F01B80188D73520071A539 /* TXErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B7F188D73520071A539 /* TXErrorCodes.m */; };
-		38F01B93188D84240071A539 /* TXFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B92188D84240071A539 /* TXFileManager.m */; };
-		38F01B96188D84980071A539 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F01B95188D84980071A539 /* TXError.m */; };
-		38F01B98188D87820071A539 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38F01B97188D87820071A539 /* taxi.bundle */; };
+		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +32,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3865DC95188C13970044A0DC;
 			remoteInfo = Taxi;
+		};
+		38D4649E188E7EC2005B3A74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38D46470188E7EC2005B3A74;
+			remoteInfo = taxiLib;
+		};
+		38D464A0188E7EC2005B3A74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38D46480188E7EC2005B3A74;
+			remoteInfo = taxiLibTests;
+		};
+		38D464ED188E803F005B3A74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 38D4646F188E7EC2005B3A74;
+			remoteInfo = taxiLib;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -64,24 +77,7 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
-		3865DCE4188C1B3B0044A0DC /* TXApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXApp.h; sourceTree = "<group>"; };
-		3865DCE5188C1B3B0044A0DC /* TXApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXApp.m; sourceTree = "<group>"; };
-		3865DCEA188C1F4F0044A0DC /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		3865DCEB188C1F4F0044A0DC /* StrConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrConsts.h; sourceTree = "<group>"; };
-		3865DCEC188C1F4F0044A0DC /* StrConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrConsts.m; sourceTree = "<group>"; };
-		3865DCED188C1F4F0044A0DC /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
-		3865DCEE188C1F4F0044A0DC /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
-		3865DCF1188C21880044A0DC /* TXEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXEvents.h; sourceTree = "<group>"; };
-		3865DCF2188C21880044A0DC /* TXEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXEvent.m; sourceTree = "<group>"; };
-		38F01B7B188D72410071A539 /* NSString+TXNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TXNSString.h"; sourceTree = "<group>"; };
-		38F01B7C188D72410071A539 /* NSString+TXNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TXNSString.m"; sourceTree = "<group>"; };
-		38F01B7E188D73520071A539 /* TXErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXErrorCodes.h; sourceTree = "<group>"; };
-		38F01B7F188D73520071A539 /* TXErrorCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXErrorCodes.m; sourceTree = "<group>"; };
-		38F01B91188D84240071A539 /* TXFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXFileManager.h; sourceTree = "<group>"; };
-		38F01B92188D84240071A539 /* TXFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXFileManager.m; sourceTree = "<group>"; };
-		38F01B94188D84980071A539 /* TXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXError.h; sourceTree = "<group>"; };
-		38F01B95188D84980071A539 /* TXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXError.m; sourceTree = "<group>"; };
-		38F01B97188D87820071A539 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
+		38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taxiLib.xcodeproj; path = taxiLib/taxiLib.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */,
 				3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */,
 				3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */,
 				3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */,
@@ -111,6 +108,7 @@
 		3865DC8D188C13970044A0DC = {
 			isa = PBXGroup;
 			children = (
+				38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */,
 				3865DC9F188C13970044A0DC /* Taxi */,
 				3865DCC1188C13970044A0DC /* TaxiTests */,
 				3865DC98188C13970044A0DC /* Frameworks */,
@@ -141,8 +139,6 @@
 		3865DC9F188C13970044A0DC /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
-				38F01B97188D87820071A539 /* taxi.bundle */,
-				3865DCD1188C146F0044A0DC /* infra */,
 				3865DCA8188C13970044A0DC /* TXAppDelegate.h */,
 				3865DCA9188C13970044A0DC /* TXAppDelegate.m */,
 				3865DCAB188C13970044A0DC /* Main_iPhone.storyboard */,
@@ -151,8 +147,6 @@
 				3865DCB2188C13970044A0DC /* TXViewController.m */,
 				3865DCB4188C13970044A0DC /* Images.xcassets */,
 				3865DCA0188C13970044A0DC /* Supporting Files */,
-				3865DCE4188C1B3B0044A0DC /* TXApp.h */,
-				3865DCE5188C1B3B0044A0DC /* TXApp.m */,
 			);
 			path = Taxi;
 			sourceTree = "<group>";
@@ -186,70 +180,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3865DCD1188C146F0044A0DC /* infra */ = {
+		38D4649A188E7EC2005B3A74 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38F01B84188D763A0071A539 /* 3dparty */,
-				3865DCDA188C16500044A0DC /* error */,
-				3865DCD6188C157A0044A0DC /* util */,
-				3865DCD4188C15070044A0DC /* http */,
-				3865DCD5188C15070044A0DC /* model */,
+				38D4649F188E7EC2005B3A74 /* libtaxiLib.a */,
+				38D464A1188E7EC2005B3A74 /* taxiLibTests.xctest */,
 			);
-			name = infra;
-			sourceTree = "<group>";
-		};
-		3865DCD4188C15070044A0DC /* http */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = http;
-			path = infra/http;
-			sourceTree = "<group>";
-		};
-		3865DCD5188C15070044A0DC /* model */ = {
-			isa = PBXGroup;
-			children = (
-				3865DCF1188C21880044A0DC /* TXEvents.h */,
-				3865DCF2188C21880044A0DC /* TXEvent.m */,
-			);
-			name = model;
-			path = infra/model;
-			sourceTree = "<group>";
-		};
-		3865DCD6188C157A0044A0DC /* util */ = {
-			isa = PBXGroup;
-			children = (
-				3865DCEA188C1F4F0044A0DC /* Macro.h */,
-				3865DCEB188C1F4F0044A0DC /* StrConsts.h */,
-				3865DCEC188C1F4F0044A0DC /* StrConsts.m */,
-				3865DCED188C1F4F0044A0DC /* utils.h */,
-				3865DCEE188C1F4F0044A0DC /* utils.m */,
-				38F01B7B188D72410071A539 /* NSString+TXNSString.h */,
-				38F01B7C188D72410071A539 /* NSString+TXNSString.m */,
-				38F01B91188D84240071A539 /* TXFileManager.h */,
-				38F01B92188D84240071A539 /* TXFileManager.m */,
-			);
-			name = util;
-			path = infra/util;
-			sourceTree = "<group>";
-		};
-		3865DCDA188C16500044A0DC /* error */ = {
-			isa = PBXGroup;
-			children = (
-				38F01B7E188D73520071A539 /* TXErrorCodes.h */,
-				38F01B7F188D73520071A539 /* TXErrorCodes.m */,
-				38F01B94188D84980071A539 /* TXError.h */,
-				38F01B95188D84980071A539 /* TXError.m */,
-			);
-			name = error;
-			path = infra/error;
-			sourceTree = "<group>";
-		};
-		38F01B84188D763A0071A539 /* 3dparty */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = 3dparty;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +203,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				38D464EE188E803F005B3A74 /* PBXTargetDependency */,
 			);
 			name = Taxi;
 			productName = Taxi;
@@ -316,6 +254,12 @@
 			mainGroup = 3865DC8D188C13970044A0DC;
 			productRefGroup = 3865DC97188C13970044A0DC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 38D4649A188E7EC2005B3A74 /* Products */;
+					ProjectRef = 38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3865DC95188C13970044A0DC /* Taxi */,
@@ -324,6 +268,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		38D4649F188E7EC2005B3A74 /* libtaxiLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtaxiLib.a;
+			remoteRef = 38D4649E188E7EC2005B3A74 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		38D464A1188E7EC2005B3A74 /* taxiLibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = taxiLibTests.xctest;
+			remoteRef = 38D464A0188E7EC2005B3A74 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		3865DC94188C13970044A0DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -331,7 +292,6 @@
 			files = (
 				3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
-				38F01B98188D87820071A539 /* taxi.bundle in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,
 				3865DCA4188C13970044A0DC /* InfoPlist.strings in Resources */,
 			);
@@ -353,14 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
-				3865DCF3188C21880044A0DC /* TXEvent.m in Sources */,
-				3865DCE6188C1B3B0044A0DC /* TXApp.m in Sources */,
-				38F01B80188D73520071A539 /* TXErrorCodes.m in Sources */,
-				3865DCEF188C1F4F0044A0DC /* StrConsts.m in Sources */,
-				38F01B93188D84240071A539 /* TXFileManager.m in Sources */,
-				38F01B96188D84980071A539 /* TXError.m in Sources */,
-				3865DCF0188C1F4F0044A0DC /* utils.m in Sources */,
-				38F01B7D188D72410071A539 /* NSString+TXNSString.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				3865DCB3188C13970044A0DC /* TXViewController.m in Sources */,
 			);
@@ -381,6 +333,11 @@
 			isa = PBXTargetDependency;
 			target = 3865DC95188C13970044A0DC /* Taxi */;
 			targetProxy = 3865DCBF188C13970044A0DC /* PBXContainerItemProxy */;
+		};
+		38D464EE188E803F005B3A74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = taxiLib;
+			targetProxy = 38D464ED188E803F005B3A74 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

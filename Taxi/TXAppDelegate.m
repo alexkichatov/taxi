@@ -12,7 +12,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    
+//    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
+//    [[TXHttpRequestManager instance] sendSyncRequest:request];
+    
     return YES;
 }
 							
