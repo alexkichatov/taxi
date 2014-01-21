@@ -7,6 +7,7 @@
 //
 
 #import "TXAppDelegate.h"
+#import "taxiLib/TXHttpRequestManager.h"
 
 @implementation TXAppDelegate
 
@@ -14,8 +15,8 @@
 {
     
     
-//    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
-//    [[TXHttpRequestManager instance] sendSyncRequest:request];
+    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
+    [[TXHttpRequestManager instance] sendSyncRequest:request];
     
     return YES;
 }

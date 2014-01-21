@@ -33,6 +33,9 @@
 		38D464EA188E7FF5005B3A74 /* TXFileManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464D0188E7FB9005B3A74 /* TXFileManager.h */; };
 		38D464EB188E7FF5005B3A74 /* utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464D2188E7FB9005B3A74 /* utils.h */; };
 		38D464EC188E7FF5005B3A74 /* TXApp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464D7188E7FB9005B3A74 /* TXApp.h */; };
+		38D464F3188E81B5005B3A74 /* TXHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D464F2188E81B5005B3A74 /* TXHttpRequestManager.m */; };
+		38D464F4188E81CC005B3A74 /* TXHttpRequestManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464F1188E81B5005B3A74 /* TXHttpRequestManager.h */; };
+		38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D464F7188E8274005B3A74 /* TXEventTarget.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				38D464F4188E81CC005B3A74 /* TXHttpRequestManager.h in CopyFiles */,
 				38D464E3188E7FF5005B3A74 /* TXDBHelper.h in CopyFiles */,
 				38D464E4188E7FF5005B3A74 /* TXError.h in CopyFiles */,
 				38D464E5188E7FF5005B3A74 /* TXErrorCodes.h in CopyFiles */,
@@ -96,6 +100,11 @@
 		38D464D4188E7FB9005B3A74 /* taxiLib-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "taxiLib-Prefix.pch"; path = "taxiLib/taxiLib-Prefix.pch"; sourceTree = "<group>"; };
 		38D464D7188E7FB9005B3A74 /* TXApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXApp.h; sourceTree = "<group>"; };
 		38D464D8188E7FB9005B3A74 /* TXApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXApp.m; sourceTree = "<group>"; };
+		38D464F1188E81B5005B3A74 /* TXHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXHttpRequestManager.h; sourceTree = "<group>"; };
+		38D464F2188E81B5005B3A74 /* TXHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXHttpRequestManager.m; sourceTree = "<group>"; };
+		38D464F5188E822F005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
+		38D464F6188E8274005B3A74 /* TXEventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXEventTarget.h; sourceTree = "<group>"; };
+		38D464F7188E8274005B3A74 /* TXEventTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXEventTarget.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +133,7 @@
 		38D46467188E7EC2005B3A74 = {
 			isa = PBXGroup;
 			children = (
+				38D464F5188E822F005B3A74 /* taxi.bundle */,
 				38D464BC188E7FB9005B3A74 /* 3dparty */,
 				38D464BD188E7FB9005B3A74 /* taxiLib */,
 				38D464D7188E7FB9005B3A74 /* TXApp.h */,
@@ -190,6 +200,7 @@
 		38D464BE188E7FB9005B3A74 /* infra */ = {
 			isa = PBXGroup;
 			children = (
+				38D464F0188E81B5005B3A74 /* http */,
 				38D464BF188E7FB9005B3A74 /* db */,
 				38D464C2188E7FB9005B3A74 /* error */,
 				38D464C7188E7FB9005B3A74 /* model */,
@@ -221,6 +232,8 @@
 		38D464C7188E7FB9005B3A74 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				38D464F6188E8274005B3A74 /* TXEventTarget.h */,
+				38D464F7188E8274005B3A74 /* TXEventTarget.m */,
 				38D464C8188E7FB9005B3A74 /* TXEvent.m */,
 				38D464C9188E7FB9005B3A74 /* TXEvents.h */,
 			);
@@ -241,6 +254,15 @@
 				38D464D3188E7FB9005B3A74 /* utils.m */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		38D464F0188E81B5005B3A74 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				38D464F1188E81B5005B3A74 /* TXHttpRequestManager.h */,
+				38D464F2188E81B5005B3A74 /* TXHttpRequestManager.m */,
+			);
+			path = http;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,11 +349,13 @@
 				38D464DB188E7FB9005B3A74 /* TXErrorCodes.m in Sources */,
 				38D464DD188E7FB9005B3A74 /* NSString+TXNSString.m in Sources */,
 				38D464DA188E7FB9005B3A74 /* TXError.m in Sources */,
+				38D464F3188E81B5005B3A74 /* TXHttpRequestManager.m in Sources */,
 				38D464E2188E7FB9005B3A74 /* TXApp.m in Sources */,
 				38D464E0188E7FB9005B3A74 /* utils.m in Sources */,
 				38D464DE188E7FB9005B3A74 /* StrConsts.m in Sources */,
 				38D464DC188E7FB9005B3A74 /* TXEvent.m in Sources */,
 				38D464D9188E7FB9005B3A74 /* TXDBHelper.m in Sources */,
+				38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */,
 				38D464DF188E7FB9005B3A74 /* TXFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
