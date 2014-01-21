@@ -23,6 +23,7 @@
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
+		38D464FA188E9056005B3A74 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38D464F9188E9056005B3A74 /* taxi.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
 		38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taxiLib.xcodeproj; path = taxiLib/taxiLib.xcodeproj; sourceTree = "<group>"; };
+		38D464F9188E9056005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = taxi.bundle; path = taxiLib/taxi.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		3865DC8D188C13970044A0DC = {
 			isa = PBXGroup;
 			children = (
+				38D464F9188E9056005B3A74 /* taxi.bundle */,
 				38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */,
 				3865DC9F188C13970044A0DC /* Taxi */,
 				3865DCC1188C13970044A0DC /* TaxiTests */,
@@ -290,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D464FA188E9056005B3A74 /* taxi.bundle in Resources */,
 				3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,

@@ -93,7 +93,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
     //    self.baseURL = [NSString stringWithFormat:@"%@:%@", [settings getProperty:SettingsConst.Property.BASEURL],
     //                    [settings getProperty:SettingsConst.Property.PORT]];
     
-    self.baseURL = @"http://192.168.43.221:8080";
+    self.baseURL = @"http://localhost:8080";
     [self setRequestURLStr];
     self.attemptCount = 0;
 }
@@ -130,8 +130,8 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
                 NSString *value = [rqCfg.headers objectForKey:hdrField];
                 
                 if( [hdrField isEqualToString:@"Authorization"] && (value == nil || [value length] == 0) ) {
-                    //value = [NSString stringWithFormat:@"%@:%@", [settings getUserName], [settings getPassword]];
-                    //value = [NSString stringWithFormat:@"Basic %@", base64String(value) ];
+                    value = [NSString stringWithFormat:@"%@:%@", @"tomcat", @"tomcat"];
+                    value = [NSString stringWithFormat:@"Basic %@", base64String(value) ];
                 }
                 
                 [httpRequest addValue:value forHTTPHeaderField:hdrField];

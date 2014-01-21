@@ -9,7 +9,7 @@
 #import "utils.h"
 #import "StrConsts.h"
 #import "NSString+TXNSString.h"
-
+#import <CommonCrypto/CommonDigest.h>
 
 //load Taxi resource bundle if not already loaded and retreive localized string by key
 NSString* TXLocalizedString(NSString* key, NSString* comment) {
@@ -144,9 +144,6 @@ inline unsigned long long date2MilliSecs(NSDate* date) {
     return (unsigned long long)[date timeIntervalSince1970]*MILLISECONDSINSECOND;
 }
 
-
-
-
 inline NSString* quoteString(NSString* src) {
     if ( src != nil )
         return [NSString stringWithFormat:@"\"%@\"", src];
@@ -155,3 +152,25 @@ inline NSString* quoteString(NSString* src) {
 }
 
 /*********************** Date utils ************************/
+
+/*********************** SHA ************************/
+
+NSString* getSHA256(NSString *str) {
+    
+    NSData *dataIn = [str dataUsingEncoding:NSASCIIStringEncoding];
+    NSMutableData *dataOut = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+    CC_SHA256(dataIn.bytes, dataIn.length,  dataOut.mutableBytes);
+    return [[NSString alloc] initWithData:dataOut encoding:NSASCIIStringEncoding];
+    
+}
+
+NSString* getSHA512(NSString *str) {
+    
+    NSData *dataIn = [str dataUsingEncoding:NSASCIIStringEncoding];
+    NSMutableData *dataOut = [NSMutableData dataWithLength:CC_SHA512_DIGEST_LENGTH];
+    CC_SHA512(dataIn.bytes, dataIn.length,  dataOut.mutableBytes);
+    return [[NSString alloc] initWithData:dataOut encoding:NSASCIIStringEncoding];
+    
+}
+
+/*********************** SHA ************************/

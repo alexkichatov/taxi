@@ -7,7 +7,7 @@
 		<key>hasUrlBase</key>
 		<true/>
 		<key>url</key>
-		<string>/taxiWeb/RegistratorServlet</string>
+		<string>/taxiWeb/register</string>
 		<key>httpMethod</key>
 		<string>GET</string>
 		<key>headers</key>

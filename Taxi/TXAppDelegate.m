@@ -8,15 +8,18 @@
 
 #import "TXAppDelegate.h"
 #import "taxiLib/TXHttpRequestManager.h"
+#import "taxiLib/utils.h"
 
 @implementation TXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+ 
+    NSLog(@"SHA256: %@", getSHA256(@"irakli"));
+    NSLog(@"SHA512: %@", getSHA512(@"irakli"));
     
-    
-    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
-    [[TXHttpRequestManager instance] sendSyncRequest:request];
+//    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
+//    [[TXHttpRequestManager instance] sendSyncRequest:request];
     
     return YES;
 }
