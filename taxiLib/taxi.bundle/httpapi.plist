@@ -9,7 +9,7 @@
 		<key>url</key>
 		<string>/taxiWeb/register</string>
 		<key>httpMethod</key>
-		<string>GET</string>
+		<string>POST</string>
 		<key>headers</key>
 		<dict>
 			<key>Authorization</key>

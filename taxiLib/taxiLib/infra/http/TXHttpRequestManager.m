@@ -11,6 +11,7 @@
 #import "Macro.h"
 #import "utils.h"
 #import "TXFileManager.h"
+#import "TXApp.h"
 
 static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 static NSString* const DEFAULT_CONFIG = @"register";
@@ -57,7 +58,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 @end
 
 @interface TXRequestObj() {
-    
+    TXSettings *settings;
 }
 
 -(void) initializeWithConfig: (NSString *) configName andListener:(id<TXHttpRequestListener>) listenerObj;
@@ -89,11 +90,10 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
     self.listener = listenerObj;
     self.reqConfig = [TXRequestConfig configForName:configName];
     
-    //AMDCSettings *settings = [[AMDCom instance] getSettings];
-    //    self.baseURL = [NSString stringWithFormat:@"%@:%@", [settings getProperty:SettingsConst.Property.BASEURL],
-    //                    [settings getProperty:SettingsConst.Property.PORT]];
+    settings = [[TXApp instance] getSettings];
+    self.baseURL = [NSString stringWithFormat:@"%@:%@", [settings getProperty:SettingsConst.Property.BASEURL],
+                        [settings getProperty:SettingsConst.Property.PORT]];
     
-    self.baseURL = @"http://localhost:8080";
     [self setRequestURLStr];
     self.attemptCount = 0;
 }
@@ -112,7 +112,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
     TXRequestConfig* rqCfg = self.reqConfig;
     if ( rqCfg != nil )
 	{
-        //AMDCSettings *settings = [[AMDCom instance] getSettings];
 		NSURL* pathURL = [NSURL URLWithString:self.reqUrl];
         int timeOutSecs = rqCfg.timeOut != nil ? [rqCfg.timeOut intValue] : DEFTIMEOUT;
         NSMutableURLRequest *httpRequest = [[NSMutableURLRequest alloc] initWithURL: pathURL
@@ -130,7 +129,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
                 NSString *value = [rqCfg.headers objectForKey:hdrField];
                 
                 if( [hdrField isEqualToString:@"Authorization"] && (value == nil || [value length] == 0) ) {
-                    value = [NSString stringWithFormat:@"%@:%@", @"tomcat", @"tomcat"];
+                    value = [NSString stringWithFormat:@"%@:%@", [self->settings getUserName], [self->settings getPassword]];
                     value = [NSString stringWithFormat:@"Basic %@", base64String(value) ];
                 }
                 
@@ -140,9 +139,9 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
         }
         
         //check if we have set Accept header field, if not set json as default
-        //        NSString* accept = [httpRequest valueForHTTPHeaderField:HDR_ACCEPT];
-        //        if ( accept == nil )
-        //            [httpRequest addValue:@"application/json" forHTTPHeaderField:HDR_ACCEPT];
+        NSString* accept = [httpRequest valueForHTTPHeaderField:HDR_ACCEPT];
+        if ( accept == nil )
+            [httpRequest addValue:@"application/json" forHTTPHeaderField:HDR_ACCEPT];
         
         if ([rqCfg.httpMethod isEqualToString:@"POST"])
         {
@@ -154,9 +153,9 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
             }
             
             //default content type to json if it wasn't set by headers already
-            //            NSString* ctype = [httpRequest valueForHTTPHeaderField:HDR_CONTENTTYPE];
-            //            if ( ctype == nil )
-            //                [httpRequest addValue:@"application/json" forHTTPHeaderField:HDR_CONTENTTYPE];
+            NSString* ctype = [httpRequest valueForHTTPHeaderField:HDR_CONTENTTYPE];
+            if ( ctype == nil )
+                [httpRequest addValue:@"application/json" forHTTPHeaderField:HDR_CONTENTTYPE];
             
             if ([postBody length] > 0)
             {
@@ -165,7 +164,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
                 
                 [httpRequest setHTTPBody:postBody];
             }
-        }
+        } 
         
         return httpRequest;
     }
@@ -182,7 +181,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 -(TXRequestObj*)requestForConnection:(NSURLConnection*)connection;
 +(NSString*)urlEncode:(NSString*)src;
 -(NSData *)sendSyncRequestInternal:(TXRequestObj*)request;
--(BOOL) fillRequestBody : (TXRequestObj **)request andFile : (NSString*)fileName;
 
 @end
 
@@ -302,29 +300,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
             [urlConn cancel];
         }
     }
-}
-
--(BOOL) fillRequestBody : (TXRequestObj **)request andFile : (NSString*)fileName {
-    
-    //TXFileManager *fileMgr = [TXFileManager instance];
-    NSData *data = nil;
-    
-    //TXError *error;
-    BOOL ok = YES; //TODO: [fileMgr readLocalFile:fileName andData:&data andError:&error];
-    
-    if(ok==NO) {
-        DLogE(@"Error reading file : %@", fileName);
-        return NO;
-    }
-    
-    if(request!=nil) {
-        
-        (*request).body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        return YES;
-    }
-    
-    return NO;
 }
 
 -(BOOL)sendAsyncRequest:(TXRequestObj*)request {

@@ -9,15 +9,13 @@
 
 /********************* SETTINGS ***************************/
 const struct SettingsConst  SettingsConst = {
-    .AMDCRYPTOGROUP          = @"AMDCryptoGroup",//this should have appid and company in there for implementation
-    .AMDCRYPTOSVC_BAKCENDS   = @"AMDCCrypto_Backends",
-    .AMDCRYPTOSVC_GENERIC    = @"AMDCCrypto_Generic",
+    .TXCRYPTOGROUP          = @"AMDCryptoGroup",//this should have appid and company in there for implementation
+    .TXCRYPTOSVC_BAKCENDS   = @"AMDCCrypto_Backends",
+    .TXCRYPTOSVC_GENERIC    = @"AMDCCrypto_Generic",
 
     .CryptoKeys = {
-        .AMDCRYPTO_KEY_APPUID    = @"amfAppUId",
-        .AMDCRYPTO_KEY_USER      = @"amdcUserName",
-        .AMDCRYPTO_KEY_PWD       = @"amdcUserPwd",
-        .AMDCRYPTO_KEY_BACKEND   = @"amdcBackends"
+        .TXCRYPTO_KEY_USER      = @"txUserName",
+        .TXCRYPTO_KEY_PWD       = @"txUserPwd"
     },
 
     .Property = {

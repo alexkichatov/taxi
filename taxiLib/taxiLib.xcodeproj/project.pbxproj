@@ -36,6 +36,7 @@
 		38D464F3188E81B5005B3A74 /* TXHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D464F2188E81B5005B3A74 /* TXHttpRequestManager.m */; };
 		38D464F4188E81CC005B3A74 /* TXHttpRequestManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464F1188E81B5005B3A74 /* TXHttpRequestManager.h */; };
 		38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D464F7188E8274005B3A74 /* TXEventTarget.m */; };
+		38DC29F118902D65006A4396 /* TXSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC29F018902D65006A4396 /* TXSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		38D464F5188E822F005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
 		38D464F6188E8274005B3A74 /* TXEventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXEventTarget.h; sourceTree = "<group>"; };
 		38D464F7188E8274005B3A74 /* TXEventTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXEventTarget.m; sourceTree = "<group>"; };
+		38DC29EF18902D65006A4396 /* TXSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSettings.h; sourceTree = "<group>"; };
+		38DC29F018902D65006A4396 /* TXSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				38D464D1188E7FB9005B3A74 /* TXFileManager.m */,
 				38D464D2188E7FB9005B3A74 /* utils.h */,
 				38D464D3188E7FB9005B3A74 /* utils.m */,
+				38DC29EF18902D65006A4396 /* TXSettings.h */,
+				38DC29F018902D65006A4396 /* TXSettings.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				38D464E0188E7FB9005B3A74 /* utils.m in Sources */,
 				38D464DE188E7FB9005B3A74 /* StrConsts.m in Sources */,
 				38D464DC188E7FB9005B3A74 /* TXEvent.m in Sources */,
+				38DC29F118902D65006A4396 /* TXSettings.m in Sources */,
 				38D464D9188E7FB9005B3A74 /* TXDBHelper.m in Sources */,
 				38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */,
 				38D464DF188E7FB9005B3A74 /* TXFileManager.m in Sources */,
@@ -541,6 +547,7 @@
 				38D46495188E7EC2005B3A74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		38D46496188E7EC2005B3A74 /* Build configuration list for PBXNativeTarget "taxiLibTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +556,7 @@
 				38D46498188E7EC2005B3A74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

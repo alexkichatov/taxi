@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TXSettings.h"
 
 @interface TXApp : NSObject
 
 +(TXApp*) instance;
+-(TXSettings *) getSettings;
 
 @end

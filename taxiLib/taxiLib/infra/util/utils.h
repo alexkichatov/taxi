@@ -44,7 +44,8 @@ BOOL containsRegExprStr(NSString * regex, NSString * targetStr);
  */
 NSString* replaceRegexpStr(NSString *regexpStr, NSString *replaceWithStr, NSString *targetStr);
 
-NSString* getSHA256(NSString *str);
-NSString* getSHA512(NSString *str);
+NSData* getSHA256(NSString *str);
+NSData* getSHA512(NSString *str);
+NSString* getHexString(NSData * data);
 
 #endif //__AMDCUTILS__

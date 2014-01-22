@@ -8,15 +8,13 @@
 
 extern const struct SettingsConst {
     
-    __unsafe_unretained NSString* AMDCRYPTOGROUP;
-    __unsafe_unretained NSString* AMDCRYPTOSVC_BAKCENDS;
-    __unsafe_unretained NSString* AMDCRYPTOSVC_GENERIC;
+    __unsafe_unretained NSString* TXCRYPTOGROUP;
+    __unsafe_unretained NSString* TXCRYPTOSVC_BAKCENDS;
+    __unsafe_unretained NSString* TXCRYPTOSVC_GENERIC;
     
     struct {
-        __unsafe_unretained NSString* AMDCRYPTO_KEY_APPUID;
-        __unsafe_unretained NSString* AMDCRYPTO_KEY_USER;
-        __unsafe_unretained NSString* AMDCRYPTO_KEY_PWD;
-        __unsafe_unretained NSString* AMDCRYPTO_KEY_BACKEND;
+        __unsafe_unretained NSString* TXCRYPTO_KEY_USER;
+        __unsafe_unretained NSString* TXCRYPTO_KEY_PWD;
     } CryptoKeys;
     
     
