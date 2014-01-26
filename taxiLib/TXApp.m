@@ -13,6 +13,8 @@
 @interface TXApp()<TXHttpRequestListener> {
     TXSettings *settings;
     NSString   *sysVersion;
+    NSString   *deviceUID;
+    NSString   *model;
 }
 
 -(id)init;
@@ -32,7 +34,12 @@
     
     self = [super init];
     if(self !=nil) {
-        self->sysVersion = [UIDevice currentDevice].systemVersion;
+        
+        UIDevice *device = [UIDevice currentDevice];
+        
+        self->sysVersion = device.systemVersion;
+        self->deviceUID  = [[device identifierForVendor] UUIDString];
+        self->model      = device.model;
     }
     
     return self;
@@ -44,6 +51,18 @@
         self->settings = [TXSettings instance];
     }
     return self->settings;
+}
+
+-(NSString *)getDeviceUID {
+    return self->deviceUID;
+}
+
+-(NSString *) getDeviceModel {
+    return self->model;
+}
+
+-(NSString *)getSystemVersion {
+    return self->sysVersion;
 }
 
 -(void)onRequestCompleted:(id)object {

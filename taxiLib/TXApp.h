@@ -13,5 +13,9 @@
 
 +(TXApp*) instance;
 -(TXSettings *) getSettings;
+-(NSString *) getDeviceUID;
+-(NSString *) getDeviceModel;
+-(NSString *) getSystemVersion;
+
 
 @end

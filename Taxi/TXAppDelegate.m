@@ -9,19 +9,21 @@
 #import "TXAppDelegate.h"
 #import "taxiLib/TXHttpRequestManager.h"
 #import "taxiLib/utils.h"
+#import "TXUserModel.h"
+#import "taxiLib/TXFileManager.h"
 
 @implementation TXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
-    NSLog(@"SHA256: %@", getSHA256(@"irakli"));
-    NSLog(@"SHA512: %@", getSHA512(@"irakli"));
+    [TXFileManager instance];
     
-    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
-   
-    request.body = [NSString stringWithFormat:@"{ \"sha\"=\"%@\" }", getHexString(getSHA256(@"irakli11"))];
-    [[TXHttpRequestManager instance] sendSyncRequest:request];
+    TXUserModel *model = [TXUserModel instance];
+    TXUser *user = [[TXUser alloc] init];
+    user.username = @"iraklivasha";
+    user.password = @"voidmain";
+    [model registerUser:user];
     
     return YES;
 }

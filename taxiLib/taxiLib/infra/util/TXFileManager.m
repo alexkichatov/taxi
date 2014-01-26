@@ -40,6 +40,7 @@
     if(self) {
         self->fileManager = [NSFileManager defaultManager];
         self->documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSLog(@"%@", self->documentsDirectory);
         self->bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:Files.BUNDLE_PATH];
         DLogI(@"Documents directory path = %@", self->documentsDirectory);
         DLogI(@"Bundle path = %@", self->bundlePath);
