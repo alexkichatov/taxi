@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) int       objId;
 @property (nonatomic, retain) NSString* username;
-@property (nonatomic, retain, getter=getPassword) NSString* password;
+@property (nonatomic, retain) NSString* password;
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* surname;
 @property (nonatomic, retain) NSString* email;

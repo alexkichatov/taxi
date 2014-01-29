@@ -47,5 +47,6 @@ NSString* replaceRegexpStr(NSString *regexpStr, NSString *replaceWithStr, NSStri
 NSData* getSHA256(NSString *str);
 NSData* getSHA512(NSString *str);
 NSString* getHexString(NSData * data);
+NSString* getIPv4Address();
 
 #endif //__AMDCUTILS__

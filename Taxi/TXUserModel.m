@@ -8,6 +8,7 @@
 
 #import "TXUserModel.h"
 #import "taxiLib/utils.h"
+#import "TXConsts.h"
 
 static NSString* const XCL_PROP_OBJID = @"objId";
 static NSString* const XCL_PROP_STATUSID = @"statusId";
@@ -33,14 +34,12 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
     [propertyMap removeObjectForKey:XCL_PROP_OBJID];
     [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
     
-    NSDictionary *registrationData = @{
-                                          @"deviceUID"         : [self->application getDeviceUID],
-                                          @"systemVersion"     : [self->application getSystemVersion],
-                                          @"deviceModel"       : [self->application getDeviceModel],
-                                          @"registrationData"  : propertyMap
+    NSDictionary *jsonObj = @{
+                                        API_JSON.Keys.ATTR  : [NSNull null],
+                                        API_JSON.Keys.DATA  : propertyMap
                                       };
     
-    request.body = getJSONStr(registrationData);
+    request.body = getJSONStr(jsonObj);
     [self->httpMgr sendSyncRequest:request];
     
 }

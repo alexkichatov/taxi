@@ -22,6 +22,7 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
+		3868A16118994AE700F93867 /* TXConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3868A16018994AE700F93867 /* TXConsts.m */; };
 		386E13801895500400DF4CB8 /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E137F1895500400DF4CB8 /* TXUserModel.m */; };
 		386E138818955AD800DF4CB8 /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E138718955AD800DF4CB8 /* TXModelBase.m */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
@@ -80,6 +81,8 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
+		3868A15F18994AE700F93867 /* TXConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXConsts.h; sourceTree = "<group>"; };
+		3868A16018994AE700F93867 /* TXConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXConsts.m; sourceTree = "<group>"; };
 		386E137E1895500400DF4CB8 /* TXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserModel.h; sourceTree = "<group>"; };
 		386E137F1895500400DF4CB8 /* TXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserModel.m; sourceTree = "<group>"; };
 		386E138618955AD800DF4CB8 /* TXModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXModelBase.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				386E137F1895500400DF4CB8 /* TXUserModel.m */,
 				386E138618955AD800DF4CB8 /* TXModelBase.h */,
 				386E138718955AD800DF4CB8 /* TXModelBase.m */,
+				3868A15F18994AE700F93867 /* TXConsts.h */,
+				3868A16018994AE700F93867 /* TXConsts.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				386E13801895500400DF4CB8 /* TXUserModel.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
+				3868A16118994AE700F93867 /* TXConsts.m in Sources */,
 				386E138818955AD800DF4CB8 /* TXModelBase.m in Sources */,
 				3865DCB3188C13970044A0DC /* TXViewController.m in Sources */,
 			);

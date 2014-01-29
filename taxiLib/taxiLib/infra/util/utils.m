@@ -11,6 +11,8 @@
 #import "NSString+TXNSString.h"
 #import <CommonCrypto/CommonDigest.h>
 
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
 //load Taxi resource bundle if not already loaded and retreive localized string by key
 NSString* TXLocalizedString(NSString* key, NSString* comment) {
     static NSBundle* bundle = nil;
@@ -196,3 +198,21 @@ NSData* getSHA512(NSString *str) {
 }
 
 /*********************** SHA ************************/
+
+/*********************** DEVICE *********************/
+
+NSString* getIPv4Address() {
+    
+    id host =[NSClassFromString(@"NSHost") performSelector:NSSelectorFromString(@"currentHost")];
+    if (host) {
+        for (NSString* address in [host performSelector:NSSelectorFromString(@"addresses")]) {
+            if ([address rangeOfString:@"::"].location == NSNotFound) {
+                return address;
+            }
+        }
+    }
+    
+    return @"127.0.0.1";
+}
+
+/****************************************************/

@@ -11,23 +11,28 @@
 #import "taxiLib/utils.h"
 #import "TXUserModel.h"
 #import "taxiLib/TXFileManager.h"
+#import <Foundation/Foundation.h>
 
 @implementation TXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 
+    
     [TXFileManager instance];
     
     TXUserModel *model = [TXUserModel instance];
     TXUser *user = [[TXUser alloc] init];
     user.username = @"iraklivasha";
     user.password = @"voidmain";
+
     [model registerUser:user];
+    
+
     
     return YES;
 }
-							
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
