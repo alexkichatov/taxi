@@ -12,6 +12,9 @@
 		386E138B189569E900DF4CB8 /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E138A189569E900DF4CB8 /* TXBaseObj.m */; };
 		386E138D18956B0600DF4CB8 /* TXBaseObj.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 386E1389189569E900DF4CB8 /* TXBaseObj.h */; };
 		386E139118956D7A00DF4CB8 /* TXSettings.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38DC29EF18902D65006A4396 /* TXSettings.h */; };
+		38BE646818AA6C47006BD587 /* TXSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BE646718AA6C47006BD587 /* TXSqlGenerator.m */; };
+		38BE646B18AA6CAE006BD587 /* DBTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BE646A18AA6CAE006BD587 /* DBTypes.m */; };
+		38BE647118AA7252006BD587 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE646E18AA71D7006BD587 /* libsqlite3.dylib */; };
 		38D46474188E7EC2005B3A74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D46473188E7EC2005B3A74 /* Foundation.framework */; };
 		38D46482188E7EC2005B3A74 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D46481188E7EC2005B3A74 /* XCTest.framework */; };
 		38D46483188E7EC2005B3A74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D46473188E7EC2005B3A74 /* Foundation.framework */; };
@@ -85,6 +88,12 @@
 		386E13831895515B00DF4CB8 /* TXUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUser.m; sourceTree = "<group>"; };
 		386E1389189569E900DF4CB8 /* TXBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseObj.h; sourceTree = "<group>"; };
 		386E138A189569E900DF4CB8 /* TXBaseObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseObj.m; sourceTree = "<group>"; };
+		38BE646618AA6C47006BD587 /* TXSqlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSqlGenerator.h; sourceTree = "<group>"; };
+		38BE646718AA6C47006BD587 /* TXSqlGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSqlGenerator.m; sourceTree = "<group>"; };
+		38BE646918AA6CAE006BD587 /* DBTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTypes.h; sourceTree = "<group>"; };
+		38BE646A18AA6CAE006BD587 /* DBTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTypes.m; sourceTree = "<group>"; };
+		38BE646C18AA6E64006BD587 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		38BE646E18AA71D7006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		38D46470188E7EC2005B3A74 /* libtaxiLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtaxiLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D46473188E7EC2005B3A74 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		38D46480188E7EC2005B3A74 /* taxiLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taxiLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BE647118AA7252006BD587 /* libsqlite3.dylib in Frameworks */,
 				38D46474188E7EC2005B3A74 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +193,8 @@
 		38D46472188E7EC2005B3A74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38BE646E18AA71D7006BD587 /* libsqlite3.dylib */,
+				38BE646C18AA6E64006BD587 /* libsqlite3.0.dylib */,
 				38D46473188E7EC2005B3A74 /* Foundation.framework */,
 				38D46481188E7EC2005B3A74 /* XCTest.framework */,
 				38D46484188E7EC2005B3A74 /* UIKit.framework */,
@@ -240,6 +252,10 @@
 			children = (
 				38D464C0188E7FB9005B3A74 /* TXDBHelper.h */,
 				38D464C1188E7FB9005B3A74 /* TXDBHelper.m */,
+				38BE646618AA6C47006BD587 /* TXSqlGenerator.h */,
+				38BE646718AA6C47006BD587 /* TXSqlGenerator.m */,
+				38BE646918AA6CAE006BD587 /* DBTypes.h */,
+				38BE646A18AA6CAE006BD587 /* DBTypes.m */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -381,6 +397,7 @@
 				38D464DA188E7FB9005B3A74 /* TXError.m in Sources */,
 				38D464F3188E81B5005B3A74 /* TXHttpRequestManager.m in Sources */,
 				38D464E2188E7FB9005B3A74 /* TXApp.m in Sources */,
+				38BE646818AA6C47006BD587 /* TXSqlGenerator.m in Sources */,
 				38D464E0188E7FB9005B3A74 /* utils.m in Sources */,
 				38D464DE188E7FB9005B3A74 /* StrConsts.m in Sources */,
 				38D464DC188E7FB9005B3A74 /* TXEvent.m in Sources */,
@@ -389,6 +406,7 @@
 				38D464D9188E7FB9005B3A74 /* TXDBHelper.m in Sources */,
 				38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */,
 				38D464DF188E7FB9005B3A74 /* TXFileManager.m in Sources */,
+				38BE646B18AA6CAE006BD587 /* DBTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

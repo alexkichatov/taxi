@@ -40,7 +40,8 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
                              };
     
     request.body = getJSONStr(jsonObj);
-    [self->httpMgr sendSyncRequest:request];
+    request.listener = self;
+    [self->httpMgr sendAsyncRequest:request];
     
 }
 
@@ -57,6 +58,10 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
 }
 
 -(void)onRequestCompleted:(id)object {
+    
+    TXRequestObj *request = (TXRequestObj*)object;
+    
+    NSLog(@"%@", [[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
     
 }
 

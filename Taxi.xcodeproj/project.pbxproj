@@ -25,6 +25,7 @@
 		3868A16118994AE700F93867 /* TXConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3868A16018994AE700F93867 /* TXConsts.m */; };
 		386E13801895500400DF4CB8 /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E137F1895500400DF4CB8 /* TXUserModel.m */; };
 		386E138818955AD800DF4CB8 /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E138718955AD800DF4CB8 /* TXModelBase.m */; };
+		38BE647318AA7265006BD587 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
 		38D464FA188E9056005B3A74 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38D464F9188E9056005B3A74 /* taxi.bundle */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		386E137F1895500400DF4CB8 /* TXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserModel.m; sourceTree = "<group>"; };
 		386E138618955AD800DF4CB8 /* TXModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXModelBase.h; sourceTree = "<group>"; };
 		386E138718955AD800DF4CB8 /* TXModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXModelBase.m; sourceTree = "<group>"; };
+		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taxiLib.xcodeproj; path = taxiLib/taxiLib.xcodeproj; sourceTree = "<group>"; };
 		38D464F9188E9056005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = taxi.bundle; path = taxiLib/taxi.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BE647318AA7265006BD587 /* libsqlite3.dylib in Frameworks */,
 				38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */,
 				3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */,
 				3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */,
@@ -140,6 +143,7 @@
 		3865DC98188C13970044A0DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38BE647218AA7265006BD587 /* libsqlite3.dylib */,
 				3865DC99188C13970044A0DC /* Foundation.framework */,
 				3865DC9B188C13970044A0DC /* CoreGraphics.framework */,
 				3865DC9D188C13970044A0DC /* UIKit.framework */,

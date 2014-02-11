@@ -21,11 +21,11 @@
 }
 
 -(void)onRequestCompleted:(id)object {
-    
+    NSLog(@"onRequestCompleted not implemented");
 }
 
 -(void)onFail:(id)object error:(TXError *)error {
-    
+    NSLog(@"onFail not implemented");
 }
 
 @end
