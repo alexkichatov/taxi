@@ -122,8 +122,9 @@
         TXEventSubscription* subscription = [TXEventSubscription createSubscription:listener
                                                                  withSubscriptionParams:subscriptionParams];
         
-        //find if we have the same listener already registered on this object, and remove it.
-        
+        /*
+         * Find if we have the same listener already registered on this object, and remove it.
+         */
         for ( int i = 0; i < [eventSubscriptions count]; i++ ) {
             TXEventSubscription* cs = [eventSubscriptions objectAtIndex:i];
             if ( cs.listener == listener ) {
@@ -186,7 +187,7 @@
 }
 
 -(void) fireEvent:(TXEvent *)event {
-    //do event preprocessing here and then dispatch it. If necessary prevent firing before calling dispatch
+    /* do event preprocessing here and then dispatch it. If necessary prevent firing before calling dispatch */
     if ( event != nil && [event.name length] > 0 ) {
         [self dispatchEvent:event];
     }
@@ -207,7 +208,9 @@
         
         NSMutableArray* eventSubscriptions = [listenerMap objectForKey:event.name];
         
-        //first call all the listeners registered on the current object
+        /* 
+         * First call all the listeners registered on the current object
+         */
         for ( int i = 0; i < [eventSubscriptions count]; i++ ) {
             
             TXEventSubscription* cs = [eventSubscriptions objectAtIndex:i];
@@ -215,15 +218,16 @@
                 
                 @try {
                     [cs.listener onEvent:event eventParams:cs.eventParams];
-                    //if current listener cancelled this action, bail out, none else needs ot see this event.
+                    
+                    /* 
+                     * If current listener cancelled this action, bail out, none else needs ot see this event.
+                     */
                     if ( event.cancelAction == YES )
                         return NO;
                 }@catch (NSException *exception) {
                     
                     TXEvent *crashEvent = [TXEvent createEvent:TXEvents.EVENT_FIRE_CRASHED eventSource:self eventProps:@{ Events.NAME : event.name, Events.LISTENER_CLASS_NAME : cs.listener }];
                     [self fireEvent:crashEvent];
-                   // NSString *eventName = (event == nil ? @"null event" : event.name);
-//                    [AMDCSysLog logMessage:AMDC_ERR_EVENT_FIRE_FAILED andMessage:[NSString stringWithFormat:@"Event name: %@, listener object: %@", eventName, cs.listener] andSource:[NSString stringWithFormat:@"TXEventTarget, fireEvent, dispatchEvent : %@, error: %@", eventName, exception.reason] andLevel:LEVEL_ERROR];
                     
                 }@finally {
                     
@@ -231,7 +235,9 @@
             }
         }
         
-        //if event propagation is still true bubble event up in the parent tree
+        /* 
+         * If event propagation is still true bubble event up in the parent tree
+         */
         if ( event.propageteEvent ) {
             TXEventTarget* evTarget = [self getTargetParent];
             if ( evTarget != nil ) {
