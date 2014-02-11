@@ -8,6 +8,10 @@
 
 #import "TXConsts.h"
 
+const struct HTTP_API HTTP_API = {
+        .REGISTER = @"register",
+};
+
 const struct API_JSON API_JSON = {
     
     .Keys = {

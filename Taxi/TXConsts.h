@@ -6,12 +6,16 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
+extern const struct HTTP_API {
+    __unsafe_unretained NSString* REGISTER;
+} HTTP_API;
+
 extern const struct API_JSON {
     
     struct {
         __unsafe_unretained NSString* ATTR;
         __unsafe_unretained NSString* DATA;
-
+        
     } Keys;
     
 } API_JSON;

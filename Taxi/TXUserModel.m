@@ -28,16 +28,16 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
 
 -(void)registerUser:(TXUser *)user {
     
-    TXRequestObj *request = [TXRequestObj initWithConfig:@"register" andListener:nil];
+    TXRequestObj *request = [TXRequestObj initWithConfig:HTTP_API.REGISTER andListener:nil];
     
     NSMutableDictionary *propertyMap = [[user propertyMap] mutableCopy];
     [propertyMap removeObjectForKey:XCL_PROP_OBJID];
     [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
     
     NSDictionary *jsonObj = @{
-                                        API_JSON.Keys.ATTR  : [NSNull null],
-                                        API_JSON.Keys.DATA  : propertyMap
-                                      };
+                                API_JSON.Keys.ATTR  : [NSNull null],
+                                API_JSON.Keys.DATA  : propertyMap
+                             };
     
     request.body = getJSONStr(jsonObj);
     [self->httpMgr sendSyncRequest:request];
