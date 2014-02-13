@@ -18,16 +18,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [TXFileManager instance];
+    // [TXFileManager instance];
     
-    TXUserModel *model = [TXUserModel instance];
-    TXUser *user = [[TXUser alloc] init];
-    user.username = @"iraklivasha";
-    user.password = @"voidmain";
+    // TXUserModel *model = [TXUserModel instance];
+    // TXUser *user = [[TXUser alloc] init];
+    // user.username = @"iraklivasha";
+    // user.password = @"voidmain";
 
-    [model registerUser:user];
+    //[model registerUser:user];
     
-
+    
     
     return YES;
 }
