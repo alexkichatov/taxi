@@ -29,7 +29,7 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
 
 -(void)registerUser:(TXUser *)user {
     
-    TXRequestObj *request            = [TXRequestObj initWithConfig:HTTP_API.REGISTER andListener:nil];
+    TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
     NSMutableDictionary *propertyMap = [[user propertyMap] mutableCopy];
     [propertyMap removeObjectForKey:XCL_PROP_OBJID];
     [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
@@ -41,8 +41,7 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
                              };
     
     request.body     = getJSONStr(jsonObj);
-    request.listener = self;
-    [self->httpMgr sendAsyncRequest:request];
+    [self sendAsyncRequest:request];
     
 }
 
@@ -55,6 +54,24 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
 }
 
 -(void)update:(TXUser *)user {
+    
+    TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
+    NSMutableDictionary *propertyMap = [[user propertyMap] mutableCopy];
+    [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_UPDATE],
+                              API_JSON.Keys.ATTR  : [NSNull null],
+                              API_JSON.Keys.DATA  : propertyMap
+                              };
+    
+    request.body     = getJSONStr(jsonObj);
+
+    [self->httpMgr sendAsyncRequest:request];
+    
+}
+
+-(void)deleteUser {
     
 }
 

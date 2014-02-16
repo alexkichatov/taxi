@@ -19,6 +19,7 @@
 -(void) registerUser : (TXUser *) user;
 -(void) login : (NSString *) username andPass : (NSString *) pwd;
 -(void) update : (TXUser *) user;
+-(void) deleteUser;
 -(void) logout;
 
 @end

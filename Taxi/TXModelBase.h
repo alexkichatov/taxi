@@ -16,6 +16,8 @@
     TXApp                *application;
 }
 
+-(TXRequestObj *) createRequest:(NSString *) config;
+-(void)sendAsyncRequest:(TXRequestObj *) request;
 -(void)onRequestCompleted:(id)object;
 -(void)onFail:(id)object error:(TXError *)error;
 

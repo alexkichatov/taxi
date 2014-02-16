@@ -28,4 +28,12 @@
     NSLog(@"onFail not implemented");
 }
 
+-(TXRequestObj *)createRequest:(NSString *)config {
+    return [TXRequestObj initWithConfig:config andListener:self];
+}
+
+-(void)sendAsyncRequest:(TXRequestObj *) request {
+    [self->httpMgr sendAsyncRequest:request];
+}
+
 @end

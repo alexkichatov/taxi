@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		382A2B4C18B0BC4700A9FB86 /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 382A2B4B18B0BC4700A9FB86 /* Types.m */; };
+		382A2B5118B0E17400A9FB86 /* TXVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 382A2B5018B0E17400A9FB86 /* TXVM.m */; };
 		3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
 		3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9B188C13970044A0DC /* CoreGraphics.framework */; };
 		3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
@@ -66,6 +67,8 @@
 /* Begin PBXFileReference section */
 		382A2B4A18B0BC4700A9FB86 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		382A2B4B18B0BC4700A9FB86 /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Types.m; sourceTree = "<group>"; };
+		382A2B4F18B0E17400A9FB86 /* TXVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXVM.h; sourceTree = "<group>"; };
+		382A2B5018B0E17400A9FB86 /* TXVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXVM.m; sourceTree = "<group>"; };
 		3865DC96188C13970044A0DC /* Taxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3865DC99188C13970044A0DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3865DC9B188C13970044A0DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -207,14 +210,16 @@
 		386E137C18954E7400DF4CB8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				386E137E1895500400DF4CB8 /* TXUserModel.h */,
-				386E137F1895500400DF4CB8 /* TXUserModel.m */,
 				386E138618955AD800DF4CB8 /* TXModelBase.h */,
 				386E138718955AD800DF4CB8 /* TXModelBase.m */,
+				386E137E1895500400DF4CB8 /* TXUserModel.h */,
+				386E137F1895500400DF4CB8 /* TXUserModel.m */,
 				3868A15F18994AE700F93867 /* TXConsts.h */,
 				3868A16018994AE700F93867 /* TXConsts.m */,
 				382A2B4A18B0BC4700A9FB86 /* Types.h */,
 				382A2B4B18B0BC4700A9FB86 /* Types.m */,
+				382A2B4F18B0E17400A9FB86 /* TXVM.h */,
+				382A2B5018B0E17400A9FB86 /* TXVM.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				382A2B5118B0E17400A9FB86 /* TXVM.m in Sources */,
 				386E13801895500400DF4CB8 /* TXUserModel.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
