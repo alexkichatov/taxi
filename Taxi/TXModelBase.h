@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "taxiLib/TXHttpRequestManager.h"
+#import "taxiLib/TXEventTarget.h"
 #import "taxiLib/TXApp.h"
 
-@interface TXModelBase : NSObject <TXHttpRequestListener> {
+@interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
     TXHttpRequestManager *httpMgr;
     TXApp                *application;
 }

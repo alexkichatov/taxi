@@ -37,13 +37,6 @@ const struct TXEvents TXEvents = {
     .INSERT_FAILED       = @"insertFailed",                       // for insert failed event
     .UPDATE_FAILED       = @"updateFailed",                // for update failed event
     .DELETE_FAILED       = @"deleteFailed",                       // for delete failed event
-    .CHANGELOG_LOGGING_FAILED = @"changelogLoggingFailed",
-    
-    /*************************************** Attachments ************************************************/
-    .ATTACHMENT_WARNING_PERCENTAGE = @"attachmentWarningPercentage",
-    .ATTACHMENT_SAVE_FAILED        = @"attachmentFileSaveFailed",
-    .ATTACHMENT_SIZE_EXCEEDED      = @"attachmentSizeLimitExceed",
-    .ATTACHMENT_SAVE_SUCCESS       = @"attachmentFileSaveSucceded",
     
     /***************************************Task Scheduler events ***************************************/
     .TASKWILLBEGIN        = @"taskWillBegin",
@@ -57,28 +50,6 @@ const struct TXEvents TXEvents = {
     .SETTINGSLOADED         = @"SettingsReady",
     .SETTINGSSAVED          = @"SettingsSaved",
     .SETTINGCHANGED         = @"SettingChanged",
-    .BACKENDCREDSVALIDATED  = @"backendCredentialsValidated",
-    .BACKENDCREDSNOTVALIDATED = @"backendCredentialsNotValidated",
-    .BACKENDCREDSVALIDATIONFAILED = @"backendCredentialsValidationFailed",
-
-    /***************************************AMDCom Events*************************************************/
-    .AMDCONINITSTARTED     = @"initializationStarted",
-    .AMDCONINITDONE        = @"initializationDone",
-    .AMDCONINITFAILED      = @"initializationFailed",
-    .REGISTERDEVICEOK      = @"registerDeviceOk",
-    .REGISTERDEVICEFAILED  = @"registerDeviceFailed",
-
-    /*************************************** Subscription events *****************************************************/
-    
-    .SUBSCRIBEREQUESTFAILED  = @"subsciptionRequestFailed",
-    .SUBSCRIBEREQUESTSUCCEED = @"subscriptionRequestSucceed",
-    
-    /*************************************** CDM events ***************************************************/
-    
-    .CDMSAVESUCCEED        = @"cdmSaveSucceed",
-    .CDMSAVEFAILED         = @"cdmSaveFailed",
-    .CDMDOWNLOADFAILED     = @"cdmDownloadFailed",
-    .CDMREADFAILED          = @"cdmReadFailed",
     
     /*************************************** FILE MANAGER EVENTS *******************************************/
     
@@ -109,20 +80,7 @@ const struct TXEvents TXEvents = {
     .HTTPREQUESTFAILED      = @"httpRequestFailed",
     .HTTPREQUESTSUCCEED     = @"httpRequestSucceed",
     .HTTPCONNOPENFAILED     = @"httpConnectionOpenFailed",
-    
-    /*************************************** Sync events **********************************************************/
-    
-    .SYNC_BEGIN             = @"synchronizationBegin", // for synchronization start event
-    .SYNC_DONE              = @"synchronizationDone", // for synchronization done event
-    .SYNC_FAILED            = @"synchronizationFailed", // for synchronization failed event
-    .SYNC_ABORTED           = @"syncAborted",
-    .SYNC_COMPLETEDPARTFILE = @"syncCompletedPartFile",
-    .SYNC_REQUEST_COMPLETED = @"syncRequestCompleted",
-    .PARTCOUNT_REQUEST_COMPLETED = @"partCountRequestCompleted",
-    .MULTIPART_REQUEST_COMPLETED = @"multipartRequestCompleted",
-
-    /***************************************Event parameter names *****************************************/
-
+  
     .Params = {
         .ERROR              = @"ERROR",
         .SETTINGNAME        = @"settingName",
@@ -134,5 +92,8 @@ const struct TXEvents TXEvents = {
         .MULTIPART          = @"multipart",
         .PARTCOUNT          = @"partCount",
         .PARTNUMBER         = @"partNumber"
-    }
+    },
+    
+    .REGISTER_USER_COMPLETED = @"registerUserCompleted",
+    .REGISTER_USER_FAILED = @"registerUserFailed"
 };

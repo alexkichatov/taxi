@@ -15,7 +15,9 @@ const struct HTTP_API HTTP_API = {
 const struct API_JSON API_JSON = {
     
     .Keys = {
-        .ATTR       = @"attr",
-        .DATA     = @"data"
+        .OPER     = @"operation",
+        .ATTR     = @"attr",
+        .DATA     = @"data",
+        .SUCCESS  = @"success"
     }
 };

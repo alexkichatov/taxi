@@ -11,9 +11,7 @@
 #define DEFAULT_FLOAT_PRECISION 2
 
 extern const int O_NOOPCODE;
-extern const int O_INSERT;
-extern const int O_UPDATE;
-extern const int O_DELETE;
+
 extern const int O_VALUE_CHANGED;
 extern const int O_QUERY;
 extern const int O_SUBSCRIBE;

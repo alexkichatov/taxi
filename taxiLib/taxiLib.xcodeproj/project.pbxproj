@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382A2B4E18B0BF3700A9FB86 /* TXEventTarget.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464F6188E8274005B3A74 /* TXEventTarget.h */; };
 		386E13841895515B00DF4CB8 /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E13831895515B00DF4CB8 /* TXUser.m */; };
 		386E13851895579C00DF4CB8 /* TXUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 386E13821895515B00DF4CB8 /* TXUser.h */; };
 		386E138B189569E900DF4CB8 /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E138A189569E900DF4CB8 /* TXBaseObj.m */; };
@@ -64,6 +65,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				382A2B4E18B0BF3700A9FB86 /* TXEventTarget.h in CopyFiles */,
 				386E139118956D7A00DF4CB8 /* TXSettings.h in CopyFiles */,
 				386E138D18956B0600DF4CB8 /* TXBaseObj.h in CopyFiles */,
 				386E13851895579C00DF4CB8 /* TXUser.h in CopyFiles */,
@@ -277,8 +279,8 @@
 				386E13811895514D00DF4CB8 /* obj */,
 				38D464F6188E8274005B3A74 /* TXEventTarget.h */,
 				38D464F7188E8274005B3A74 /* TXEventTarget.m */,
-				38D464C8188E7FB9005B3A74 /* TXEvent.m */,
 				38D464C9188E7FB9005B3A74 /* TXEvents.h */,
+				38D464C8188E7FB9005B3A74 /* TXEvent.m */,
 			);
 			path = model;
 			sourceTree = "<group>";

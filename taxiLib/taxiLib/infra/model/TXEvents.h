@@ -33,26 +33,19 @@ extern const struct TXEvents {
     __unsafe_unretained NSString* SETSEARCHSPEC;                 // for setSearchSpec event
     __unsafe_unretained NSString* NAVIGATION ;                   // for navigation  event
     __unsafe_unretained NSString* ATTACHMENT_WARNING_PERCENTAGE; // when downloaded attachment size + full attachments size > 80 % of max allowed attachments
-    __unsafe_unretained NSString* ATTACHMENT_SAVE_FAILED;   // for attachment save failed event
-    __unsafe_unretained NSString* ATTACHMENT_SIZE_EXCEEDED;      // for attachment max size limit exceed
-    __unsafe_unretained NSString* ATTACHMENT_SAVE_SUCCESS;   // for attachment save failed event
-
+  
     /***************************************Dao operation fails*************************************************/
     
     __unsafe_unretained NSString* QUERY_FAILED;                       // for insert failed event
     __unsafe_unretained NSString* INSERT_FAILED;                       // for insert failed event
     __unsafe_unretained NSString* UPDATE_FAILED;                       // for update failed event
     __unsafe_unretained NSString* DELETE_FAILED;                       // for delete failed event
-    __unsafe_unretained NSString* CHANGELOG_LOGGING_FAILED;                       // changelog logging failed
     
     /***************************************Settings Events*****************************************************/
 
     __unsafe_unretained NSString* SETTINGSLOADED;           //fired when settings are loaded and ready
     __unsafe_unretained NSString* SETTINGSSAVED;            //fired after setings are saved to local storage
     __unsafe_unretained NSString* SETTINGCHANGED;           //fired after seting is changed
-    __unsafe_unretained NSString* BACKENDCREDSVALIDATED;    //Fired after server returns backendcreds success validaiton.
-    __unsafe_unretained NSString* BACKENDCREDSNOTVALIDATED;    //Fired after server returns backendcreds unsuccessfull validation.
-    __unsafe_unretained NSString* BACKENDCREDSVALIDATIONFAILED;    //Fired if server response fails when validating backend credentials.
     
     /***************************************Task Scheduler events *****************************************************/
     __unsafe_unretained NSString* TASKWILLBEGIN;
@@ -61,28 +54,6 @@ extern const struct TXEvents {
     __unsafe_unretained NSString* TASKFAILED;
     __unsafe_unretained NSString* TASKSCHEDULERINIT;
     __unsafe_unretained NSString* CONNECTIVITYCHANGED;           //fired when connectivity changes, wireless, cell, none
-
-
-    /***************************************AMDCom Events*****************************************************/
-
-    __unsafe_unretained NSString* AMDCONINITSTARTED;
-    __unsafe_unretained NSString* AMDCONINITDONE;
-    __unsafe_unretained NSString* AMDCONINITFAILED;
-    __unsafe_unretained NSString* REGISTERDEVICEOK;
-    __unsafe_unretained NSString* REGISTERDEVICEFAILED;
-
-
-    /*************************************** CDM events *****************************************************/
-    
-    __unsafe_unretained NSString* CDMSAVESUCCEED;
-    __unsafe_unretained NSString* CDMSAVEFAILED;
-    __unsafe_unretained NSString* CDMDOWNLOADFAILED;
-    __unsafe_unretained NSString* CDMREADFAILED;
-   
-    /*************************************** Subscription events *****************************************************/
-    
-    __unsafe_unretained NSString* SUBSCRIBEREQUESTFAILED;
-    __unsafe_unretained NSString* SUBSCRIBEREQUESTSUCCEED;
     
     /*************************************** FILE MANAGER EVENTS *******************************************/
     
@@ -116,19 +87,6 @@ extern const struct TXEvents {
     
     /*************************************** Event param keys *****************************************************/
 
-    /*************************************** Sync events **********************************************************/
-    
-    __unsafe_unretained NSString* SYNC_ABORTED;
-    __unsafe_unretained NSString* SYNC_COMPLETEDPARTFILE;
-    __unsafe_unretained NSString* SYNC_BEGIN;                    // for synchronization start event
-    __unsafe_unretained NSString* SYNC_DONE;                     // for synchronization done event
-    __unsafe_unretained NSString* SYNC_FAILED;                   // for synchronization failed event
-    __unsafe_unretained NSString* SYNC_REQUEST_COMPLETED;
-    __unsafe_unretained NSString* PARTCOUNT_REQUEST_COMPLETED;
-    __unsafe_unretained NSString* MULTIPART_REQUEST_COMPLETED;
-    
-    /***************************************************************************************************************/
-    
     struct {
         __unsafe_unretained NSString* ERROR;
         __unsafe_unretained NSString* SETTINGNAME;
@@ -141,6 +99,9 @@ extern const struct TXEvents {
         __unsafe_unretained NSString* PARTCOUNT;
         __unsafe_unretained NSString* PARTNUMBER;
     } Params;
+    
+    __unsafe_unretained NSString* REGISTER_USER_COMPLETED;
+    __unsafe_unretained NSString* REGISTER_USER_FAILED;
 
 } TXEvents;
 

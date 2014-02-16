@@ -11,9 +11,7 @@
 #import "StrConsts.h"
 
 const int O_NOOPCODE = -1;
-const int O_INSERT = 1;
-const int O_UPDATE = 2;
-const int O_DELETE = 3;
+
 const int O_VALUE_CHANGED = 4;
 const int O_QUERY = 5;
 const int O_SUBSCRIBE = 6;

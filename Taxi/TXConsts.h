@@ -13,8 +13,10 @@ extern const struct HTTP_API {
 extern const struct API_JSON {
     
     struct {
+        __unsafe_unretained NSString* OPER;
         __unsafe_unretained NSString* ATTR;
         __unsafe_unretained NSString* DATA;
+        __unsafe_unretained NSString* SUCCESS;
         
     } Keys;
     
