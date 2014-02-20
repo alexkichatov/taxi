@@ -316,16 +316,10 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
             NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:httpRequest delegate:self startImmediately:YES];
             
             if ( conn == nil ) {
-                
-                //                event = [AMDCEvent createEvent:AMDCEvents.HTTPCONNOPENFAILED eventSource:self eventProps:@{@"ERROR" : [TXError error:AMDC_ERR_HTTP_REQUEST_FAILED
-                //                                                                                                                                  message:[NSString stringWithFormat:LocalizedStr(@"Http.Err.httpRequestFailed"), request.reqUrl]
-                //                                                                                                                              description:[NSString stringWithFormat:@"AMDCHttpReqManager, sendASyncRequest, [[NSURLConnection alloc] initWithRequest: %@", request.reqUrl]]}];
-                //                [self fireEvent:event];
-                
                 return NO;
             }
             
-            DLogI(@"Sent Async Request to URL - %@\n\nBody:\n%@", request.reqUrl, request.body );
+            NSLog(@"Sent Async Request to URL - %@\n\nBody:\n%@", request.reqUrl, request.body );
             
             request.receivedData = [NSMutableData data];
             [self addPendingRequest:request withConnection:conn];

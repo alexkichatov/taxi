@@ -23,6 +23,8 @@
         NSObject *value  = [self valueForKey:name];
         if(value != nil) {
             [result setObject:value forKey:name];
+        } else {
+            [result setObject:[NSNull null] forKey:name];
         }
         
     }

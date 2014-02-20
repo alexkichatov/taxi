@@ -79,10 +79,10 @@
 
 -(void)initWithDefaults {
     
-    [self setProperty:SettingsConst.Property.BASEURL value:@"http://localhost"]; // IS
+    [self setProperty:SettingsConst.Property.BASEURL value:@"http://localhost"]; // Me
     [self setProperty:SettingsConst.Property.PORT value:@"8080"];
     
-//    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.254.88"]; // IS
+//    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.254.103"]; // Archvi
 //    [self setProperty:SettingsConst.Property.PORT value:@"8095"];
     
     [self setUserName:@"tomcat"];

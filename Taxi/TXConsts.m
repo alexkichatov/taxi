@@ -10,6 +10,7 @@
 
 const struct HTTP_API HTTP_API = {
         .REGISTER = @"register",
+        .AUTHENTICATE = @"login"
 };
 
 const struct API_JSON API_JSON = {
@@ -19,5 +20,11 @@ const struct API_JSON API_JSON = {
         .ATTR     = @"attr",
         .DATA     = @"data",
         .SUCCESS  = @"success"
+    },
+    
+    .Authenticate = {
+        .USERNAME = @"username",
+        .PASSWORD = @"password"
     }
+    
 };

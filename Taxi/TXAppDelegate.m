@@ -20,11 +20,15 @@
     
      [TXFileManager instance];
     
+    [[TXSettings instance] initWithDefaults];
+    
      TXUserModel *model = [TXUserModel instance];
      TXUser *user = [[TXUser alloc] init];
-     user.username = @"iraklivasha";
+     user.username = @"iraklivasha111";
      user.password = @"voidmain";
-
+     user.mobile   = @"577051119";
+     user.language = @"KA";
+    
     [model registerUser:user];
     
     

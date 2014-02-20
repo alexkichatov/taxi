@@ -40,12 +40,25 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
                                 API_JSON.Keys.DATA  : propertyMap
                              };
     
-    request.body     = getJSONStr(jsonObj);
+    request.body = getJSONStr(jsonObj);
     [self sendAsyncRequest:request];
     
 }
 
 -(void)login:(NSString *)username andPass:(NSString *)pwd {
+    
+    TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
+
+    NSDictionary *propertyMap = @{ API_JSON.Authenticate.USERNAME : username, API_JSON.Authenticate.PASSWORD : pwd };
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_OTHER],
+                              API_JSON.Keys.ATTR  : [NSNull null],
+                              API_JSON.Keys.DATA  : propertyMap
+                              };
+    
+    request.body = getJSONStr(jsonObj);
+    [self sendAsyncRequest:request];
     
 }
 
@@ -60,10 +73,10 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
     [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
     
     NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_UPDATE],
-                              API_JSON.Keys.ATTR  : [NSNull null],
-                              API_JSON.Keys.DATA  : propertyMap
-                              };
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_UPDATE],
+                                API_JSON.Keys.ATTR  : [NSNull null],
+                                API_JSON.Keys.DATA  : propertyMap
+                             };
     
     request.body     = getJSONStr(jsonObj);
 

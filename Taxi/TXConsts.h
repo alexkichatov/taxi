@@ -8,6 +8,7 @@
 
 extern const struct HTTP_API {
     __unsafe_unretained NSString* REGISTER;
+    __unsafe_unretained NSString* AUTHENTICATE;
 } HTTP_API;
 
 extern const struct API_JSON {
@@ -19,5 +20,12 @@ extern const struct API_JSON {
         __unsafe_unretained NSString* SUCCESS;
         
     } Keys;
+    
+    struct {
+        __unsafe_unretained NSString* USERNAME;
+        __unsafe_unretained NSString* PASSWORD;
+        
+    } Authenticate;
+    
     
 } API_JSON;
