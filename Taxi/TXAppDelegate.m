@@ -18,20 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-     [TXFileManager instance];
-    
+    [TXFileManager instance];
     [[TXSettings instance] initWithDefaults];
-    
-     TXUserModel *model = [TXUserModel instance];
-     TXUser *user = [[TXUser alloc] init];
-     user.username = @"iraklivashadsfd111";
-     user.password = @"voidmain";
-     user.mobile   = @"577051119";
-     user.language = @"KA";
-    
-    [model registerUser:user];
-    
-    
     
     return YES;
 }

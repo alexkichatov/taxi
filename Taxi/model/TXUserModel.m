@@ -44,7 +44,7 @@
 
 -(void)login:(NSString *)username andPass:(NSString *)pwd {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
+    TXRequestObj *request            = [self createRequest:HTTP_API.AUTHENTICATE];
 
     NSDictionary *propertyMap = @{ API_JSON.Authenticate.USERNAME : username, API_JSON.Authenticate.PASSWORD : pwd };
     
@@ -93,19 +93,19 @@
     
     if(success == YES && [request.reqConfig.name isEqualToString:HTTP_API.REGISTER]) {
         
-        NSDictionary *jsonObj = getJSONObj(request.body);
-        NSMutableDictionary *data    = [[jsonObj objectForKey:API_JSON.Keys.DATA] mutableCopy];
-        [self->application.settings setUserName:[data objectForKey:TXPropertyConsts.User.USERNAME]];
-        [self->application.settings setPassword:[data objectForKey:TXPropertyConsts.User.PASSWORD]];
+        NSDictionary *jsonObj           = getJSONObj(request.body);
+        NSMutableDictionary *properties = [[jsonObj objectForKey:API_JSON.Keys.DATA] mutableCopy];
+       // [self->application.settings setUserName:[properties objectForKey:TXPropertyConsts.User.USERNAME]];
+       // [self->application.settings setPassword:[properties objectForKey:TXPropertyConsts.User.PASSWORD]];
         
-        [data removeObjectForKey:TXPropertyConsts.User.PASSWORD];
-        TXUser *user = [TXUser create];
-        [user setProperties:data];
+        [properties removeObjectForKey:TXPropertyConsts.User.PASSWORD];
+        TXUser *user = [TXUser create:properties];
         [self->application setUser:user];
         
     }
     
     NSString *data            = [responseObj objectForKey:API_JSON.Keys.DATA];
+    NSLog(@"Recieved response from server: %@", data);
     NSDictionary *properties  = @{ API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:success], API_JSON.Keys.DATA : data };
     TXEvent *event            = [TXEvent createEvent:TXEvents.REGISTER_USER_COMPLETED eventSource:self eventProps:properties];
     [self fireEvent:event];

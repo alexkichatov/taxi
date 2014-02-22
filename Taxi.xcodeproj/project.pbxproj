@@ -15,6 +15,7 @@
 		3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823A18B8D5F40036238A /* TXBaseObj.m */; };
 		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
 		3827824118B8D5F40036238A /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823E18B8D5F40036238A /* TXUser.m */; };
+		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
 		3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9B188C13970044A0DC /* CoreGraphics.framework */; };
 		3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
@@ -23,7 +24,7 @@
 		3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCA9188C13970044A0DC /* TXAppDelegate.m */; };
 		3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCAB188C13970044A0DC /* Main_iPhone.storyboard */; };
 		3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCAE188C13970044A0DC /* Main_iPad.storyboard */; };
-		3865DCB3188C13970044A0DC /* TXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCB2188C13970044A0DC /* TXViewController.m */; };
+		3865DCB3188C13970044A0DC /* TXRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCB2188C13970044A0DC /* TXRegisterVC.m */; };
 		3865DCB5188C13970044A0DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCB4188C13970044A0DC /* Images.xcassets */; };
 		3865DCBC188C13970044A0DC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DCBB188C13970044A0DC /* XCTest.framework */; };
 		3865DCBD188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
@@ -84,6 +85,8 @@
 		3827823C18B8D5F40036238A /* TXPropertyConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPropertyConsts.m; sourceTree = "<group>"; };
 		3827823D18B8D5F40036238A /* TXUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUser.h; sourceTree = "<group>"; };
 		3827823E18B8D5F40036238A /* TXUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUser.m; sourceTree = "<group>"; };
+		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
+		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3865DC96188C13970044A0DC /* Taxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3865DC99188C13970044A0DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3865DC9B188C13970044A0DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,8 +99,8 @@
 		3865DCA9188C13970044A0DC /* TXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXAppDelegate.m; sourceTree = "<group>"; };
 		3865DCAC188C13970044A0DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		3865DCAF188C13970044A0DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		3865DCB1188C13970044A0DC /* TXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXViewController.h; sourceTree = "<group>"; };
-		3865DCB2188C13970044A0DC /* TXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXViewController.m; sourceTree = "<group>"; };
+		3865DCB1188C13970044A0DC /* TXRegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TXRegisterVC.h; path = ../TXRegisterVC.h; sourceTree = "<group>"; };
+		3865DCB2188C13970044A0DC /* TXRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TXRegisterVC.m; path = ../TXRegisterVC.m; sourceTree = "<group>"; };
 		3865DCB4188C13970044A0DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3865DCBA188C13970044A0DC /* TaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3865DCBB188C13970044A0DC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -151,6 +154,15 @@
 			path = model/obj;
 			sourceTree = "<group>";
 		};
+		3827824518B8E8560036238A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3865DCB1188C13970044A0DC /* TXRegisterVC.h */,
+				3865DCB2188C13970044A0DC /* TXRegisterVC.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3865DC8D188C13970044A0DC = {
 			isa = PBXGroup;
 			children = (
@@ -188,15 +200,16 @@
 		3865DC9F188C13970044A0DC /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
+				3827824518B8E8560036238A /* ViewControllers */,
 				386E137C18954E7400DF4CB8 /* model */,
 				3865DCA8188C13970044A0DC /* TXAppDelegate.h */,
 				3865DCA9188C13970044A0DC /* TXAppDelegate.m */,
 				3865DCAB188C13970044A0DC /* Main_iPhone.storyboard */,
 				3865DCAE188C13970044A0DC /* Main_iPad.storyboard */,
-				3865DCB1188C13970044A0DC /* TXViewController.h */,
-				3865DCB2188C13970044A0DC /* TXViewController.m */,
 				3865DCB4188C13970044A0DC /* Images.xcassets */,
 				3865DCA0188C13970044A0DC /* Supporting Files */,
+				3827824218B8E55F0036238A /* TXUserAPITest.h */,
+				3827824318B8E55F0036238A /* TXUserAPITest.m */,
 			);
 			path = Taxi;
 			sourceTree = "<group>";
@@ -384,7 +397,7 @@
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
-				3865DCB3188C13970044A0DC /* TXViewController.m in Sources */,
+				3865DCB3188C13970044A0DC /* TXRegisterVC.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
 				3827824118B8D5F40036238A /* TXUser.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
@@ -392,6 +405,7 @@
 				3827823218B8CE920036238A /* TXVM.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
 				3827823318B8CE920036238A /* Types.m in Sources */,
+				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

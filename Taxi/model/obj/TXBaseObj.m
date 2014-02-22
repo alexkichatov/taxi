@@ -15,6 +15,19 @@
     return [[self alloc] init];
 }
 
++(id)create:(NSDictionary *)properties {
+    return [[self alloc] initWithProperties:properties];
+}
+
+-(id) initWithProperties : (NSDictionary *) properties {
+    
+    if(self = [super init]) {
+        [self setProperties:properties];
+    }
+    
+    return self;
+}
+
 -(NSDictionary *) getProperties {
     
     unsigned int propertyCount = 0;

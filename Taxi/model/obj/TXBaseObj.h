@@ -12,6 +12,7 @@
 @interface TXBaseObj : NSObject
 
 +(id)create;
++(id)create:(NSDictionary *) properties;
 -(NSDictionary *) getProperties;
 -(void) setProperties : (NSDictionary *) props;
 
