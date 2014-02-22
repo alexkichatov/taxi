@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "taxiLib/TXUser.h"
+#import "TXUser.h"
 #import "TXModelBase.h"
 
 @interface TXUserModel : TXModelBase

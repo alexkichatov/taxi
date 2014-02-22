@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "taxiLib/TXUser.h"
+#import "TXUser.h"
 #import "taxiLib/TXApp.h"
 
 @interface TXVM : NSObject

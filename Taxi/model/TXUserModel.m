@@ -11,9 +11,6 @@
 #import "TXConsts.h"
 #import "Types.h"
 
-static NSString* const XCL_PROP_OBJID = @"objId";
-static NSString* const XCL_PROP_STATUSID = @"statusId";
-
 @implementation TXUserModel
 
 /** Creates the single instance within the application
@@ -31,8 +28,8 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
     
     TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
     NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
-    [propertyMap removeObjectForKey:XCL_PROP_OBJID];
-    [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
+    [propertyMap removeObjectForKey:TXPropertyConsts.User.OBJID];
+    [propertyMap removeObjectForKey:TXPropertyConsts.User.STATUSID];
     
     NSDictionary *jsonObj = @{
                                 API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_CREATE],
@@ -70,7 +67,7 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
     
     TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
     NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
-    [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
+    [propertyMap removeObjectForKey:TXPropertyConsts.User.STATUSID];
     
     NSDictionary *jsonObj = @{
                                 API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_UPDATE],

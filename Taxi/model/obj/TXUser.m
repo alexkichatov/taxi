@@ -7,7 +7,6 @@
 //
 
 #import "TXUser.h"
-#import "utils.h"
 
 @implementation TXUser
 

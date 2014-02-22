@@ -12,6 +12,9 @@
 		3827823118B8CE920036238A /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822A18B8CE920036238A /* TXUserModel.m */; };
 		3827823218B8CE920036238A /* TXVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822C18B8CE920036238A /* TXVM.m */; };
 		3827823318B8CE920036238A /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822E18B8CE920036238A /* Types.m */; };
+		3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823A18B8D5F40036238A /* TXBaseObj.m */; };
+		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
+		3827824118B8D5F40036238A /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823E18B8D5F40036238A /* TXUser.m */; };
 		3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
 		3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9B188C13970044A0DC /* CoreGraphics.framework */; };
 		3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
@@ -75,6 +78,12 @@
 		3827822C18B8CE920036238A /* TXVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXVM.m; path = model/TXVM.m; sourceTree = "<group>"; };
 		3827822D18B8CE920036238A /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Types.h; path = model/Types.h; sourceTree = "<group>"; };
 		3827822E18B8CE920036238A /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Types.m; path = model/Types.m; sourceTree = "<group>"; };
+		3827823918B8D5F40036238A /* TXBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseObj.h; sourceTree = "<group>"; };
+		3827823A18B8D5F40036238A /* TXBaseObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseObj.m; sourceTree = "<group>"; };
+		3827823B18B8D5F40036238A /* TXPropertyConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPropertyConsts.h; sourceTree = "<group>"; };
+		3827823C18B8D5F40036238A /* TXPropertyConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPropertyConsts.m; sourceTree = "<group>"; };
+		3827823D18B8D5F40036238A /* TXUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUser.h; sourceTree = "<group>"; };
+		3827823E18B8D5F40036238A /* TXUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUser.m; sourceTree = "<group>"; };
 		3865DC96188C13970044A0DC /* Taxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3865DC99188C13970044A0DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3865DC9B188C13970044A0DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +137,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3827823818B8D5F40036238A /* obj */ = {
+			isa = PBXGroup;
+			children = (
+				3827823918B8D5F40036238A /* TXBaseObj.h */,
+				3827823A18B8D5F40036238A /* TXBaseObj.m */,
+				3827823B18B8D5F40036238A /* TXPropertyConsts.h */,
+				3827823C18B8D5F40036238A /* TXPropertyConsts.m */,
+				3827823D18B8D5F40036238A /* TXUser.h */,
+				3827823E18B8D5F40036238A /* TXUser.m */,
+			);
+			name = obj;
+			path = model/obj;
+			sourceTree = "<group>";
+		};
 		3865DC8D188C13970044A0DC = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +233,7 @@
 		386E137C18954E7400DF4CB8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3827823818B8D5F40036238A /* obj */,
 				3827822518B8CE920036238A /* TXConsts.h */,
 				3827822618B8CE920036238A /* TXConsts.m */,
 				3827822718B8CE920036238A /* TXModelBase.h */,
@@ -361,9 +385,12 @@
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
 				3865DCB3188C13970044A0DC /* TXViewController.m in Sources */,
+				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
+				3827824118B8D5F40036238A /* TXUser.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
 				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
 				3827823218B8CE920036238A /* TXVM.m in Sources */,
+				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
 				3827823318B8CE920036238A /* Types.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
