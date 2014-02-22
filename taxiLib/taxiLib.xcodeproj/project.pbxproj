@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3827822218B8C9FC0036238A /* FDKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827821D18B8C9FC0036238A /* FDKeyChain.m */; };
+		3827823618B8D0850036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823518B8D0850036238A /* TXPropertyConsts.m */; };
+		3827823718B8D4190036238A /* TXPropertyConsts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3827823418B8D0850036238A /* TXPropertyConsts.h */; };
 		382A2B4E18B0BF3700A9FB86 /* TXEventTarget.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464F6188E8274005B3A74 /* TXEventTarget.h */; };
 		386E13841895515B00DF4CB8 /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 386E13831895515B00DF4CB8 /* TXUser.m */; };
 		386E13851895579C00DF4CB8 /* TXUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 386E13821895515B00DF4CB8 /* TXUser.h */; };
@@ -65,6 +68,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				3827823718B8D4190036238A /* TXPropertyConsts.h in CopyFiles */,
 				382A2B4E18B0BF3700A9FB86 /* TXEventTarget.h in CopyFiles */,
 				386E139118956D7A00DF4CB8 /* TXSettings.h in CopyFiles */,
 				386E138D18956B0600DF4CB8 /* TXBaseObj.h in CopyFiles */,
@@ -86,6 +90,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3827821C18B8C9FC0036238A /* FDKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDKeyChain.h; sourceTree = "<group>"; };
+		3827821D18B8C9FC0036238A /* FDKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDKeyChain.m; sourceTree = "<group>"; };
+		3827821E18B8C9FC0036238A /* FDNullOrEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDNullOrEmpty.h; sourceTree = "<group>"; };
+		3827823418B8D0850036238A /* TXPropertyConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPropertyConsts.h; sourceTree = "<group>"; };
+		3827823518B8D0850036238A /* TXPropertyConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPropertyConsts.m; sourceTree = "<group>"; };
 		386E13821895515B00DF4CB8 /* TXUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUser.h; sourceTree = "<group>"; };
 		386E13831895515B00DF4CB8 /* TXUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUser.m; sourceTree = "<group>"; };
 		386E1389189569E900DF4CB8 /* TXBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseObj.h; sourceTree = "<group>"; };
@@ -157,6 +166,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3827821B18B8C9FC0036238A /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				3827821C18B8C9FC0036238A /* FDKeyChain.h */,
+				3827821D18B8C9FC0036238A /* FDKeyChain.m */,
+				3827821E18B8C9FC0036238A /* FDNullOrEmpty.h */,
+			);
+			path = KeyChain;
+			sourceTree = "<group>";
+		};
 		386E13811895514D00DF4CB8 /* obj */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +183,8 @@
 				386E138A189569E900DF4CB8 /* TXBaseObj.m */,
 				386E13821895515B00DF4CB8 /* TXUser.h */,
 				386E13831895515B00DF4CB8 /* TXUser.m */,
+				3827823418B8D0850036238A /* TXPropertyConsts.h */,
+				3827823518B8D0850036238A /* TXPropertyConsts.m */,
 			);
 			path = obj;
 			sourceTree = "<group>";
@@ -225,6 +246,7 @@
 		38D464BC188E7FB9005B3A74 /* 3dparty */ = {
 			isa = PBXGroup;
 			children = (
+				3827821B18B8C9FC0036238A /* KeyChain */,
 			);
 			path = 3dparty;
 			sourceTree = "<group>";
@@ -397,6 +419,7 @@
 				38D464DB188E7FB9005B3A74 /* TXErrorCodes.m in Sources */,
 				38D464DD188E7FB9005B3A74 /* NSString+TXNSString.m in Sources */,
 				38D464DA188E7FB9005B3A74 /* TXError.m in Sources */,
+				3827823618B8D0850036238A /* TXPropertyConsts.m in Sources */,
 				38D464F3188E81B5005B3A74 /* TXHttpRequestManager.m in Sources */,
 				38D464E2188E7FB9005B3A74 /* TXApp.m in Sources */,
 				38BE646818AA6C47006BD587 /* TXSqlGenerator.m in Sources */,
@@ -404,6 +427,7 @@
 				38D464DE188E7FB9005B3A74 /* StrConsts.m in Sources */,
 				38D464DC188E7FB9005B3A74 /* TXEvent.m in Sources */,
 				38DC29F118902D65006A4396 /* TXSettings.m in Sources */,
+				3827822218B8C9FC0036238A /* FDKeyChain.m in Sources */,
 				386E138B189569E900DF4CB8 /* TXBaseObj.m in Sources */,
 				38D464D9188E7FB9005B3A74 /* TXDBHelper.m in Sources */,
 				38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */,

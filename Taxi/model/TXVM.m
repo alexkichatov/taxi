@@ -21,4 +21,14 @@
     return _instance;
 }
 
+-(id)init {
+    
+    if(self = [super init]) {
+        self.app      = [TXApp instance];
+        self.settings = [self.app getSettings];
+    }
+    
+    return self;
+}
+
 @end

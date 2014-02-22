@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "taxiLib/TXHttpRequestManager.h"
 #import "taxiLib/TXEventTarget.h"
-#import "taxiLib/TXApp.h"
+#import "TXVM.h"
 
 @interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
     TXHttpRequestManager *httpMgr;
-    TXApp                *application;
+    TXVM                 *application;
 }
 
 -(TXRequestObj *) createRequest:(NSString *) config;

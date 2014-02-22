@@ -11,13 +11,8 @@
 @interface TXSettings : NSObject {
     NSString*               stgPath;
     NSMutableDictionary*    root;           //main storage, gets recorded in the local file. Holds user settings as well.
+    
 }
-
-/*!
- @property isNewInstall Set to true for the new install, i.e. install with empty document directory.
- */
-
-@property(assign, nonatomic) BOOL               isNewInstall;
 
 /*!
  @function instance Convenience function to obtain settings singleton object

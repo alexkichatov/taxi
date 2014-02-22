@@ -14,7 +14,7 @@
     
     if(self = [super init]) {
         self->httpMgr     = [TXHttpRequestManager instance];
-        self->application = [TXApp instance];
+        self->application = [TXVM instance];
     }
     
     return self;

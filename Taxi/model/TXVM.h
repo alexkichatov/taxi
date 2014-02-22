@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "taxiLib/TXUser.h"
+#import "taxiLib/TXApp.h"
 
 @interface TXVM : NSObject
 
 @property (nonatomic, strong) TXUser* user;
+@property (nonatomic, strong) TXSettings *settings;
+@property (nonatomic, strong) TXApp *app;
 
 +(TXVM *) instance;
 

@@ -11,7 +11,11 @@
 
 @implementation TXBaseObj
 
--(NSDictionary *) propertyMap {
++(id)create {
+    return [[self alloc] init];
+}
+
+-(NSDictionary *) getProperties {
     
     unsigned int propertyCount = 0;
     objc_property_t * properties = class_copyPropertyList([self class], &propertyCount);
@@ -33,5 +37,14 @@
     return result;
 }
 
+-(void) setProperties : (NSDictionary *) props {
+
+    NSArray *keys = [props allKeys];
+    
+    for (NSString *key in keys) {
+        [self setValue:[props objectForKey:key] forKey:key];
+    }
+    
+}
 
 @end

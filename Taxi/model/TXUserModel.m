@@ -30,7 +30,7 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
 -(void)registerUser:(TXUser *)user {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
-    NSMutableDictionary *propertyMap = [[user propertyMap] mutableCopy];
+    NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
     [propertyMap removeObjectForKey:XCL_PROP_OBJID];
     [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
     
@@ -69,7 +69,7 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
 -(void)update:(TXUser *)user {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
-    NSMutableDictionary *propertyMap = [[user propertyMap] mutableCopy];
+    NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
     [propertyMap removeObjectForKey:XCL_PROP_STATUSID];
     
     NSDictionary *jsonObj = @{
@@ -93,6 +93,21 @@ static NSString* const XCL_PROP_STATUSID = @"statusId";
     TXRequestObj *request     = (TXRequestObj*)object;
     NSDictionary *responseObj = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
     BOOL success              = [[responseObj objectForKey:API_JSON.Keys.SUCCESS] boolValue];
+    
+    if(success == YES && [request.reqConfig.name isEqualToString:HTTP_API.REGISTER]) {
+        
+        NSDictionary *jsonObj = getJSONObj(request.body);
+        NSMutableDictionary *data    = [[jsonObj objectForKey:API_JSON.Keys.DATA] mutableCopy];
+        [self->application.settings setUserName:[data objectForKey:TXPropertyConsts.User.USERNAME]];
+        [self->application.settings setPassword:[data objectForKey:TXPropertyConsts.User.PASSWORD]];
+        
+        [data removeObjectForKey:TXPropertyConsts.User.PASSWORD];
+        TXUser *user = [TXUser create];
+        [user setProperties:data];
+        [self->application setUser:user];
+        
+    }
+    
     NSString *data            = [responseObj objectForKey:API_JSON.Keys.DATA];
     NSDictionary *properties  = @{ API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:success], API_JSON.Keys.DATA : data };
     TXEvent *event            = [TXEvent createEvent:TXEvents.REGISTER_USER_COMPLETED eventSource:self eventProps:properties];

@@ -11,12 +11,11 @@
 #import "StrConsts.h"
 #import "Macro.h"
 #import "TXError.h"
+#import "FDKeyChain.h"
 
 @interface TXSettings()<TXHttpRequestListener>
 
 -(TXSettings*)init;
-
--(void)loadSettings;
 
 -(void)initWithDefaults;
 -(void)initWithObject:(NSDictionary*)userProfile;
@@ -50,27 +49,15 @@
                                                 errorDescription:&errorString];
 		if (root == nil) {
             root = [[NSMutableDictionary alloc] initWithCapacity:10];
-            self.isNewInstall = YES;
             NSTimeInterval installDate = ((NSDate*)[NSDate date]).timeIntervalSinceReferenceDate;
             NSString* val = [NSString stringWithFormat:@"%f", installDate];
             [root setObject:val forKey:SettingsConst.Property.LOCALSTG_INSTALLDATE];
             
             [self initWithDefaults];
 		}
-        else {
-            self.isNewInstall = NO;
-        }
-        [self loadSettings];
         
 	}
 	return self;
-}
-
--(void)loadSettings {
-    
-    if ( self.isNewInstall == YES ) {
-        [self saveSettings];
-    }
 }
 
 -(void)saveSettings {
@@ -82,8 +69,8 @@
     [self setProperty:SettingsConst.Property.BASEURL value:@"http://localhost"]; // Me
     [self setProperty:SettingsConst.Property.PORT value:@"8080"];
     
-//    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.254.103"]; // Archvi
-//    [self setProperty:SettingsConst.Property.PORT value:@"8095"];
+    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.254.81"]; // Archvi
+    [self setProperty:SettingsConst.Property.PORT value:@"8095"];
     
     [self setUserName:@"tomcat"];
     [self setPassword:@"tomcat"];
@@ -114,19 +101,23 @@
 }
 
 -(NSString*)getUserName {
-    return [self getProperty:SettingsConst.CryptoKeys.TXCRYPTO_KEY_USER];
+    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_USER
+                       forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(NSString*)getPassword {
-    return [self getProperty:SettingsConst.CryptoKeys.TXCRYPTO_KEY_PWD];
+    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_PWD
+                       forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(void)setUserName:(NSString*)userName {
-    [self setProperty:SettingsConst.CryptoKeys.TXCRYPTO_KEY_USER value:userName];
+    [FDKeychain saveItem:userName forKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_USER
+              forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(void)setPassword:(NSString*)pwd {
-    [self setProperty:SettingsConst.CryptoKeys.TXCRYPTO_KEY_PWD value:pwd];
+    [FDKeychain saveItem:pwd forKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_PWD
+              forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(int) getMaxHTTPConnectionsNumber {

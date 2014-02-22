@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TXPropertyConsts.h"
 
 @interface TXBaseObj : NSObject
 
--(NSDictionary *) propertyMap;
++(id)create;
+-(NSDictionary *) getProperties;
+-(void) setProperties : (NSDictionary *) props;
 
 @end
