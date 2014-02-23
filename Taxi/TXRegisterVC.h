@@ -7,8 +7,9 @@
 // 
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface TXRegisterVC : UIViewController<UITextFieldDelegate>
+@interface TXRegisterVC : UIViewController<UITextFieldDelegate, FBLoginViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *objId;
 @property (strong, nonatomic) IBOutlet UITextField *username;
@@ -20,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *email;
 @property (strong, nonatomic) IBOutlet UITextField *language;
 @property (strong, nonatomic) IBOutlet UITextField *photoURL;
+
+@property (strong, nonatomic) IBOutlet FBLoginView *loginView;
+@property (strong, nonatomic) IBOutlet FBProfilePictureView *userPictureView;
 
 -(IBAction)registerUser:(id)sender;
 -(IBAction)login:(id)sender;

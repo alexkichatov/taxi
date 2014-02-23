@@ -12,6 +12,7 @@
 #import "TXUserModel.h"
 #import "taxiLib/TXFileManager.h"
 #import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation TXAppDelegate
 
@@ -20,8 +21,23 @@
     
     [TXFileManager instance];
     [[TXSettings instance] initWithDefaults];
+    [FBLoginView class];
+    [FBProfilePictureView class];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 

@@ -28,6 +28,69 @@
     self.language.delegate = self;
     self.photoURL.delegate = self;
     self.objId.delegate = self;
+    
+    self.loginView.frame = self.view.bounds; //whatever you want
+    
+    self.loginView.delegate = self;
+
+}
+
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    
+    NSLog(@"Logged In");
+    
+}
+
+-(void)setProfilePicture {
+    [FBSession.activeSession closeAndClearTokenInformation];
+    
+    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
+    
+    [FBSession openActiveSessionWithReadPermissions:permissions
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         NSLog(@"\nfb sdk error = %@", error);
+         switch (state) {
+             case FBSessionStateOpen:
+                 [[FBRequest requestForMe] startWithCompletionHandler:
+                  ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+                      if (!error) {
+                          
+                          self.userPictureView.profileID = [user objectForKey:@"id"];
+                          
+                      }
+                  }];
+                 break;
+//             case FBSessionStateClosed:
+//                 NSLog(@"%@", @"");
+//                 break;
+//             case FBSessionStateClosedLoginFailed:
+//                 //need to handle
+//                 break;
+//             default:
+//                 break;
+         }
+     }];
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    NSLog(@"usr_id::%@",user.id);
+    NSLog(@"usr_first_name::%@",user.first_name);
+    NSLog(@"usr_middle_name::%@",user.middle_name);
+    NSLog(@"usr_last_nmae::%@",user.last_name);
+    NSLog(@"usr_Username::%@",user.username);
+    NSLog(@"usr_b_day::%@",user.birthday);
+    NSLog(@"location::%@",user.location);
+    [self setProfilePicture];
+    
+}
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    // Called after logout
+    NSLog(@"Logged out");
 }
 
 - (void)didReceiveMemoryWarning
