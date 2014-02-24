@@ -25,7 +25,6 @@
 		3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCA9188C13970044A0DC /* TXAppDelegate.m */; };
 		3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCAB188C13970044A0DC /* Main_iPhone.storyboard */; };
 		3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCAE188C13970044A0DC /* Main_iPad.storyboard */; };
-		3865DCB3188C13970044A0DC /* TXRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCB2188C13970044A0DC /* TXRegisterVC.m */; };
 		3865DCB5188C13970044A0DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCB4188C13970044A0DC /* Images.xcassets */; };
 		3865DCBC188C13970044A0DC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DCBB188C13970044A0DC /* XCTest.framework */; };
 		3865DCBD188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
@@ -36,6 +35,12 @@
 		38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4F7F118AD024000D6B2CC /* MapKit.framework */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
 		38D464FA188E9056005B3A74 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38D464F9188E9056005B3A74 /* taxi.bundle */; };
+		38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */; };
+		38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9018BB5FE6004A0E81 /* TXCenterVC.m */; };
+		38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9218BB5FE6004A0E81 /* TXLeftVC.m */; };
+		38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */; };
+		38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */; };
+		38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +106,6 @@
 		3865DCA9188C13970044A0DC /* TXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXAppDelegate.m; sourceTree = "<group>"; };
 		3865DCAC188C13970044A0DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		3865DCAF188C13970044A0DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		3865DCB1188C13970044A0DC /* TXRegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TXRegisterVC.h; path = ../TXRegisterVC.h; sourceTree = "<group>"; };
-		3865DCB2188C13970044A0DC /* TXRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TXRegisterVC.m; path = ../TXRegisterVC.m; sourceTree = "<group>"; };
 		3865DCB4188C13970044A0DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3865DCBA188C13970044A0DC /* TaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3865DCBB188C13970044A0DC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -113,6 +116,18 @@
 		38C4F7F118AD024000D6B2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taxiLib.xcodeproj; path = taxiLib/taxiLib.xcodeproj; sourceTree = "<group>"; };
 		38D464F9188E9056005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = taxi.bundle; path = taxiLib/taxi.bundle; sourceTree = "<group>"; };
+		38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRegisterVC.h; sourceTree = "<group>"; };
+		38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRegisterVC.m; sourceTree = "<group>"; };
+		38D6DF8F18BB5FE6004A0E81 /* TXCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCenterVC.h; sourceTree = "<group>"; };
+		38D6DF9018BB5FE6004A0E81 /* TXCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCenterVC.m; sourceTree = "<group>"; };
+		38D6DF9118BB5FE6004A0E81 /* TXLeftVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLeftVC.h; sourceTree = "<group>"; };
+		38D6DF9218BB5FE6004A0E81 /* TXLeftVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLeftVC.m; sourceTree = "<group>"; };
+		38D6DF9318BB5FE6004A0E81 /* TXRightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRightVC.h; sourceTree = "<group>"; };
+		38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRightVC.m; sourceTree = "<group>"; };
+		38D6DF9518BB5FE6004A0E81 /* TXSidePanelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSidePanelVC.h; sourceTree = "<group>"; };
+		38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSidePanelVC.m; sourceTree = "<group>"; };
+		38D6DF9918BB5FE6004A0E81 /* UIViewController+TXSidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TXSidePanel.h"; sourceTree = "<group>"; };
+		38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TXSidePanel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +175,9 @@
 		3827824518B8E8560036238A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3865DCB1188C13970044A0DC /* TXRegisterVC.h */,
-				3865DCB2188C13970044A0DC /* TXRegisterVC.m */,
+				38D6DF8A18BB5FA9004A0E81 /* LeftMenu */,
+				38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */,
+				38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +288,23 @@
 				38D464A1188E7EC2005B3A74 /* taxiLibTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		38D6DF8A18BB5FA9004A0E81 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				38D6DF8F18BB5FE6004A0E81 /* TXCenterVC.h */,
+				38D6DF9018BB5FE6004A0E81 /* TXCenterVC.m */,
+				38D6DF9118BB5FE6004A0E81 /* TXLeftVC.h */,
+				38D6DF9218BB5FE6004A0E81 /* TXLeftVC.m */,
+				38D6DF9318BB5FE6004A0E81 /* TXRightVC.h */,
+				38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */,
+				38D6DF9518BB5FE6004A0E81 /* TXSidePanelVC.h */,
+				38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */,
+				38D6DF9918BB5FE6004A0E81 /* UIViewController+TXSidePanel.h */,
+				38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */,
+			);
+			path = LeftMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,14 +434,19 @@
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
-				3865DCB3188C13970044A0DC /* TXRegisterVC.m in Sources */,
+				38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
 				3827824118B8D5F40036238A /* TXUser.m in Sources */,
+				38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
 				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
+				38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */,
 				3827823218B8CE920036238A /* TXVM.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
+				38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */,
+				38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */,
 				3827823318B8CE920036238A /* Types.m in Sources */,
+				38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
