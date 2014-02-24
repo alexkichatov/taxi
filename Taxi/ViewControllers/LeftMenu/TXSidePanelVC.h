@@ -15,8 +15,7 @@ typedef enum _TXSidePanelStyle {
 
 typedef enum _TXSidePanelState {
     TXSidePanelCenterVisible = 1,
-    TXSidePanelLeftVisible,
-    TXSidePanelRightVisible
+    TXSidePanelLeftVisible = 2
 } TXSidePanelState;
 
 @interface TXSidePanelVC : UIViewController<UIGestureRecognizerDelegate>
@@ -26,21 +25,17 @@ typedef enum _TXSidePanelState {
 // set the panels
 @property (nonatomic, strong) UIViewController *leftPanel;   // optional
 @property (nonatomic, strong) UIViewController *centerPanel; // required
-@property (nonatomic, strong) UIViewController *rightPanel;  // optional
 
 // show the panels
 - (void)showLeftPanel:(BOOL)animated __attribute__((deprecated("Use -showLeftPanelAnimated: instead")));
-- (void)showRightPanel:(BOOL)animated __attribute__((deprecated("Use -showRightPanelAnimated: instead")));
 - (void)showCenterPanel:(BOOL)animated __attribute__((deprecated("Use -showCenterPanelAnimated: instead")));
 
 // show the panels
 - (void)showLeftPanelAnimated:(BOOL)animated;
-- (void)showRightPanelAnimated:(BOOL)animated;
 - (void)showCenterPanelAnimated:(BOOL)animated;
 
 // toggle them opened/closed
 - (void)toggleLeftPanel:(id)sender;
-- (void)toggleRightPanel:(id)sender;
 
 // Calling this while the left or right panel is visible causes the center panel to be completely hidden
 - (void)setCenterPanelHidden:(BOOL)centerPanelHidden animated:(BOOL)animated duration:(NSTimeInterval) duration;

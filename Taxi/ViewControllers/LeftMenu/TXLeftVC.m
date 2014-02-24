@@ -13,14 +13,9 @@
 #import "TXRightVC.h"
 #import "TXCenterVC.h"
 
-@interface TXLeftVC ()
-
-@property (nonatomic, weak) UILabel *label;
-@property (nonatomic, weak) UIButton *hide;
-@property (nonatomic, weak) UIButton *show;
-@property (nonatomic, weak) UIButton *removeRightPanel;
-@property (nonatomic, weak) UIButton *addRightPanel;
-@property (nonatomic, weak) UIButton *changeCenterPanel;
+@interface TXLeftVC () {
+    NSMutableArray *items;
+}
 
 @end
 
@@ -28,30 +23,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor blueColor];
 	
-	UILabel *label  = [[UILabel alloc] init];
-    label.font = [UIFont boldSystemFontOfSize:20.0f];
-    label.textColor = [UIColor whiteColor];
-    label.backgroundColor = [UIColor clearColor];
-	label.text = @"Left Panel";
-	[label sizeToFit];
-	label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [self.view addSubview:label];
-    self.label = label;
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(20.0f, 170.0f, 200.0f, 40.0f);
-    button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-    [button setTitle:@"Change Center Panel" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(_changeCenterPanelTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    self.changeCenterPanel = button;
+    self->items = [NSMutableArray new];
+    [self->items addObject:@"Item 1"];
+    [self->items addObject:@"Item 2"];
+    [self->items addObject:@"Item 3"];
+    [self->items addObject:@"Item 4"];
+    [self->items addObject:@"Item 5"];
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.label.center = CGPointMake(floorf(self.sidePanelController.leftVisibleWidth/2.0f), 25.0f);
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self _changeCenterPanelTapped:nil];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self->items.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"logout" ofType:@"png"]];
+//    
+//    CGFloat widthScale = 25 / image.size.width;
+//    CGFloat heightScale = 25 / image.size.height;
+//    ((UIImageView*)[cell viewWithTag:1]).transform = CGAffineTransformMakeScale(widthScale, heightScale);
+    ((UIImageView*)[cell viewWithTag:1]).image = image;
+
+
+    
+    
+    ((UILabel*)[cell viewWithTag:2]).text = [self->items objectAtIndex:indexPath.row];
+
+    return cell;
+    
 }
 
 #pragma mark - Button Actions

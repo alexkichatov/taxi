@@ -6,13 +6,8 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-@interface TXLeftVC : UIViewController
+@interface TXLeftVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak, readonly) UILabel *label;
-@property (nonatomic, weak, readonly) UIButton *hide;
-@property (nonatomic, weak, readonly) UIButton *show;
-@property (nonatomic, weak, readonly) UIButton *removeRightPanel;
-@property (nonatomic, weak, readonly) UIButton *addRightPanel;
-@property (nonatomic, weak, readonly) UIButton *changeCenterPanel;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @end

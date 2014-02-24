@@ -31,6 +31,8 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
+		388D6D7D18BB865C0099C1C2 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 388D6D7C18BB865C0099C1C2 /* logout.png */; };
+		388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */; };
 		38BE647318AA7265006BD587 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
 		38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4F7F118AD024000D6B2CC /* MapKit.framework */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
@@ -112,6 +114,9 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
+		388D6D7C18BB865C0099C1C2 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		388D6D8218BB89F40099C1C2 /* TXVCSharedUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXVCSharedUtil.h; sourceTree = "<group>"; };
+		388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXVCSharedUtil.m; sourceTree = "<group>"; };
 		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		38C4F7F118AD024000D6B2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taxiLib.xcodeproj; path = taxiLib/taxiLib.xcodeproj; sourceTree = "<group>"; };
@@ -175,6 +180,8 @@
 		3827824518B8E8560036238A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				388D6D8118BB89D40099C1C2 /* util */,
+				388D6D7818BB83880099C1C2 /* img */,
 				38D6DF8A18BB5FA9004A0E81 /* LeftMenu */,
 				38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */,
 				38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */,
@@ -279,6 +286,23 @@
 				3827822E18B8CE920036238A /* Types.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		388D6D7818BB83880099C1C2 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				388D6D7C18BB865C0099C1C2 /* logout.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		388D6D8118BB89D40099C1C2 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				388D6D8218BB89F40099C1C2 /* TXVCSharedUtil.h */,
+				388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 		38D4649A188E7EC2005B3A74 /* Products */ = {
@@ -413,6 +437,7 @@
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,
 				3865DCA4188C13970044A0DC /* InfoPlist.strings in Resources */,
+				388D6D7D18BB865C0099C1C2 /* logout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
+				388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
 				38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */,
