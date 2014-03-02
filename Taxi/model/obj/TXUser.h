@@ -23,5 +23,7 @@
 @property (nonatomic, retain) NSDate  * modificationDate;
 @property (nonatomic, retain) NSString* language;
 @property (nonatomic, retain) NSString* photoURL;
+@property (nonatomic, retain) NSString* providerUserId;
+@property (nonatomic, retain) NSString* providerId;
 
 @end

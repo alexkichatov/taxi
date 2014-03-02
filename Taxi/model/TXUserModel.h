@@ -8,6 +8,7 @@
 
 #import "TXUser.h"
 #import "TXModelBase.h"
+#import "TXConsts.h"
 
 @interface TXUserModel : TXModelBase
 
@@ -18,6 +19,7 @@
 +(TXUserModel *) instance;
 -(void) registerUser : (TXUser *) user;
 -(void) login : (NSString *) username andPass : (NSString *) pwd;
+-(void) loginWithProvider:(TXUser *) user;
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;

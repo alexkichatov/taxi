@@ -24,8 +24,16 @@ extern const struct API_JSON {
     struct {
         __unsafe_unretained NSString* USERNAME;
         __unsafe_unretained NSString* PASSWORD;
+        __unsafe_unretained NSString* PROVIDERUSERID;
+        __unsafe_unretained NSString* PROVIDERID;
+        __unsafe_unretained NSString* LOGINWITHPROVIDER;
         
     } Authenticate;
     
-    
 } API_JSON;
+
+extern const struct PROVIDERS {
+    
+    __unsafe_unretained NSString* FACEBOOK;
+    
+} PROVIDERS;

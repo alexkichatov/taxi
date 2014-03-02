@@ -24,7 +24,16 @@ const struct API_JSON API_JSON = {
     
     .Authenticate = {
         .USERNAME = @"username",
-        .PASSWORD = @"password"
+        .PASSWORD = @"password",
+        .PROVIDERUSERID = @"providerUserId",
+        .PROVIDERID = @"providerId",
+        .LOGINWITHPROVIDER = @"loginWithProvider"
     }
+    
+};
+
+const struct PROVIDERS PROVIDERS = {
+    
+    .FACEBOOK = @"http://www.facebook.com"
     
 };

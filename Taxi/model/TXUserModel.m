@@ -8,7 +8,6 @@
 
 #import "TXUserModel.h"
 #import "taxiLib/utils.h"
-#import "TXConsts.h"
 #import "Types.h"
 
 @implementation TXUserModel
@@ -48,11 +47,38 @@
 
     NSDictionary *propertyMap = @{ API_JSON.Authenticate.USERNAME : username, API_JSON.Authenticate.PASSWORD : pwd };
     
+    NSDictionary *attributes = @{
+                                 API_JSON.Authenticate.LOGINWITHPROVIDER : [NSNumber numberWithBool:NO]
+                                 };
+    
     NSDictionary *jsonObj = @{
                               API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_OTHER],
-                              API_JSON.Keys.ATTR  : [NSNull null],
+                              API_JSON.Keys.ATTR  : attributes,
                               API_JSON.Keys.DATA  : propertyMap
                               };
+    
+    request.body = getJSONStr(jsonObj);
+    [self sendAsyncRequest:request];
+    
+}
+
+-(void)loginWithProvider:(TXUser *) user {
+    
+    TXRequestObj *request            = [self createRequest:HTTP_API.AUTHENTICATE];
+    
+    NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
+    [propertyMap removeObjectForKey:TXPropertyConsts.User.OBJID];
+    [propertyMap removeObjectForKey:TXPropertyConsts.User.STATUSID];
+    
+    NSDictionary *attributes = @{
+                                    API_JSON.Authenticate.LOGINWITHPROVIDER : [NSNumber numberWithBool:YES]
+                                };
+    
+    NSDictionary *jsonObj = @{
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:OPERATION_OTHER],
+                                API_JSON.Keys.ATTR  : attributes,
+                                API_JSON.Keys.DATA  : propertyMap
+                             };
     
     request.body = getJSONStr(jsonObj);
     [self sendAsyncRequest:request];

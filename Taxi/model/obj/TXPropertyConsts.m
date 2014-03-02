@@ -22,6 +22,8 @@ const struct TXPropertyConsts TXPropertyConsts = {
                 .CREATEDATE = @"createDate",
                 .MODIFICATIONDATE = @"modificationDate",
                 .LANGUAGE = @"language",
-                .PHOTOURL = @"photoURL"
+                .PHOTOURL = @"photoURL",
+                .PROVIDERUSERID = @"providerUserId",
+                .PROVIDERID = @"providerId",
     }
 };

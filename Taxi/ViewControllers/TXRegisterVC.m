@@ -9,7 +9,9 @@
 #import "TXRegisterVC.h"
 #import "TXUserModel.h"
 
-@interface TXRegisterVC ()
+@interface TXRegisterVC () {
+    BOOL isFirstLoginDone;
+}
 
 @end
 
@@ -38,32 +40,27 @@
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     
-//    FBSession *fbSession = [FBSession activeSession];
-//    NSString *accessToken = [fbSession accessTokenData].accessToken;
-//    NSMutableData *imageData = nil;
-//    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token=%@", accessToken]];
-//    
-//    TXRequestObj *obj = [TXRequestObj initWithConfig:@"fbgraph" andListener:nil];
-//        
-//    obj.baseURL = [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token=%@", accessToken];
-//    obj.reqConfig = [[TXRequestConfig alloc] init];
-//    obj.reqConfig.httpMethod = @"GET";
-//    imageData = [[TXHttpRequestManager instance] sendSyncRequest:obj];
-    
+    self->isFirstLoginDone = YES;
     NSLog(@"Logged In");
 
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    NSLog(@"usr_id::%@",user.id);
-    NSLog(@"usr_first_name::%@",user.first_name);
-    NSLog(@"usr_middle_name::%@",user.middle_name);
-    NSLog(@"usr_last_nmae::%@",user.last_name);
-    NSLog(@"usr_Username::%@",user.username);
-    NSLog(@"usr_b_day::%@",user.birthday);
-    NSLog(@"location::%@",user.location);
 
+    if(self->isFirstLoginDone == NO) {
+    
+        TXUser *txUser = [[TXUser alloc] init];
+        txUser.providerUserId = user.id;
+        txUser.providerId     = PROVIDERS.FACEBOOK;
+        txUser.name           = user.first_name;
+        txUser.surname        = user.last_name;
+        txUser.language       = @"ka";
+        
+        [[TXUserModel instance] loginWithProvider:txUser];
+        
+    }
+    
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
@@ -85,12 +82,12 @@
     
     user.username = self.username.text;
     user.password = self.password.text;
-    user.mobile = self.mobile.text;
-    user.name = self.name.text;
-    user.surname = self.surname.text;
-    user.note = self.note.text;
+    user.mobile   = self.mobile.text;
+    user.name     = self.name.text;
+    user.surname  = self.surname.text;
+    user.note     = self.note.text;
     user.photoURL = self.photoURL.text;
-    user.email = self.email.text;
+    user.email    = self.email.text;
     user.language = self.language.text;
     
     [[TXUserModel instance] registerUser:user];
@@ -110,12 +107,12 @@
     user.objId    = [self.objId.text intValue];
     user.username = self.username.text;
     user.password = self.password.text;
-    user.mobile = self.mobile.text;
-    user.name = self.name.text;
-    user.surname = self.surname.text;
-    user.note = self.note.text;
+    user.mobile   = self.mobile.text;
+    user.name     = self.name.text;
+    user.surname  = self.surname.text;
+    user.note     = self.note.text;
     user.photoURL = self.photoURL.text;
-    user.email = self.email.text;
+    user.email    = self.email.text;
     user.language = self.language.text;
     
     [[TXUserModel instance] update:user];

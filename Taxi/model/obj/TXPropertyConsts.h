@@ -23,6 +23,8 @@ extern const struct TXPropertyConsts {
         __unsafe_unretained NSString* MODIFICATIONDATE;
         __unsafe_unretained NSString* LANGUAGE;
         __unsafe_unretained NSString* PHOTOURL;
+        __unsafe_unretained NSString* PROVIDERUSERID;
+        __unsafe_unretained NSString* PROVIDERID;
         
     } User;
     

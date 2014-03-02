@@ -21,9 +21,7 @@
     
     [TXFileManager instance];
     [[TXSettings instance] initWithDefaults];
-    [FBLoginView class];
-    [FBProfilePictureView class];
-    
+   
     return YES;
 }
 
