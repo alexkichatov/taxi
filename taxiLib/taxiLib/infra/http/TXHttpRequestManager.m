@@ -41,6 +41,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
         NSMutableDictionary *config = [root objectForKey:cfgName];
         if ( config != nil ) {
             reqConfig.name = cfgName;
+            reqConfig.local = [[config objectForKey:@"local"] boolValue];
             reqConfig.headers = [config objectForKey:@"headers"];
             reqConfig.httpMethod = [config objectForKey:@"httpMethod"];
             reqConfig.url = [config objectForKey:@"url"];
@@ -101,10 +102,20 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 //request config tells us if we need to prepend default url base or not. used for external requests, such as weather underground.
 -(void)setRequestURLStr
 {
-    if ( self.reqConfig.hasUrlBase == NO )
-        self.reqUrl = self.reqConfig.url;
-    else
-        self.reqUrl = [NSString stringWithFormat:@"%@%@", self.baseURL, self.reqConfig.url];
+    
+    if(self.reqConfig.local == YES) {
+    
+        if ( self.reqConfig.hasUrlBase == NO )
+            self.reqUrl = self.reqConfig.url;
+        else
+            self.reqUrl = [NSString stringWithFormat:@"%@%@", self.baseURL, self.reqConfig.url];
+        
+    } else {
+        
+        self.reqUrl = [NSString stringWithFormat:self.reqConfig.url, self.urlParams];
+        
+    }
+    
 }
 
 -(NSMutableURLRequest*)createHTTPRequest {

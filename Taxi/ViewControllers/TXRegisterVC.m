@@ -38,42 +38,20 @@
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     
+//    FBSession *fbSession = [FBSession activeSession];
+//    NSString *accessToken = [fbSession accessTokenData].accessToken;
+//    NSMutableData *imageData = nil;
+//    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token=%@", accessToken]];
+//    
+//    TXRequestObj *obj = [TXRequestObj initWithConfig:@"fbgraph" andListener:nil];
+//        
+//    obj.baseURL = [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token=%@", accessToken];
+//    obj.reqConfig = [[TXRequestConfig alloc] init];
+//    obj.reqConfig.httpMethod = @"GET";
+//    imageData = [[TXHttpRequestManager instance] sendSyncRequest:obj];
+    
     NSLog(@"Logged In");
-    
-}
 
--(void)setProfilePicture {
-    [FBSession.activeSession closeAndClearTokenInformation];
-    
-    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
-    
-    [FBSession openActiveSessionWithReadPermissions:permissions
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         NSLog(@"\nfb sdk error = %@", error);
-         switch (state) {
-             case FBSessionStateOpen:
-                 [[FBRequest requestForMe] startWithCompletionHandler:
-                  ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-                      if (!error) {
-                          
-                          self.userPictureView.profileID = [user objectForKey:@"id"];
-                          
-                      }
-                  }];
-                 break;
-//             case FBSessionStateClosed:
-//                 NSLog(@"%@", @"");
-//                 break;
-//             case FBSessionStateClosedLoginFailed:
-//                 //need to handle
-//                 break;
-//             default:
-//                 break;
-         }
-     }];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -85,18 +63,15 @@
     NSLog(@"usr_Username::%@",user.username);
     NSLog(@"usr_b_day::%@",user.birthday);
     NSLog(@"location::%@",user.location);
-    [self setProfilePicture];
-    
+
 }
+
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    // Called after logout
     NSLog(@"Logged out");
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

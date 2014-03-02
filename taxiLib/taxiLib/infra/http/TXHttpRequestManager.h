@@ -66,6 +66,11 @@
 @property (nonatomic, assign) BOOL          hasUrlBase;
 
 /*!
+ @property hasUrlBase, set to NO if request url already consists base url (full url), either YES and url is appended by base url prefix
+ */
+@property (nonatomic, assign) BOOL          local;
+
+/*!
  @property bodyTemplate - format string used ot format actual request body json string
  
  */
@@ -117,6 +122,11 @@
  @property reqConfig, config object for the request
  */
 @property (nonatomic, strong) TXRequestConfig*                reqConfig;
+
+/*!
+ @property reqConfig, config object for the request
+ */
+@property (nonatomic, strong) NSString*                urlParams;
 
 /*!
  @property listener object where the event methods are invoked on async http requests if registered

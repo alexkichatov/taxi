@@ -2,22 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>login</key>
+	<key>fbgraph</key>
 	<dict>
-		<key>hasUrlBase</key>
-		<true/>
-		<key>url</key>
-		<string>/taxiWeb/login</string>
+		<key>local</key>
+		<false/>
 		<key>httpMethod</key>
-		<string>POST</string>
+		<string>GET</string>
 		<key>headers</key>
-		<dict>
-			<key>Authorization</key>
-			<string></string>
-		</dict>
+		<dict/>
+		<key>hasUrlBase</key>
+		<string>NO</string>
+		<key>url</key>
+		<string>https://graph.facebook.com/me/picture?type=large&amp;return_ssl_resources=1&amp;access_token=%@</string>
 	</dict>
 	<key>register</key>
 	<dict>
+		<key>local</key>
+		<true/>
 		<key>hasUrlBase</key>
 		<true/>
 		<key>url</key>
