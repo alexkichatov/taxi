@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "TXRootVC.h"
 
-@interface TXRegisterVC : UIViewController<UITextFieldDelegate, FBLoginViewDelegate>
+@interface TXRegisterVC : TXRootVC<UITextFieldDelegate, FBLoginViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *objId;
 @property (strong, nonatomic) IBOutlet UITextField *username;

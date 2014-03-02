@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3815177E18C364BA005F915C /* TXRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3815177D18C364BA005F915C /* TXRootVC.m */; };
 		3827822F18B8CE920036238A /* TXConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822618B8CE920036238A /* TXConsts.m */; };
 		3827823018B8CE920036238A /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822818B8CE920036238A /* TXModelBase.m */; };
 		3827823118B8CE920036238A /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822A18B8CE920036238A /* TXUserModel.m */; };
@@ -77,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3815177C18C364BA005F915C /* TXRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRootVC.h; sourceTree = "<group>"; };
+		3815177D18C364BA005F915C /* TXRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRootVC.m; sourceTree = "<group>"; };
 		3827822518B8CE920036238A /* TXConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXConsts.h; path = model/TXConsts.h; sourceTree = "<group>"; };
 		3827822618B8CE920036238A /* TXConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXConsts.m; path = model/TXConsts.m; sourceTree = "<group>"; };
 		3827822718B8CE920036238A /* TXModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXModelBase.h; path = model/TXModelBase.h; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				38D6DF8A18BB5FA9004A0E81 /* LeftMenu */,
 				38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */,
 				38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */,
+				3815177C18C364BA005F915C /* TXRootVC.h */,
+				3815177D18C364BA005F915C /* TXRootVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */,
 				3827823218B8CE920036238A /* TXVM.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
+				3815177E18C364BA005F915C /* TXRootVC.m in Sources */,
 				38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */,
 				38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */,
 				3827823318B8CE920036238A /* Types.m in Sources */,
