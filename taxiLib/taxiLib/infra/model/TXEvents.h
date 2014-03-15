@@ -81,8 +81,10 @@ extern const struct TXEvents {
     
     /*************************************** HTTP EVENTS ****************************************************/
     
+    __unsafe_unretained NSString* NULLHTTPREQUEST;
+    __unsafe_unretained NSString* NULLHTTPRESPONSE;
     __unsafe_unretained NSString* HTTPREQUESTFAILED;
-    __unsafe_unretained NSString* HTTPREQUESTSUCCEED;
+    __unsafe_unretained NSString* HTTPREQUESTCOMPLETED;
     __unsafe_unretained NSString* HTTPCONNOPENFAILED;
     
     /*************************************** Event param keys *****************************************************/

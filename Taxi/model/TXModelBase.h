@@ -10,6 +10,7 @@
 #import "taxiLib/TXHttpRequestManager.h"
 #import "taxiLib/TXEventTarget.h"
 #import "TXVM.h"
+#import "TXConsts.h"
 
 @interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
     TXHttpRequestManager *httpMgr;

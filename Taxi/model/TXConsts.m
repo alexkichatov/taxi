@@ -19,7 +19,8 @@ const struct API_JSON API_JSON = {
         .OPER     = @"operation",
         .ATTR     = @"attr",
         .DATA     = @"data",
-        .SUCCESS  = @"success"
+        .SUCCESS  = @"success",
+        .MESSAGE  = @"message"
     },
     
     .Authenticate = {

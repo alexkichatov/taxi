@@ -77,8 +77,10 @@ const struct TXEvents TXEvents = {
     
     /*************************************** HTTP EVENTS ****************************************************/
     
+    .NULLHTTPREQUEST        = @"nullHttpRequest",
+    .NULLHTTPRESPONSE       = @"nullHttpResponse",
     .HTTPREQUESTFAILED      = @"httpRequestFailed",
-    .HTTPREQUESTSUCCEED     = @"httpRequestSucceed",
+    .HTTPREQUESTCOMPLETED     = @"httpRequestCompleted",
     .HTTPCONNOPENFAILED     = @"httpConnectionOpenFailed",
   
     .Params = {

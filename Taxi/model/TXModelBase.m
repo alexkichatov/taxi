@@ -7,6 +7,8 @@
 //
 
 #import "TXModelBase.h"
+#import "taxiLib/utils.h"
+#import "Types.h"
 
 @implementation TXModelBase
 
@@ -21,11 +23,56 @@
 }
 
 -(void)onRequestCompleted:(id)object {
-    NSLog(@"onRequestCompleted not implemented");
+    
+    TXEvent *event = nil;
+    TXRequestObj *request = nil;
+    
+    if(object!=nil) {
+    
+        request                   = (TXRequestObj*)object;
+        NSDictionary *responseObj = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
+        
+        if(responseObj!=nil) {
+        
+            BOOL success = NO;
+            NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithCapacity:2];
+            
+            id successVal = [responseObj objectForKey:API_JSON.Keys.SUCCESS];
+            if(successVal!=nil) {
+                success = [successVal boolValue];
+                [properties setObject:[NSNumber numberWithBool:success] forKey:API_JSON.Keys.SUCCESS];
+            }
+            
+            NSString *data = [responseObj objectForKey:API_JSON.Keys.DATA];
+            
+            if(data!=nil) {
+                [properties setObject:data forKey:API_JSON.Keys.DATA];
+            }
+            
+            event = [TXEvent createEvent:TXEvents.HTTPREQUESTCOMPLETED eventSource:self eventProps:properties];
+            
+        } else {
+            
+            event = [TXEvent createEvent:TXEvents.NULLHTTPRESPONSE eventSource:self eventProps:nil];
+            
+        }
+        
+    } else {
+
+        event = [TXEvent createEvent:TXEvents.NULLHTTPREQUEST eventSource:self eventProps:nil];
+        
+    }
+    
+    
+    [self fireEvent:event];
 }
 
 -(void)onFail:(id)object error:(TXError *)error {
-    NSLog(@"onFail not implemented");
+    
+    NSDictionary *properties  = @{ API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:NO], API_JSON.Keys.MESSAGE : @"Http request failed !" };
+    TXEvent *event            = [TXEvent createEvent:TXEvents.HTTPREQUESTFAILED eventSource:self eventProps:properties];
+    [self fireEvent:event];
+    
 }
 
 -(TXRequestObj *)createRequest:(NSString *)config {

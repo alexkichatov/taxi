@@ -8,7 +8,6 @@
 
 #import "TXUser.h"
 #import "TXModelBase.h"
-#import "TXConsts.h"
 
 @interface TXUserModel : TXModelBase
 

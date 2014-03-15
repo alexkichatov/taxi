@@ -18,6 +18,7 @@ extern const struct API_JSON {
         __unsafe_unretained NSString* ATTR;
         __unsafe_unretained NSString* DATA;
         __unsafe_unretained NSString* SUCCESS;
+        __unsafe_unretained NSString* MESSAGE;
         
     } Keys;
     
