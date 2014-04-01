@@ -76,7 +76,7 @@
 }
 
 -(TXRequestObj *)createRequest:(NSString *)config {
-    return [TXRequestObj initWithConfig:config andListener:self];
+    return [TXRequestObj create:config urlParams:nil listener:self];
 }
 
 -(void)sendAsyncRequest:(TXRequestObj *) request {

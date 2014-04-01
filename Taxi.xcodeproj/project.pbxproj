@@ -18,6 +18,7 @@
 		3827824118B8D5F40036238A /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823E18B8D5F40036238A /* TXUser.m */; };
 		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3827824718BA023D0036238A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827824618BA023D0036238A /* FacebookSDK.framework */; };
+		385E113918EB0B0800AB7570 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
 		3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
 		3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9B188C13970044A0DC /* CoreGraphics.framework */; };
 		3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
@@ -34,8 +35,8 @@
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
 		388D6D7D18BB865C0099C1C2 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 388D6D7C18BB865C0099C1C2 /* logout.png */; };
 		388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */; };
-		38BE647318AA7265006BD587 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
 		38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4F7F118AD024000D6B2CC /* MapKit.framework */; };
+		38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C60B8918D47BEC000A3DD3 /* TXMapVC.m */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
 		38D464FA188E9056005B3A74 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38D464F9188E9056005B3A74 /* taxi.bundle */; };
 		38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */; };
@@ -44,6 +45,7 @@
 		38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */; };
 		38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */; };
 		38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */; };
+		38DABBC518D9AA72005D4AC4 /* TXGoogleAPIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleAPIUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXVCSharedUtil.m; sourceTree = "<group>"; };
 		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		38C4F7F118AD024000D6B2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		38C60B8818D47BEC000A3DD3 /* TXMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMapVC.h; sourceTree = "<group>"; };
+		38C60B8918D47BEC000A3DD3 /* TXMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMapVC.m; sourceTree = "<group>"; };
 		38D46499188E7EC2005B3A74 /* taxiLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taxiLib.xcodeproj; path = taxiLib/taxiLib.xcodeproj; sourceTree = "<group>"; };
 		38D464F9188E9056005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = taxi.bundle; path = taxiLib/taxi.bundle; sourceTree = "<group>"; };
 		38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRegisterVC.h; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSidePanelVC.m; sourceTree = "<group>"; };
 		38D6DF9918BB5FE6004A0E81 /* UIViewController+TXSidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TXSidePanel.h"; sourceTree = "<group>"; };
 		38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TXSidePanel.m"; sourceTree = "<group>"; };
+		38DABBC318D9AA72005D4AC4 /* TXGoogleAPIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXGoogleAPIUtil.h; sourceTree = "<group>"; };
+		38DABBC418D9AA72005D4AC4 /* TXGoogleAPIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXGoogleAPIUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +149,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385E113918EB0B0800AB7570 /* libsqlite3.dylib in Frameworks */,
 				38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */,
-				38BE647318AA7265006BD587 /* libsqlite3.dylib in Frameworks */,
 				38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */,
 				3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */,
 				3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */,
@@ -190,6 +196,8 @@
 				38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */,
 				3815177C18C364BA005F915C /* TXRootVC.h */,
 				3815177D18C364BA005F915C /* TXRootVC.m */,
+				38C60B8818D47BEC000A3DD3 /* TXMapVC.h */,
+				38C60B8918D47BEC000A3DD3 /* TXMapVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 		3865DC9F188C13970044A0DC /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
+				38DABBC118D9AA43005D4AC4 /* util */,
 				3827824518B8E8560036238A /* ViewControllers */,
 				386E137C18954E7400DF4CB8 /* model */,
 				3865DCA8188C13970044A0DC /* TXAppDelegate.h */,
@@ -336,6 +345,15 @@
 			path = LeftMenu;
 			sourceTree = "<group>";
 		};
+		38DABBC118D9AA43005D4AC4 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				38DABBC318D9AA72005D4AC4 /* TXGoogleAPIUtil.h */,
+				38DABBC418D9AA72005D4AC4 /* TXGoogleAPIUtil.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,7 +400,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TX;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = 99S;
 				TargetAttributes = {
 					3865DCB9188C13970044A0DC = {
@@ -466,6 +484,7 @@
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
 				38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */,
+				38DABBC518D9AA72005D4AC4 /* TXGoogleAPIUtil.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
 				3827824118B8D5F40036238A /* TXUser.m in Sources */,
 				38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */,
@@ -480,6 +499,7 @@
 				3827823318B8CE920036238A /* Types.m in Sources */,
 				38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
+				38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +566,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -586,7 +605,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -655,7 +673,6 @@
 		3865DCCF188C13970044A0DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taxi.app/Taxi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -678,7 +695,6 @@
 		3865DCD0188C13970044A0DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taxi.app/Taxi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

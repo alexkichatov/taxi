@@ -13,6 +13,7 @@
 #import "taxiLib/TXFileManager.h"
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "TXGoogleAPIUtil.h"
 
 @implementation TXAppDelegate
 
@@ -21,7 +22,11 @@
     
     [TXFileManager instance];
     [[TXSettings instance] initWithDefaults];
-   
+
+    TXGoogleAPIUtil *googlUtil = [[TXGoogleAPIUtil alloc] init];
+    
+    [googlUtil sendPlaceAutocompleteRequest:@"31%20Marjanishvili" sensor:YES optional:nil];
+    
     return YES;
 }
 

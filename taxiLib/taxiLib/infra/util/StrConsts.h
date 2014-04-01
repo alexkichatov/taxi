@@ -35,7 +35,7 @@ extern const struct SettingsConst {
         __unsafe_unretained NSString* LOCALSTG_ADMINSETTINGS;
         __unsafe_unretained NSString* LOCALSTG_LASTSYNCDATE;
         __unsafe_unretained NSString* LOCALSTG_CURSYNCSTARTDATE;
-
+        __unsafe_unretained NSString* HTTP_API;
     } Property;
     
     

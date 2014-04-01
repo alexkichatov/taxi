@@ -13,6 +13,8 @@
 #import "TXError.h"
 #import "FDKeyChain.h"
 
+static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
+
 @interface TXSettings()<TXHttpRequestListener>
 
 -(TXSettings*)init;
@@ -74,6 +76,12 @@
     
     [self setUserName:@"tomcat"];
     [self setPassword:@"tomcat"];
+    
+    NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:Files.BUNDLE_PATH];
+    NSBundle *thisBundle = [NSBundle bundleWithPath:path];
+    NSString *plistPath = [thisBundle pathForResource:HTTPAPI_PLIST_FILE ofType:@"plist"];
+    NSDictionary* rootObj = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    [self setProperty:SettingsConst.Property.HTTP_API value:rootObj];
     
 }
 

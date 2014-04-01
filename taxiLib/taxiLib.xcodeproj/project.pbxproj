@@ -12,7 +12,6 @@
 		386E139118956D7A00DF4CB8 /* TXSettings.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38DC29EF18902D65006A4396 /* TXSettings.h */; };
 		38BE646818AA6C47006BD587 /* TXSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BE646718AA6C47006BD587 /* TXSqlGenerator.m */; };
 		38BE646B18AA6CAE006BD587 /* DBTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BE646A18AA6CAE006BD587 /* DBTypes.m */; };
-		38BE647118AA7252006BD587 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE646E18AA71D7006BD587 /* libsqlite3.dylib */; };
 		38D46474188E7EC2005B3A74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D46473188E7EC2005B3A74 /* Foundation.framework */; };
 		38D46482188E7EC2005B3A74 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D46481188E7EC2005B3A74 /* XCTest.framework */; };
 		38D46483188E7EC2005B3A74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D46473188E7EC2005B3A74 /* Foundation.framework */; };
@@ -42,6 +41,8 @@
 		38D464F3188E81B5005B3A74 /* TXHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D464F2188E81B5005B3A74 /* TXHttpRequestManager.m */; };
 		38D464F4188E81CC005B3A74 /* TXHttpRequestManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38D464F1188E81B5005B3A74 /* TXHttpRequestManager.h */; };
 		38D464F8188E8274005B3A74 /* TXEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D464F7188E8274005B3A74 /* TXEventTarget.m */; };
+		38DABBC918D9B87F005D4AC4 /* TXGoogleAPIReqManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC818D9B87F005D4AC4 /* TXGoogleAPIReqManager.m */; };
+		38DABBCB18D9C992005D4AC4 /* TXGoogleAPIReqManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38DABBC718D9B87F005D4AC4 /* TXGoogleAPIReqManager.h */; };
 		38DC29F118902D65006A4396 /* TXSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DC29F018902D65006A4396 /* TXSettings.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				38DABBCB18D9C992005D4AC4 /* TXGoogleAPIReqManager.h in CopyFiles */,
 				382A2B4E18B0BF3700A9FB86 /* TXEventTarget.h in CopyFiles */,
 				386E139118956D7A00DF4CB8 /* TXSettings.h in CopyFiles */,
 				38D464F4188E81CC005B3A74 /* TXHttpRequestManager.h in CopyFiles */,
@@ -123,6 +125,8 @@
 		38D464F5188E822F005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
 		38D464F6188E8274005B3A74 /* TXEventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXEventTarget.h; sourceTree = "<group>"; };
 		38D464F7188E8274005B3A74 /* TXEventTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXEventTarget.m; sourceTree = "<group>"; };
+		38DABBC718D9B87F005D4AC4 /* TXGoogleAPIReqManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXGoogleAPIReqManager.h; sourceTree = "<group>"; };
+		38DABBC818D9B87F005D4AC4 /* TXGoogleAPIReqManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXGoogleAPIReqManager.m; sourceTree = "<group>"; };
 		38DC29EF18902D65006A4396 /* TXSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSettings.h; sourceTree = "<group>"; };
 		38DC29F018902D65006A4396 /* TXSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +136,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38BE647118AA7252006BD587 /* libsqlite3.dylib in Frameworks */,
 				38D46474188E7EC2005B3A74 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +237,7 @@
 		38D464BE188E7FB9005B3A74 /* infra */ = {
 			isa = PBXGroup;
 			children = (
+				38DABBC618D9B853005D4AC4 /* google */,
 				38D464F0188E81B5005B3A74 /* http */,
 				38D464BF188E7FB9005B3A74 /* db */,
 				38D464C2188E7FB9005B3A74 /* error */,
@@ -305,6 +309,15 @@
 			path = http;
 			sourceTree = "<group>";
 		};
+		38DABBC618D9B853005D4AC4 /* google */ = {
+			isa = PBXGroup;
+			children = (
+				38DABBC718D9B87F005D4AC4 /* TXGoogleAPIReqManager.h */,
+				38DABBC818D9B87F005D4AC4 /* TXGoogleAPIReqManager.m */,
+			);
+			path = google;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,7 +362,7 @@
 		38D46468188E7EC2005B3A74 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = 99S;
 			};
 			buildConfigurationList = 38D4646B188E7EC2005B3A74 /* Build configuration list for PBXProject "taxiLib" */;
@@ -394,6 +407,7 @@
 				38BE646818AA6C47006BD587 /* TXSqlGenerator.m in Sources */,
 				38D464E0188E7FB9005B3A74 /* utils.m in Sources */,
 				38D464DE188E7FB9005B3A74 /* StrConsts.m in Sources */,
+				38DABBC918D9B87F005D4AC4 /* TXGoogleAPIReqManager.m in Sources */,
 				38D464DC188E7FB9005B3A74 /* TXEvent.m in Sources */,
 				38DC29F118902D65006A4396 /* TXSettings.m in Sources */,
 				3827822218B8C9FC0036238A /* FDKeyChain.m in Sources */,
@@ -438,7 +452,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -476,7 +489,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -531,7 +543,6 @@
 		38D46497188E7EC2005B3A74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -552,7 +563,6 @@
 		38D46498188E7EC2005B3A74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

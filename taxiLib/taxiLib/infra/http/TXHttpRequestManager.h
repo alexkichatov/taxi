@@ -89,7 +89,7 @@
 
 @interface TXRequestObj : NSObject
 {
-	int                                                 expectedContLen;//set by response handler. Used by delegate
+	int expectedContLen;//set by response handler. Used by delegate
 }
 
 
@@ -159,14 +159,18 @@
 @property (nonatomic, assign) int               attemptCount;
 
 /*!
- @function initWithConfig creates the instance of http request object
+ @function create creates the instance of http request object
  with the specified AMDCReqConfig object that is created according passed
  string parameter configName
- @param fileDownloadListener
- @param configName
+ @param config
+ @param urlParams
+ @param listener
  */
-+(id) initWithConfig : (NSString *) configName andListener:(id<TXHttpRequestListener>) listener;
++(id) create:(NSString *)config urlParams:(NSString *)urlParams listener:(id<TXHttpRequestListener>) listener;
 
+/*!
+ @function createHTTPRequest creates the NSMutableURLRequest instance
+ */
 -(NSMutableURLRequest*)createHTTPRequest;
 
 @end

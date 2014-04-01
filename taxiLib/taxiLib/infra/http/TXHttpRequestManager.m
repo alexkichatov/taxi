@@ -23,24 +23,22 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 @synthesize name, url, httpMethod, headers, hasUrlBase, bodyTemplate;
 
 
-+(TXRequestConfig *) configForName:(NSString*) cfgName{
++(TXRequestConfig *) configForName:(NSString*) name{
     
-    NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:Files.BUNDLE_PATH];
-    NSBundle *thisBundle = [NSBundle bundleWithPath:path];
-    NSString *plistPath = [thisBundle pathForResource:HTTPAPI_PLIST_FILE ofType:@"plist"];
-    NSMutableDictionary* root = [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
+    NSDictionary* root = [[[TXApp instance] getSettings] getProperty:SettingsConst.Property.HTTP_API];
     
     if ( [root count] > 0 ) {
         
-        if( [cfgName length]==0 ) {
-            cfgName = DEFAULT_CONFIG;
+        if( [name length]==0 ) {
+            name = DEFAULT_CONFIG;
         }
         
         TXRequestConfig *reqConfig = [[TXRequestConfig alloc] init];
         
-        NSMutableDictionary *config = [root objectForKey:cfgName];
+        NSMutableDictionary *config = [root objectForKey:name];
+        
         if ( config != nil ) {
-            reqConfig.name = cfgName;
+            reqConfig.name = name;
             reqConfig.local = [[config objectForKey:@"local"] boolValue];
             reqConfig.headers = [config objectForKey:@"headers"];
             reqConfig.httpMethod = [config objectForKey:@"httpMethod"];
@@ -61,60 +59,45 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 @interface TXRequestObj() {
     TXSettings *settings;
 }
-
--(void) initializeWithConfig: (NSString *) configName andListener:(id<TXHttpRequestListener>) listenerObj;
--(void) setRequestURLStr;
-
+-(id) initWithConfig:(NSString *)config urlParams:(NSString *)urlParams_ listener:(id<TXHttpRequestListener>) listener_;
 @end
 
 @implementation TXRequestObj
 
 @synthesize	reqUrl, receivedData, listener, target, reqConfig, body;
 
-
-
-+(id) initWithConfig : (NSString *) configName andListener:(id<TXHttpRequestListener>) listener {
++(id) create:(NSString *)config urlParams:(NSString *)urlParams listener:(id<TXHttpRequestListener>) listener {
     
-    if ( configName.length == 0 ) {
+    if ( config.length == 0 ) {
         return nil;
     }
     
-    TXRequestObj *obj = [[self alloc] init];
-    if(obj!=nil) {
-        [obj initializeWithConfig:configName andListener:listener];
-    }
+    return [[self alloc] initWithConfig:config urlParams:urlParams listener:listener];
     
-    return obj;
 }
 
--(void) initializeWithConfig: (NSString *) configName andListener:(id<TXHttpRequestListener>) listenerObj {
-    self.listener = listenerObj;
-    self.reqConfig = [TXRequestConfig configForName:configName];
+-(id) initWithConfig:(NSString *)config urlParams:(NSString *)urlParams_ listener:(id<TXHttpRequestListener>) listener_ {
     
-    settings = [[TXApp instance] getSettings];
-    self.baseURL = [NSString stringWithFormat:@"%@:%@", [settings getProperty:SettingsConst.Property.BASEURL],
-                        [settings getProperty:SettingsConst.Property.PORT]];
+    if(self = [super init]) {
     
-    [self setRequestURLStr];
-    self.attemptCount = 0;
-}
+        self.listener = listener_;
+        self.reqConfig = [TXRequestConfig configForName:config];
+        self.urlParams = urlParams_;
 
-//request config tells us if we need to prepend default url base or not. used for external requests, such as weather underground.
--(void)setRequestURLStr
-{
-    
-    if(self.reqConfig.local == YES) {
-    
-        if ( self.reqConfig.hasUrlBase == NO )
-            self.reqUrl = self.reqConfig.url;
-        else
+        settings = [[TXApp instance] getSettings];
+        
+        if(self.reqConfig.hasUrlBase == YES) {
+            self.baseURL = [NSString stringWithFormat:@"%@:%@", [settings getProperty:SettingsConst.Property.BASEURL], [settings getProperty:SettingsConst.Property.PORT]];
             self.reqUrl = [NSString stringWithFormat:@"%@%@", self.baseURL, self.reqConfig.url];
+        } else {
+            self.reqUrl = [NSString stringWithFormat:self.reqConfig.url, self.urlParams];
+        }
         
-    } else {
-        
-        self.reqUrl = [NSString stringWithFormat:self.reqConfig.url, self.urlParams];
+        self.attemptCount = 0;
         
     }
+    
+    return self;
     
 }
 
@@ -127,7 +110,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
         int timeOutSecs = rqCfg.timeOut != nil ? [rqCfg.timeOut intValue] : DEFTIMEOUT;
         NSMutableURLRequest *httpRequest = [[NSMutableURLRequest alloc] initWithURL: pathURL
                                                                         cachePolicy: NSURLRequestReloadIgnoringLocalCacheData
-                                                                    timeoutInterval: timeOutSecs];
+                                                                        timeoutInterval: timeOutSecs];
         
         [httpRequest setHTTPMethod: rqCfg.httpMethod];
         

@@ -34,7 +34,8 @@ const struct SettingsConst  SettingsConst = {
         .LOCALSTG_CURSYNCSTARTDATE      = @"currentSyncBegunAt",
         .BACKENDCODE                    = @"code",
         .BACKENDSRC                     = @"backendSource",
-        .DEFAULT_BACKEND_NAME           = @"defaultBackend"
+        .DEFAULT_BACKEND_NAME           = @"defaultBackend",
+        .HTTP_API                       = @"httpAPI",
     }
 };
 
