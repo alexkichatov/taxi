@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad
 {
+    self.view.userInteractionEnabled = TRUE;
     [super viewDidLoad];
     
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
@@ -41,6 +42,10 @@
     
     // Optional: declare signIn.actions, see "app activities"
     signIn.delegate = self;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [[self view] endEditing:YES];
 }
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth

@@ -78,6 +78,7 @@
 		38C0ECF718EC595B00AFE860 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECF618EC595B00AFE860 /* MediaPlayer.framework */; };
 		38C0ECF918EC596200AFE860 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECF818EC596200AFE860 /* Security.framework */; };
 		38C0ECFB18EC596E00AFE860 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECFA18EC596E00AFE860 /* SystemConfiguration.framework */; };
+		38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECFC18EC636900AFE860 /* defaultbg.jpg */; };
 		38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4F7F118AD024000D6B2CC /* MapKit.framework */; };
 		38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C60B8918D47BEC000A3DD3 /* TXMapVC.m */; };
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
@@ -240,6 +241,7 @@
 		38C0ECF618EC595B00AFE860 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		38C0ECF818EC596200AFE860 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		38C0ECFA18EC596E00AFE860 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		38C0ECFC18EC636900AFE860 /* defaultbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultbg.jpg; sourceTree = "<group>"; };
 		38C4F7F118AD024000D6B2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		38C60B8818D47BEC000A3DD3 /* TXMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMapVC.h; sourceTree = "<group>"; };
 		38C60B8918D47BEC000A3DD3 /* TXMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMapVC.m; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 		388D6D7818BB83880099C1C2 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				38C0ECFC18EC636900AFE860 /* defaultbg.jpg */,
 				38C0ECE318EC48CE00AFE860 /* back.png */,
 				388D6D7C18BB865C0099C1C2 /* logout.png */,
 			);
@@ -782,6 +785,7 @@
 				385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */,
 				3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
+				38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,
 				385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */,
 				38C0ECE418EC48CE00AFE860 /* back.png in Resources */,
