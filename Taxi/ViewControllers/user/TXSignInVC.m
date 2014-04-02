@@ -48,6 +48,18 @@
     [[self view] endEditing:YES];
 }
 
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if(interfaceOrientation == UIInterfaceOrientationPortrait)
+        return YES;
+    
+    return NO;
+}
+
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error {
     NSLog(@"Received error %@ and auth object %@",error, auth);

@@ -40,4 +40,8 @@
     [[self view] endEditing:YES];
 }
 
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+
 @end
