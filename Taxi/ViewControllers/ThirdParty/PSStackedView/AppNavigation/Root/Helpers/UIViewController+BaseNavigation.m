@@ -57,20 +57,17 @@
         
         UIViewController *currentController = self;
         UIViewController *baseViewController = creationBlock();
-//        if ([baseViewController respondsToSelector:@selector(setAppearanceDelegate:)] && [self conformsToProtocol:@protocol(TXAppearanceDelegate)])
-//            [baseViewController performSelector:@selector(setAppearanceDelegate:) withObject:self];
+
         [stackedViewController pushViewController:baseViewController fromViewController:currentController animated:YES];
         if (completionBlock)
             completionBlock();
     }
     else
     {
-//        if ([self.parentViewController isKindOfClass:[TXSectionedContainerViewController class]]) {
-//            [stackedViewController popToViewController:self.parentViewController animated:YES];
-//        }else {
-            [stackedViewController popToViewController:self animated:YES];
-       // }
-        if (completionBlock)
+
+        [stackedViewController popToViewController:self animated:YES];
+       
+         if (completionBlock)
             completionBlock();
     }
 }

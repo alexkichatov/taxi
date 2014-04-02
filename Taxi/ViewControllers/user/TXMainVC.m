@@ -7,8 +7,13 @@
 //
 
 #import "TXMainVC.h"
+#import "TXSignInVC.h"
+#import "TXSignUpVC.h"
 
 @interface TXMainVC ()
+
+-(IBAction)signUp:(id)sender;
+-(IBAction)signIn:(id)sender;
 
 @end
 
@@ -18,7 +23,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -26,24 +30,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)signIn:(id)sender {
+    
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil] instantiateViewControllerWithIdentifier:@"SignInNavController"] animated:YES completion:nil];
+  //  [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignInVC class])] animated:YES];
+    
+    /*
+    [self pushViewControllerAndPopPrevious:^UIViewController *{
+        return [[self->app iPhoneStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignInVC class])];
+    } completionBlock:nil];
+     */
 }
-*/
+
+-(void)signUp:(id)sender {
+   
+    [self presentViewController:[[UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil] instantiateViewControllerWithIdentifier:@"SignUpNavController"] animated:YES completion:nil];
+    //[self.navigationController pushViewController:[[self->app iPhoneStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignUpVC class])] animated:YES];
+    /*
+    [self pushViewControllerAndPopPrevious:^UIViewController *{
+        return [[self->app iPhoneStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignUpVC class])];
+    } completionBlock:nil];
+     */
+}
 
 @end

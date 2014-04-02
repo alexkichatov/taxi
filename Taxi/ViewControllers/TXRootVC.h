@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TXModelBase.h"
+#import "TXBaseViewController.h"
+#import "TXVCSharedUtil.h"
 
-@interface TXRootVC : UIViewController<TXEventListener> {
+@interface TXRootVC : TXBaseViewController<TXEventListener> {
     TXModelBase* model;
+    TXVCSharedUtil* app;
 }
 
 -(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames;

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXBaseVC.h"
+#import "TXRootVC.h"
 
-@interface TXMainVC : TXBaseVC
+@interface TXMainVC : UIViewController
 
 @end

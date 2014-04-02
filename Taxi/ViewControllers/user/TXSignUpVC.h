@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXBaseVC.h"
+#import "TXRootVC.h"
 
-@interface TXSignUpVC : TXBaseVC
+@interface TXSignUpVC : TXRootVC
 
 @end
