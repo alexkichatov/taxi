@@ -101,7 +101,7 @@ const struct SyncConsts SyncConsts = {
         .VNULL              = @"null"
     },
     
-    .SYNC_AMFAPPUID         = @"amfAppUID",
+    .SYNC_TXAPPUID         = @"TXAppUID",
     .DEVICENAME             = @"deviceName",
     .NOTIFICATIONSTOKEN     = @"notificationsToken",
     .DEVICEOS               = @"deviceOS",

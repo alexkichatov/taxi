@@ -40,6 +40,8 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
 
     if(location.length!=0 && radius.length!=0 && rankBy.length!=0) {
     
+        location = [self getSpaceReplacedWithPrcnt20:location];
+        
         NSMutableString *params = [NSMutableString stringWithFormat:@"key=%@", GOOGLE_KEY];
         [params appendFormat:@"&location=%@", location];
         [params appendFormat:@"&radius=%@", radius];
@@ -65,6 +67,8 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     
     if(input.length!=0) {
         
+        input = [self getSpaceReplacedWithPrcnt20:input];
+        
         NSMutableString *params = [NSMutableString stringWithFormat:@"key=%@", GOOGLE_KEY];
         [params appendFormat:@"&input=%@", input];
         [params appendFormat:@"&sensor=%@", (sensor == YES ? @"true" : @"false")];
@@ -87,6 +91,8 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
 -(BOOL) sendPlaceTextSearchRequest:(NSString *) query sensor:(BOOL) sensor optional:(NSString *) parameters {
     
     if(query.length!=0) {
+        
+        query = [self getSpaceReplacedWithPrcnt20:query];
         
         NSMutableString *params = [NSMutableString stringWithFormat:@"key=%@", GOOGLE_KEY];
         [params appendFormat:@"&query=%@", query];
@@ -111,6 +117,8 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     
     if(location.length!=0 && radius.length!=0) {
         
+        location = [self getSpaceReplacedWithPrcnt20:location];
+        
         NSMutableString *params = [NSMutableString stringWithFormat:@"key=%@", GOOGLE_KEY];
         [params appendFormat:@"&location=%@", location];
         [params appendFormat:@"&radius=%@", radius];
@@ -129,6 +137,10 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
         
     }
     
+}
+
+-(NSString *) getSpaceReplacedWithPrcnt20:(NSString *) source {
+    return [source stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 }
 
 -(BOOL) sendAsyncRequest:(TXRequestObj *) request {

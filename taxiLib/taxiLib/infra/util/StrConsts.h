@@ -104,7 +104,7 @@ extern const struct SyncConsts {
         __unsafe_unretained NSString* BACKENDSRC;
     } Value;
     
-    __unsafe_unretained NSString* SYNC_AMFAPPUID;
+    __unsafe_unretained NSString* SYNC_TXAPPUID;
     __unsafe_unretained NSString* DEVICENAME;
     __unsafe_unretained NSString* NOTIFICATIONSTOKEN;
     __unsafe_unretained NSString* DEVICEOS;

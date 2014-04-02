@@ -19,6 +19,38 @@
 		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3827824718BA023D0036238A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827824618BA023D0036238A /* FacebookSDK.framework */; };
 		385E113918EB0B0800AB7570 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
+		385E113D18EC347300AB7570 /* TXBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E113C18EC347300AB7570 /* TXBaseVC.m */; };
+		385E114018EC348F00AB7570 /* TXMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E113F18EC348F00AB7570 /* TXMainVC.m */; };
+		385E114318EC349E00AB7570 /* TXSignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E114218EC349E00AB7570 /* TXSignUpVC.m */; };
+		385E114618EC34AD00AB7570 /* TXSignInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E114518EC34AD00AB7570 /* TXSignInVC.m */; };
+		385E119018EC35C400AB7570 /* TXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E114F18EC35C400AB7570 /* TXAlertView.m */; };
+		385E119118EC35C400AB7570 /* TXStackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115118EC35C400AB7570 /* TXStackedViewController.m */; };
+		385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115518EC35C400AB7570 /* UIView+FindFirstResponder.m */; };
+		385E119318EC35C400AB7570 /* UIView+PSSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115718EC35C400AB7570 /* UIView+PSSizes.m */; };
+		385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115918EC35C400AB7570 /* UIViewController+FindFirstResponder.m */; };
+		385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115B18EC35C400AB7570 /* UIViewController+PSStackedView.m */; };
+		385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115E18EC35C400AB7570 /* TXBaseViewController.m */; };
+		385E119718EC35C400AB7570 /* TXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116018EC35C400AB7570 /* TXRootViewController.m */; };
+		385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E116118EC35C400AB7570 /* AMFRootViewController.xib */; };
+		385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116418EC35C400AB7570 /* TXBaseCell.m */; };
+		385E119A18EC35C400AB7570 /* TXMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116618EC35C400AB7570 /* TXMenuCell.m */; };
+		385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E116718EC35C400AB7570 /* AMFMenuCell.xib */; };
+		385E119C18EC35C400AB7570 /* TXSimpleSubMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116918EC35C400AB7570 /* TXSimpleSubMenuCell.m */; };
+		385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E116A18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib */; };
+		385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116D18EC35C400AB7570 /* TXMenuItemObject.m */; };
+		385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116F18EC35C400AB7570 /* TXObjectPDQ.m */; };
+		385E11A018EC35C400AB7570 /* TXObjectPDQCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117118EC35C400AB7570 /* TXObjectPDQCriteria.m */; };
+		385E11A118EC35C400AB7570 /* UIToolbar+AddItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117318EC35C400AB7570 /* UIToolbar+AddItems.m */; };
+		385E11A218EC35C400AB7570 /* UIViewController+BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117518EC35C400AB7570 /* UIViewController+BaseNavigation.m */; };
+		385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117818EC35C400AB7570 /* TXContainerView.m */; };
+		385E11A418EC35C400AB7570 /* TXStackedViewGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117B18EC35C400AB7570 /* TXStackedViewGlobal.m */; };
+		385E11A518EC35C400AB7570 /* TXIndeterminateProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118118EC35C400AB7570 /* TXIndeterminateProgressViewController.m */; };
+		385E11A618EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E118218EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib */; };
+		385E11A718EC35C400AB7570 /* TXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118518EC35C400AB7570 /* TXConstants.m */; };
+		385E11A818EC35C400AB7570 /* TXDispatchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118818EC35C400AB7570 /* TXDispatchingViewController.m */; };
+		385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118B18EC35C400AB7570 /* UIView+Hierarchy.m */; };
+		385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 385E118D18EC35C400AB7570 /* SVProgressHUD.bundle */; };
+		385E11AB18EC35C400AB7570 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118F18EC35C400AB7570 /* SVProgressHUD.m */; };
 		3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
 		3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9B188C13970044A0DC /* CoreGraphics.framework */; };
 		3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
@@ -101,6 +133,70 @@
 		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
 		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3827824618BA023D0036238A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		385E113B18EC347300AB7570 /* TXBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseVC.h; sourceTree = "<group>"; };
+		385E113C18EC347300AB7570 /* TXBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseVC.m; sourceTree = "<group>"; };
+		385E113E18EC348F00AB7570 /* TXMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMainVC.h; sourceTree = "<group>"; };
+		385E113F18EC348F00AB7570 /* TXMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMainVC.m; sourceTree = "<group>"; };
+		385E114118EC349E00AB7570 /* TXSignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignUpVC.h; sourceTree = "<group>"; };
+		385E114218EC349E00AB7570 /* TXSignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSignUpVC.m; sourceTree = "<group>"; };
+		385E114418EC34AD00AB7570 /* TXSignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignInVC.h; sourceTree = "<group>"; };
+		385E114518EC34AD00AB7570 /* TXSignInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSignInVC.m; sourceTree = "<group>"; };
+		385E114E18EC35C400AB7570 /* TXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAlertView.h; sourceTree = "<group>"; };
+		385E114F18EC35C400AB7570 /* TXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAlertView.m; sourceTree = "<group>"; };
+		385E115018EC35C400AB7570 /* TXStackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedViewController.h; sourceTree = "<group>"; };
+		385E115118EC35C400AB7570 /* TXStackedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXStackedViewController.m; sourceTree = "<group>"; };
+		385E115218EC35C400AB7570 /* TXStackedViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedViewDelegate.h; sourceTree = "<group>"; };
+		385E115418EC35C400AB7570 /* UIView+FindFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FindFirstResponder.h"; sourceTree = "<group>"; };
+		385E115518EC35C400AB7570 /* UIView+FindFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindFirstResponder.m"; sourceTree = "<group>"; };
+		385E115618EC35C400AB7570 /* UIView+PSSizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PSSizes.h"; sourceTree = "<group>"; };
+		385E115718EC35C400AB7570 /* UIView+PSSizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PSSizes.m"; sourceTree = "<group>"; };
+		385E115818EC35C400AB7570 /* UIViewController+FindFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FindFirstResponder.h"; sourceTree = "<group>"; };
+		385E115918EC35C400AB7570 /* UIViewController+FindFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FindFirstResponder.m"; sourceTree = "<group>"; };
+		385E115A18EC35C400AB7570 /* UIViewController+PSStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PSStackedView.h"; sourceTree = "<group>"; };
+		385E115B18EC35C400AB7570 /* UIViewController+PSStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PSStackedView.m"; sourceTree = "<group>"; };
+		385E115D18EC35C400AB7570 /* TXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseViewController.h; sourceTree = "<group>"; };
+		385E115E18EC35C400AB7570 /* TXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseViewController.m; sourceTree = "<group>"; };
+		385E115F18EC35C400AB7570 /* TXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRootViewController.h; sourceTree = "<group>"; };
+		385E116018EC35C400AB7570 /* TXRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRootViewController.m; sourceTree = "<group>"; };
+		385E116118EC35C400AB7570 /* AMFRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFRootViewController.xib; sourceTree = "<group>"; };
+		385E116318EC35C400AB7570 /* TXBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseCell.h; sourceTree = "<group>"; };
+		385E116418EC35C400AB7570 /* TXBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseCell.m; sourceTree = "<group>"; };
+		385E116518EC35C400AB7570 /* TXMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMenuCell.h; sourceTree = "<group>"; };
+		385E116618EC35C400AB7570 /* TXMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMenuCell.m; sourceTree = "<group>"; };
+		385E116718EC35C400AB7570 /* AMFMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFMenuCell.xib; sourceTree = "<group>"; };
+		385E116818EC35C400AB7570 /* TXSimpleSubMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSimpleSubMenuCell.h; sourceTree = "<group>"; };
+		385E116918EC35C400AB7570 /* TXSimpleSubMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSimpleSubMenuCell.m; sourceTree = "<group>"; };
+		385E116A18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFSimpleSubMenuCell.xib; sourceTree = "<group>"; };
+		385E116C18EC35C400AB7570 /* TXMenuItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMenuItemObject.h; sourceTree = "<group>"; };
+		385E116D18EC35C400AB7570 /* TXMenuItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMenuItemObject.m; sourceTree = "<group>"; };
+		385E116E18EC35C400AB7570 /* TXObjectPDQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXObjectPDQ.h; sourceTree = "<group>"; };
+		385E116F18EC35C400AB7570 /* TXObjectPDQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXObjectPDQ.m; sourceTree = "<group>"; };
+		385E117018EC35C400AB7570 /* TXObjectPDQCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXObjectPDQCriteria.h; sourceTree = "<group>"; };
+		385E117118EC35C400AB7570 /* TXObjectPDQCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXObjectPDQCriteria.m; sourceTree = "<group>"; };
+		385E117218EC35C400AB7570 /* UIToolbar+AddItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+AddItems.h"; sourceTree = "<group>"; };
+		385E117318EC35C400AB7570 /* UIToolbar+AddItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+AddItems.m"; sourceTree = "<group>"; };
+		385E117418EC35C400AB7570 /* UIViewController+BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BaseNavigation.h"; sourceTree = "<group>"; };
+		385E117518EC35C400AB7570 /* UIViewController+BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BaseNavigation.m"; sourceTree = "<group>"; };
+		385E117718EC35C400AB7570 /* TXContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXContainerView.h; sourceTree = "<group>"; };
+		385E117818EC35C400AB7570 /* TXContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXContainerView.m; sourceTree = "<group>"; };
+		385E117918EC35C400AB7570 /* TXStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedView.h; sourceTree = "<group>"; };
+		385E117A18EC35C400AB7570 /* TXStackedViewGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedViewGlobal.h; sourceTree = "<group>"; };
+		385E117B18EC35C400AB7570 /* TXStackedViewGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXStackedViewGlobal.m; sourceTree = "<group>"; };
+		385E117D18EC35C400AB7570 /* TXAppearanceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAppearanceDelegate.h; sourceTree = "<group>"; };
+		385E117E18EC35C400AB7570 /* TXBaseNavigationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseNavigationProtocol.h; sourceTree = "<group>"; };
+		385E117F18EC35C400AB7570 /* TXDataInputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXDataInputProtocol.h; sourceTree = "<group>"; };
+		385E118018EC35C400AB7570 /* TXIndeterminateProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXIndeterminateProgressViewController.h; sourceTree = "<group>"; };
+		385E118118EC35C400AB7570 /* TXIndeterminateProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXIndeterminateProgressViewController.m; sourceTree = "<group>"; };
+		385E118218EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFIndeterminateProgressViewController.xib; sourceTree = "<group>"; };
+		385E118418EC35C400AB7570 /* TXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXConstants.h; sourceTree = "<group>"; };
+		385E118518EC35C400AB7570 /* TXConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXConstants.m; sourceTree = "<group>"; };
+		385E118718EC35C400AB7570 /* TXDispatchingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXDispatchingViewController.h; sourceTree = "<group>"; };
+		385E118818EC35C400AB7570 /* TXDispatchingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXDispatchingViewController.m; sourceTree = "<group>"; };
+		385E118A18EC35C400AB7570 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
+		385E118B18EC35C400AB7570 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
+		385E118D18EC35C400AB7570 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		385E118E18EC35C400AB7570 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		385E118F18EC35C400AB7570 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		3865DC96188C13970044A0DC /* Taxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3865DC99188C13970044A0DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3865DC9B188C13970044A0DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -189,6 +285,8 @@
 		3827824518B8E8560036238A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				385E114A18EC35C400AB7570 /* ThirdParty */,
+				385E113A18EC2C5600AB7570 /* user */,
 				388D6D8118BB89D40099C1C2 /* util */,
 				388D6D7818BB83880099C1C2 /* img */,
 				38D6DF8A18BB5FA9004A0E81 /* LeftMenu */,
@@ -198,8 +296,190 @@
 				3815177D18C364BA005F915C /* TXRootVC.m */,
 				38C60B8818D47BEC000A3DD3 /* TXMapVC.h */,
 				38C60B8918D47BEC000A3DD3 /* TXMapVC.m */,
+				385E113B18EC347300AB7570 /* TXBaseVC.h */,
+				385E113C18EC347300AB7570 /* TXBaseVC.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		385E113A18EC2C5600AB7570 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				385E113E18EC348F00AB7570 /* TXMainVC.h */,
+				385E113F18EC348F00AB7570 /* TXMainVC.m */,
+				385E114118EC349E00AB7570 /* TXSignUpVC.h */,
+				385E114218EC349E00AB7570 /* TXSignUpVC.m */,
+				385E114418EC34AD00AB7570 /* TXSignInVC.h */,
+				385E114518EC34AD00AB7570 /* TXSignInVC.m */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		385E114A18EC35C400AB7570 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				385E114B18EC35C400AB7570 /* PSStackedView */,
+				385E118C18EC35C400AB7570 /* SVProgressHUD */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		385E114B18EC35C400AB7570 /* PSStackedView */ = {
+			isa = PBXGroup;
+			children = (
+				385E114C18EC35C400AB7570 /* AppNavigation */,
+				385E117C18EC35C400AB7570 /* Base */,
+				385E118318EC35C400AB7570 /* Core */,
+				385E118618EC35C400AB7570 /* Dispatcher */,
+				385E118918EC35C400AB7570 /* UIView+Hierarchy */,
+			);
+			path = PSStackedView;
+			sourceTree = "<group>";
+		};
+		385E114C18EC35C400AB7570 /* AppNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				385E114D18EC35C400AB7570 /* AMFAlertView */,
+				385E115018EC35C400AB7570 /* TXStackedViewController.h */,
+				385E115118EC35C400AB7570 /* TXStackedViewController.m */,
+				385E115218EC35C400AB7570 /* TXStackedViewDelegate.h */,
+				385E115318EC35C400AB7570 /* Helpers */,
+				385E115C18EC35C400AB7570 /* Root */,
+				385E117618EC35C400AB7570 /* Views */,
+			);
+			path = AppNavigation;
+			sourceTree = "<group>";
+		};
+		385E114D18EC35C400AB7570 /* AMFAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				385E114E18EC35C400AB7570 /* TXAlertView.h */,
+				385E114F18EC35C400AB7570 /* TXAlertView.m */,
+			);
+			path = AMFAlertView;
+			sourceTree = "<group>";
+		};
+		385E115318EC35C400AB7570 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				385E115418EC35C400AB7570 /* UIView+FindFirstResponder.h */,
+				385E115518EC35C400AB7570 /* UIView+FindFirstResponder.m */,
+				385E115618EC35C400AB7570 /* UIView+PSSizes.h */,
+				385E115718EC35C400AB7570 /* UIView+PSSizes.m */,
+				385E115818EC35C400AB7570 /* UIViewController+FindFirstResponder.h */,
+				385E115918EC35C400AB7570 /* UIViewController+FindFirstResponder.m */,
+				385E115A18EC35C400AB7570 /* UIViewController+PSStackedView.h */,
+				385E115B18EC35C400AB7570 /* UIViewController+PSStackedView.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		385E115C18EC35C400AB7570 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				385E115D18EC35C400AB7570 /* TXBaseViewController.h */,
+				385E115E18EC35C400AB7570 /* TXBaseViewController.m */,
+				385E115F18EC35C400AB7570 /* TXRootViewController.h */,
+				385E116018EC35C400AB7570 /* TXRootViewController.m */,
+				385E116118EC35C400AB7570 /* AMFRootViewController.xib */,
+				385E116218EC35C400AB7570 /* Cells */,
+				385E116B18EC35C400AB7570 /* Helpers */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		385E116218EC35C400AB7570 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				385E116318EC35C400AB7570 /* TXBaseCell.h */,
+				385E116418EC35C400AB7570 /* TXBaseCell.m */,
+				385E116518EC35C400AB7570 /* TXMenuCell.h */,
+				385E116618EC35C400AB7570 /* TXMenuCell.m */,
+				385E116718EC35C400AB7570 /* AMFMenuCell.xib */,
+				385E116818EC35C400AB7570 /* TXSimpleSubMenuCell.h */,
+				385E116918EC35C400AB7570 /* TXSimpleSubMenuCell.m */,
+				385E116A18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		385E116B18EC35C400AB7570 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				385E116C18EC35C400AB7570 /* TXMenuItemObject.h */,
+				385E116D18EC35C400AB7570 /* TXMenuItemObject.m */,
+				385E116E18EC35C400AB7570 /* TXObjectPDQ.h */,
+				385E116F18EC35C400AB7570 /* TXObjectPDQ.m */,
+				385E117018EC35C400AB7570 /* TXObjectPDQCriteria.h */,
+				385E117118EC35C400AB7570 /* TXObjectPDQCriteria.m */,
+				385E117218EC35C400AB7570 /* UIToolbar+AddItems.h */,
+				385E117318EC35C400AB7570 /* UIToolbar+AddItems.m */,
+				385E117418EC35C400AB7570 /* UIViewController+BaseNavigation.h */,
+				385E117518EC35C400AB7570 /* UIViewController+BaseNavigation.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		385E117618EC35C400AB7570 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				385E117718EC35C400AB7570 /* TXContainerView.h */,
+				385E117818EC35C400AB7570 /* TXContainerView.m */,
+				385E117918EC35C400AB7570 /* TXStackedView.h */,
+				385E117A18EC35C400AB7570 /* TXStackedViewGlobal.h */,
+				385E117B18EC35C400AB7570 /* TXStackedViewGlobal.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		385E117C18EC35C400AB7570 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				385E117D18EC35C400AB7570 /* TXAppearanceDelegate.h */,
+				385E117E18EC35C400AB7570 /* TXBaseNavigationProtocol.h */,
+				385E117F18EC35C400AB7570 /* TXDataInputProtocol.h */,
+				385E118018EC35C400AB7570 /* TXIndeterminateProgressViewController.h */,
+				385E118118EC35C400AB7570 /* TXIndeterminateProgressViewController.m */,
+				385E118218EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		385E118318EC35C400AB7570 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				385E118418EC35C400AB7570 /* TXConstants.h */,
+				385E118518EC35C400AB7570 /* TXConstants.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		385E118618EC35C400AB7570 /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				385E118718EC35C400AB7570 /* TXDispatchingViewController.h */,
+				385E118818EC35C400AB7570 /* TXDispatchingViewController.m */,
+			);
+			path = Dispatcher;
+			sourceTree = "<group>";
+		};
+		385E118918EC35C400AB7570 /* UIView+Hierarchy */ = {
+			isa = PBXGroup;
+			children = (
+				385E118A18EC35C400AB7570 /* UIView+Hierarchy.h */,
+				385E118B18EC35C400AB7570 /* UIView+Hierarchy.m */,
+			);
+			path = "UIView+Hierarchy";
+			sourceTree = "<group>";
+		};
+		385E118C18EC35C400AB7570 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				385E118D18EC35C400AB7570 /* SVProgressHUD.bundle */,
+				385E118E18EC35C400AB7570 /* SVProgressHUD.h */,
+				385E118F18EC35C400AB7570 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		3865DC8D188C13970044A0DC = {
@@ -455,12 +735,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385E11A618EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib in Resources */,
+				385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */,
 				38D464FA188E9056005B3A74 /* taxi.bundle in Resources */,
+				385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */,
 				3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,
+				385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */,
 				3865DCA4188C13970044A0DC /* InfoPlist.strings in Resources */,
 				388D6D7D18BB865C0099C1C2 /* logout.png in Resources */,
+				385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,26 +764,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
+				385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */,
+				385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */,
 				388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
+				385E119A18EC35C400AB7570 /* TXMenuCell.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
 				38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */,
 				38DABBC518D9AA72005D4AC4 /* TXGoogleAPIUtil.m in Sources */,
+				385E119118EC35C400AB7570 /* TXStackedViewController.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
 				3827824118B8D5F40036238A /* TXUser.m in Sources */,
+				385E11A018EC35C400AB7570 /* TXObjectPDQCriteria.m in Sources */,
 				38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */,
+				385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */,
+				385E11A818EC35C400AB7570 /* TXDispatchingViewController.m in Sources */,
+				385E11A518EC35C400AB7570 /* TXIndeterminateProgressViewController.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
 				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
+				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
+				385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */,
+				385E11A718EC35C400AB7570 /* TXConstants.m in Sources */,
+				385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */,
 				38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */,
 				3827823218B8CE920036238A /* TXVM.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
 				3815177E18C364BA005F915C /* TXRootVC.m in Sources */,
 				38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */,
+				385E119018EC35C400AB7570 /* TXAlertView.m in Sources */,
 				38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */,
+				385E114618EC34AD00AB7570 /* TXSignInVC.m in Sources */,
+				385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */,
+				385E113D18EC347300AB7570 /* TXBaseVC.m in Sources */,
+				385E11A118EC35C400AB7570 /* UIToolbar+AddItems.m in Sources */,
+				385E114318EC349E00AB7570 /* TXSignUpVC.m in Sources */,
+				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
+				385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */,
 				3827823318B8CE920036238A /* Types.m in Sources */,
 				38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
+				385E11AB18EC35C400AB7570 /* SVProgressHUD.m in Sources */,
+				385E119718EC35C400AB7570 /* TXRootViewController.m in Sources */,
+				385E119318EC35C400AB7570 /* UIView+PSSizes.m in Sources */,
+				385E11A418EC35C400AB7570 /* TXStackedViewGlobal.m in Sources */,
+				385E119C18EC35C400AB7570 /* TXSimpleSubMenuCell.m in Sources */,
+				385E11A218EC35C400AB7570 /* UIViewController+BaseNavigation.m in Sources */,
 				38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
