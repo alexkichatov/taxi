@@ -11,6 +11,7 @@
 @interface TXVCSharedUtil(){
     UIStoryboard *iPhoneStoryBoard;
     UIStoryboard *iPadStoryBoard;
+    NSString     *deviceType;
 }
 
 @end
@@ -29,17 +30,21 @@
     if(self = [super init]) {
         self->iPhoneStoryBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
         self->iPadStoryBoard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
+        self->deviceType = [UIDevice currentDevice].model;
     }
     
     return self;
 }
 
--(UIStoryboard *)iPhoneStoryBoard {
-    return self->iPhoneStoryBoard;
-}
-
--(UIStoryboard *)iPadStoryBoard {
-    return self->iPadStoryBoard;
+-(UIStoryboard *)currentStoryBoard {
+    
+    if([self->deviceType isEqualToString:@"iPhone Simulator"]) {
+        return self->iPhoneStoryBoard;
+    } else if([self->deviceType isEqualToString:@"iPad"]) {
+        return self->iPadStoryBoard;
+    }
+    
+    return nil;
 }
 
 @end

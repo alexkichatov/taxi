@@ -143,7 +143,7 @@ static char ja_kvoContext;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     self.shouldDelegateAutorotateToVisiblePanel = NO;
-    self.leftPanel = (TXLeftVC*)[[[TXVCSharedUtil instance] iPhoneStoryBoard] instantiateViewControllerWithIdentifier:@"TXLeftVC"];
+    self.leftPanel = (TXLeftVC*)[[[TXVCSharedUtil instance] currentStoryBoard] instantiateViewControllerWithIdentifier:@"TXLeftVC"];
 	self.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[TXCenterVC alloc] init]];
 
     self.centerPanelContainer = [[UIView alloc] initWithFrame:self.view.bounds];

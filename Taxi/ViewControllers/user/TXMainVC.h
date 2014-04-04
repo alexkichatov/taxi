@@ -7,7 +7,8 @@
 //
 
 #import "TXRootVC.h"
+#import "SlideNavigationController.h"
 
-@interface TXMainVC : UIViewController
+@interface TXMainVC : TXRootVC<SlideNavigationControllerDelegate>
 
 @end

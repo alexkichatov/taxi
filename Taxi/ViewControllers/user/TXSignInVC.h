@@ -8,6 +8,10 @@
 
 #import "TXRootVC.h"
 
+@class GPPSignInButton;
+
 @interface TXSignInVC : TXRootVC
+
+@property (retain, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
 
 @end

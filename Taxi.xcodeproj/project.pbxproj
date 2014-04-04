@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3815177E18C364BA005F915C /* TXRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3815177D18C364BA005F915C /* TXRootVC.m */; };
+		3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC2718EEC57A003D7AD2 /* menu-alt.png */; };
+		3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC2F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m */; };
+		3826CC3E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC3118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m */; };
+		3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC3318EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		3826CC4018EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC3518EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.m */; };
+		3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC3718EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		3826CC4218EEDBAD003D7AD2 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC3918EEDBAD003D7AD2 /* menu-button.png */; };
+		3826CC4318EEDBAD003D7AD2 /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC3A18EEDBAD003D7AD2 /* menu-button@2x.png */; };
+		3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC3C18EEDBAD003D7AD2 /* SlideNavigationController.m */; };
+		3826CC4718EEDF27003D7AD2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC4618EEDF27003D7AD2 /* MenuViewController.m */; };
+		3826CC4918EEFAB8003D7AD2 /* button-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4818EEFAB8003D7AD2 /* button-home.png */; };
+		3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4A18EEFE08003D7AD2 /* button-profile.png */; };
+		3826CC4D18EF002E003D7AD2 /* button-signout.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4C18EF002E003D7AD2 /* button-signout.png */; };
+		3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4E18EF02A0003D7AD2 /* button-settings.png */; };
 		3827822F18B8CE920036238A /* TXConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822618B8CE920036238A /* TXConsts.m */; };
 		3827823018B8CE920036238A /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822818B8CE920036238A /* TXModelBase.m */; };
 		3827823118B8CE920036238A /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822A18B8CE920036238A /* TXUserModel.m */; };
@@ -64,9 +78,7 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
-		388D6D7D18BB865C0099C1C2 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 388D6D7C18BB865C0099C1C2 /* logout.png */; };
 		388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */; };
-		38C0ECE418EC48CE00AFE860 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECE318EC48CE00AFE860 /* back.png */; };
 		38C0ECE918EC590E00AFE860 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */; };
 		38C0ECEA18EC590F00AFE860 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */; };
 		38C0ECEB18EC590F00AFE860 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE818EC590E00AFE860 /* GooglePlus.framework */; };
@@ -126,6 +138,28 @@
 /* Begin PBXFileReference section */
 		3815177C18C364BA005F915C /* TXRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRootVC.h; sourceTree = "<group>"; };
 		3815177D18C364BA005F915C /* TXRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRootVC.m; sourceTree = "<group>"; };
+		3826CC2718EEC57A003D7AD2 /* menu-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-alt.png"; sourceTree = "<group>"; };
+		3826CC2D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		3826CC2E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		3826CC2F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		3826CC3018EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		3826CC3118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		3826CC3218EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		3826CC3318EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		3826CC3418EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		3826CC3518EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		3826CC3618EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		3826CC3718EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		3826CC3918EEDBAD003D7AD2 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		3826CC3A18EEDBAD003D7AD2 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
+		3826CC3B18EEDBAD003D7AD2 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		3826CC3C18EEDBAD003D7AD2 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		3826CC4518EEDF27003D7AD2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		3826CC4618EEDF27003D7AD2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		3826CC4818EEFAB8003D7AD2 /* button-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-home.png"; sourceTree = "<group>"; };
+		3826CC4A18EEFE08003D7AD2 /* button-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-profile.png"; sourceTree = "<group>"; };
+		3826CC4C18EF002E003D7AD2 /* button-signout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-signout.png"; sourceTree = "<group>"; };
+		3826CC4E18EF02A0003D7AD2 /* button-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-settings.png"; sourceTree = "<group>"; };
 		3827822518B8CE920036238A /* TXConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXConsts.h; path = model/TXConsts.h; sourceTree = "<group>"; };
 		3827822618B8CE920036238A /* TXConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXConsts.m; path = model/TXConsts.m; sourceTree = "<group>"; };
 		3827822718B8CE920036238A /* TXModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXModelBase.h; path = model/TXModelBase.h; sourceTree = "<group>"; };
@@ -145,8 +179,8 @@
 		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
 		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3827824618BA023D0036238A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		385E113E18EC348F00AB7570 /* TXMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMainVC.h; sourceTree = "<group>"; };
-		385E113F18EC348F00AB7570 /* TXMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMainVC.m; sourceTree = "<group>"; };
+		385E113E18EC348F00AB7570 /* TXMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMainVC.h; path = user/TXMainVC.h; sourceTree = "<group>"; };
+		385E113F18EC348F00AB7570 /* TXMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXMainVC.m; path = user/TXMainVC.m; sourceTree = "<group>"; };
 		385E114118EC349E00AB7570 /* TXSignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignUpVC.h; sourceTree = "<group>"; };
 		385E114218EC349E00AB7570 /* TXSignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSignUpVC.m; sourceTree = "<group>"; };
 		385E114418EC34AD00AB7570 /* TXSignInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignInVC.h; sourceTree = "<group>"; };
@@ -225,11 +259,9 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
-		388D6D7C18BB865C0099C1C2 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		388D6D8218BB89F40099C1C2 /* TXVCSharedUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXVCSharedUtil.h; sourceTree = "<group>"; };
 		388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXVCSharedUtil.m; sourceTree = "<group>"; };
 		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		38C0ECE318EC48CE00AFE860 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		38C0ECE818EC590E00AFE860 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
@@ -301,6 +333,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3826CC2A18EEC732003D7AD2 /* call */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = call;
+			sourceTree = "<group>";
+		};
+		3826CC2B18EEDBAD003D7AD2 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3826CC4518EEDF27003D7AD2 /* MenuViewController.h */,
+				3826CC4618EEDF27003D7AD2 /* MenuViewController.m */,
+				3826CC2C18EEDBAD003D7AD2 /* Animations */,
+				3826CC3818EEDBAD003D7AD2 /* Assets */,
+				3826CC3B18EEDBAD003D7AD2 /* SlideNavigationController.h */,
+				3826CC3C18EEDBAD003D7AD2 /* SlideNavigationController.m */,
+			);
+			path = SlideMenu;
+			sourceTree = "<group>";
+		};
+		3826CC2C18EEDBAD003D7AD2 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3826CC2D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimator.h */,
+				3826CC2E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.h */,
+				3826CC2F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m */,
+				3826CC3018EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.h */,
+				3826CC3118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m */,
+				3826CC3218EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				3826CC3318EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				3826CC3418EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.h */,
+				3826CC3518EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.m */,
+				3826CC3618EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				3826CC3718EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		3826CC3818EEDBAD003D7AD2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3826CC3918EEDBAD003D7AD2 /* menu-button.png */,
+				3826CC3A18EEDBAD003D7AD2 /* menu-button@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		3827823818B8D5F40036238A /* obj */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,11 +397,15 @@
 		3827824518B8E8560036238A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3826CC2B18EEDBAD003D7AD2 /* SlideMenu */,
+				3826CC2A18EEC732003D7AD2 /* call */,
 				385E114A18EC35C400AB7570 /* ThirdParty */,
 				385E113A18EC2C5600AB7570 /* user */,
 				388D6D8118BB89D40099C1C2 /* util */,
 				388D6D7818BB83880099C1C2 /* img */,
 				38D6DF8A18BB5FA9004A0E81 /* LeftMenu */,
+				385E113E18EC348F00AB7570 /* TXMainVC.h */,
+				385E113F18EC348F00AB7570 /* TXMainVC.m */,
 				38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */,
 				38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */,
 				3815177C18C364BA005F915C /* TXRootVC.h */,
@@ -336,8 +419,6 @@
 		385E113A18EC2C5600AB7570 /* user */ = {
 			isa = PBXGroup;
 			children = (
-				385E113E18EC348F00AB7570 /* TXMainVC.h */,
-				385E113F18EC348F00AB7570 /* TXMainVC.m */,
 				385E114118EC349E00AB7570 /* TXSignUpVC.h */,
 				385E114218EC349E00AB7570 /* TXSignUpVC.m */,
 				385E114418EC34AD00AB7570 /* TXSignInVC.h */,
@@ -627,9 +708,12 @@
 		388D6D7818BB83880099C1C2 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				3826CC4E18EF02A0003D7AD2 /* button-settings.png */,
+				3826CC4C18EF002E003D7AD2 /* button-signout.png */,
+				3826CC4A18EEFE08003D7AD2 /* button-profile.png */,
+				3826CC4818EEFAB8003D7AD2 /* button-home.png */,
+				3826CC2718EEC57A003D7AD2 /* menu-alt.png */,
 				38C0ECFC18EC636900AFE860 /* defaultbg.jpg */,
-				38C0ECE318EC48CE00AFE860 /* back.png */,
-				388D6D7C18BB865C0099C1C2 /* logout.png */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -779,20 +863,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3826CC4218EEDBAD003D7AD2 /* menu-button.png in Resources */,
 				385E11A618EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib in Resources */,
 				385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */,
 				38D464FA188E9056005B3A74 /* taxi.bundle in Resources */,
+				3826CC4918EEFAB8003D7AD2 /* button-home.png in Resources */,
 				385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */,
+				3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */,
 				3865DCB0188C13970044A0DC /* Main_iPad.storyboard in Resources */,
+				3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
 				38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */,
 				3865DCAD188C13970044A0DC /* Main_iPhone.storyboard in Resources */,
 				385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */,
-				38C0ECE418EC48CE00AFE860 /* back.png in Resources */,
+				3826CC4318EEDBAD003D7AD2 /* menu-button@2x.png in Resources */,
+				3826CC4D18EF002E003D7AD2 /* button-signout.png in Resources */,
 				3865DCA4188C13970044A0DC /* InfoPlist.strings in Resources */,
 				38C0ECEA18EC590F00AFE860 /* GooglePlus.bundle in Resources */,
-				388D6D7D18BB865C0099C1C2 /* logout.png in Resources */,
 				385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */,
+				3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +901,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */,
+				3826CC4718EEDF27003D7AD2 /* MenuViewController.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */,
 				385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */,
@@ -829,6 +919,7 @@
 				385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */,
 				385E11A818EC35C400AB7570 /* TXDispatchingViewController.m in Sources */,
 				385E11A518EC35C400AB7570 /* TXIndeterminateProgressViewController.m in Sources */,
+				3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
 				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
 				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
@@ -837,13 +928,17 @@
 				385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */,
 				38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */,
 				3827823218B8CE920036238A /* TXVM.m in Sources */,
+				3826CC3E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
 				3815177E18C364BA005F915C /* TXRootVC.m in Sources */,
 				38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */,
 				385E119018EC35C400AB7570 /* TXAlertView.m in Sources */,
 				38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */,
 				385E114618EC34AD00AB7570 /* TXSignInVC.m in Sources */,
+				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
 				385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */,
+				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				385E11A118EC35C400AB7570 /* UIToolbar+AddItems.m in Sources */,
 				385E114318EC349E00AB7570 /* TXSignUpVC.m in Sources */,
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
@@ -855,6 +950,7 @@
 				385E119718EC35C400AB7570 /* TXRootViewController.m in Sources */,
 				385E119318EC35C400AB7570 /* UIView+PSSizes.m in Sources */,
 				385E11A418EC35C400AB7570 /* TXStackedViewGlobal.m in Sources */,
+				3826CC4018EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				385E119C18EC35C400AB7570 /* TXSimpleSubMenuCell.m in Sources */,
 				385E11A218EC35C400AB7570 /* UIViewController+BaseNavigation.m in Sources */,
 				38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */,

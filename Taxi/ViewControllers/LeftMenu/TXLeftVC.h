@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-@interface TXLeftVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
+#import "TXRootVC.h"
+
+@interface TXLeftVC : TXRootVC<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 

@@ -8,21 +8,15 @@
 
 #import "TXSignInVC.h"
 #import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
+#import "TXSidePanelVC.h"
+#import "SlideNavigationController.h"
 
 @interface TXSignInVC ()<GPPSignInDelegate>
 
 @end
 
 @implementation TXSignInVC
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -34,57 +28,65 @@
     //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
     
     // You previously set kClientId in the "Initialize the Google+ client" step
-    signIn.clientID = @"742691935312-pg2vgspam4tscrpsp8uis1r93clesblt.apps.googleusercontent.com";
+    signIn.clientID = @"177846177917-1r8cvuslmtv3lfj2k1np42k0sk402n56.apps.googleusercontent.com";
     
     // Uncomment one of these two statements for the scope you chose in the previous step
-    //signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
-    signIn.scopes = @[ @"profile" ];            // "profile" scope
+    signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
+    //signIn.scopes = @[ @"profile" ];            // "profile" scope
     
     // Optional: declare signIn.actions, see "app activities"
     signIn.delegate = self;
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [[self view] endEditing:YES];
-}
-
--(BOOL)shouldAutorotate {
-    return NO;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if(interfaceOrientation == UIInterfaceOrientationPortrait)
-        return YES;
+    [signIn trySilentAuthentication];
     
-    return NO;
 }
 
-- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
-                   error: (NSError *) error {
-    NSLog(@"Received error %@ and auth object %@",error, auth);
+- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
+
+    NSLog(@"%@", auth);
+    
+    if(error==nil) {
+        
+        GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+        plusService.retryEnabled = YES;
+        [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
+        
+        GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+        
+        [plusService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLPlusPerson *person, NSError *error) {
+            
+            if (error) {
+            
+                GTMLoggerError(@"Error: %@", error);
+                
+                
+            } else {
+            
+            }
+        }];
+        
+        
+    } else {
+        
+        NSString *msg = [NSString stringWithFormat:@"Error: %@\nReason: %@\n%@", [error localizedDescription], [error localizedFailureReason], [error localizedRecoverySuggestion]];
+        
+        [self alertError:[error localizedDescription] message:msg];
+    }
+    
+    [self refreshInterfaceBasedOnSignIn];
+    
 }
 
-- (void)presentSignInViewController:(UIViewController *)viewController {
-    // This is an example of how you can implement it if your app is navigation-based.
-    [[self navigationController] pushViewController:viewController animated:YES];
+-(void)refreshInterfaceBasedOnSignIn {
+   
+    if ([[GPPSignIn sharedInstance] authentication]) {
+        // The user is signed in.
+        self.googleSignInButton.hidden = YES;
+        [self pushViewController:[[self->app currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([SlideNavigationController class])]];
+        
+    } else {
+        self.googleSignInButton.hidden = NO;
+        // Perform other actions here
+    }
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

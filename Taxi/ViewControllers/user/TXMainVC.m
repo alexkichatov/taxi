@@ -7,13 +7,10 @@
 //
 
 #import "TXMainVC.h"
-#import "TXSignInVC.h"
-#import "TXSignUpVC.h"
+#import "MenuViewController.h"
+
 
 @interface TXMainVC ()
-
--(IBAction)signUp:(id)sender;
--(IBAction)signIn:(id)sender;
 
 @end
 
@@ -30,34 +27,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    MenuViewController *leftMenu = (MenuViewController*)[[[TXVCSharedUtil instance] currentStoryBoard] instantiateViewControllerWithIdentifier: @"MenuViewController"];
+	leftMenu.cellIdentifier = @"leftMenuCell";
+	
+	[SlideNavigationController sharedInstance].leftMenu = leftMenu;
+	
+	// Creating a custom bar button for right menu
+	UIButton *button  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+	[button setImage:[UIImage imageNamed:@"menu-alt"] forState:UIControlStateNormal];
+	[button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleLeftMenu) forControlEvents:UIControlEventTouchUpInside];
+	UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+	[SlideNavigationController sharedInstance].leftBarButtonItem = leftBarButtonItem;
+    
 }
+
+#pragma mark - SlideNavigationController Methods -
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+	return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+	return NO;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
--(void)signIn:(id)sender {
-    
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil] instantiateViewControllerWithIdentifier:@"SignInNavController"] animated:YES completion:nil];
-  //  [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignInVC class])] animated:YES];
-    
-    /*
-    [self pushViewControllerAndPopPrevious:^UIViewController *{
-        return [[self->app iPhoneStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignInVC class])];
-    } completionBlock:nil];
-     */
-}
-
--(void)signUp:(id)sender {
-   
-    [self presentViewController:[[UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil] instantiateViewControllerWithIdentifier:@"SignUpNavController"] animated:YES completion:nil];
-    //[self.navigationController pushViewController:[[self->app iPhoneStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignUpVC class])] animated:YES];
-    /*
-    [self pushViewControllerAndPopPrevious:^UIViewController *{
-        return [[self->app iPhoneStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignUpVC class])];
-    } completionBlock:nil];
-     */
 }
 
 @end

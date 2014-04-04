@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TXRootVC.h"
 
 typedef enum _TXSidePanelStyle {
     TXSidePanelSingleActive = 0,
@@ -18,7 +19,7 @@ typedef enum _TXSidePanelState {
     TXSidePanelLeftVisible = 2
 } TXSidePanelState;
 
-@interface TXSidePanelVC : UIViewController<UIGestureRecognizerDelegate>
+@interface TXSidePanelVC : TXRootVC<UIGestureRecognizerDelegate>
 
 #pragma mark - Usage
 

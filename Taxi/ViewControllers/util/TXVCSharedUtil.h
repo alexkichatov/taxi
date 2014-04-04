@@ -11,7 +11,6 @@
 @interface TXVCSharedUtil : NSObject
 
 +(TXVCSharedUtil*) instance;
--(UIStoryboard*) iPhoneStoryBoard;
--(UIStoryboard*) iPadStoryBoard;
+-(UIStoryboard*)currentStoryBoard;
 
 @end

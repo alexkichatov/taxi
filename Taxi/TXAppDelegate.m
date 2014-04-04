@@ -15,6 +15,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "TXGoogleAPIUtil.h"
 #import <GooglePlus/GooglePlus.h>
+#import "MenuViewController.h"
+#import "TXVCSharedUtil.h"
 
 @implementation TXAppDelegate
 
@@ -31,6 +33,7 @@
     
      */
     
+    
     return YES;
 }
 
@@ -38,9 +41,6 @@
             openURL: (NSURL *)url
   sourceApplication: (NSString *)sourceApplication
          annotation: (id)annotation {
-    
-    
-    NSLog(@"Source app : %@", sourceApplication );
     
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication] || [GPPURLHandler handleURL:url
                   sourceApplication:sourceApplication

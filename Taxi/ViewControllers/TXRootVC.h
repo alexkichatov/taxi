@@ -12,10 +12,12 @@
 #import "TXVCSharedUtil.h"
 
 @interface TXRootVC : TXBaseViewController<TXEventListener> {
-    TXModelBase* model;
+    TXModelBase*    model;
     TXVCSharedUtil* app;
 }
 
 -(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames;
-
+-(void) pushViewController : (TXRootVC *) viewController;
+-(void) alertError : (NSString *) title message : (NSString *) message;
+-(TXRootVC *) viewControllerInstanceWithName: (NSString *) name;
 @end
