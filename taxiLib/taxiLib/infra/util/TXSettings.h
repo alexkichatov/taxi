@@ -51,6 +51,11 @@
 -(void)setUserName:(NSString*)userName;
 -(void)setPassword:(NSString*)pwd;
 
+-(void) setGoogleUserId : (NSString *)userId;
+-(NSString*)getGoogleUserId;
+-(void) setFBUserId : (NSString *)userId;
+-(NSString*)getFBUserId;
+
 -(int) getMaxHTTPConnectionsNumber;
 
 @end

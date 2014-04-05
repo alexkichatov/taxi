@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1QI-LK-5HR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UWe-WS-a3G">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -214,6 +214,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naJ-Yl-GyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-423" y="-880"/>
+        </scene>
+        <!--Sign CheckerVC-->
+        <scene sceneID="0Fp-vN-Eiu">
+            <objects>
+                <viewController storyboardIdentifier="TXSignCheckerVC" id="UWe-WS-a3G" customClass="TXSignCheckerVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wc4-w8-wfj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultbg.jpg" id="dqB-Hr-Hes">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="bti-aT-6Nu">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="color" red="0.868363361" green="0.45963229859999999" blue="0.028855735189999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="bti-aT-6Nu" id="lhZ-Ru-FLN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pat-qi-LoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-391" y="-166"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Emf-7v-i7a">
@@ -480,6 +508,10 @@
                                     <segue destination="Ptc-nH-Gsf" kind="modal" id="x9P-M5-Nid"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="PKp-EZ-SzD">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -487,6 +519,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="NZL-nz-0XV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="PKp-EZ-SzD" id="OKO-kT-zeI"/>
                         <outlet property="googleSignInButton" destination="WIh-sR-wB1" id="IZM-Pz-imH"/>
                     </connections>
                 </viewController>

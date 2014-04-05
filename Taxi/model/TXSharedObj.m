@@ -1,14 +1,14 @@
 //
-//  TXVCSharedUtil.m
+//  TXVM.m
 //  Taxi
 //
-//  Created by Irakli Vashakidze on 2/24/14.
+//  Created by Irakli Vashakidze on 2/16/14.
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXVCSharedUtil.h"
+#import "TXSharedObj.h"
 
-@interface TXVCSharedUtil(){
+@interface TXSharedObj() {
     UIStoryboard *iPhoneStoryBoard;
     UIStoryboard *iPadStoryBoard;
     NSString     *deviceType;
@@ -16,11 +16,15 @@
 
 @end
 
-@implementation TXVCSharedUtil
+@implementation TXSharedObj
 
-+(TXVCSharedUtil*) instance {
+/** Creates the single instance within the application
+ 
+ @return TXSharedVM
+ */
++(TXSharedObj *) instance {
     static dispatch_once_t pred;
-    static TXVCSharedUtil* _instance;
+    static TXSharedObj* _instance;
     dispatch_once(&pred, ^{ _instance = [[self alloc] init]; });
     return _instance;
 }
@@ -28,9 +32,16 @@
 -(id)init {
     
     if(self = [super init]) {
+        self.app      = [TXApp instance];
+        self.settings = [self.app getSettings];
         self->iPhoneStoryBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
         self->iPadStoryBoard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
         self->deviceType = [UIDevice currentDevice].model;
+        self.signIn = [GPPSignIn sharedInstance];
+        self.signIn.shouldFetchGooglePlusUser = YES;
+        self.signIn.shouldFetchGoogleUserEmail = YES;
+        self.signIn.clientID = KEYS.Google.CLIENTID;
+        self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];
     }
     
     return self;

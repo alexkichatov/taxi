@@ -51,10 +51,6 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
                                                 errorDescription:&errorString];
 		if (root == nil) {
             root = [[NSMutableDictionary alloc] initWithCapacity:10];
-            NSTimeInterval installDate = ((NSDate*)[NSDate date]).timeIntervalSinceReferenceDate;
-            NSString* val = [NSString stringWithFormat:@"%f", installDate];
-            [root setObject:val forKey:SettingsConst.Property.LOCALSTG_INSTALLDATE];
-            
             [self initWithDefaults];
 		}
         
@@ -128,6 +124,25 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
               forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
+-(void) setGoogleUserId : (NSString *)userId {
+    [FDKeychain saveItem:userId forKey:SettingsConst.SignInProviders.Google.USERID
+              forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
+-(NSString*)getGoogleUserId {
+    return [FDKeychain itemForKey:SettingsConst.SignInProviders.Google.USERID
+                       forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
+-(void) setFBUserId : (NSString *)userId {
+    [FDKeychain saveItem:userId forKey:SettingsConst.SignInProviders.Facebook.USERID
+              forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
+-(NSString*)getFBUserId {
+    return [FDKeychain itemForKey:SettingsConst.SignInProviders.Facebook.USERID
+                       forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
 -(int) getMaxHTTPConnectionsNumber {
     return [ [self getProperty:SettingsConst.Property.MAXHTTPCONNECTIONS] intValue];
 }

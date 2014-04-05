@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
  
-    MenuViewController *leftMenu = (MenuViewController*)[[[TXVCSharedUtil instance] currentStoryBoard] instantiateViewControllerWithIdentifier: @"MenuViewController"];
+    MenuViewController *leftMenu = (MenuViewController*)[[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier: @"MenuViewController"];
 	leftMenu.cellIdentifier = @"leftMenuCell";
 	
 	[SlideNavigationController sharedInstance].leftMenu = leftMenu;

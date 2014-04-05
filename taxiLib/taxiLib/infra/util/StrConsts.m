@@ -25,18 +25,23 @@ const struct SettingsConst  SettingsConst = {
         .MAXHTTPATTEMPTS                = @"maxHTTPAttempts",
         .MAXATTACHMENTSIZE              = @"maxAttachmentSize", //in Mbs
         .MAX_ALLOWED_ATTACHEMENT_SPACE  = @"maxallowedattachmentspace",
-        .RETRYPARTSDL                   = @"retryPartsDownloadIn", //minutes
-        .SYNCPERIOD                     = @"syncPeriod", //in seconds
         .APPID                          = @"applicationID",
-        .LOCALSTG_INSTALLDATE           = @"installDate",
-        .LOCALSTG_ADMINSETTINGS         = @"adminSettings",
-        .LOCALSTG_LASTSYNCDATE          = @"lastSyncDate",
-        .LOCALSTG_CURSYNCSTARTDATE      = @"currentSyncBegunAt",
-        .BACKENDCODE                    = @"code",
-        .BACKENDSRC                     = @"backendSource",
-        .DEFAULT_BACKEND_NAME           = @"defaultBackend",
-        .HTTP_API                       = @"httpAPI",
+        .HTTP_API                       = @"httpAPI"
+        
+    },
+    
+    .SignInProviders = {
+     
+        .Google = {
+            .USERID = @"googleUserID"
+        },
+        
+        .Facebook = {
+            .USERID = @"facebookUserID"
+        }
+        
     }
+    
 };
 
 const struct Files Files = {

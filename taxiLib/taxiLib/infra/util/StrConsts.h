@@ -25,19 +25,25 @@ extern const struct SettingsConst {
         __unsafe_unretained NSString* MAXHTTPATTEMPTS;
         __unsafe_unretained NSString* MAXATTACHMENTSIZE;
         __unsafe_unretained NSString* MAX_ALLOWED_ATTACHEMENT_SPACE;
-        __unsafe_unretained NSString* RETRYPARTSDL;
-        __unsafe_unretained NSString* SYNCPERIOD;
         __unsafe_unretained NSString* APPID;
-        __unsafe_unretained NSString* BACKENDCODE;
-        __unsafe_unretained NSString* BACKENDSRC;
-        __unsafe_unretained NSString* DEFAULT_BACKEND_NAME;
-        __unsafe_unretained NSString* LOCALSTG_INSTALLDATE;
-        __unsafe_unretained NSString* LOCALSTG_ADMINSETTINGS;
-        __unsafe_unretained NSString* LOCALSTG_LASTSYNCDATE;
-        __unsafe_unretained NSString* LOCALSTG_CURSYNCSTARTDATE;
         __unsafe_unretained NSString* HTTP_API;
     } Property;
     
+    struct {
+        
+        struct {
+            
+            __unsafe_unretained NSString* USERID;
+            
+        } Google;
+        
+        struct {
+            
+            __unsafe_unretained NSString* USERID;
+            
+        } Facebook;
+        
+    } SignInProviders;
     
 } SettingsConst;
 

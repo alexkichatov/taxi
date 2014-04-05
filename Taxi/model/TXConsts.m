@@ -13,6 +13,16 @@ const struct HTTP_API HTTP_API = {
         .AUTHENTICATE = @"login"
 };
 
+const struct KEYS KEYS = {
+    
+    .Google = {
+     
+        .CLIENTID = @"177846177917-1r8cvuslmtv3lfj2k1np42k0sk402n56.apps.googleusercontent.com",
+        
+    }
+    
+};
+
 const struct API_JSON API_JSON = {
     
     .Keys = {
@@ -33,8 +43,39 @@ const struct API_JSON API_JSON = {
     
 };
 
+const struct LEFT_MENU LEFT_MENU = {
+    
+    .Names = {
+    
+        .HOME = @"Home",
+        .PROFILE = @"Profile",
+        .SETTINGS = @"Settings",
+        .SIGNOUT = @"Sign out"
+    },
+    
+    .Images = {
+        
+        .HOME = @"button-home",
+        .PROFILE = @"button-profile",
+        .SETTINGS = @"button-settings",
+        .SIGNOUT = @"button-signout"
+        
+    },
+   
+    .Controllers = {
+        
+        .HOME = @"TXMainVC",
+        .PROFILE = @"TXMainVC",
+        .SETTINGS = @"TXMainVC",
+        .SIGNOUT = @"TXMainVC"
+        
+    }
+    
+};
+
 const struct PROVIDERS PROVIDERS = {
     
-    .FACEBOOK = @"http://www.facebook.com"
+    .FACEBOOK = @"http://www.facebook.com",
+    .GOOGLE   = @"http://www.google.com"
     
 };

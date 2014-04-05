@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "taxiLib/TXHttpRequestManager.h"
 #import "taxiLib/TXEventTarget.h"
-#import "TXVM.h"
+#import "TXSharedObj.h"
 #import "TXConsts.h"
 
 @interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
     TXHttpRequestManager *httpMgr;
-    TXVM                 *application;
 }
+
+@property (nonatomic, strong) TXSharedObj *application;
 
 -(TXRequestObj *) createRequest:(NSString *) config;
 -(void)sendAsyncRequest:(TXRequestObj *) request;

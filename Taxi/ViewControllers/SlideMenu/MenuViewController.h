@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
+#import "TXRootVC.h"
 
-@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TXSettingsMenuItem : NSObject
+    
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIImage  *image;
+@property (nonatomic, strong) TXRootVC *vc;
+
++(id) create:(NSString *) title image:(NSString *) image viewController:(NSString *)vc;
+
+@end
+
+@interface MenuViewController : TXRootVC <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString *cellIdentifier;
 

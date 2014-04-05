@@ -14,6 +14,13 @@
 
 @implementation TXRootVC
 
+-(id)init {
+    if(self = [super init]) {
+        self.sharedObj = [TXSharedObj instance];
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,7 +34,6 @@
 {
     [super viewDidLoad];
 	self.view.userInteractionEnabled = TRUE;
-    self->app = [TXVCSharedUtil instance];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,9 +62,9 @@
  * Sets the model to the controller
  */
 -(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames {
-    self->model = model_;
+    self.model = model_;
     for (NSString *evtName in eventNames) {
-        [self->model addEventListener:self forEvent:evtName eventParams:nil];
+        [self.model addEventListener:self forEvent:evtName eventParams:nil];
     }
 }
 
@@ -83,7 +89,7 @@
 }
 
 -(TXRootVC *) viewControllerInstanceWithName: (NSString *) name {
-    return [[self->app currentStoryBoard] instantiateViewControllerWithIdentifier:name];
+    return [[self.model.application currentStoryBoard] instantiateViewControllerWithIdentifier:name];
 }
 
 -(void) alertError : (NSString *) title message : (NSString *) message {

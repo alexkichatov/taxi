@@ -25,7 +25,7 @@
 		3827822F18B8CE920036238A /* TXConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822618B8CE920036238A /* TXConsts.m */; };
 		3827823018B8CE920036238A /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822818B8CE920036238A /* TXModelBase.m */; };
 		3827823118B8CE920036238A /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822A18B8CE920036238A /* TXUserModel.m */; };
-		3827823218B8CE920036238A /* TXVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822C18B8CE920036238A /* TXVM.m */; };
+		3827823218B8CE920036238A /* TXSharedObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822C18B8CE920036238A /* TXSharedObj.m */; };
 		3827823318B8CE920036238A /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822E18B8CE920036238A /* Types.m */; };
 		3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823A18B8D5F40036238A /* TXBaseObj.m */; };
 		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
@@ -78,7 +78,8 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
-		388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */; };
+		389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */; };
+		389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */; };
 		38C0ECE918EC590E00AFE860 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */; };
 		38C0ECEA18EC590F00AFE860 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */; };
 		38C0ECEB18EC590F00AFE860 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE818EC590E00AFE860 /* GooglePlus.framework */; };
@@ -96,11 +97,6 @@
 		38D464EF188E804C005B3A74 /* libtaxiLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D4649F188E7EC2005B3A74 /* libtaxiLib.a */; };
 		38D464FA188E9056005B3A74 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38D464F9188E9056005B3A74 /* taxi.bundle */; };
 		38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */; };
-		38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9018BB5FE6004A0E81 /* TXCenterVC.m */; };
-		38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9218BB5FE6004A0E81 /* TXLeftVC.m */; };
-		38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */; };
-		38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */; };
-		38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */; };
 		38DABBC518D9AA72005D4AC4 /* TXGoogleAPIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleAPIUtil.m */; };
 /* End PBXBuildFile section */
 
@@ -166,8 +162,8 @@
 		3827822818B8CE920036238A /* TXModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXModelBase.m; path = model/TXModelBase.m; sourceTree = "<group>"; };
 		3827822918B8CE920036238A /* TXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXUserModel.h; path = model/TXUserModel.h; sourceTree = "<group>"; };
 		3827822A18B8CE920036238A /* TXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXUserModel.m; path = model/TXUserModel.m; sourceTree = "<group>"; };
-		3827822B18B8CE920036238A /* TXVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXVM.h; path = model/TXVM.h; sourceTree = "<group>"; };
-		3827822C18B8CE920036238A /* TXVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXVM.m; path = model/TXVM.m; sourceTree = "<group>"; };
+		3827822B18B8CE920036238A /* TXSharedObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXSharedObj.h; path = model/TXSharedObj.h; sourceTree = "<group>"; };
+		3827822C18B8CE920036238A /* TXSharedObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXSharedObj.m; path = model/TXSharedObj.m; sourceTree = "<group>"; };
 		3827822D18B8CE920036238A /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Types.h; path = model/Types.h; sourceTree = "<group>"; };
 		3827822E18B8CE920036238A /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Types.m; path = model/Types.m; sourceTree = "<group>"; };
 		3827823918B8D5F40036238A /* TXBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseObj.h; sourceTree = "<group>"; };
@@ -259,8 +255,10 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
-		388D6D8218BB89F40099C1C2 /* TXVCSharedUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXVCSharedUtil.h; sourceTree = "<group>"; };
-		388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXVCSharedUtil.m; sourceTree = "<group>"; };
+		389EDB5A18F027BD005CAAE7 /* TXSignCheckerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignCheckerVC.h; sourceTree = "<group>"; };
+		389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSignCheckerVC.m; sourceTree = "<group>"; };
+		389EDB5E18F02DD6005CAAE7 /* TXViewControllersCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXViewControllersCache.h; sourceTree = "<group>"; };
+		389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXViewControllersCache.m; sourceTree = "<group>"; };
 		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
@@ -281,16 +279,6 @@
 		38D464F9188E9056005B3A74 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = taxi.bundle; path = taxiLib/taxi.bundle; sourceTree = "<group>"; };
 		38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRegisterVC.h; sourceTree = "<group>"; };
 		38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRegisterVC.m; sourceTree = "<group>"; };
-		38D6DF8F18BB5FE6004A0E81 /* TXCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCenterVC.h; sourceTree = "<group>"; };
-		38D6DF9018BB5FE6004A0E81 /* TXCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCenterVC.m; sourceTree = "<group>"; };
-		38D6DF9118BB5FE6004A0E81 /* TXLeftVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLeftVC.h; sourceTree = "<group>"; };
-		38D6DF9218BB5FE6004A0E81 /* TXLeftVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLeftVC.m; sourceTree = "<group>"; };
-		38D6DF9318BB5FE6004A0E81 /* TXRightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRightVC.h; sourceTree = "<group>"; };
-		38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRightVC.m; sourceTree = "<group>"; };
-		38D6DF9518BB5FE6004A0E81 /* TXSidePanelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSidePanelVC.h; sourceTree = "<group>"; };
-		38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSidePanelVC.m; sourceTree = "<group>"; };
-		38D6DF9918BB5FE6004A0E81 /* UIViewController+TXSidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TXSidePanel.h"; sourceTree = "<group>"; };
-		38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TXSidePanel.m"; sourceTree = "<group>"; };
 		38DABBC318D9AA72005D4AC4 /* TXGoogleAPIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXGoogleAPIUtil.h; sourceTree = "<group>"; };
 		38DABBC418D9AA72005D4AC4 /* TXGoogleAPIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXGoogleAPIUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -403,7 +391,6 @@
 				385E113A18EC2C5600AB7570 /* user */,
 				388D6D8118BB89D40099C1C2 /* util */,
 				388D6D7818BB83880099C1C2 /* img */,
-				38D6DF8A18BB5FA9004A0E81 /* LeftMenu */,
 				385E113E18EC348F00AB7570 /* TXMainVC.h */,
 				385E113F18EC348F00AB7570 /* TXMainVC.m */,
 				38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */,
@@ -423,6 +410,8 @@
 				385E114218EC349E00AB7570 /* TXSignUpVC.m */,
 				385E114418EC34AD00AB7570 /* TXSignInVC.h */,
 				385E114518EC34AD00AB7570 /* TXSignInVC.m */,
+				389EDB5A18F027BD005CAAE7 /* TXSignCheckerVC.h */,
+				389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -697,8 +686,8 @@
 				3827822818B8CE920036238A /* TXModelBase.m */,
 				3827822918B8CE920036238A /* TXUserModel.h */,
 				3827822A18B8CE920036238A /* TXUserModel.m */,
-				3827822B18B8CE920036238A /* TXVM.h */,
-				3827822C18B8CE920036238A /* TXVM.m */,
+				3827822B18B8CE920036238A /* TXSharedObj.h */,
+				3827822C18B8CE920036238A /* TXSharedObj.m */,
 				3827822D18B8CE920036238A /* Types.h */,
 				3827822E18B8CE920036238A /* Types.m */,
 			);
@@ -721,8 +710,6 @@
 		388D6D8118BB89D40099C1C2 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				388D6D8218BB89F40099C1C2 /* TXVCSharedUtil.h */,
-				388D6D8318BB89F40099C1C2 /* TXVCSharedUtil.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -736,28 +723,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		38D6DF8A18BB5FA9004A0E81 /* LeftMenu */ = {
-			isa = PBXGroup;
-			children = (
-				38D6DF8F18BB5FE6004A0E81 /* TXCenterVC.h */,
-				38D6DF9018BB5FE6004A0E81 /* TXCenterVC.m */,
-				38D6DF9118BB5FE6004A0E81 /* TXLeftVC.h */,
-				38D6DF9218BB5FE6004A0E81 /* TXLeftVC.m */,
-				38D6DF9318BB5FE6004A0E81 /* TXRightVC.h */,
-				38D6DF9418BB5FE6004A0E81 /* TXRightVC.m */,
-				38D6DF9518BB5FE6004A0E81 /* TXSidePanelVC.h */,
-				38D6DF9618BB5FE6004A0E81 /* TXSidePanelVC.m */,
-				38D6DF9918BB5FE6004A0E81 /* UIViewController+TXSidePanel.h */,
-				38D6DF9A18BB5FE6004A0E81 /* UIViewController+TXSidePanel.m */,
-			);
-			path = LeftMenu;
-			sourceTree = "<group>";
-		};
 		38DABBC118D9AA43005D4AC4 /* util */ = {
 			isa = PBXGroup;
 			children = (
 				38DABBC318D9AA72005D4AC4 /* TXGoogleAPIUtil.h */,
 				38DABBC418D9AA72005D4AC4 /* TXGoogleAPIUtil.m */,
+				389EDB5E18F02DD6005CAAE7 /* TXViewControllersCache.h */,
+				389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -905,17 +877,14 @@
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */,
 				385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */,
-				388D6D8418BB89F40099C1C2 /* TXVCSharedUtil.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				385E119A18EC35C400AB7570 /* TXMenuCell.m in Sources */,
 				3827823118B8CE920036238A /* TXUserModel.m in Sources */,
-				38D6DF9B18BB5FE6004A0E81 /* TXCenterVC.m in Sources */,
 				38DABBC518D9AA72005D4AC4 /* TXGoogleAPIUtil.m in Sources */,
 				385E119118EC35C400AB7570 /* TXStackedViewController.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
 				3827824118B8D5F40036238A /* TXUser.m in Sources */,
 				385E11A018EC35C400AB7570 /* TXObjectPDQCriteria.m in Sources */,
-				38D6DF9E18BB5FE6004A0E81 /* TXSidePanelVC.m in Sources */,
 				385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */,
 				385E11A818EC35C400AB7570 /* TXDispatchingViewController.m in Sources */,
 				385E11A518EC35C400AB7570 /* TXIndeterminateProgressViewController.m in Sources */,
@@ -924,16 +893,14 @@
 				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
 				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
 				385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */,
+				389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */,
 				385E11A718EC35C400AB7570 /* TXConstants.m in Sources */,
 				385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */,
-				38D6DF9D18BB5FE6004A0E81 /* TXRightVC.m in Sources */,
-				3827823218B8CE920036238A /* TXVM.m in Sources */,
+				3827823218B8CE920036238A /* TXSharedObj.m in Sources */,
 				3826CC3E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
 				3815177E18C364BA005F915C /* TXRootVC.m in Sources */,
-				38D6DF9C18BB5FE6004A0E81 /* TXLeftVC.m in Sources */,
 				385E119018EC35C400AB7570 /* TXAlertView.m in Sources */,
-				38D6DFA018BB5FE6004A0E81 /* UIViewController+TXSidePanel.m in Sources */,
 				385E114618EC34AD00AB7570 /* TXSignInVC.m in Sources */,
 				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
@@ -944,6 +911,7 @@
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
 				385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */,
 				3827823318B8CE920036238A /* Types.m in Sources */,
+				389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */,
 				38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
 				385E11AB18EC35C400AB7570 /* SVProgressHUD.m in Sources */,

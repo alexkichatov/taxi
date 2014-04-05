@@ -126,7 +126,7 @@
         
         [properties removeObjectForKey:TXPropertyConsts.User.PASSWORD];
         TXUser *user = [TXUser create:properties];
-        [self->application setUser:user];
+        [self.application setUser:user];
         
     }
     

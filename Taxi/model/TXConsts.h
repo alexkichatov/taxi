@@ -11,6 +11,16 @@ extern const struct HTTP_API {
     __unsafe_unretained NSString* AUTHENTICATE;
 } HTTP_API;
 
+extern const struct KEYS {
+    
+    struct {
+        __unsafe_unretained NSString* CLIENTID;
+        
+    } Google;
+    
+} KEYS;
+
+
 extern const struct API_JSON {
     
     struct {
@@ -33,8 +43,41 @@ extern const struct API_JSON {
     
 } API_JSON;
 
+extern const struct LEFT_MENU {
+    
+    struct {
+
+        __unsafe_unretained NSString* HOME;
+        __unsafe_unretained NSString* PROFILE;
+        __unsafe_unretained NSString* SETTINGS;
+        __unsafe_unretained NSString* SIGNOUT;
+        
+    } Names;
+    
+    struct {
+        
+        __unsafe_unretained NSString* HOME;
+        __unsafe_unretained NSString* PROFILE;
+        __unsafe_unretained NSString* SETTINGS;
+        __unsafe_unretained NSString* SIGNOUT;
+        
+        
+    } Images;
+    
+    struct {
+        
+        __unsafe_unretained NSString* HOME;
+        __unsafe_unretained NSString* PROFILE;
+        __unsafe_unretained NSString* SETTINGS;
+        __unsafe_unretained NSString* SIGNOUT;
+        
+    } Controllers;
+    
+} LEFT_MENU;
+
 extern const struct PROVIDERS {
     
     __unsafe_unretained NSString* FACEBOOK;
+    __unsafe_unretained NSString* GOOGLE;
     
 } PROVIDERS;

@@ -16,7 +16,6 @@
 #import "TXGoogleAPIUtil.h"
 #import <GooglePlus/GooglePlus.h>
 #import "MenuViewController.h"
-#import "TXVCSharedUtil.h"
 
 @implementation TXAppDelegate
 

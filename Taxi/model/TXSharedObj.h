@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "TXUser.h"
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
 #import "taxiLib/TXApp.h"
+#import "TXConsts.h"
 
-@interface TXVM : NSObject
+@interface TXSharedObj : NSObject
 
 @property (nonatomic, strong) TXUser* user;
 @property (nonatomic, strong) TXSettings *settings;
 @property (nonatomic, strong) TXApp *app;
+@property (nonatomic, strong) GPPSignIn *signIn;
 
-+(TXVM *) instance;
++(TXSharedObj *) instance;
+-(UIStoryboard*) currentStoryBoard;
 
 @end

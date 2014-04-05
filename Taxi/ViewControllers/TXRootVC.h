@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TXModelBase.h"
 #import "TXBaseViewController.h"
-#import "TXVCSharedUtil.h"
 
-@interface TXRootVC : TXBaseViewController<TXEventListener> {
-    TXModelBase*    model;
-    TXVCSharedUtil* app;
-}
+@interface TXRootVC : TXBaseViewController<TXEventListener>
+
+@property (nonatomic, strong) TXModelBase *model;
+@property (nonatomic, strong) TXSharedObj *sharedObj;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 -(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames;
 -(void) pushViewController : (TXRootVC *) viewController;

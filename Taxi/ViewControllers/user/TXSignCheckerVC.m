@@ -1,30 +1,47 @@
 //
-//  TXSignInVC.m
+//  TXSignCheckerVC.m
 //  Taxi
 //
-//  Created by Irakli Vashakidze on 4/2/14.
+//  Created by Irakli Vashakidze on 4/5/14.
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXSignInVC.h"
+#import "TXSignCheckerVC.h"
 #import "SlideNavigationController.h"
+#import "TXSignInVC.h"
+#import "TXConsts.h"
+#import "TXSharedObj.h"
 
-@interface TXSignInVC ()<GPPSignInDelegate>
+@interface TXSignCheckerVC ()<GPPSignInDelegate> {
+
+}
 
 @end
 
-@implementation TXSignInVC
+@implementation TXSignCheckerVC
 
-- (void)viewDidLoad
-{
-    self.view.userInteractionEnabled = TRUE;
+-(void)viewDidLoad {
+    
     [super viewDidLoad];
-    self.sharedObj.signIn.delegate = self;
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if([[TXSharedObj instance].settings getGoogleUserId] == nil) {
+        [self.activityIndicator removeFromSuperview];
+        [self pushViewController:[[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignInVC class])]];
+    } else {
+        
+        self.sharedObj.signIn.delegate = self;
+        [self.signIn authenticate];
+        
+    }
+
 }
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
-
-    NSLog(@"%@", auth);
     
     if(error==nil) {
         
@@ -37,12 +54,12 @@
         [plusService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLPlusPerson *person, NSError *error) {
             
             if (error) {
-            
+                
                 GTMLoggerError(@"Error: %@", error);
                 
                 
             } else {
-            
+                
                 [self.sharedObj.settings setGoogleUserId:person.identifier];
                 
             }
@@ -61,16 +78,17 @@
 }
 
 -(void)refreshInterfaceBasedOnSignIn {
-   
-    if ([[GPPSignIn sharedInstance] authentication]) {
+    
+    if ([self.signIn authentication]) {
         // The user is signed in.
-        self.googleSignInButton.hidden = YES;
-        [self pushViewController:[[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([SlideNavigationController class])]];
+        [self pushViewController:[[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([SlideNavigationController class])]];
         
     } else {
-        self.googleSignInButton.hidden = NO;
-        // Perform other actions here
+        
+        [self pushViewController:[[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([TXSignInVC class])]];
+        
     }
 }
+
 
 @end

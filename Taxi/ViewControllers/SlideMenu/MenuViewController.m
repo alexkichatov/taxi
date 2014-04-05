@@ -12,9 +12,70 @@
 #import "SlideNavigationContorllerAnimatorScale.h"
 #import "SlideNavigationContorllerAnimatorScaleAndFade.h"
 #import "SlideNavigationContorllerAnimatorSlideAndFade.h"
+#import "TXConsts.h"
+
+int const MENU_ITEMS_COUNT = 4;
+
+@implementation TXSettingsMenuItem
+@synthesize title, image, vc;
+
++(id) create:(NSString *) title image:(NSString *) image viewController:(NSString *)vc {
+    return [[self alloc] initWithProperties:title image:image viewController:vc];
+}
+
+-(id)initWithProperties:(NSString *) title_ image:(NSString *) image_ viewController:(NSString *)vc_ {
+    
+    if(self = [super init]) {
+        
+        self.title = title_;
+        self.image = [UIImage imageNamed:image_];
+        self.vc = [[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:vc_];
+    }
+    
+    return self;
+    
+}
+
+@end
+
+@interface MenuViewController() {
+    NSMutableArray *items;
+}
+
+@end
 
 @implementation MenuViewController
 @synthesize cellIdentifier;
+
+-(void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self->items = [NSMutableArray arrayWithCapacity:MENU_ITEMS_COUNT];
+    
+    TXSettingsMenuItem *item = [TXSettingsMenuItem create:LEFT_MENU.Names.HOME
+                                                   image:LEFT_MENU.Images.HOME
+                                                   viewController:LEFT_MENU.Controllers.HOME];
+    
+    [items addObject:item];
+    
+    item = [TXSettingsMenuItem create:LEFT_MENU.Names.PROFILE
+                                image:LEFT_MENU.Images.PROFILE
+                       viewController:LEFT_MENU.Controllers.PROFILE];
+    
+    [items addObject:item];
+    
+    item = [TXSettingsMenuItem create:LEFT_MENU.Names.SETTINGS
+                                image:LEFT_MENU.Images.SETTINGS
+                       viewController:LEFT_MENU.Controllers.SETTINGS];
+    
+    [items addObject:item];
+    
+    item = [TXSettingsMenuItem create:LEFT_MENU.Names.SIGNOUT
+                                image:LEFT_MENU.Images.SIGNOUT
+                       viewController:LEFT_MENU.Controllers.SIGNOUT];
+    
+    [items addObject:item];
+}
 
 #pragma mark - UITableView Delegate & Datasrouce -
 
@@ -25,43 +86,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 4;
+	return self->items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
 	
-	if (indexPath.section == 0)
-	{
-
-		switch (indexPath.row)
-		{
-			case 0:
-                ((UILabel *)[cell.contentView viewWithTag:1]).text = @"Home";
-                
-                ((UIImageView*)[cell.contentView viewWithTag:2]).image = [UIImage imageNamed:@"button-home"];
-				break;
-				
-			case 1:
-				((UILabel *)[cell.contentView viewWithTag:1]).text = @"Profile";
-                ((UIImageView*)[cell.contentView viewWithTag:2]).image = [UIImage imageNamed:@"button-profile"];
-				break;
-				
-            case 2:
-				((UILabel *)[cell.contentView viewWithTag:1]).text = @"Settings";
-                ((UIImageView*)[cell.contentView viewWithTag:2]).image = [UIImage imageNamed:@"button-settings"];
-				break;
-                
-			case 3:
-				((UILabel *)[cell.contentView viewWithTag:1]).text = @"Sign out";
-                ((UIImageView*)[cell.contentView viewWithTag:2]).image = [UIImage imageNamed:@"button-signout"];
-				break;
-				
-		}
-	}
-	
-    cell.textLabel.textColor = [UIColor whiteColor];
+    TXSettingsMenuItem *item = self->items[indexPath.row];
+    ((UILabel *)[cell.contentView viewWithTag:1]).text = item.title;
+    ((UIImageView*)[cell.contentView viewWithTag:2]).image = item.image;
 	
 	return cell;
 }
