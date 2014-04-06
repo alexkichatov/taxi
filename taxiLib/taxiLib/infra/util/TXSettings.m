@@ -67,7 +67,7 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
    // [self setProperty:SettingsConst.Property.BASEURL value:@"http://localhost"]; // Me
    // [self setProperty:SettingsConst.Property.PORT value:@"8080"];
     
-    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.43.221"]; // Archvi
+    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.254.106"]; // Archvi
     [self setProperty:SettingsConst.Property.PORT value:@"8095"];
     
     [self setUserName:@"tomcat"];

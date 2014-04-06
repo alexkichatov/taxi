@@ -18,7 +18,6 @@
 @property (nonatomic, strong) TXUser* user;
 @property (nonatomic, strong) TXSettings *settings;
 @property (nonatomic, strong) TXApp *app;
-@property (nonatomic, strong) GPPSignIn *signIn;
 
 +(TXSharedObj *) instance;
 -(UIStoryboard*) currentStoryBoard;

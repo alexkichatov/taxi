@@ -70,6 +70,22 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>checkUser</key>
+	<dict>
+		<key>local</key>
+		<true/>
+		<key>hasUrlBase</key>
+		<true/>
+		<key>url</key>
+		<string>/taxiWeb/checkUser</string>
+		<key>httpMethod</key>
+		<string>POST</string>
+		<key>headers</key>
+		<dict>
+			<key>Authorization</key>
+			<string></string>
+		</dict>
+	</dict>
 	<key>fbgraph</key>
 	<dict>
 		<key>local</key>

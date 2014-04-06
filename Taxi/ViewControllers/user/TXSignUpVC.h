@@ -10,4 +10,10 @@
 
 @interface TXSignUpVC : TXRootVC
 
+@property (nonatomic, strong) IBOutlet UITextField *txtUsername;
+@property (nonatomic, strong) IBOutlet UITextField *txtPassword;
+@property (nonatomic, strong) IBOutlet UITextField *txtConfirmPassword;
+@property (nonatomic, strong) IBOutlet UITextField *txtEmail;
+@property (nonatomic, strong) IBOutlet UIButton    *btnSignUp;
+
 @end

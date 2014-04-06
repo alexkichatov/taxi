@@ -83,4 +83,8 @@
     [self->httpMgr sendAsyncRequest:request];
 }
 
+-(id)sendSyncRequest:(TXRequestObj *) request {
+    return [self->httpMgr sendSyncRequest:request];
+}
+
 @end

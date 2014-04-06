@@ -10,7 +10,8 @@
 
 const struct HTTP_API HTTP_API = {
         .REGISTER = @"register",
-        .AUTHENTICATE = @"login"
+        .AUTHENTICATE = @"login",
+        .CHECKUSER    = @"checkUser"
 };
 
 const struct KEYS KEYS = {
@@ -38,7 +39,8 @@ const struct API_JSON API_JSON = {
         .PASSWORD = @"password",
         .PROVIDERUSERID = @"providerUserId",
         .PROVIDERID = @"providerId",
-        .LOGINWITHPROVIDER = @"loginWithProvider"
+        .LOGINWITHPROVIDER = @"loginWithProvider",
+        .USEREXISTS = @"exists"
     }
     
 };

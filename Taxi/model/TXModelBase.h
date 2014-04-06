@@ -11,6 +11,7 @@
 #import "taxiLib/TXEventTarget.h"
 #import "TXSharedObj.h"
 #import "TXConsts.h"
+#import "taxiLib/utils.h"
 
 @interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
     TXHttpRequestManager *httpMgr;
@@ -20,6 +21,7 @@
 
 -(TXRequestObj *) createRequest:(NSString *) config;
 -(void)sendAsyncRequest:(TXRequestObj *) request;
+-(id)sendSyncRequest:(TXRequestObj *) request;
 -(void)onRequestCompleted:(id)object;
 -(void)onFail:(id)object error:(TXError *)error;
 

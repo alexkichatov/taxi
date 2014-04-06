@@ -97,5 +97,6 @@ const struct TXEvents TXEvents = {
     },
     
     .REGISTER_USER_COMPLETED = @"registerUserCompleted",
-    .REGISTER_USER_FAILED = @"registerUserFailed"
+    .REGISTER_USER_FAILED = @"registerUserFailed",
+    .CHECK_USER_COMPLETED = @"checkUserCompleted"
 };

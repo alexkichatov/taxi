@@ -19,50 +19,12 @@
 {
     self.view.userInteractionEnabled = TRUE;
     [super viewDidLoad];
-    self.sharedObj.signIn.delegate = self;
-}
 
-- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
-
-    NSLog(@"%@", auth);
-    
-    if(error==nil) {
-        
-        GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-        plusService.retryEnabled = YES;
-        [plusService setAuthorizer:self.sharedObj.signIn.authentication];
-        
-        GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
-        
-        [plusService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLPlusPerson *person, NSError *error) {
-            
-            if (error) {
-            
-                GTMLoggerError(@"Error: %@", error);
-                
-                
-            } else {
-            
-                [self.sharedObj.settings setGoogleUserId:person.identifier];
-                
-            }
-        }];
-        
-        
-    } else {
-        
-        NSString *msg = [NSString stringWithFormat:@"Error: %@\nReason: %@\n%@", [error localizedDescription], [error localizedFailureReason], [error localizedRecoverySuggestion]];
-        
-        [self alertError:[error localizedDescription] message:msg];
-    }
-    
-    [self refreshInterfaceBasedOnSignIn];
-    
 }
 
 -(void)refreshInterfaceBasedOnSignIn {
    
-    if ([[GPPSignIn sharedInstance] authentication]) {
+    if ([self.signIn authentication]) {
         // The user is signed in.
         self.googleSignInButton.hidden = YES;
         [self pushViewController:[[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass([SlideNavigationController class])]];

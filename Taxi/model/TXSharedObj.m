@@ -37,11 +37,7 @@
         self->iPhoneStoryBoard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
         self->iPadStoryBoard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
         self->deviceType = [UIDevice currentDevice].model;
-        self.signIn = [GPPSignIn sharedInstance];
-        self.signIn.shouldFetchGooglePlusUser = YES;
-        self.signIn.shouldFetchGoogleUserEmail = YES;
-        self.signIn.clientID = KEYS.Google.CLIENTID;
-        self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];
+        
     }
     
     return self;
