@@ -81,7 +81,7 @@
     
 }
 
--(BOOL)checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId  {
+-(TXSyncResponseDescriptor *)checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId  {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.CHECKUSER];
     
@@ -97,10 +97,7 @@
                               };
     
     request.body = getJSONStr(jsonObj);
-    id response = getJSONObj([self sendSyncRequest:request]);
-    
-    NSDictionary *data = getJSONObj([response objectForKey:API_JSON.Keys.DATA]);
-    return [[data objectForKey:API_JSON.Authenticate.USEREXISTS] boolValue];
+    return [self sendSyncRequest:request];
     
 }
 

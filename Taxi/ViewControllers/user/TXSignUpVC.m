@@ -9,6 +9,7 @@
 #import "TXSignUpVC.h"
 #import "TXUserModel.h"
 #import "CMPopTipView.h"
+#import "TXAskUserInfoVC.h"
 
 @interface TXSignUpVC ()<UIActionSheetDelegate> {
     NSString *lastExistingUsername;
@@ -28,7 +29,6 @@
     [super viewDidLoad];
     
     self.model = [TXUserModel instance];
-    [self.model addEventListener:self forEvent:TXEvents.CHECK_USER_COMPLETED eventParams:nil];
     self->userExists = YES;
     [self refreshSignUpButton];
 }
@@ -39,6 +39,8 @@
         [self displayUserExistsPopup];
         [self refreshSignUpButton];
     } else {
+        
+        [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXAskUserInfoVC class])]];
         
     }
     
@@ -60,18 +62,28 @@
     
         if(sender.text.length > 0) {
          
-           BOOL exists = [(TXUserModel *)self.model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
+            TXSyncResponseDescriptor *descriptor = [(TXUserModel *)self.model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
             
-            if(exists) {
+            if(descriptor.success) {
                 
-                self->userExists = YES;
-                self->lastExistingUsername = sender.text;
-                [self displayUserExistsPopup];
+                NSDictionary *data = [getJSONObj((NSString *)descriptor.source) objectForKey:API_JSON.Keys.DATA];
+                if([[data objectForKey:API_JSON.Authenticate.USEREXISTS] boolValue]) {
+                    
+                    self->userExists = YES;
+                    self->lastExistingUsername = sender.text;
+                    [self displayUserExistsPopup];
+                    
+                } else {
+                    
+                    self->userExists = NO;
+                }
                 
             } else {
                 
-                self->userExists = NO;
+                // Display request error ...
+                
             }
+            
         }
         
     }

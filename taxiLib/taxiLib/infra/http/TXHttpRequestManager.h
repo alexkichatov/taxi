@@ -17,12 +17,19 @@
 #define DEFREFCOUNT     10
 
 @class TXError;
+@class TXRequestObj;
 
 @protocol TXHttpRequestListener <NSObject>
 
 -(void) onRequestCompleted : (id) object;
 -(void) onFail : (id) object error:(TXError*) error;
 
+@end
+
+@interface TXSyncResponseDescriptor : NSObject
+@property (nonatomic, strong) NSObject     *source;
+@property (nonatomic, strong) TXError      *error;
+@property (nonatomic, assign) BOOL         success;
 @end
 
 /*!
@@ -198,9 +205,9 @@
 /*!
  @function sendSyncRequest sends the synchronous http request
  @param request
- @return BOOL flag for the success or failure
+ @return TXSyncResponseDescriptor
  */
--(id)sendSyncRequest:(TXRequestObj*)request;
+-(TXSyncResponseDescriptor*)sendSyncRequest:(TXRequestObj*)request;
 
 /*!
  @function cancelRequest cancel http request corresponding to the AMDCReqObj given

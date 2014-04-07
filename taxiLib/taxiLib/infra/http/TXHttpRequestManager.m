@@ -18,6 +18,12 @@ static NSString* const DEFAULT_CONFIG = @"register";
 static NSString* const HDR_ACCEPT         = @"Accept";
 static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 
+@implementation TXSyncResponseDescriptor
+
+@synthesize source, error, success;
+
+@end
+
 @implementation TXRequestConfig
 
 @synthesize name, url, httpMethod, headers, hasUrlBase, bodyTemplate;
@@ -174,7 +180,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 
 -(TXRequestObj*)requestForConnection:(NSURLConnection*)connection;
 +(NSString*)urlEncode:(NSString*)src;
--(NSData *)sendSyncRequestInternal:(TXRequestObj*)request;
 
 @end
 
@@ -215,63 +220,47 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 }
 
 
--(id)sendSyncRequestInternal:(TXRequestObj*)request {
+-(TXSyncResponseDescriptor*)sendSyncRequest:(TXRequestObj*)request {
+    
+    TXSyncResponseDescriptor *result = nil;
     
     if ( request != nil )
 	{
+        result = [[TXSyncResponseDescriptor alloc] init];
         NSMutableURLRequest* httpRequest = [request createHTTPRequest];
 		NSError* error_ = nil;
 		NSURLResponse* response;
-        
-        //increase attmpt counter
+        //increase attempt counter
         request.attemptCount++;
 		NSData* responseData = [NSURLConnection sendSynchronousRequest:httpRequest returningResponse:&response error:&error_];
         int responseStatusCode = [(NSHTTPURLResponse*)response statusCode];
         
 		if ( [error_ code] || responseStatusCode != HTTP_OK )
 		{
-            DLogE(@"HTTP %@ Error - Status Code %d\n %@ %d %@\nresponse data - %@\n for URL - %@\nrequest body:\n%@",
-                  request.reqConfig.httpMethod,responseStatusCode,[error_ domain], [error_ code],
-                  [error_ localizedDescription],
-                  [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding],
-                  request.reqUrl,
-                  request.body);
+            NSString *msgFmt = @"HTTP %@ Error - Status Code %d\n %@ %d %@\nresponse data - %@\n for URL - %@\nrequest body:\n%@";
+            NSString *message = [NSString stringWithFormat:msgFmt, request.reqConfig.httpMethod,responseStatusCode,[error_ domain], [error_ code],
+                                 [error_ localizedDescription],
+                                 [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding],
+                                 request.reqUrl,
+                                 request.body];
             
-            //            NSString *errMsg = error_!=nil ? [error_ localizedDescription] : [NSString stringWithFormat:LocalizedStr(@"Http.Err.httpRequestFailed"), request.reqUrl];
+            DLogE(@"%@", message);
             
-            //            AMDCEvent *event = [AMDCEvent createEvent:AMDCEvents.HTTPREQUESTFAILED eventSource:self eventProps:@{ AMDCEvents.Params.ERROR : [TXError error:AMDC_ERR_HTTP_REQUEST_FAILED message:errMsg description:[NSString stringWithFormat:@"AMDCHttpReqManager, sendSyncRequest, sendSyncRequestInternal, [NSURLConnection sendSynchronousRequest], %@", request.reqUrl]] }];
-            //            [self fireEvent:event];
+            result.error = [TXError error:TX_ERR_HTTP_REQUEST_FAILED message:[error_ domain] description:message];
             
-			return nil;
-		}
+		} else {
         
-        request.receivedData = (NSMutableData*)responseData;
-        
-        DLogI(@"%@ Req To Url - %@ completed", request.reqConfig.httpMethod, request.reqUrl);
-        
-        // Can be passed seconds, recieved data length .etc.
-        //        AMDCEvent *event = [AMDCEvent createEvent:AMDCEvents.HTTPREQUESTSUCCEED eventSource:self eventProps:nil];
-        //        [self fireEvent:event];
-        
-		return responseData;
+            request.receivedData = (NSMutableData*)responseData;
+            result.success = YES;
+            result.source  = [[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding];
+            DLogI(@"%@ Req To Url - %@ completed", request.reqConfig.httpMethod, request.reqUrl);
+            DLogI(@"Body: %@", result.json);
+        }
+
 	}
     
-	return nil;
+	return result;
     
-}
-
--(id)sendSyncRequest:(TXRequestObj*)request {
-    
-    NSData *responseData = [self sendSyncRequestInternal:request];
-    NSString* pJsonStr = nil;
-    
-    if(responseData!=nil) {
-        pJsonStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        DLogI(@"Body: %@", pJsonStr);
-        return pJsonStr;
-    }
-    
-	return nil;
 }
 
 -(void) cancelRequest:(TXRequestObj*)request {
