@@ -22,5 +22,5 @@
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;
--(TXSyncResponseDescriptor *)checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId ;
+-(void) checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId;
 @end

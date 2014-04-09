@@ -81,7 +81,7 @@
     
 }
 
--(TXSyncResponseDescriptor *)checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId  {
+-(void)checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId  {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.CHECKUSER];
     
@@ -97,7 +97,7 @@
                               };
     
     request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
+    return [self sendAsyncRequest:request];
     
 }
 

@@ -43,6 +43,13 @@ extern const struct API_JSON {
         
     } Authenticate;
     
+    struct {
+
+        __unsafe_unretained NSString* PHONENUMBER;
+        __unsafe_unretained NSString* EMAIL;
+        
+    } SignUp;
+    
 } API_JSON;
 
 extern const struct LEFT_MENU {

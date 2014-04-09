@@ -41,6 +41,12 @@ const struct API_JSON API_JSON = {
         .PROVIDERID = @"providerId",
         .LOGINWITHPROVIDER = @"loginWithProvider",
         .USEREXISTS = @"exists"
+    },
+    
+    .SignUp = {
+        
+        .PHONENUMBER = @"phoneNumber",
+        .EMAIL = @"email"
     }
     
 };

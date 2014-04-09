@@ -10,7 +10,9 @@
 #import "TXModelBase.h"
 #import "TXBaseViewController.h"
 
-@interface TXRootVC : TXBaseViewController<TXEventListener, GPPSignInDelegate>
+@interface TXRootVC : TXBaseViewController<TXEventListener, GPPSignInDelegate> {
+    NSDictionary *parameters;
+}
 
 @property (nonatomic, strong) TXModelBase   *model;
 @property (nonatomic, strong) TXSharedObj   *sharedObj;
@@ -22,5 +24,7 @@
 -(void) pushViewController : (TXRootVC *) viewController;
 -(void) alertError : (NSString *) title message : (NSString *) message;
 -(TXRootVC *) viewControllerInstanceWithName: (NSString *) name;
+-(TXRootVC *) viewControllerInstanceFromClass: (Class) aClass;
 -(void)refreshInterfaceBasedOnSignIn;
+-(void) setParameters:(NSDictionary *)props;
 @end

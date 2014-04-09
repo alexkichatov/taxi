@@ -9,7 +9,7 @@
 #import "TXSignUpVC.h"
 #import "TXUserModel.h"
 #import "CMPopTipView.h"
-#import "TXAskUserInfoVC.h"
+#import "TXAskPhoneNumberVC.h"
 
 @interface TXSignUpVC ()<UIActionSheetDelegate> {
     NSString *lastExistingUsername;
@@ -40,7 +40,15 @@
         [self refreshSignUpButton];
     } else {
         
-        [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXAskUserInfoVC class])]];
+        TXRootVC *viewController = [self viewControllerInstanceFromClass:[TXAskPhoneNumberVC class]];
+        NSDictionary *params = @{
+                                   API_JSON.Authenticate.USERNAME : self.txtUsername.text,
+                                   API_JSON.Authenticate.PASSWORD : self.txtConfirmPassword.text
+                                };
+        
+        [viewController setParameters:params];
+        
+        [self pushViewController:viewController];
         
     }
     
@@ -62,27 +70,7 @@
     
         if(sender.text.length > 0) {
          
-            TXSyncResponseDescriptor *descriptor = [(TXUserModel *)self.model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
-            
-            if(descriptor.success) {
-                
-                NSDictionary *data = [getJSONObj((NSString *)descriptor.source) objectForKey:API_JSON.Keys.DATA];
-                if([[data objectForKey:API_JSON.Authenticate.USEREXISTS] boolValue]) {
-                    
-                    self->userExists = YES;
-                    self->lastExistingUsername = sender.text;
-                    [self displayUserExistsPopup];
-                    
-                } else {
-                    
-                    self->userExists = NO;
-                }
-                
-            } else {
-                
-                // Display request error ...
-                
-            }
+            [(TXUserModel *)self.model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
             
         }
         
@@ -116,6 +104,25 @@
         [self.btnSignUp setEnabled:NO];
         
     }
+}
+
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    
+    if([event.name isEqualToString:TXEvents.CHECK_USER_COMPLETED]) {
+        
+        NSDictionary *data = [event getEventProperty:API_JSON.Keys.DATA];
+        if([[data objectForKey:API_JSON.Authenticate.USEREXISTS] boolValue]) {
+            
+            self->userExists = YES;
+            self->lastExistingUsername = self.txtUsername.text;
+            [self displayUserExistsPopup];
+            
+        } else {
+            
+            self->userExists = NO;
+        }
+    }
+    
 }
 
 @end

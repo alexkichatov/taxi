@@ -67,6 +67,10 @@
     [[self view] endEditing:YES];
 }
 
+- (IBAction)backgroundTouched:(id)sender {
+    [self.view endEditing:YES];
+}
+
 /*
  * Sets the model to the controller
  */
@@ -92,6 +96,10 @@
 
 -(TXRootVC *) viewControllerInstanceWithName: (NSString *) name {
     return [[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:name];
+}
+
+-(TXRootVC *) viewControllerInstanceFromClass: (Class) aClass {
+    return [[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass(aClass)];
 }
 
 -(void) alertError : (NSString *) title message : (NSString *) message {
@@ -162,6 +170,9 @@
     
 }
 
+-(void) setParameters:(NSDictionary *)params {
+    self->parameters = params;
+}
 
 /*
  * Subclasses should override this function
