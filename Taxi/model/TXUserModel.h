@@ -16,7 +16,7 @@
  @return TXUserModel
  */
 +(TXUserModel *) instance;
--(void) registerUser : (TXUser *) user;
+-(TXSyncResponseDescriptor *)signUp:(TXUser *)user;
 -(void) login : (NSString *) username andPass : (NSString *) pwd;
 -(void) loginWithProvider:(TXUser *) user;
 -(void) update : (TXUser *) user;

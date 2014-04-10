@@ -22,6 +22,10 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 
 @synthesize source, error, success;
 
+-(NSString *)description {
+    return [NSString stringWithFormat:@"success: %@, source: %@, error: %@", [NSNumber numberWithBool:self.success], source, error];
+}
+
 @end
 
 @implementation TXRequestConfig
@@ -251,8 +255,16 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 		} else {
         
             request.receivedData = (NSMutableData*)responseData;
-            result.success = YES;
-            result.source  = [[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding];
+            result.source  = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
+            id successObj  = [(NSDictionary *)result.source objectForKey:@"success"];
+            result.success = successObj!=nil ? [successObj boolValue] : NO;
+            if(result.success==YES) {
+                result.code = 1000;
+            } else {
+                NSDictionary *data = [(NSDictionary *)result.source objectForKey:@"data"];
+                result.code = [[data objectForKey:@"code"] intValue];
+            }
+            
             DLogI(@"%@ Req To Url - %@ completed", request.reqConfig.httpMethod, request.reqUrl);
             DLogI(@"Body: %@", result.json);
         }

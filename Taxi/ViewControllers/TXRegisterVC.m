@@ -76,7 +76,7 @@
     return NO;
 }
 
--(IBAction)registerUser:(id)sender {
+-(IBAction)signUp:(id)sender {
     
     TXUser *user = [TXUser create];
     
@@ -90,7 +90,7 @@
     user.email    = self.email.text;
     user.language = self.language.text;
     
-    [[TXUserModel instance] registerUser:user];
+   // [[TXUserModel instance] registerUser:user];
     
 }
 

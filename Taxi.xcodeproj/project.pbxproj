@@ -79,6 +79,7 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
+		3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */; };
 		388EF80018F2D185008F3454 /* TXAskUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */; };
 		389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */; };
 		389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */; };
@@ -260,6 +261,8 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
+		3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCode2MsgTranslator.h; sourceTree = "<group>"; };
+		3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCode2MsgTranslator.m; sourceTree = "<group>"; };
 		388EF7FE18F2D185008F3454 /* TXAskUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskUserInfoVC.h; sourceTree = "<group>"; };
 		388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAskUserInfoVC.m; sourceTree = "<group>"; };
 		389EDB5A18F027BD005CAAE7 /* TXSignCheckerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignCheckerVC.h; sourceTree = "<group>"; };
@@ -704,6 +707,8 @@
 				3827822C18B8CE920036238A /* TXSharedObj.m */,
 				3827822D18B8CE920036238A /* Types.h */,
 				3827822E18B8CE920036238A /* Types.m */,
+				3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */,
+				3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -917,6 +922,7 @@
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
 				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
 				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
+				3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */,
 				385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */,
 				389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */,
 				385E11A718EC35C400AB7570 /* TXConstants.m in Sources */,

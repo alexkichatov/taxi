@@ -10,4 +10,8 @@
 
 @interface TXAskUserInfoVC : TXRootVC
 
+@property (nonatomic, strong) IBOutlet UITextField *txtName;
+@property (nonatomic, strong) IBOutlet UITextField *txtSurname;
+@property (nonatomic, strong) IBOutlet UITextField *txtEmail;
+
 @end

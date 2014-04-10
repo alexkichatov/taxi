@@ -45,6 +45,7 @@
     item.code = @"997";
     [self->items addObject:item];
     
+    self->selectedItem = self->items[0];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

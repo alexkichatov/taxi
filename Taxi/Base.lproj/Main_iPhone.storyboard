@@ -274,7 +274,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vdu-II-oPn">
-                                <rect key="frame" x="20" y="134" width="280" height="30"/>
+                                <rect key="frame" x="20.000000175975625" y="134" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.868363361" green="0.45963229859999999" blue="0.028855735189999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Finish">
@@ -286,10 +286,23 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="completeSignUp:" destination="xO6-J4-ARo" eventType="touchDown" id="kdB-jk-gVf"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="60l-HD-XIf">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="60l-HD-XIf" id="YtM-3N-HJR"/>
+                        <outlet property="txtEmail" destination="ddi-32-ICk" id="9Rk-Fx-knm"/>
+                        <outlet property="txtName" destination="bbU-NQ-PxA" id="5u3-yB-pYD"/>
+                        <outlet property="txtSurname" destination="GHu-RK-tIw" id="wnM-rC-hig"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fC-BN-bYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -490,6 +503,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="txtPhoneNumber" destination="wJX-KD-1EG" id="tYo-at-kdA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKx-th-oIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

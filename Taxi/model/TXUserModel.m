@@ -23,7 +23,7 @@
     return _instance;
 }
 
--(void)registerUser:(TXUser *)user {
+-(TXSyncResponseDescriptor *)signUp:(TXUser *)user {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.REGISTER];
     NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
@@ -35,8 +35,7 @@
                              };
     
     request.body = getJSONStr(jsonObj);
-    [self sendAsyncRequest:request];
-    
+    return [self sendSyncRequest:request];
 }
 
 -(void)login:(NSString *)username andPass:(NSString *)pwd {
@@ -139,7 +138,7 @@
     
     if(success == YES) {
         
-        jsonObj = getJSONObj(request.body);
+        jsonObj = (NSDictionary*)request.body;
         responseData = getJSONObj([responseObj objectForKey:API_JSON.Keys.DATA]);
         
     }

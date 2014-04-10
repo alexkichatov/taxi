@@ -28,6 +28,7 @@
 
 @interface TXSyncResponseDescriptor : NSObject
 @property (nonatomic, strong) NSObject     *source;
+@property (nonatomic, assign) int          code;
 @property (nonatomic, strong) TXError      *error;
 @property (nonatomic, assign) BOOL         success;
 @end
