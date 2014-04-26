@@ -7,8 +7,8 @@
 //
 
 #import "TXGoogleAPIReqManager.h"
-#import "TXApp.h"
-#import "StrConsts.h"
+#import "taxiLib/TXApp.h"
+#import "taxiLib/StrConsts.h"
 
 static NSString* const GOOGLE_API_PLACES_NEARBYSEARCH = @"PlacesNearbySearch";
 static NSString* const GOOGLE_API_PLACES_TEXTSEARCH   = @"PlacesTextSearch";
@@ -36,7 +36,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     return self;
 }
 
--(BOOL) sendPlaceNearbySearchRequest:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor rankBy:(NSString *)rankBy optional:(NSString *) parameters {
+-(BOOL) searchNearyyAsync:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor rankBy:(NSString *)rankBy optional:(NSString *) parameters {
 
     if(location.length!=0 && radius.length!=0 && rankBy.length!=0) {
     
@@ -63,7 +63,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     
 }
 
--(BOOL) sendPlaceAutocompleteRequest:(NSString *) input sensor:(BOOL) sensor optional:(NSString *) parameters {
+-(BOOL) placeAutocompleteAsync:(NSString *) input sensor:(BOOL) sensor optional:(NSString *) parameters {
     
     if(input.length!=0) {
         
@@ -88,7 +88,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     
 }
 
--(BOOL) sendPlaceTextSearchRequest:(NSString *) query sensor:(BOOL) sensor optional:(NSString *) parameters {
+-(BOOL) searchPlaceByTextAsync:(NSString *) query sensor:(BOOL) sensor optional:(NSString *) parameters {
     
     if(query.length!=0) {
         
@@ -113,7 +113,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     
 }
 
--(BOOL) sendPlaceRadarSearchRequest:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor optional:(NSString *) parameters {
+-(BOOL) searchPlaceByRadarAsync:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor optional:(NSString *) parameters {
     
     if(location.length!=0 && radius.length!=0) {
         
@@ -138,6 +138,17 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     }
     
 }
+
+-(BOOL) directionsByCoordinatesAsync:(double) startLat startLongitude:(double)startLng endLatitude:(double) endLat endLongitude:(double) endLng sensor:(BOOL) sensor optional:(NSString *) parameters {
+    
+    NSString *url = [NSString stringWithFormat:@"origin=%f,%f&destination=%f,%f&sensor=%@&%@&key=%@", startLat, startLng, endLat, endLng, (sensor == YES ? @"true" : @"false"), parameters, GOOGLE_KEY ];
+    
+    TXRequestObj *request = [TXRequestObj create:@"Directions" urlParams:url listener:self->listener];
+    return [self sendAsyncRequest:request];
+    
+}
+
+
 
 -(NSString *) getSpaceReplacedWithPrcnt20:(NSString *) source {
     return [source stringByReplacingOccurrencesOfString:@" " withString:@"%20"];

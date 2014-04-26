@@ -7,7 +7,7 @@
 //
 
 #import "TXGoogleAPIUtil.h"
-#import "taxiLib/TXGoogleAPIReqManager.h"
+#import "TXGoogleAPIReqManager.h"
 #import "taxiLib/utils.h"
 
 @implementation TXGoogleAPIUtil {
@@ -26,19 +26,19 @@
 }
 
 -(BOOL) sendPlaceNearbySearchRequest:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor rankBy:(NSString *)rankBy optional:(NSString *) parameters {
-    return [self->googleMgr sendPlaceNearbySearchRequest:location radius:radius sensor:sensor rankBy:rankBy optional:parameters];
+    return NO; //[self->googleMgr sendPlaceNearbySearchRequest:location radius:radius sensor:sensor rankBy:rankBy optional:parameters];
 }
 
 -(BOOL) sendPlaceTextSearchRequest:(NSString *) query sensor:(BOOL) sensor optional:(NSString *) parameters {
-    return [self->googleMgr sendPlaceTextSearchRequest:query sensor:sensor optional:parameters];
+    return NO; //[self->googleMgr sendPlaceTextSearchRequest:query sensor:sensor optional:parameters];
 }
 
 -(BOOL) sendPlaceRadarSearchRequest:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor optional:(NSString *) parameters {
-    return [self->googleMgr sendPlaceRadarSearchRequest:location radius:radius sensor:sensor optional:parameters];
+    return NO; //[self->googleMgr sendPlaceRadarSearchRequest:location radius:radius sensor:sensor optional:parameters];
 }
 
 -(BOOL) sendPlaceAutocompleteRequest:(NSString *) input sensor:(BOOL) sensor optional:(NSString *) parameters {
-    return [self->googleMgr sendPlaceAutocompleteRequest:input sensor:sensor optional:parameters];
+    return NO; //[self->googleMgr sendPlaceAutocompleteRequest:input sensor:sensor optional:parameters];
 }
 
 -(void)onRequestCompleted:(id)object {

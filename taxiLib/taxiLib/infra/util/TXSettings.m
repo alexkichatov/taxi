@@ -7,7 +7,6 @@
 //
 
 #import "TXSettings.h"
-#import "TXHttpRequestManager.h"
 #import "StrConsts.h"
 #import "Macro.h"
 #import "TXError.h"
@@ -15,7 +14,7 @@
 
 static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 
-@interface TXSettings()<TXHttpRequestListener>
+@interface TXSettings()
 
 -(TXSettings*)init;
 

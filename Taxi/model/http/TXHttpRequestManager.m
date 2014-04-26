@@ -7,12 +7,12 @@
 //
 
 #import "TXHttpRequestManager.h"
-#import "StrConsts.h"
-#import "Macro.h"
-#import "utils.h"
-#import "TXFileManager.h"
-#import "TXApp.h"
-#import "NSString+TXNSString.h"
+#import "taxiLib/StrConsts.h"
+#import "taxiLib/Macro.h"
+#import "taxiLib/utils.h"
+#import "taxiLib/TXFileManager.h"
+#import "taxiLib/TXApp.h"
+#import "taxiLib/NSString+TXNSString.h"
 
 static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 static NSString* const DEFAULT_CONFIG = @"register";

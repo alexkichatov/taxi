@@ -21,7 +21,7 @@
 #import "TXMapVC.h"
 #import "TXGoogleAPIUtil.h"
 #import "taxiLib/utils.h"
-#import "taxiLib/TXHttpRequestManager.h"
+#import "TXHttpRequestManager.h"
 #import "TXConsts.h"
 
 @interface TXMapVC () <TXEventListener> {

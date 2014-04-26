@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "taxiLib/TXHttpRequestManager.h"
+#import "TXHttpRequestManager.h"
 #import "taxiLib/TXEventTarget.h"
 
 @interface TXGoogleAPIUtil : TXEventTarget<TXHttpRequestListener>

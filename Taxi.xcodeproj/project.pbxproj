@@ -90,6 +90,8 @@
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
 		38841599190B0EC500E39806 /* TXUserSignInBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 38841598190B0EC500E39806 /* TXUserSignInBase.m */; };
+		3884159E190B42C600E39806 /* TXGoogleAPIReqManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3884159D190B42C600E39806 /* TXGoogleAPIReqManager.m */; };
+		388415A2190B46D500E39806 /* TXHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 388415A1190B46D500E39806 /* TXHttpRequestManager.m */; };
 		3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */; };
 		388EF80018F2D185008F3454 /* TXAskUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */; };
 		389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */; };
@@ -283,6 +285,10 @@
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
 		38841597190B0EC500E39806 /* TXUserSignInBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserSignInBase.h; sourceTree = "<group>"; };
 		38841598190B0EC500E39806 /* TXUserSignInBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserSignInBase.m; sourceTree = "<group>"; };
+		3884159C190B42C600E39806 /* TXGoogleAPIReqManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXGoogleAPIReqManager.h; sourceTree = "<group>"; };
+		3884159D190B42C600E39806 /* TXGoogleAPIReqManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXGoogleAPIReqManager.m; sourceTree = "<group>"; };
+		388415A0190B46D500E39806 /* TXHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXHttpRequestManager.h; sourceTree = "<group>"; };
+		388415A1190B46D500E39806 /* TXHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXHttpRequestManager.m; sourceTree = "<group>"; };
 		3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCode2MsgTranslator.h; sourceTree = "<group>"; };
 		3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCode2MsgTranslator.m; sourceTree = "<group>"; };
 		388EF7FE18F2D185008F3454 /* TXAskUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskUserInfoVC.h; sourceTree = "<group>"; };
@@ -741,6 +747,8 @@
 		386E137C18954E7400DF4CB8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3884159F190B46D500E39806 /* http */,
+				3884159B190B42C600E39806 /* google */,
 				3827823818B8D5F40036238A /* obj */,
 				3827822518B8CE920036238A /* TXConsts.h */,
 				3827822618B8CE920036238A /* TXConsts.m */,
@@ -754,6 +762,26 @@
 				3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		3884159B190B42C600E39806 /* google */ = {
+			isa = PBXGroup;
+			children = (
+				3884159C190B42C600E39806 /* TXGoogleAPIReqManager.h */,
+				3884159D190B42C600E39806 /* TXGoogleAPIReqManager.m */,
+			);
+			name = google;
+			path = model/google;
+			sourceTree = "<group>";
+		};
+		3884159F190B46D500E39806 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				388415A0190B46D500E39806 /* TXHttpRequestManager.h */,
+				388415A1190B46D500E39806 /* TXHttpRequestManager.m */,
+			);
+			name = http;
+			path = model/http;
 			sourceTree = "<group>";
 		};
 		388D6D7818BB83880099C1C2 /* img */ = {
@@ -969,6 +997,7 @@
 				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
 				3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */,
 				385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */,
+				388415A2190B46D500E39806 /* TXHttpRequestManager.m in Sources */,
 				389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */,
 				385E11A718EC35C400AB7570 /* TXConstants.m in Sources */,
 				385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */,
@@ -985,6 +1014,7 @@
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				385E11A118EC35C400AB7570 /* UIToolbar+AddItems.m in Sources */,
 				385E114318EC349E00AB7570 /* TXSignUpVC.m in Sources */,
+				3884159E190B42C600E39806 /* TXGoogleAPIReqManager.m in Sources */,
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
 				385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */,
 				389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */,

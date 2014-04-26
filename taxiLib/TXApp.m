@@ -7,10 +7,9 @@
 //
 
 #import "TXApp.h"
-#import "TXHttpRequestManager.h"
 #import "UIKit/UIDevice.h"
 
-@interface TXApp()<TXHttpRequestListener> {
+@interface TXApp() {
     TXSettings *settings;
     NSString   *sysVersion;
     NSString   *deviceUID;
@@ -63,14 +62,6 @@
 
 -(NSString *)getSystemVersion {
     return self->sysVersion;
-}
-
--(void)onRequestCompleted:(id)object {
-    
-}
-
--(void)onFail:(id)object error:(TXError *)error {
-    
 }
 
 @end
