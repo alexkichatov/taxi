@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Directions</key>
+	<dict>
+		<key>local</key>
+		<false/>
+		<key>hasUrlBase</key>
+		<false/>
+		<key>url</key>
+		<string>https://maps.googleapis.com/maps/api/directions/json?%@</string>
+		<key>httpMethod</key>
+		<string>GET</string>
+		<key>headers</key>
+		<dict/>
+	</dict>
 	<key>PlacesAutocomplete</key>
 	<dict>
 		<key>local</key>
@@ -54,30 +67,14 @@
 		<key>headers</key>
 		<dict/>
 	</dict>
-	<key>login</key>
+	<key>user</key>
 	<dict>
 		<key>local</key>
 		<true/>
 		<key>hasUrlBase</key>
 		<true/>
 		<key>url</key>
-		<string>/taxiWeb/login</string>
-		<key>httpMethod</key>
-		<string>POST</string>
-		<key>headers</key>
-		<dict>
-			<key>Authorization</key>
-			<string></string>
-		</dict>
-	</dict>
-	<key>checkUser</key>
-	<dict>
-		<key>local</key>
-		<true/>
-		<key>hasUrlBase</key>
-		<true/>
-		<key>url</key>
-		<string>/taxiWeb/checkUser</string>
+		<string>/taxiWeb/user</string>
 		<key>httpMethod</key>
 		<string>POST</string>
 		<key>headers</key>
@@ -98,22 +95,6 @@
 		<string>NO</string>
 		<key>url</key>
 		<string>https://graph.facebook.com/me/picture?type=large&amp;return_ssl_resources=1&amp;access_token=%@</string>
-	</dict>
-	<key>register</key>
-	<dict>
-		<key>local</key>
-		<true/>
-		<key>hasUrlBase</key>
-		<true/>
-		<key>url</key>
-		<string>/taxiWeb/register</string>
-		<key>httpMethod</key>
-		<string>POST</string>
-		<key>headers</key>
-		<dict>
-			<key>Authorization</key>
-			<string></string>
-		</dict>
 	</dict>
 </dict>
 </plist>

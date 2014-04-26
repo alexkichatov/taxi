@@ -69,9 +69,7 @@
     if(sender.tag == 1) {
     
         if(sender.text.length > 0) {
-         
             [(TXUserModel *)self.model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
-            
         }
         
     }
@@ -110,8 +108,10 @@
     
     if([event.name isEqualToString:TXEvents.CHECK_USER_COMPLETED]) {
         
-        NSDictionary *data = [event getEventProperty:API_JSON.Keys.DATA];
-        if([[data objectForKey:API_JSON.Authenticate.USEREXISTS] boolValue]) {
+        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
+        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
+        
+        if(!success && code == USERNAME_EXISTS) {
             
             self->userExists = YES;
             self->lastExistingUsername = self.txtUsername.text;
@@ -120,7 +120,17 @@
         } else {
             
             self->userExists = NO;
+            
         }
+        
+    } else if([event.name isEqualToString:TXEvents.CHECK_USER_FAILED]) {
+        
+        // TODO: handling
+        
+    } else if([event.name isEqualToString:TXEvents.NULLHTTPRESPONSE]) {
+     
+        // TODO: handling
+        
     }
     
 }

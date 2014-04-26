@@ -8,7 +8,7 @@
 
 const int SUCCESS = 1000;
 const int SYSTEM = 1001;
-const int REGISTER_USERNAME_EXISTS = 1100;
+const int USERNAME_EXISTS = 1003;
 const int REGISTER_REQUIRED_FIELDS = 1101;
 const int REGISTER_REQUIRED_PARAMETERS = 1102;
 const int GET_USER_NOT_EXISTS = 1103;
@@ -47,7 +47,7 @@ const int GET_PHONENUMBER_BLOCKED = 1108;
                       
                          [NSNumber numberWithInt:SUCCESS] : @"Operation completed successfully !",
                          [NSNumber numberWithInt:SYSTEM] : @"Error occured, contact to administrator !",
-                         [NSNumber numberWithInt:REGISTER_USERNAME_EXISTS] : @"User already registered !",
+                         [NSNumber numberWithInt:USERNAME_EXISTS] : @"User already registered !",
                          [NSNumber numberWithInt:REGISTER_REQUIRED_FIELDS] : @"Required fields inccorect !",
                          [NSNumber numberWithInt:REGISTER_REQUIRED_PARAMETERS] : @"Parameter are null !",
                          [NSNumber numberWithInt:GET_USER_NOT_EXISTS] : @"User does not exists !",

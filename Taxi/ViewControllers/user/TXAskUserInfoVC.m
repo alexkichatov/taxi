@@ -32,20 +32,37 @@
     user.username = [self->parameters objectForKey:API_JSON.Authenticate.USERNAME];
     user.password = [self->parameters objectForKey:API_JSON.Authenticate.PASSWORD];
     user.mobile   = [self->parameters objectForKey:API_JSON.SignUp.PHONENUMBER];
+    user.providerId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID];
+    user.providerUserId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
+    user.language = @"en";
     user.name     = self.txtName.text;
     user.surname  = self.txtSurname.text;
     user.email    = self.txtEmail.text;
-    user.language = @"en";
     
     [self.activityIndicator startAnimating];
     
-    TXSyncResponseDescriptor* result = [((TXUserModel*)self.model) signUp:user];
+    TXSyncResponseDescriptor *result = nil;
+    if(user.providerId == nil) {
+        result = [((TXUserModel*)self.model) signUp:user];
+    } else {
+        result = [((TXUserModel*)self.model) loginWithProvider:user];
+    }
 
     [self.activityIndicator stopAnimating];
     
     if(result.success) {
         
-       // [self pushViewController:[self viewControllerInstanceFromClass:[TXMainVC class]]];
+        if(user.providerId!=nil) {
+            
+            if([user.providerId isEqualToString:PROVIDERS.GOOGLE]) {
+                [self.sharedObj.settings setGoogleUserId:user.providerId];
+            } else {
+                [self.sharedObj.settings setFBUserId:user.providerId];
+            }
+            
+        }
+
+        [self pushViewController:[self viewControllerInstanceFromClass:[TXMainVC class]]];
         
     } else {
         

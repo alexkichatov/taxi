@@ -12,6 +12,7 @@
 #import "utils.h"
 #import "TXFileManager.h"
 #import "TXApp.h"
+#import "NSString+TXNSString.h"
 
 static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 static NSString* const DEFAULT_CONFIG = @"register";
@@ -255,7 +256,11 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 		} else {
         
             request.receivedData = (NSMutableData*)responseData;
-            result.source  = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
+            NSMutableString *respStr_ = [[[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding] mutableCopy];
+            NSString *respStr = [respStr_ stringByReplacingOccurrencesOfString:@"=" withString:@":"];
+            NSLog(@"%@", respStr);
+            
+            result.source  = getJSONObj(respStr);
             id successObj  = [(NSDictionary *)result.source objectForKey:@"success"];
             result.success = successObj!=nil ? [successObj boolValue] : NO;
             if(result.success==YES) {

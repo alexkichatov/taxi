@@ -49,6 +49,10 @@
     }
 }
 
+-(NSDictionary *)getEventProperties {
+    return self->eventPropMap;
+}
+
 -(void) setEventProperties:(NSDictionary*)eventProps {
     if ( self->eventPropMap == nil )
         self->eventPropMap = [NSMutableDictionary dictionaryWithCapacity:[eventProps count]];

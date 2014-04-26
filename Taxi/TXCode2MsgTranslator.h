@@ -8,7 +8,7 @@
 
 extern const int SUCCESS;
 extern const int SYSTEM;
-extern const int REGISTER_USERNAME_EXISTS;
+extern const int USERNAME_EXISTS;
 extern const int REGISTER_REQUIRED_FIELDS;
 extern const int REGISTER_REQUIRED_PARAMETERS;
 extern const int GET_USER_NOT_EXISTS;

@@ -49,6 +49,8 @@
     id jsonObj = getJSONObj(response);
     
     NSLog(@"%@", jsonObj);
+    
+    [self fireEvent:[TXEvent createEvent:@"onGoogleRequestCompleted" eventSource:self eventProps:@{ @"JSON" : jsonObj  }]];
 }
 
 -(void)onFail:(id)object error:(TXError *)error {

@@ -26,12 +26,22 @@
 		3827823018B8CE920036238A /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822818B8CE920036238A /* TXModelBase.m */; };
 		3827823118B8CE920036238A /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822A18B8CE920036238A /* TXUserModel.m */; };
 		3827823218B8CE920036238A /* TXSharedObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822C18B8CE920036238A /* TXSharedObj.m */; };
-		3827823318B8CE920036238A /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822E18B8CE920036238A /* Types.m */; };
 		3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823A18B8D5F40036238A /* TXBaseObj.m */; };
 		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
 		3827824118B8D5F40036238A /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823E18B8D5F40036238A /* TXUser.m */; };
 		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3827824718BA023D0036238A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827824618BA023D0036238A /* FacebookSDK.framework */; };
+		3841E809190A6F5100F0FABF /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E808190A6F5100F0FABF /* GoogleMaps.framework */; };
+		3841E80C190A6F6300F0FABF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E80B190A6F6300F0FABF /* CoreData.framework */; };
+		3841E80E190A6F7800F0FABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E80D190A6F7800F0FABF /* AVFoundation.framework */; };
+		3841E810190A6F8B00F0FABF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E80F190A6F8B00F0FABF /* GLKit.framework */; };
+		3841E812190A6F9700F0FABF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E811190A6F9700F0FABF /* ImageIO.framework */; };
+		3841E814190A6FA900F0FABF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E813190A6FA900F0FABF /* libc++.dylib */; };
+		3841E816190A6FB400F0FABF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E815190A6FB400F0FABF /* libicucore.dylib */; };
+		3841E818190A6FBC00F0FABF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E817190A6FBC00F0FABF /* libz.dylib */; };
+		3841E81A190A6FC700F0FABF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E819190A6FC700F0FABF /* OpenGLES.framework */; };
+		3841E81C190A6FD400F0FABF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E81B190A6FD400F0FABF /* QuartzCore.framework */; };
+		3841E81E190A72C200F0FABF /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3841E81D190A72C200F0FABF /* GoogleMaps.bundle */; };
 		3856E04F18F58F70006F9FAE /* TXAskPhoneNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856E04E18F58F70006F9FAE /* TXAskPhoneNumberVC.m */; };
 		385E113918EB0B0800AB7570 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
 		385E114018EC348F00AB7570 /* TXMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E113F18EC348F00AB7570 /* TXMainVC.m */; };
@@ -79,6 +89,7 @@
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC6188C13970044A0DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3865DCC4188C13970044A0DC /* InfoPlist.strings */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
+		38841599190B0EC500E39806 /* TXUserSignInBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 38841598190B0EC500E39806 /* TXUserSignInBase.m */; };
 		3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */; };
 		388EF80018F2D185008F3454 /* TXAskUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */; };
 		389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */; };
@@ -168,8 +179,6 @@
 		3827822A18B8CE920036238A /* TXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXUserModel.m; path = model/TXUserModel.m; sourceTree = "<group>"; };
 		3827822B18B8CE920036238A /* TXSharedObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXSharedObj.h; path = model/TXSharedObj.h; sourceTree = "<group>"; };
 		3827822C18B8CE920036238A /* TXSharedObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXSharedObj.m; path = model/TXSharedObj.m; sourceTree = "<group>"; };
-		3827822D18B8CE920036238A /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Types.h; path = model/Types.h; sourceTree = "<group>"; };
-		3827822E18B8CE920036238A /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Types.m; path = model/Types.m; sourceTree = "<group>"; };
 		3827823918B8D5F40036238A /* TXBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseObj.h; sourceTree = "<group>"; };
 		3827823A18B8D5F40036238A /* TXBaseObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseObj.m; sourceTree = "<group>"; };
 		3827823B18B8D5F40036238A /* TXPropertyConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPropertyConsts.h; sourceTree = "<group>"; };
@@ -179,6 +188,17 @@
 		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
 		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3827824618BA023D0036238A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		3841E808190A6F5100F0FABF /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		3841E80B190A6F6300F0FABF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3841E80D190A6F7800F0FABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3841E80F190A6F8B00F0FABF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		3841E811190A6F9700F0FABF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		3841E813190A6FA900F0FABF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		3841E815190A6FB400F0FABF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		3841E817190A6FBC00F0FABF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3841E819190A6FC700F0FABF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3841E81B190A6FD400F0FABF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3841E81D190A72C200F0FABF /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		3856E04D18F58F70006F9FAE /* TXAskPhoneNumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskPhoneNumberVC.h; sourceTree = "<group>"; };
 		3856E04E18F58F70006F9FAE /* TXAskPhoneNumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAskPhoneNumberVC.m; sourceTree = "<group>"; };
 		385E113E18EC348F00AB7570 /* TXMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMainVC.h; path = user/TXMainVC.h; sourceTree = "<group>"; };
@@ -261,6 +281,8 @@
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC5188C13970044A0DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
+		38841597190B0EC500E39806 /* TXUserSignInBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserSignInBase.h; sourceTree = "<group>"; };
+		38841598190B0EC500E39806 /* TXUserSignInBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserSignInBase.m; sourceTree = "<group>"; };
 		3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCode2MsgTranslator.h; sourceTree = "<group>"; };
 		3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCode2MsgTranslator.m; sourceTree = "<group>"; };
 		388EF7FE18F2D185008F3454 /* TXAskUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskUserInfoVC.h; sourceTree = "<group>"; };
@@ -300,12 +322,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3841E81C190A6FD400F0FABF /* QuartzCore.framework in Frameworks */,
+				3841E81A190A6FC700F0FABF /* OpenGLES.framework in Frameworks */,
+				3841E818190A6FBC00F0FABF /* libz.dylib in Frameworks */,
+				3841E816190A6FB400F0FABF /* libicucore.dylib in Frameworks */,
+				3841E814190A6FA900F0FABF /* libc++.dylib in Frameworks */,
+				3841E812190A6F9700F0FABF /* ImageIO.framework in Frameworks */,
+				3841E810190A6F8B00F0FABF /* GLKit.framework in Frameworks */,
+				3841E80E190A6F7800F0FABF /* AVFoundation.framework in Frameworks */,
+				3841E80C190A6F6300F0FABF /* CoreData.framework in Frameworks */,
 				3865DC9E188C13970044A0DC /* UIKit.framework in Frameworks */,
 				38C0ECFB18EC596E00AFE860 /* SystemConfiguration.framework in Frameworks */,
 				38C0ECF918EC596200AFE860 /* Security.framework in Frameworks */,
 				38C0ECF718EC595B00AFE860 /* MediaPlayer.framework in Frameworks */,
 				38C0ECF518EC594E00AFE860 /* CoreText.framework in Frameworks */,
 				3865DC9C188C13970044A0DC /* CoreGraphics.framework in Frameworks */,
+				3841E809190A6F5100F0FABF /* GoogleMaps.framework in Frameworks */,
 				38C0ECF318EC593F00AFE860 /* CoreMotion.framework in Frameworks */,
 				38C0ECF118EC593900AFE860 /* CoreLocation.framework in Frameworks */,
 				38C0ECEF18EC592900AFE860 /* AssetsLibrary.framework in Frameworks */,
@@ -428,6 +460,8 @@
 				388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */,
 				3856E04D18F58F70006F9FAE /* TXAskPhoneNumberVC.h */,
 				3856E04E18F58F70006F9FAE /* TXAskPhoneNumberVC.m */,
+				38841597190B0EC500E39806 /* TXUserSignInBase.h */,
+				38841598190B0EC500E39806 /* TXUserSignInBase.m */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -624,6 +658,17 @@
 		3865DC98188C13970044A0DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3841E81D190A72C200F0FABF /* GoogleMaps.bundle */,
+				3841E81B190A6FD400F0FABF /* QuartzCore.framework */,
+				3841E819190A6FC700F0FABF /* OpenGLES.framework */,
+				3841E817190A6FBC00F0FABF /* libz.dylib */,
+				3841E815190A6FB400F0FABF /* libicucore.dylib */,
+				3841E813190A6FA900F0FABF /* libc++.dylib */,
+				3841E811190A6F9700F0FABF /* ImageIO.framework */,
+				3841E80F190A6F8B00F0FABF /* GLKit.framework */,
+				3841E80D190A6F7800F0FABF /* AVFoundation.framework */,
+				3841E80B190A6F6300F0FABF /* CoreData.framework */,
+				3841E808190A6F5100F0FABF /* GoogleMaps.framework */,
 				38C0ECFA18EC596E00AFE860 /* SystemConfiguration.framework */,
 				38C0ECF818EC596200AFE860 /* Security.framework */,
 				38C0ECF618EC595B00AFE860 /* MediaPlayer.framework */,
@@ -705,8 +750,6 @@
 				3827822A18B8CE920036238A /* TXUserModel.m */,
 				3827822B18B8CE920036238A /* TXSharedObj.h */,
 				3827822C18B8CE920036238A /* TXSharedObj.m */,
-				3827822D18B8CE920036238A /* Types.h */,
-				3827822E18B8CE920036238A /* Types.m */,
 				3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */,
 				3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */,
 			);
@@ -882,6 +925,7 @@
 				38C0ECEA18EC590F00AFE860 /* GooglePlus.bundle in Resources */,
 				385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */,
 				3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */,
+				3841E81E190A72C200F0FABF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +961,7 @@
 				3856E04F18F58F70006F9FAE /* TXAskPhoneNumberVC.m in Sources */,
 				385E11A818EC35C400AB7570 /* TXDispatchingViewController.m in Sources */,
 				385E11A518EC35C400AB7570 /* TXIndeterminateProgressViewController.m in Sources */,
+				38841599190B0EC500E39806 /* TXUserSignInBase.m in Sources */,
 				3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				389EDB6418F19687005CAAE7 /* CMPopTipView.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
@@ -942,7 +987,6 @@
 				385E114318EC349E00AB7570 /* TXSignUpVC.m in Sources */,
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
 				385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */,
-				3827823318B8CE920036238A /* Types.m in Sources */,
 				389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */,
 				38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,

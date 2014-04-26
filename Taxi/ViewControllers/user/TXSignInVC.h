@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXRootVC.h"
+#import "TXUserSignInBase.h"
 
 @class GPPSignInButton;
 
-@interface TXSignInVC : TXRootVC
+@interface TXSignInVC : TXUserSignInBase
 
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
 

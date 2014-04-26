@@ -105,6 +105,8 @@ extern const struct TXEvents {
     __unsafe_unretained NSString* REGISTER_USER_COMPLETED;
     __unsafe_unretained NSString* REGISTER_USER_FAILED;
     __unsafe_unretained NSString* CHECK_USER_COMPLETED;
+    __unsafe_unretained NSString* CHECK_PROVIDER_USER_COMPLETED;
+    __unsafe_unretained NSString* CHECK_USER_FAILED;
 
 } TXEvents;
 

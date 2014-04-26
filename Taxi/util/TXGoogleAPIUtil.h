@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "taxiLib/TXHttpRequestManager.h"
+#import "taxiLib/TXEventTarget.h"
 
-@interface TXGoogleAPIUtil : NSObject<TXHttpRequestListener>
+@interface TXGoogleAPIUtil : TXEventTarget<TXHttpRequestListener>
 
 -(BOOL) sendPlaceNearbySearchRequest:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor rankBy:(NSString *)rankBy optional:(NSString *) parameters;
 

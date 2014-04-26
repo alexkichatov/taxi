@@ -65,12 +65,25 @@
 
 -(void)next:(id)sender {
     
-    TXRootVC *viewController = [self viewControllerInstanceFromClass:[TXAskUserInfoVC class]];
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self->parameters];
-    [params setObject:[NSString stringWithFormat:@"%@%@", self->selectedItem.code, self.txtPhoneNumber.text] forKey:API_JSON.SignUp.PHONENUMBER];
-    [viewController setParameters:params];
+    BOOL loginWithProvider = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID] == nil ? NO : YES;
     
-    [self pushViewController:viewController];
+    TXSyncResponseDescriptor *descriptor = [self->model checkIfPhoneNumberBlocked:self.txtPhoneNumber.text loginWithProvider:loginWithProvider];
+    
+    if(descriptor.success) {
+    
+        TXRootVC *viewController = [self viewControllerInstanceFromClass:[TXAskUserInfoVC class]];
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self->parameters];
+        [params setObject:[NSString stringWithFormat:@"%@%@", self->selectedItem.code, self.txtPhoneNumber.text] forKey:API_JSON.SignUp.PHONENUMBER];
+        [viewController setParameters:params];
+        
+        [self pushViewController:viewController];
+        
+    } else {
+        
+        [self alertError:@"შეცდომა" message:@"მობილურის ნომერი დაბლოკილია !"];
+        
+    }
+    
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row

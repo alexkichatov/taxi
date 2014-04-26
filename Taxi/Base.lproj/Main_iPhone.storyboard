@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Ptc-nH-Gsf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UWe-WS-a3G">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -274,7 +274,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vdu-II-oPn">
-                                <rect key="frame" x="20.000000175975625" y="134" width="280" height="30"/>
+                                <rect key="frame" x="20.000000376196784" y="134" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.868363361" green="0.45963229859999999" blue="0.028855735189999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Finish">
@@ -306,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fC-BN-bYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="553"/>
+            <point key="canvasLocation" x="-126" y="536"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Emf-7v-i7a">
@@ -540,10 +540,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="00q-rl-shm">
-                                <rect key="frame" x="20" y="20" width="280" height="376"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4cD-kH-27a">
                                 <rect key="frame" x="20" y="460" width="121" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -564,16 +560,21 @@
                                     <action selector="zoomOut:" destination="7cc-Ck-kvF" eventType="touchDown" id="Re2-xa-zBr"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="XtQ-Nd-Rd1" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="20" width="280" height="432"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="00q-rl-shm" id="4Ud-BY-TOx"/>
+                        <outlet property="mapView_" destination="XtQ-Nd-Rd1" id="2qO-oh-GYS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6QI-xN-2Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="494"/>
+            <point key="canvasLocation" x="-530" y="732"/>
         </scene>
         <!--Sign InVC - Back-->
         <scene sceneID="cjT-cl-lHI">

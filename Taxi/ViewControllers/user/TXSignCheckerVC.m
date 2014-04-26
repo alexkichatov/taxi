@@ -11,12 +11,9 @@
 #import "TXSignInVC.h"
 #import "TXConsts.h"
 #import "TXSharedObj.h"
-
-@interface TXSignCheckerVC ()<GPPSignInDelegate> {
-
-}
-
-@end
+#import "TXMainVC.h"
+#import "TXAskPhoneNumberVC.h"
+#import "TXUserModel.h"
 
 @implementation TXSignCheckerVC
 
@@ -56,6 +53,26 @@
 }
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    
+    if(event!=nil && [event.name isEqualToString:TXEvents.CHECK_PROVIDER_USER_COMPLETED]) {
+        
+        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
+        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
+        
+        if(!success && code == USERNAME_EXISTS) {
+            
+            [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXMainVC class])]];
+            
+        } else {
+            
+            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self viewControllerInstanceWithName:NSStringFromClass([TXAskPhoneNumberVC class])];
+            
+            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
+            [self pushViewController:vc];
+            
+        }
+        
+    }
     
 }
 

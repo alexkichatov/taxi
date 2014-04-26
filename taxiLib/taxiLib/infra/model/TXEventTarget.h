@@ -62,7 +62,7 @@
 -(id) getEventProperty:(NSString*)propName;
 -(void) setEventProperty:(NSString*)propName value:(id)value;
 -(void) setEventProperties:(NSDictionary*)eventProps;
-
+-(NSDictionary *)getEventProperties;
 @end
 
 

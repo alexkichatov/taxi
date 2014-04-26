@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface TXMapVC : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
+@interface TXMapVC : UIViewController<CLLocationManagerDelegate, GMSMapViewDelegate>
 
-@property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) IBOutlet GMSMapView *mapView_;
+@property (nonatomic, strong) IBOutlet UITextField *txtSearch;
+@property (nonatomic, retain) CLLocationManager *locationMgr;
 
 - (IBAction)zoomIn:(id)sender;
 - (IBAction)zoomOut:(id)sender;

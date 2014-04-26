@@ -8,7 +8,6 @@
 
 #import "TXModelBase.h"
 #import "taxiLib/utils.h"
-#import "Types.h"
 
 @implementation TXModelBase
 

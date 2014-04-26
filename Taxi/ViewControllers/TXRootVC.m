@@ -36,13 +36,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    self.signIn = [GPPSignIn sharedInstance];
-    self.signIn.shouldFetchGooglePlusUser = YES;
-    self.signIn.shouldFetchGoogleUserEmail = YES;
-    self.signIn.clientID = KEYS.Google.CLIENTID;
-    self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];
-    self.signIn.delegate = self;
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,64 +106,6 @@
     
 }
 
-- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
-    
-    if(error==nil) {
-        
-        GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
-        plusService.retryEnabled = YES;
-        [plusService setAuthorizer:self.signIn.authentication];
-        
-        GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
-        
-        [plusService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLPlusPerson *person, NSError *error) {
-            
-            if (error) {
-                
-                NSString *msg = [NSString stringWithFormat:@"Error: %@\nReason: %@\n%@", [error localizedDescription], [error localizedFailureReason], [error localizedRecoverySuggestion]];
-                
-                [self alertError:[error localizedDescription] message:msg];
-                
-            } else {
-                
-                [self.sharedObj.settings setGoogleUserId:person.identifier];
-                self.googlePerson = person;
-                
-                TXUser *user = [[TXUser alloc] init];
-                user.providerId = PROVIDERS.GOOGLE;
-                user.providerUserId = person.identifier;
-                
-                NSDictionary *personProps = getJSONObj(person.JSONString);
-                user.language = [personProps objectForKey:@"language"];
-                
-                NSArray *emails = [personProps objectForKey:@"emails"];
-                if(emails.count>0) {
-                    user.email = [emails[0] objectForKey:@"value"];
-                }
-                
-                NSDictionary *name = [personProps objectForKey:@"name"];
-                user.name = [name objectForKey:@"givenName"];
-                user.surname = [name objectForKey:@"familyName"];
-                
-                NSDictionary *image = [personProps objectForKey:@"image"];
-                user.photoURL = [image objectForKey:@"url"];
-                
-                [(TXUserModel *)self.model checkIfUserExists:user.username providerId:user.providerId providerUserId:user.providerUserId];
-                
-            }
-        }];
-        
-        
-    } else {
-        
-        NSString *msg = [NSString stringWithFormat:@"Error: %@\nReason: %@\n%@", [error localizedDescription], [error localizedFailureReason], [error localizedRecoverySuggestion]];
-        
-        [self alertError:[error localizedDescription] message:msg];
-    }
-    
-    
-}
-
 -(void) setParameters:(NSDictionary *)params {
     self->parameters = params;
 }
@@ -178,7 +114,7 @@
  * Subclasses should override this function
  */
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams{
-    [self refreshInterfaceBasedOnSignIn];
+    NSLog(@"Function onEvent not implemented in TXRootVC !");
 }
 
 

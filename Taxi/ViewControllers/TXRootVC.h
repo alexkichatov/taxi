@@ -7,17 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TXCode2MsgTranslator.h"
 #import "TXModelBase.h"
 #import "TXBaseViewController.h"
 
-@interface TXRootVC : TXBaseViewController<TXEventListener, GPPSignInDelegate> {
+@interface TXRootVC : TXBaseViewController<TXEventListener> {
     NSDictionary *parameters;
 }
 
 @property (nonatomic, strong) TXModelBase   *model;
 @property (nonatomic, strong) TXSharedObj   *sharedObj;
-@property (nonatomic, strong) GPPSignIn     *signIn;
-@property (nonatomic, strong) GTLPlusPerson *googlePerson;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 -(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames;

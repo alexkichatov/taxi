@@ -18,9 +18,11 @@
 +(TXUserModel *) instance;
 -(TXSyncResponseDescriptor *)signUp:(TXUser *)user;
 -(void) login : (NSString *) username andPass : (NSString *) pwd;
--(void) loginWithProvider:(TXUser *) user;
+-(TXSyncResponseDescriptor *)loginWithProvider:(TXUser *) user;
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;
 -(void) checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId;
+-(TXSyncResponseDescriptor *)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider;
+
 @end

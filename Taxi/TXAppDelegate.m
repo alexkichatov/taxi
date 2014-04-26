@@ -16,6 +16,7 @@
 #import "TXGoogleAPIUtil.h"
 #import <GooglePlus/GooglePlus.h>
 #import "MenuViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation TXAppDelegate
 
@@ -31,6 +32,9 @@
     [googlUtil sendPlaceAutocompleteRequest:@"31%20Marjanishvili" sensor:YES optional:nil];
     
      */
+    
+    [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
+    
     
     
     return YES;

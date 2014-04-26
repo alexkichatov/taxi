@@ -9,9 +9,7 @@
 #import "TXConsts.h"
 
 const struct HTTP_API HTTP_API = {
-        .REGISTER = @"register",
-        .AUTHENTICATE = @"login",
-        .CHECKUSER    = @"checkUser"
+        .USER = @"user"
 };
 
 const struct KEYS KEYS = {
@@ -30,8 +28,10 @@ const struct API_JSON API_JSON = {
         .OPER     = @"operation",
         .ATTR     = @"attr",
         .DATA     = @"data",
+        .SOURCE   = @"source",
         .SUCCESS  = @"success",
-        .MESSAGE  = @"message"
+        .MESSAGE  = @"message",
+        .CODE     = @"code"
     },
     
     .Authenticate = {
