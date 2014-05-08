@@ -12,7 +12,7 @@
 #import "SlideNavigationContorllerAnimatorScale.h"
 #import "SlideNavigationContorllerAnimatorScaleAndFade.h"
 #import "SlideNavigationContorllerAnimatorSlideAndFade.h"
-#import "TXConsts.h"
+#import "StrConsts.h"
 #import "TXSharedObj.h"
 
 int const MENU_ITEMS_COUNT = 4;

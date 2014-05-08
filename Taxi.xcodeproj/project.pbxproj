@@ -22,7 +22,6 @@
 		3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4A18EEFE08003D7AD2 /* button-profile.png */; };
 		3826CC4D18EF002E003D7AD2 /* button-signout.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4C18EF002E003D7AD2 /* button-signout.png */; };
 		3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC4E18EF02A0003D7AD2 /* button-settings.png */; };
-		3827822F18B8CE920036238A /* TXConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822618B8CE920036238A /* TXConsts.m */; };
 		3827823018B8CE920036238A /* TXModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822818B8CE920036238A /* TXModelBase.m */; };
 		3827823118B8CE920036238A /* TXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822A18B8CE920036238A /* TXUserModel.m */; };
 		3827823218B8CE920036238A /* TXSharedObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822C18B8CE920036238A /* TXSharedObj.m */; };
@@ -110,7 +109,7 @@
 		38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4F7F118AD024000D6B2CC /* MapKit.framework */; };
 		38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C60B8918D47BEC000A3DD3 /* TXMapVC.m */; };
 		38D6DF8D18BB5FA9004A0E81 /* TXRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */; };
-		38DA7862191BC8E500269AB7 /* TXGoogleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA7861191BC8E500269AB7 /* TXGoogleAPI.m */; };
+		38DA7862191BC8E500269AB7 /* TXGoogleObjectsCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA7861191BC8E500269AB7 /* TXGoogleObjectsCache.m */; };
 		38DA7868191BCD6B00269AB7 /* TXEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA7864191BCD6B00269AB7 /* TXEvent.m */; };
 		38DA7869191BCD6B00269AB7 /* TXEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA7867191BCD6B00269AB7 /* TXEventTarget.m */; };
 		38DA7875191BCDC300269AB7 /* NSString+TXNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA786C191BCDC300269AB7 /* NSString+TXNSString.m */; };
@@ -164,8 +163,6 @@
 		3826CC4A18EEFE08003D7AD2 /* button-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-profile.png"; sourceTree = "<group>"; };
 		3826CC4C18EF002E003D7AD2 /* button-signout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-signout.png"; sourceTree = "<group>"; };
 		3826CC4E18EF02A0003D7AD2 /* button-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-settings.png"; sourceTree = "<group>"; };
-		3827822518B8CE920036238A /* TXConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXConsts.h; path = model/TXConsts.h; sourceTree = "<group>"; };
-		3827822618B8CE920036238A /* TXConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXConsts.m; path = model/TXConsts.m; sourceTree = "<group>"; };
 		3827822718B8CE920036238A /* TXModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXModelBase.h; path = model/TXModelBase.h; sourceTree = "<group>"; };
 		3827822818B8CE920036238A /* TXModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXModelBase.m; path = model/TXModelBase.m; sourceTree = "<group>"; };
 		3827822918B8CE920036238A /* TXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXUserModel.h; path = ../TXUserModel.h; sourceTree = "<group>"; };
@@ -304,8 +301,8 @@
 		38C60B8918D47BEC000A3DD3 /* TXMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMapVC.m; sourceTree = "<group>"; };
 		38D6DF8B18BB5FA9004A0E81 /* TXRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRegisterVC.h; sourceTree = "<group>"; };
 		38D6DF8C18BB5FA9004A0E81 /* TXRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRegisterVC.m; sourceTree = "<group>"; };
-		38DA7860191BC8E500269AB7 /* TXGoogleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXGoogleAPI.h; sourceTree = "<group>"; };
-		38DA7861191BC8E500269AB7 /* TXGoogleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXGoogleAPI.m; sourceTree = "<group>"; };
+		38DA7860191BC8E500269AB7 /* TXGoogleObjectsCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXGoogleObjectsCache.h; sourceTree = "<group>"; };
+		38DA7861191BC8E500269AB7 /* TXGoogleObjectsCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXGoogleObjectsCache.m; sourceTree = "<group>"; };
 		38DA7864191BCD6B00269AB7 /* TXEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXEvent.m; sourceTree = "<group>"; };
 		38DA7865191BCD6B00269AB7 /* TXEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXEvents.h; sourceTree = "<group>"; };
 		38DA7866191BCD6B00269AB7 /* TXEventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXEventTarget.h; sourceTree = "<group>"; };
@@ -769,8 +766,6 @@
 				3884159F190B46D500E39806 /* http */,
 				3884159B190B42C600E39806 /* google */,
 				3827823818B8D5F40036238A /* obj */,
-				3827822518B8CE920036238A /* TXConsts.h */,
-				3827822618B8CE920036238A /* TXConsts.m */,
 				3827822718B8CE920036238A /* TXModelBase.h */,
 				3827822818B8CE920036238A /* TXModelBase.m */,
 				3827822B18B8CE920036238A /* TXSharedObj.h */,
@@ -786,8 +781,8 @@
 			children = (
 				38DABBC318D9AA72005D4AC4 /* TXGoogleRequestManager.h */,
 				38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */,
-				38DA7860191BC8E500269AB7 /* TXGoogleAPI.h */,
-				38DA7861191BC8E500269AB7 /* TXGoogleAPI.m */,
+				38DA7860191BC8E500269AB7 /* TXGoogleObjectsCache.h */,
+				38DA7861191BC8E500269AB7 /* TXGoogleObjectsCache.m */,
 			);
 			name = google;
 			path = model/google;
@@ -1037,7 +1032,7 @@
 				385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */,
 				3826CC4718EEDF27003D7AD2 /* MenuViewController.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
-				38DA7862191BC8E500269AB7 /* TXGoogleAPI.m in Sources */,
+				38DA7862191BC8E500269AB7 /* TXGoogleObjectsCache.m in Sources */,
 				385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */,
 				385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
@@ -1057,7 +1052,6 @@
 				3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				389EDB6418F19687005CAAE7 /* CMPopTipView.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
-				3827822F18B8CE920036238A /* TXConsts.m in Sources */,
 				38DA7879191BCDC300269AB7 /* utils.m in Sources */,
 				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
 				3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */,

@@ -9,6 +9,7 @@
 #import "TXGoogleRequestManager.h"
 #import "utils.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "StrConsts.h"
 
 /* ===================== KEYWORDS ===================== */
 
@@ -18,11 +19,6 @@ static NSString* const K_ID = @"id";
 static NSString* const K_DESCRIPTION = @"description";
 
 /* ===================== REQUESTS ===================== */
-
-static NSString* const GOOGLE_API_PLACES_NEARBYSEARCH = @"PlacesNearbySearch";
-static NSString* const GOOGLE_API_PLACES_TEXTSEARCH   = @"PlacesTextSearch";
-static NSString* const GOOGLE_API_PLACES_RADARSEARCH  = @"PlacesRadarSearch";
-static NSString* const GOOGLE_API_PLACES_AUTOCOMPLETE = @"PlacesAutocomplete";
 
 static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
 
@@ -56,7 +52,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
             [params appendFormat:@"&%@", parameters];
         }
         
-        TXRequestObj* request = [TXRequestObj create:GOOGLE_API_PLACES_NEARBYSEARCH urlParams:params listener:self];
+        TXRequestObj* request = [TXRequestObj create:GoogleAPIRequestConsts.PLACES_NEARBYSEARCH urlParams:params listener:self];
         return [self sendAsyncRequest:request];
         
     } else {
@@ -80,7 +76,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
             [params appendFormat:@"&%@", parameters];
         }
         
-        TXRequestObj* request = [TXRequestObj create:GOOGLE_API_PLACES_TEXTSEARCH urlParams:params listener:self];
+        TXRequestObj* request = [TXRequestObj create:GoogleAPIRequestConsts.PLACES_TEXTSEARCH urlParams:params listener:self];
         return [self sendAsyncRequest:request];
         
     } else {
@@ -105,7 +101,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
             [params appendFormat:@"&%@", parameters];
         }
         
-        TXRequestObj* request = [TXRequestObj create:GOOGLE_API_PLACES_RADARSEARCH urlParams:params listener:self];
+        TXRequestObj* request = [TXRequestObj create:GoogleAPIRequestConsts.PLACES_RADARSEARCH urlParams:params listener:self];
         return [self sendAsyncRequest:request];
         
     } else {
@@ -129,7 +125,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
             [params appendFormat:@"&%@", parameters];
         }
         
-        TXRequestObj* request = [TXRequestObj create:GOOGLE_API_PLACES_AUTOCOMPLETE urlParams:params listener:self];
+        TXRequestObj* request = [TXRequestObj create:GoogleAPIRequestConsts.PLACES_AUTOCOMPLETE urlParams:params listener:self];
         return [self sendAsyncRequest:request];
         
     } else {
@@ -154,10 +150,9 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     id           jsonObj   = getJSONObj(response);
     id           prop      = nil;
     
-    if([request.reqConfig.name isEqualToString:GOOGLE_API_PLACES_TEXTSEARCH]) {
-        
-        NSDictionary *props = [jsonObj objectForKey:K_JSON];
-        NSArray *predictions = [props objectForKey:K_PREDICTIONS];
+    if([request.reqConfig.name isEqualToString:GoogleAPIRequestConsts.PLACES_AUTOCOMPLETE]) {
+
+        NSArray *predictions = [jsonObj objectForKey:K_PREDICTIONS];
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:[predictions count]];
         
         for (NSDictionary *pred in predictions) {
@@ -172,7 +167,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
         
         prop = array;
         
-    } else if ([request.reqConfig.name isEqualToString:GOOGLE_API_PLACES_TEXTSEARCH]) {
+    } else if ([request.reqConfig.name isEqualToString:GoogleAPIRequestConsts.PLACES_TEXTSEARCH]) {
         
     }
     

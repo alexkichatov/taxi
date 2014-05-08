@@ -22,7 +22,7 @@
 #import "TXGoogleRequestManager.h"
 #import "utils.h"
 #import "TXHttpRequestManager.h"
-#import "TXConsts.h"
+#import "StrConsts.h"
 
 const NSString *SPACE_BAR = @" ";
 
@@ -205,14 +205,11 @@ const NSString *SPACE_BAR = @" ";
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
-    NSDictionary *props = [event.getEventProperties objectForKey:@"JSON"];
-    NSArray *predictions = [props objectForKey:@"predictions"];
+    NSArray *predictions = [event.getEventProperties objectForKey:TXEvents.Params.GOOGLEOBJECT];
 
     [self->items removeAllObjects];
-    for (NSDictionary *pred in predictions) {
-        
-        [self->items addObject:[pred objectForKey:@"description"]];
-        
+    for (TXPrediction *pred in predictions) {
+        [self->items addObject:pred.description];
     }
     
     //    NSDictionary *latLong = [[result objectForKey:@"geometry"] objectForKey:@"location"];
@@ -260,7 +257,7 @@ const NSString *SPACE_BAR = @" ";
 -(void)search:(id)sender {
     
     TXGoogleRequestManager *googleUtil = [[TXGoogleRequestManager alloc] init];
-    [googleUtil addEventListener:self forEvent:@"onGoogleRequestCompleted" eventParams:nil];
+    [googleUtil addEventListener:self forEvent:TXEvents.GOOGLEREQUESTCOMPLETED eventParams:nil];
     
     [googleUtil sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
     
@@ -279,7 +276,7 @@ const NSString *SPACE_BAR = @" ";
         TXGoogleRequestManager *googleUtil = [[TXGoogleRequestManager alloc] init];
         [googleUtil addEventListener:self forEvent:@"onGoogleRequestCompleted" eventParams:nil];
         
-        [googleUtil sendPlaceTextSearchAsync:field.text sensor:YES optional:nil];
+        [googleUtil sendPlaceAutocompleteAsync:field.text sensor:YES optional:nil];
     }
     
 }

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TXHttpRequestManager.h"
 #import "TXEventTarget.h"
-#import "TXGoogleAPI.h"
+#import "TXGoogleObjectsCache.h"
 
 extern NSString const *EVENT_PROPERTY;
 

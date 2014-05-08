@@ -199,6 +199,15 @@ extern const struct FieldsConsts {
     
 } FieldsConsts;
 
+extern const struct GoogleAPIRequestConsts {
+    
+    __unsafe_unretained NSString* PLACES_NEARBYSEARCH;
+    __unsafe_unretained NSString* PLACES_TEXTSEARCH;
+    __unsafe_unretained NSString* PLACES_RADARSEARCH;
+    __unsafe_unretained NSString* PLACES_AUTOCOMPLETE;
+    
+} GoogleAPIRequestConsts;
+
 extern const struct ChangeLogConsts {
     __unsafe_unretained NSString* OPERATIONTYPE;
     __unsafe_unretained NSString* STATUS;
@@ -376,3 +385,87 @@ extern const struct Events {
     
 } Events;
 
+extern const struct HTTP_API {
+    __unsafe_unretained NSString* USER;
+} HTTP_API;
+
+extern const struct KEYS {
+    
+    struct {
+        __unsafe_unretained NSString* CLIENTID;
+        
+    } Google;
+    
+} KEYS;
+
+
+extern const struct API_JSON {
+    
+    struct {
+        __unsafe_unretained NSString* OPER;
+        __unsafe_unretained NSString* ATTR;
+        __unsafe_unretained NSString* DATA;
+        __unsafe_unretained NSString* SOURCE;
+        __unsafe_unretained NSString* SUCCESS;
+        __unsafe_unretained NSString* MESSAGE;
+        __unsafe_unretained NSString* CODE;
+        
+    } Keys;
+    
+    struct {
+        __unsafe_unretained NSString* USERNAME;
+        __unsafe_unretained NSString* PASSWORD;
+        __unsafe_unretained NSString* PROVIDERUSERID;
+        __unsafe_unretained NSString* PROVIDERID;
+        __unsafe_unretained NSString* LOGINWITHPROVIDER;
+        __unsafe_unretained NSString* USEREXISTS;
+        
+    } Authenticate;
+    
+    struct {
+        
+        __unsafe_unretained NSString* PHONENUMBER;
+        __unsafe_unretained NSString* EMAIL;
+        
+    } SignUp;
+    
+} API_JSON;
+
+extern const struct LEFT_MENU {
+    
+    struct {
+        
+        __unsafe_unretained NSString* HOME;
+        __unsafe_unretained NSString* PROFILE;
+        __unsafe_unretained NSString* SETTINGS;
+        __unsafe_unretained NSString* SIGNOUT;
+        
+    } Names;
+    
+    struct {
+        
+        __unsafe_unretained NSString* HOME;
+        __unsafe_unretained NSString* PROFILE;
+        __unsafe_unretained NSString* SETTINGS;
+        __unsafe_unretained NSString* SIGNOUT;
+        
+        
+    } Images;
+    
+    struct {
+        
+        __unsafe_unretained NSString* HOME;
+        __unsafe_unretained NSString* PROFILE;
+        __unsafe_unretained NSString* SETTINGS;
+        __unsafe_unretained NSString* SIGNOUT;
+        
+    } Controllers;
+    
+} LEFT_MENU;
+
+extern const struct PROVIDERS {
+    
+    __unsafe_unretained NSString* FACEBOOK;
+    __unsafe_unretained NSString* GOOGLE;
+    
+} PROVIDERS;

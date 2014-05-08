@@ -39,16 +39,13 @@
         self->sysVersion = device.systemVersion;
         self->deviceUID  = [[device identifierForVendor] UUIDString];
         self->model      = device.model;
+        self->settings = [TXSettings instance];
     }
     
     return self;
 }
 
 -(TXSettings*)getSettings {
-    
-    if ( self->settings == nil ) {
-        self->settings = [TXSettings instance];
-    }
     return self->settings;
 }
 

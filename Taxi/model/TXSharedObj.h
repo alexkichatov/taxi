@@ -11,7 +11,7 @@
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import "TXApp.h"
-#import "TXConsts.h"
+#import "StrConsts.h"
 
 @interface TXSharedObj : NSObject
 

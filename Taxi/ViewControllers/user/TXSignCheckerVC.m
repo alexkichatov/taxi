@@ -9,7 +9,7 @@
 #import "TXSignCheckerVC.h"
 #import "SlideNavigationController.h"
 #import "TXSignInVC.h"
-#import "TXConsts.h"
+#import "StrConsts.h"
 #import "TXSharedObj.h"
 #import "TXMainVC.h"
 #import "TXAskPhoneNumberVC.h"

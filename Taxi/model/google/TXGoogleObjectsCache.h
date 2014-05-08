@@ -21,6 +21,15 @@
 
 @end
 
-@interface TXGoogleAPI : NSObject
+@interface TXGoogleObjectsCache : NSObject
+
+/** Creates the single instance within the application
+ 
+ @return TXGoogleObjectsCache
+ */
++(TXGoogleObjectsCache *) instance;
+-(void) cachePredictions:(NSString *) srcStr predictions:(NSArray *) predictions;
+-(NSArray *) predictionsFromCache:(NSString *) srcStr;
+-(void) clearPredictionsCache;
 
 @end

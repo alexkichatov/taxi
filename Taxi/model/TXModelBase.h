@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TXHttpRequestManager.h"
 #import "TXEventTarget.h"
-#import "TXConsts.h"
+#import "StrConsts.h"
 #import "utils.h"
 
 @class TXSharedObj;

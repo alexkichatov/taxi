@@ -194,6 +194,15 @@ const struct FieldsConsts FieldsConsts = {
     .MERTIC = @"messageMetric"
 };
 
+const struct GoogleAPIRequestConsts GoogleAPIRequestConsts = {
+    
+    .PLACES_NEARBYSEARCH = @"PlacesNearbySearch",
+    .PLACES_TEXTSEARCH = @"PlacesTextSearch",
+    .PLACES_RADARSEARCH = @"PlacesRadarSearch",
+    .PLACES_AUTOCOMPLETE = @"PlacesAutocomplete"
+    
+};
+
 const struct ChangeLogConsts ChangeLogConsts = {
 
     .OPERATIONTYPE = @"operationType",
@@ -362,6 +371,86 @@ const struct Events Events = {
     
     .NAME = @"eventName",
     .LISTENER_CLASS_NAME = @"listenerClassName"
+    
+};
+
+const struct HTTP_API HTTP_API = {
+    .USER = @"user"
+};
+
+const struct KEYS KEYS = {
+    
+    .Google = {
+        
+        .CLIENTID = @"177846177917-1r8cvuslmtv3lfj2k1np42k0sk402n56.apps.googleusercontent.com",
+        
+    }
+    
+};
+
+const struct API_JSON API_JSON = {
+    
+    .Keys = {
+        .OPER     = @"operation",
+        .ATTR     = @"attr",
+        .DATA     = @"data",
+        .SOURCE   = @"source",
+        .SUCCESS  = @"success",
+        .MESSAGE  = @"message",
+        .CODE     = @"code"
+    },
+    
+    .Authenticate = {
+        .USERNAME = @"username",
+        .PASSWORD = @"password",
+        .PROVIDERUSERID = @"providerUserId",
+        .PROVIDERID = @"providerId",
+        .LOGINWITHPROVIDER = @"loginWithProvider",
+        .USEREXISTS = @"exists"
+    },
+    
+    .SignUp = {
+        
+        .PHONENUMBER = @"phoneNumber",
+        .EMAIL = @"email"
+    }
+    
+};
+
+const struct LEFT_MENU LEFT_MENU = {
+    
+    .Names = {
+        
+        .HOME = @"Home",
+        .PROFILE = @"Profile",
+        .SETTINGS = @"Settings",
+        .SIGNOUT = @"Sign out"
+    },
+    
+    .Images = {
+        
+        .HOME = @"button-home",
+        .PROFILE = @"button-profile",
+        .SETTINGS = @"button-settings",
+        .SIGNOUT = @"button-signout"
+        
+    },
+    
+    .Controllers = {
+        
+        .HOME = @"TXMainVC",
+        .PROFILE = @"TXMainVC",
+        .SETTINGS = @"TXMainVC",
+        .SIGNOUT = @"TXMainVC"
+        
+    }
+    
+};
+
+const struct PROVIDERS PROVIDERS = {
+    
+    .FACEBOOK = @"http://www.facebook.com",
+    .GOOGLE   = @"http://www.google.com"
     
 };
 
