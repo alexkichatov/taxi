@@ -8,9 +8,9 @@
 
 #import "TXUserAPITest.h"
 #import "TXHttpRequestManager.h"
-#import "taxiLib/utils.h"
+#import "utils.h"
 #import "TXUserModel.h"
-#import "taxiLib/TXFileManager.h"
+#import "TXFileManager.h"
 
 @implementation TXUserAPITest
 

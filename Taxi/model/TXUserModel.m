@@ -7,7 +7,7 @@
 //
 
 #import "TXUserModel.h"
-#import "taxiLib/utils.h"
+#import "utils.h"
 
 const int USER_OPER_SIGNUP = 1;
 const int CHECKPHONENUMBERISBLOCKED = 8;
@@ -170,7 +170,7 @@ const int USER_OPER_OTHER = 7;
         
         BOOL success   = [[responseObj objectForKey:API_JSON.Keys.SUCCESS] boolValue];
         int  operation = [[responseObj objectForKey:API_JSON.Keys.OPER] intValue];
-        int code      = [[responseObj objectForKey:API_JSON.Keys.CODE] intValue];
+        int  code      = [[responseObj objectForKey:API_JSON.Keys.CODE] intValue];
         
         source = [responseObj objectForKey:API_JSON.Keys.SOURCE];
         

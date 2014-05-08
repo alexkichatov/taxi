@@ -7,12 +7,12 @@
 //
 
 #import "TXHttpRequestManager.h"
-#import "taxiLib/StrConsts.h"
-#import "taxiLib/Macro.h"
-#import "taxiLib/utils.h"
-#import "taxiLib/TXFileManager.h"
-#import "taxiLib/TXApp.h"
-#import "taxiLib/NSString+TXNSString.h"
+#import "StrConsts.h"
+#import "Macro.h"
+#import "utils.h"
+#import "TXFileManager.h"
+#import "TXApp.h"
+#import "NSString+TXNSString.h"
 
 static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 static NSString* const DEFAULT_CONFIG = @"register";
@@ -304,8 +304,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 
 -(BOOL)sendAsyncRequest:(TXRequestObj*)request {
     
-    //AMDCEvent *event = nil; //TODO:
-    
 	if ( request != nil )
 	{
 		NSMutableURLRequest *httpRequest = [request createHTTPRequest];
@@ -326,12 +324,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
             return YES;
         }
 	}
-    
-    //    event = [AMDCEvent createEvent:AMDCEvents.HTTPREQUESTFAILED eventSource:self eventProps:@{@"ERROR" : [TXError error:AMDC_ERR_NULL_HTTP_REQUEST
-    //                                                                                                                     message:LocalizedStr(@"Http.Err.nullRequest")
-    //                                                                                                                 description:@"AMDCHttpReqManager, sendASyncRequest, [[NSURLConnection alloc] initWithRequest: null"]}];
-    //
-    //    [self fireEvent:event];
     
 	return NO;
 }
@@ -386,15 +378,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
         
         TXRequestObj* request = [self requestForConnection:connection];
         if( statusCode == HTTP_UNAUTHORIZED ) {
-            // NSDictionary* secResponse = getJSONObjFromData( request.receivedData );
-            //            if ( secResponse != nil && [[secResponse objectForKey:CMD_DEVICE_WIPE] boolValue] == true ) {
-            //                TXError *error;
-            //                [[AMDCFileManager instance] resetUserData:&error];
-            //                if(error!=nil) {
-            //                    DLogE(@"Failed to reset user data, error message: %@", error.message);
-            //                }
-            //                return;
-            //            }
+           
         }
         
         NSString* statusMsg	= [NSHTTPURLResponse localizedStringForStatusCode:statusCode];

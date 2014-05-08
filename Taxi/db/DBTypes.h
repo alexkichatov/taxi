@@ -1,6 +1,6 @@
 //
 //  DBTypes.m
-//  taxiLib
+//  Taxi
 //
 //  Created by Irakli Vashakidze on 02/11/14.
 //  Copyright (c) 2014 99S. All rights reserved.

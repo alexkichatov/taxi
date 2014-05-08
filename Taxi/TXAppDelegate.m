@@ -8,12 +8,11 @@
 
 #import "TXAppDelegate.h"
 #import "TXHttpRequestManager.h"
-#import "taxiLib/utils.h"
+#import "utils.h"
 #import "TXUserModel.h"
-#import "taxiLib/TXFileManager.h"
+#import "TXFileManager.h"
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import "TXGoogleAPIUtil.h"
 #import <GooglePlus/GooglePlus.h>
 #import "MenuViewController.h"
 #import <GoogleMaps/GoogleMaps.h>

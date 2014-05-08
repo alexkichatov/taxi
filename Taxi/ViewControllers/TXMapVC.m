@@ -19,16 +19,19 @@
  */
 
 #import "TXMapVC.h"
-#import "TXGoogleAPIUtil.h"
-#import "taxiLib/utils.h"
+#import "TXGoogleRequestManager.h"
+#import "utils.h"
 #import "TXHttpRequestManager.h"
 #import "TXConsts.h"
 
-@interface TXMapVC () <TXEventListener> {
+const NSString *SPACE_BAR = @" ";
 
+@interface TXMapVC () <TXEventListener> {
+    NSMutableArray *items;
 }
 
 -(IBAction)search:(id)sender;
+-(IBAction)keyTyped:(id)sender;
 
 @end
 
@@ -56,6 +59,8 @@
         [self.locationMgr startUpdatingLocation];
     }
     
+    self->items = [NSMutableArray new];
+    
 //    GMSMarker *marker = [[GMSMarker alloc] init];
 //    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
 //    marker.title = @"Sydney";
@@ -80,6 +85,31 @@
     
     self.mapView_.settings.myLocationButton = YES;
     
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [self->items count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    static NSString * identifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:identifier];
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    cell.textLabel.text = self->items[indexPath.row];
+
+    return cell;
 }
 
 -(void) addMarker:(CLLocationCoordinate2D) position {
@@ -176,11 +206,18 @@
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
     NSDictionary *props = [event.getEventProperties objectForKey:@"JSON"];
-    NSDictionary *result = [props objectForKey:@"results"][0];
-    NSDictionary *latLong = [[result objectForKey:@"geometry"] objectForKey:@"location"];
+    NSArray *predictions = [props objectForKey:@"predictions"];
 
-    NSLog(@"%@", [latLong objectForKey:@"lat"]);
-    NSLog(@"%@", [latLong objectForKey:@"lng"]);
+    [self->items removeAllObjects];
+    for (NSDictionary *pred in predictions) {
+        
+        [self->items addObject:[pred objectForKey:@"description"]];
+        
+    }
+    
+    //    NSDictionary *latLong = [[result objectForKey:@"geometry"] objectForKey:@"location"];
+
+    /*
     
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[latLong objectForKey:@"lat"] doubleValue], [[latLong objectForKey:@"lng"] doubleValue]);
     
@@ -208,87 +245,43 @@
         
         NSString *encodedStr = [polyline_ objectForKey:@"points"];
         
-        GMSPolyline *polyline = [self polylineWithEncodedString:encodedStr];
+        GMSPolyline *polyline = [TXGoogleAPIUtil polylineWithEncodedString:encodedStr];
         polyline.strokeColor = [UIColor blueColor];
         polyline.strokeWidth = 4;
         polyline.map = self.mapView_;
         
     }
     
+    */
     
+    [self.tableView reloadData];
 }
 
 -(void)search:(id)sender {
     
-    TXGoogleAPIUtil *googleUtil = [[TXGoogleAPIUtil alloc] init];
+    TXGoogleRequestManager *googleUtil = [[TXGoogleRequestManager alloc] init];
     [googleUtil addEventListener:self forEvent:@"onGoogleRequestCompleted" eventParams:nil];
     
-    [googleUtil sendPlaceTextSearchRequest:self.txtSearch.text sensor:YES optional:nil];
+    [googleUtil sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
     
 }
 
-- (GMSPolyline *)polylineWithEncodedString:(NSString *)encodedString {
-    const char *bytes = [encodedString UTF8String];
-    NSUInteger length = [encodedString lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
-    NSUInteger idx = 0;
+-(void)keyTyped:(id)sender {
     
-    NSUInteger count = length / 4;
-    CLLocationCoordinate2D *coords = calloc(count, sizeof(CLLocationCoordinate2D));
-    NSUInteger coordIdx = 0;
+    UITextField *field = (UITextField *) sender;
+    NSString *typedText = field.text;
+    int length = typedText.length;
+    char lastChar = [typedText characterAtIndex:length - 1];
     
-    float latitude = 0;
-    float longitude = 0;
-    while (idx < length) {
-        char byte = 0;
-        int res = 0;
-        char shift = 0;
+    
+    if(lastChar == ' ' || isdigit(lastChar)) {
         
-        do {
-            byte = bytes[idx++] - 63;
-            res |= (byte & 0x1F) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
+        TXGoogleRequestManager *googleUtil = [[TXGoogleRequestManager alloc] init];
+        [googleUtil addEventListener:self forEvent:@"onGoogleRequestCompleted" eventParams:nil];
         
-        float deltaLat = ((res & 1) ? ~(res >> 1) : (res >> 1));
-        latitude += deltaLat;
-        
-        shift = 0;
-        res = 0;
-        
-        do {
-            byte = bytes[idx++] - 0x3F;
-            res |= (byte & 0x1F) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
-        
-        float deltaLon = ((res & 1) ? ~(res >> 1) : (res >> 1));
-        longitude += deltaLon;
-        
-        float finalLat = latitude * 1E-5;
-        float finalLon = longitude * 1E-5;
-        
-        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(finalLat, finalLon);
-        coords[coordIdx++] = coord;
-        
-        if (coordIdx == count) {
-            NSUInteger newCount = count + 10;
-            coords = realloc(coords, newCount * sizeof(CLLocationCoordinate2D));
-            count = newCount;
-        }
+        [googleUtil sendPlaceTextSearchAsync:field.text sensor:YES optional:nil];
     }
     
-    GMSMutablePath *path = [[GMSMutablePath alloc] init];
-    
-    int i;
-    for (i = 0; i < coordIdx; i++)
-    {
-        [path addCoordinate:coords[i]];
-    }
-    
-    GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
-    free(coords);
-    
-    return polyline;
 }
 
 @end

@@ -10,7 +10,7 @@
 #import "TXUser.h"
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
-#import "taxiLib/TXApp.h"
+#import "TXApp.h"
 #import "TXConsts.h"
 
 @interface TXSharedObj : NSObject

@@ -7,7 +7,7 @@
 //
 
 #import "TXModelBase.h"
-#import "taxiLib/utils.h"
+#import "utils.h"
 
 @implementation TXModelBase
 

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1z-P6-fVd" customClass="GMSMapView">
-                                <rect key="frame" x="20" y="58" width="728" height="946"/>
+                                <rect key="frame" x="20" y="388" width="728" height="616"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -26,6 +26,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyTyped:" destination="BYZ-38-t0r" eventType="editingChanged" id="Ghp-iE-zBY"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="935-Gi-X7b">
                                 <rect key="frame" x="636" y="20" width="112" height="30"/>
@@ -37,11 +40,21 @@
                                     <action selector="search:" destination="BYZ-38-t0r" eventType="touchDown" id="zSW-2Y-xZU"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L8Z-JT-7wA">
+                                <rect key="frame" x="20" y="58" width="728" height="322"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="mN2-NK-kkh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Vmw-by-2eO"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="mapView_" destination="s1z-P6-fVd" id="JES-vH-fl5"/>
+                        <outlet property="tableView" destination="L8Z-JT-7wA" id="h39-MU-w4X"/>
                         <outlet property="txtSearch" destination="koU-BI-5qe" id="MRS-9P-VPJ"/>
                     </connections>
                 </viewController>
