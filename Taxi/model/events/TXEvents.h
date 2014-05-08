@@ -87,19 +87,18 @@ extern const struct TXEvents {
     __unsafe_unretained NSString* HTTPREQUESTCOMPLETED;
     __unsafe_unretained NSString* HTTPCONNOPENFAILED;
     
+    /*************************************** GOOGLE EVENTS ****************************************************/
+    
+    __unsafe_unretained NSString* GOOGLEREQUESTCOMPLETED;
+    
     /*************************************** Event param keys *****************************************************/
 
+    
     struct {
         __unsafe_unretained NSString* ERROR;
-        __unsafe_unretained NSString* SETTINGNAME;
-        __unsafe_unretained NSString* SETTINGOLDVAL;
-        __unsafe_unretained NSString* SETTINGNEWVAL;
         __unsafe_unretained NSString* CONNECTIONTYPE;
-        __unsafe_unretained NSString* VALIDATIONRESULT;
-        __unsafe_unretained NSString* LAST_SYNC_DATE;
-        __unsafe_unretained NSString* MULTIPART;
-        __unsafe_unretained NSString* PARTCOUNT;
-        __unsafe_unretained NSString* PARTNUMBER;
+        __unsafe_unretained NSString* GOOGLEOBJECT;
+
     } Params;
     
     __unsafe_unretained NSString* REGISTER_USER_COMPLETED;

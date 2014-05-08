@@ -10,11 +10,6 @@
 #import "utils.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-/* ===================== EVENTS ===================== */
-
-NSString const *EVENT_PROPERTY = @"eventProperty";
-NSString const *EVENT_NAME = @"onGoogleRequestCompleted";
-
 /* ===================== KEYWORDS ===================== */
 
 static NSString* const K_JSON = @"JSON";
@@ -176,9 +171,12 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
         }
         
         prop = array;
+        
+    } else if ([request.reqConfig.name isEqualToString:GOOGLE_API_PLACES_TEXTSEARCH]) {
+        
     }
     
-    [self fireEvent:[TXEvent createEvent:@"onGoogleRequestCompleted" eventSource:self eventProps:@{ EVENT_PROPERTY : prop  }]];
+    [self fireEvent:[TXEvent createEvent:TXEvents.GOOGLEREQUESTCOMPLETED eventSource:self eventProps:@{ TXEvents.Params.GOOGLEOBJECT : prop  }]];
 }
 
 -(void)onFail:(id)object error:(TXError *)error {
@@ -186,6 +184,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
 }
 
 +(GMSPolyline *)polylineWithEncodedString:(NSString *)encodedString {
+    
     const char *bytes = [encodedString UTF8String];
     NSUInteger length = [encodedString lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
     NSUInteger idx = 0;

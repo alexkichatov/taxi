@@ -83,17 +83,14 @@ const struct TXEvents TXEvents = {
     .HTTPREQUESTCOMPLETED     = @"httpRequestCompleted",
     .HTTPCONNOPENFAILED     = @"httpConnectionOpenFailed",
   
+    /*************************************** HTTP EVENTS ****************************************************/
+    
+    .GOOGLEREQUESTCOMPLETED = @"onGoogleRequestCompleted",
+    
     .Params = {
         .ERROR              = @"ERROR",
-        .SETTINGNAME        = @"settingName",
-        .SETTINGOLDVAL      = @"oldVal",
-        .SETTINGNEWVAL      = @"newVal",
         .CONNECTIONTYPE     = @"connectionType",
-        .VALIDATIONRESULT   = @"validationResult",
-        .LAST_SYNC_DATE     = @"lastSyncDate",
-        .MULTIPART          = @"multipart",
-        .PARTCOUNT          = @"partCount",
-        .PARTNUMBER         = @"partNumber"
+        .GOOGLEOBJECT       = @"googleObject"
     },
     
     .REGISTER_USER_COMPLETED = @"registerUserCompleted",
