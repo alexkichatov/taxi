@@ -26,7 +26,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if([self.sharedObj.settings getGoogleUserId] == nil) {
+    if([[TXSharedObj instance].settings getGoogleUserId] == nil) {
         
         [self.activityIndicator removeFromSuperview];
         [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXSignInVC class])]];

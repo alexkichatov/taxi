@@ -8,6 +8,7 @@
 
 #import "TXRootVC.h"
 #import "TXUserModel.h"
+#import "TXSharedObj.h"
 
 @interface TXRootVC ()
 
@@ -27,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.sharedObj = [TXSharedObj instance];
     self.model = [TXUserModel instance];
     [self.model addEventListener:self forEvent:TXEvents.REGISTER_USER_COMPLETED eventParams:nil];
     [self.model addEventListener:self forEvent:TXEvents.CHECK_USER_COMPLETED eventParams:nil];
@@ -89,11 +89,11 @@
 }
 
 -(TXRootVC *) viewControllerInstanceWithName: (NSString *) name {
-    return [[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:name];
+    return [[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:name];
 }
 
 -(TXRootVC *) viewControllerInstanceFromClass: (Class) aClass {
-    return [[self.sharedObj currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass(aClass)];
+    return [[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass(aClass)];
 }
 
 -(void) alertError : (NSString *) title message : (NSString *) message {

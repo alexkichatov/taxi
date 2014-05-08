@@ -10,6 +10,7 @@
 #import "TXUserModel.h"
 #import "TXMainVC.h"
 #import "TXCode2MsgTranslator.h"
+#import "TXSharedObj.h"
 
 @interface TXAskUserInfoVC ()
 
@@ -55,9 +56,9 @@
         if(user.providerId!=nil) {
             
             if([user.providerId isEqualToString:PROVIDERS.GOOGLE]) {
-                [self.sharedObj.settings setGoogleUserId:user.providerId];
+                [[TXSharedObj instance].settings setGoogleUserId:user.providerId];
             } else {
-                [self.sharedObj.settings setFBUserId:user.providerId];
+                [[TXSharedObj instance].settings setFBUserId:user.providerId];
             }
             
         }

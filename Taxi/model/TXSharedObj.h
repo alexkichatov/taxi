@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TXUser.h"
+#import "TXUserModel.h"
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import "TXApp.h"

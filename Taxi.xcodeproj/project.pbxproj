@@ -28,7 +28,6 @@
 		3827823218B8CE920036238A /* TXSharedObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827822C18B8CE920036238A /* TXSharedObj.m */; };
 		3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823A18B8D5F40036238A /* TXBaseObj.m */; };
 		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
-		3827824118B8D5F40036238A /* TXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823E18B8D5F40036238A /* TXUser.m */; };
 		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3827824718BA023D0036238A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827824618BA023D0036238A /* FacebookSDK.framework */; };
 		3841E809190A6F5100F0FABF /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E808190A6F5100F0FABF /* GoogleMaps.framework */; };
@@ -169,16 +168,14 @@
 		3827822618B8CE920036238A /* TXConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXConsts.m; path = model/TXConsts.m; sourceTree = "<group>"; };
 		3827822718B8CE920036238A /* TXModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXModelBase.h; path = model/TXModelBase.h; sourceTree = "<group>"; };
 		3827822818B8CE920036238A /* TXModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXModelBase.m; path = model/TXModelBase.m; sourceTree = "<group>"; };
-		3827822918B8CE920036238A /* TXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXUserModel.h; path = model/TXUserModel.h; sourceTree = "<group>"; };
-		3827822A18B8CE920036238A /* TXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXUserModel.m; path = model/TXUserModel.m; sourceTree = "<group>"; };
+		3827822918B8CE920036238A /* TXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXUserModel.h; path = ../TXUserModel.h; sourceTree = "<group>"; };
+		3827822A18B8CE920036238A /* TXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXUserModel.m; path = ../TXUserModel.m; sourceTree = "<group>"; };
 		3827822B18B8CE920036238A /* TXSharedObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXSharedObj.h; path = model/TXSharedObj.h; sourceTree = "<group>"; };
 		3827822C18B8CE920036238A /* TXSharedObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXSharedObj.m; path = model/TXSharedObj.m; sourceTree = "<group>"; };
 		3827823918B8D5F40036238A /* TXBaseObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseObj.h; sourceTree = "<group>"; };
 		3827823A18B8D5F40036238A /* TXBaseObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseObj.m; sourceTree = "<group>"; };
 		3827823B18B8D5F40036238A /* TXPropertyConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXPropertyConsts.h; sourceTree = "<group>"; };
 		3827823C18B8D5F40036238A /* TXPropertyConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXPropertyConsts.m; sourceTree = "<group>"; };
-		3827823D18B8D5F40036238A /* TXUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUser.h; sourceTree = "<group>"; };
-		3827823E18B8D5F40036238A /* TXUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUser.m; sourceTree = "<group>"; };
 		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
 		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3827824618BA023D0036238A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -279,8 +276,8 @@
 		38841598190B0EC500E39806 /* TXUserSignInBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserSignInBase.m; sourceTree = "<group>"; };
 		388415A0190B46D500E39806 /* TXHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXHttpRequestManager.h; sourceTree = "<group>"; };
 		388415A1190B46D500E39806 /* TXHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXHttpRequestManager.m; sourceTree = "<group>"; };
-		3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCode2MsgTranslator.h; sourceTree = "<group>"; };
-		3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCode2MsgTranslator.m; sourceTree = "<group>"; };
+		3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXCode2MsgTranslator.h; path = ../TXCode2MsgTranslator.h; sourceTree = "<group>"; };
+		3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXCode2MsgTranslator.m; path = ../TXCode2MsgTranslator.m; sourceTree = "<group>"; };
 		388EF7FE18F2D185008F3454 /* TXAskUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskUserInfoVC.h; sourceTree = "<group>"; };
 		388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAskUserInfoVC.m; sourceTree = "<group>"; };
 		389EDB5A18F027BD005CAAE7 /* TXSignCheckerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignCheckerVC.h; sourceTree = "<group>"; };
@@ -445,8 +442,6 @@
 				3827823A18B8D5F40036238A /* TXBaseObj.m */,
 				3827823B18B8D5F40036238A /* TXPropertyConsts.h */,
 				3827823C18B8D5F40036238A /* TXPropertyConsts.m */,
-				3827823D18B8D5F40036238A /* TXUser.h */,
-				3827823E18B8D5F40036238A /* TXUser.m */,
 			);
 			name = obj;
 			path = model/obj;
@@ -769,6 +764,7 @@
 		386E137C18954E7400DF4CB8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				38DA7896191BD13900269AB7 /* user */,
 				38DA7863191BCD6B00269AB7 /* events */,
 				3884159F190B46D500E39806 /* http */,
 				3884159B190B42C600E39806 /* google */,
@@ -777,12 +773,8 @@
 				3827822618B8CE920036238A /* TXConsts.m */,
 				3827822718B8CE920036238A /* TXModelBase.h */,
 				3827822818B8CE920036238A /* TXModelBase.m */,
-				3827822918B8CE920036238A /* TXUserModel.h */,
-				3827822A18B8CE920036238A /* TXUserModel.m */,
 				3827822B18B8CE920036238A /* TXSharedObj.h */,
 				3827822C18B8CE920036238A /* TXSharedObj.m */,
-				3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */,
-				3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */,
 				38DA788B191BCE5000269AB7 /* TXApp.h */,
 				38DA788C191BCE5000269AB7 /* TXApp.m */,
 			);
@@ -843,8 +835,8 @@
 		38DA7863191BCD6B00269AB7 /* events */ = {
 			isa = PBXGroup;
 			children = (
-				38DA7864191BCD6B00269AB7 /* TXEvent.m */,
 				38DA7865191BCD6B00269AB7 /* TXEvents.h */,
+				38DA7864191BCD6B00269AB7 /* TXEvent.m */,
 				38DA7866191BCD6B00269AB7 /* TXEventTarget.h */,
 				38DA7867191BCD6B00269AB7 /* TXEventTarget.m */,
 			);
@@ -894,9 +886,21 @@
 			path = KeyChain;
 			sourceTree = "<group>";
 		};
+		38DA7896191BD13900269AB7 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				3827822918B8CE920036238A /* TXUserModel.h */,
+				3827822A18B8CE920036238A /* TXUserModel.m */,
+			);
+			name = user;
+			path = model/user;
+			sourceTree = "<group>";
+		};
 		38DABBC118D9AA43005D4AC4 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */,
+				3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */,
 				38DA786A191BCDC300269AB7 /* Macro.h */,
 				38DA786B191BCDC300269AB7 /* NSString+TXNSString.h */,
 				38DA786C191BCDC300269AB7 /* NSString+TXNSString.m */,
@@ -1042,7 +1046,6 @@
 				38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */,
 				385E119118EC35C400AB7570 /* TXStackedViewController.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
-				3827824118B8D5F40036238A /* TXUser.m in Sources */,
 				385E11A018EC35C400AB7570 /* TXObjectPDQCriteria.m in Sources */,
 				385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */,
 				3856E04F18F58F70006F9FAE /* TXAskPhoneNumberVC.m in Sources */,

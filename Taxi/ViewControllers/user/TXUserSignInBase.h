@@ -7,8 +7,9 @@
 //
 
 #import "TXRootVC.h"
-#import "TXUser.h"
 #import "TXUserModel.h"
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
 
 @interface TXUserSignInBase : TXRootVC<GPPSignInDelegate> {
     TXUser *user;

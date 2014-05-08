@@ -8,7 +8,7 @@
 
 #import "TXMainVC.h"
 #import "MenuViewController.h"
-
+#import "TXSharedObj.h"
 
 @interface TXMainVC ()
 

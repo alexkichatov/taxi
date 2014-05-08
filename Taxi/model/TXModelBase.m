@@ -15,7 +15,6 @@
     
     if(self = [super init]) {
         self->httpMgr     = [TXHttpRequestManager instance];
-        self.application = [TXSharedObj instance];
     }
     
     return self;

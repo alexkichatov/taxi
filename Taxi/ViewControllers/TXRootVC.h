@@ -16,7 +16,6 @@
 }
 
 @property (nonatomic, strong) TXModelBase   *model;
-@property (nonatomic, strong) TXSharedObj   *sharedObj;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 -(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames;

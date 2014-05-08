@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TXHttpRequestManager.h"
 #import "TXEventTarget.h"
-#import "TXSharedObj.h"
 #import "TXConsts.h"
 #import "utils.h"
+
+@class TXSharedObj;
 
 @interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
     TXHttpRequestManager *httpMgr;

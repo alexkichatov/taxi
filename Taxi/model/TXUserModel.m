@@ -18,6 +18,10 @@ const int USER_OPER_LIST = 5;
 const int USER_OPER_CHECKUSER = 6;
 const int USER_OPER_OTHER = 7;
 
+@implementation TXUser
+
+@end
+
 @implementation TXUserModel
 
 /** Creates the single instance within the application

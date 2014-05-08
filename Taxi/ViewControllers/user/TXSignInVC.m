@@ -11,6 +11,7 @@
 #import "TXAskPhoneNumberVC.h"
 #import "TXMainVC.h"
 #import "TXUserModel.h"
+#import "TXSharedObj.h"
 
 @interface TXSignInVC ()<GPPSignInDelegate> {
     TXUser *user;

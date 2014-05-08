@@ -7,8 +7,6 @@
 //
 
 #import "TXUserSignInBase.h"
-#import <GooglePlus/GooglePlus.h>
-#import <GoogleOpenSource/GoogleOpenSource.h>
 
 @interface TXSignCheckerVC : TXUserSignInBase
 
