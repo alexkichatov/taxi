@@ -19,6 +19,7 @@ const int REGISTER_PASSWORD_LENGHT = 1107;
 const int GET_PHONENUMBER_BLOCKED = 1108;
 
 #import "TXCode2MsgTranslator.h"
+#import "utils.h"
 
 @interface TXCode2MsgTranslator() {
     NSDictionary *map;
@@ -45,7 +46,7 @@ const int GET_PHONENUMBER_BLOCKED = 1108;
         
         self->map = @{
                       
-                         [NSNumber numberWithInt:SUCCESS] : @"Operation completed successfully !",
+                         [NSNumber numberWithInt:SUCCESS] : LocalizedStr(@"Code.success"),
                          [NSNumber numberWithInt:SYSTEM] : @"Error occured, contact to administrator !",
                          [NSNumber numberWithInt:USERNAME_EXISTS] : @"User already registered !",
                          [NSNumber numberWithInt:REGISTER_REQUIRED_FIELDS] : @"Required fields inccorect !",
@@ -58,7 +59,7 @@ const int GET_PHONENUMBER_BLOCKED = 1108;
                          [NSNumber numberWithInt:GET_PHONENUMBER_BLOCKED] : @"Phone Number Blocked"
                          
                       };
-        
+
     }
     
     return self;

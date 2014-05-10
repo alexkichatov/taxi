@@ -199,7 +199,8 @@ const struct GoogleAPIRequestConsts GoogleAPIRequestConsts = {
     .PLACES_NEARBYSEARCH = @"PlacesNearbySearch",
     .PLACES_TEXTSEARCH = @"PlacesTextSearch",
     .PLACES_RADARSEARCH = @"PlacesRadarSearch",
-    .PLACES_AUTOCOMPLETE = @"PlacesAutocomplete"
+    .PLACES_AUTOCOMPLETE = @"PlacesAutocomplete",
+    .DIRECTIONS_BYCOORDINATES = @"DirectionsByCoordinates"
     
 };
 
@@ -375,7 +376,8 @@ const struct Events Events = {
 };
 
 const struct HTTP_API HTTP_API = {
-    .USER = @"user"
+    .USER = @"user",
+    .CALL = @"call"
 };
 
 const struct KEYS KEYS = {
@@ -389,6 +391,9 @@ const struct KEYS KEYS = {
 };
 
 const struct API_JSON API_JSON = {
+    
+    .ID = @"id",
+    .ERROR = @"error",
     
     .Keys = {
         .OPER     = @"operation",
@@ -413,6 +418,13 @@ const struct API_JSON API_JSON = {
         
         .PHONENUMBER = @"phoneNumber",
         .EMAIL = @"email"
+    },
+    
+    .Call = {
+        
+        .DISTANCE = @"distance",
+        .COUNTRY = @"country"
+        
     }
     
 };

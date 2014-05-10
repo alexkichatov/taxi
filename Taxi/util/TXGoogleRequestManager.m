@@ -138,8 +138,34 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
 -(BOOL) sendDirectionsByCoordinatesAsync:(double) startLat startLongitude:(double)startLng endLatitude:(double) endLat endLongitude:(double) endLng sensor:(BOOL) sensor optional:(NSString *) parameters {
     
     NSString *url = [NSString stringWithFormat:@"origin=%f,%f&destination=%f,%f&sensor=%@&%@&key=%@", startLat, startLng, endLat, endLng, (sensor == YES ? @"true" : @"false"), parameters, GOOGLE_KEY ];
-    TXRequestObj *request = [TXRequestObj create:@"Directions" urlParams:url listener:self];
+    TXRequestObj *request = [TXRequestObj create:GoogleAPIRequestConsts.DIRECTIONS_BYCOORDINATES urlParams:url listener:self];
     return [self sendAsyncRequest:request];
+    
+}
+
+-(BOOL) sendDirectionsByCoordinatesAsync:(double) startLat startLongitude:(double)startLng endLocation:(NSString *) endLocation sensor:(BOOL) sensor optional:(NSString *) parameters {
+    
+    if(endLocation.length!=0) {
+        
+        endLocation = [self getSpaceReplacedWithPrcnt20:endLocation];
+        
+        NSMutableString *params = [NSMutableString stringWithFormat:@"key=%@", GOOGLE_KEY];
+        [params appendFormat:@"&origin=%f,%f", startLat, startLng];
+        [params appendFormat:@"&destination=%@", endLocation];
+        [params appendFormat:@"&sensor=%@", (sensor == YES ? @"true" : @"false")];
+        
+        if(parameters.length!=0) {
+            [params appendFormat:@"&%@", parameters];
+        }
+        
+        TXRequestObj* request = [TXRequestObj create:GoogleAPIRequestConsts.DIRECTIONS_BYCOORDINATES urlParams:params listener:self];
+        return [self sendAsyncRequest:request];
+        
+    } else {
+        
+        return NO;
+        
+    }
     
 }
 
@@ -149,6 +175,7 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
     NSString     *response = [[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding];
     id           jsonObj   = getJSONObj(response);
     id           prop      = nil;
+    NSString     *evtName  = nil;
     
     if([request.reqConfig.name isEqualToString:GoogleAPIRequestConsts.PLACES_AUTOCOMPLETE]) {
 
@@ -165,13 +192,24 @@ static NSString* const GOOGLE_KEY = @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M";
             
         }
         
+        evtName = TXEvents.GOOGLE_PLACES_AUTOCOMP_REQ_COMPLETED;
         prop = array;
         
-    } else if ([request.reqConfig.name isEqualToString:GoogleAPIRequestConsts.PLACES_TEXTSEARCH]) {
+    } else if ([request.reqConfig.name isEqualToString:GoogleAPIRequestConsts.DIRECTIONS_BYCOORDINATES]) {
         
+        NSDictionary *responseObj = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
+        NSArray *routes = [(NSDictionary*)responseObj objectForKey:@"routes"];
+        NSArray *legs = [[routes objectAtIndex:0] objectForKey:@"legs"];
+        
+        NSDictionary *distance = [legs[0] objectForKey:@"distance"];
+        NSString *text = [distance objectForKey:@"text"];
+        long value = [[distance objectForKey:@"value"] longValue];
+        
+        evtName = TXEvents.GOOGLE_DIRECTIONS_REQ_COMPLETED;
+        prop = @{ @"description" : text, @"distance" : [NSNumber numberWithLong:value] };
     }
     
-    [self fireEvent:[TXEvent createEvent:TXEvents.GOOGLEREQUESTCOMPLETED eventSource:self eventProps:@{ TXEvents.Params.GOOGLEOBJECT : prop  }]];
+    [self fireEvent:[TXEvent createEvent:evtName eventSource:self eventProps:@{ TXEvents.Params.GOOGLEOBJECT : prop  }]];
 }
 
 -(void)onFail:(id)object error:(TXError *)error {

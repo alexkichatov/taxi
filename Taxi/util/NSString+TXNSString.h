@@ -14,6 +14,7 @@
 -(NSString *) substringFromFirstOccurance : (char) c;
 -(NSString *) substringUpToLastOccurance : (char) c;
 -(NSString *) substringFromRightFromCharacter : (char) c;
+-(NSString *) substringFromRightToCharacter : (char) c;
 -(NSString *) substringFromLastOccurance: (NSString *) str;
 
 -(int)indexOf:(char)c;

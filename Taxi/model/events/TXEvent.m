@@ -85,7 +85,8 @@ const struct TXEvents TXEvents = {
   
     /*************************************** HTTP EVENTS ****************************************************/
     
-    .GOOGLEREQUESTCOMPLETED = @"onGoogleRequestCompleted",
+    .GOOGLE_PLACES_AUTOCOMP_REQ_COMPLETED = @"onGooglePlacesAutocompleteRequestCompleted",
+    .GOOGLE_DIRECTIONS_REQ_COMPLETED      = @"onGoogleDirectionsRequestCompleted",
     
     .Params = {
         .ERROR              = @"ERROR",
@@ -97,5 +98,7 @@ const struct TXEvents TXEvents = {
     .REGISTER_USER_FAILED = @"registerUserFailed",
     .CHECK_USER_COMPLETED = @"checkUserCompleted",
     .CHECK_PROVIDER_USER_COMPLETED = @"checkUserWithProviderCompleted",
-    .CHECK_USER_FAILED    = @"checkUserFailed"
+    .CHECK_USER_FAILED    = @"checkUserFailed",
+    .CALL_CHARGE_REQUEST_COMPLETED = @"callChargeRequestCompleted",
+    .CALL_CHARGE_REQUEST_FAILED = @"callChargeRequestFailed"
 };

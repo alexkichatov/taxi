@@ -23,11 +23,15 @@
 #import "utils.h"
 #import "TXHttpRequestManager.h"
 #import "StrConsts.h"
+#import "NSString+TXNSString.h"
+#import "TXCallModel.h"
 
 const NSString *SPACE_BAR = @" ";
 
 @interface TXMapVC () <TXEventListener> {
     NSMutableArray *items;
+    TXGoogleRequestManager *googleReqMgr;
+    NSString *country;
 }
 
 -(IBAction)search:(id)sender;
@@ -57,9 +61,13 @@ const NSString *SPACE_BAR = @" ";
         self.locationMgr.delegate = self;
         self.locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
         [self.locationMgr startUpdatingLocation];
+        
     }
     
     self->items = [NSMutableArray new];
+    self->googleReqMgr = [[TXGoogleRequestManager alloc] init];
+    [self->googleReqMgr addEventListener:self forEvent:TXEvents.GOOGLE_PLACES_AUTOCOMP_REQ_COMPLETED eventParams:nil];
+    [self->googleReqMgr addEventListener:self forEvent:TXEvents.GOOGLE_DIRECTIONS_REQ_COMPLETED eventParams:nil];
     
 //    GMSMarker *marker = [[GMSMarker alloc] init];
 //    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
@@ -110,6 +118,53 @@ const NSString *SPACE_BAR = @" ";
     cell.textLabel.text = self->items[indexPath.row];
 
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self->country = [[self->items objectAtIndex:indexPath.row] substringFromRightToCharacter:' '];
+    
+    [self->googleReqMgr sendDirectionsByCoordinatesAsync:41.725081032960752 startLongitude:44.764101696087813 endLocation:[self->items objectAtIndex:indexPath.row] sensor:YES optional:nil];
+    
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[latLong objectForKey:@"lat"] doubleValue], [[latLong objectForKey:@"lng"] doubleValue]);
+//    
+//    [self addMarker:coord];
+//
+    
+  //  CLLocation *location = [self.locationMgr location];
+    
+    //https://maps.googleapis.com/maps/api/directions/json?origin=41.725081032960752,44.764101696087813&destination=41.731533,44.8000461&sensor=false&key=AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M
+//    
+//    NSString *directionsAPIURL = [NSString stringWithFormat:@"origin=%f,%f&destination=%@&sensor=false&key=%@", location.coordinate.latitude, location.coordinate.longitude, [self->items objectAtIndex:indexPath.row], @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M" ];
+//    
+//    
+    
+//    
+//
+//    NSArray *routes = [(NSDictionary*)desc.source objectForKey:@"routes"];
+//    
+//    NSArray *legs = [[routes objectAtIndex:0] objectForKey:@"legs"];
+//    NSArray *steps = [[legs objectAtIndex:0] objectForKey:@"steps"];
+//    [self.mapView_ clear];
+//    
+//    for (NSDictionary *step in steps) {
+//        
+//        NSDictionary *polyline_ = [step objectForKey:@"polyline"];
+//        
+//        NSString *encodedStr = [polyline_ objectForKey:@"points"];
+//        
+//        GMSPolyline *polyline = [TXGoogleRequestManager polylineWithEncodedString:encodedStr];
+//        polyline.strokeColor = [UIColor blueColor];
+//        polyline.strokeWidth = 4;
+//        polyline.map = self.mapView_;
+//        
+//    }
+//
+//    NSLog(@"%@", [[legs[0] objectForKey:@"distance"] objectForKey:@"text"]);
 }
 
 -(void) addMarker:(CLLocationCoordinate2D) position {
@@ -205,61 +260,30 @@ const NSString *SPACE_BAR = @" ";
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
-    NSArray *predictions = [event.getEventProperties objectForKey:TXEvents.Params.GOOGLEOBJECT];
-
-    [self->items removeAllObjects];
-    for (TXPrediction *pred in predictions) {
-        [self->items addObject:pred.description];
-    }
-    
-    //    NSDictionary *latLong = [[result objectForKey:@"geometry"] objectForKey:@"location"];
-
-    /*
-    
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[latLong objectForKey:@"lat"] doubleValue], [[latLong objectForKey:@"lng"] doubleValue]);
-    
-    [self addMarker:coord];
-    
-    CLLocation *location = [self.locationMgr location];
-
-    //https://maps.googleapis.com/maps/api/directions/json?origin=41.725081032960752,44.764101696087813&destination=41.731533,44.8000461&sensor=false&key=AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M
-    
-    NSString *directionsAPIURL = [NSString stringWithFormat:@"origin=%f,%f&destination=%f,%f&sensor=false&key=%@", location.coordinate.latitude, location.coordinate.longitude, [[latLong objectForKey:@"lat"] doubleValue], [[latLong objectForKey:@"lng"] doubleValue], @"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M" ];
-    
-    TXRequestObj *request = [TXRequestObj create:@"Directions" urlParams:directionsAPIURL listener:nil];
-    
-    TXSyncResponseDescriptor *desc = [[TXHttpRequestManager instance] sendSyncRequest:request];
-    
-    NSArray *routes = [(NSDictionary*)desc.source objectForKey:@"routes"];
-    
-    NSArray *legs = [[routes objectAtIndex:0] objectForKey:@"legs"];
-    NSArray *steps = [[legs objectAtIndex:0] objectForKey:@"steps"];
-    [self.mapView_ clear];
-    
-    for (NSDictionary *step in steps) {
-
-        NSDictionary *polyline_ = [step objectForKey:@"polyline"];
+    if([event.name isEqualToString:TXEvents.GOOGLE_PLACES_AUTOCOMP_REQ_COMPLETED]) {
+   
+        NSArray *predictions = [event.getEventProperties objectForKey:TXEvents.Params.GOOGLEOBJECT];
         
-        NSString *encodedStr = [polyline_ objectForKey:@"points"];
+        [self->items removeAllObjects];
+        for (TXPrediction *pred in predictions) {
+            [self->items addObject:pred.description];
+        }
         
-        GMSPolyline *polyline = [TXGoogleAPIUtil polylineWithEncodedString:encodedStr];
-        polyline.strokeColor = [UIColor blueColor];
-        polyline.strokeWidth = 4;
-        polyline.map = self.mapView_;
+        [self.tableView reloadData];
+        
+    } else if ([event.name isEqualToString:TXEvents.GOOGLE_DIRECTIONS_REQ_COMPLETED]) {
+     
+        NSDictionary *obj = [event getEventProperty:TXEvents.Params.GOOGLEOBJECT];
+        
+        [[TXCallModel instance] requestChargeForCountry:self->country distance:[[obj objectForKey:@"distance"] longValue]];
         
     }
-    
-    */
-    
-    [self.tableView reloadData];
+   
 }
 
 -(void)search:(id)sender {
     
-    TXGoogleRequestManager *googleUtil = [[TXGoogleRequestManager alloc] init];
-    [googleUtil addEventListener:self forEvent:TXEvents.GOOGLEREQUESTCOMPLETED eventParams:nil];
-    
-    [googleUtil sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
+    [self->googleReqMgr sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
     
 }
 
@@ -273,10 +297,7 @@ const NSString *SPACE_BAR = @" ";
     
     if(lastChar == ' ' || isdigit(lastChar)) {
         
-        TXGoogleRequestManager *googleUtil = [[TXGoogleRequestManager alloc] init];
-        [googleUtil addEventListener:self forEvent:@"onGoogleRequestCompleted" eventParams:nil];
-        
-        [googleUtil sendPlaceAutocompleteAsync:field.text sensor:YES optional:nil];
+        [self->googleReqMgr sendPlaceAutocompleteAsync:field.text sensor:YES optional:nil];
     }
     
 }

@@ -30,6 +30,11 @@
     return [self substringToIndex:range.location];
 }
 
+-(NSString *) substringFromRightToCharacter : (char) c {
+    NSRange range = [self rangeOfString:[NSString stringWithFormat:@"%c", c] options:NSBackwardsSearch];
+    return [self substringFromIndex:range.location + 1];
+}
+
 -(NSString *) substringFromLastOccurance: (NSString *) str {
     NSRange range = [self rangeOfString:str];
     return [self substringFromIndex:(range.location + range.length)];

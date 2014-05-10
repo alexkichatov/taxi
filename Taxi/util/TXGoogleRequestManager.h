@@ -22,6 +22,7 @@ extern NSString const *EVENT_PROPERTY;
 -(BOOL) sendPlaceRadarSearchAsync:(NSString *) location radius:(NSString *)radius sensor:(BOOL) sensor optional:(NSString *) parameters;
 -(BOOL) sendPlaceAutocompleteAsync:(NSString *) input sensor:(BOOL) sensor optional:(NSString *) parameters;
 -(BOOL) sendDirectionsByCoordinatesAsync:(double) startLat startLongitude:(double)startLng endLatitude:(double) endLat endLongitude:(double) endLng sensor:(BOOL) sensor optional:(NSString *) parameters;
+-(BOOL) sendDirectionsByCoordinatesAsync:(double) startLat startLongitude:(double)startLng endLocation:(NSString *) endLocation sensor:(BOOL) sensor optional:(NSString *) parameters;
 +(GMSPolyline *)polylineWithEncodedString:(NSString *)encodedString;
 
 @end

@@ -16,6 +16,7 @@
 #import <GooglePlus/GooglePlus.h>
 #import "MenuViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "TXCode2MsgTranslator.h"
 
 @implementation TXAppDelegate
 
@@ -31,6 +32,10 @@
     [googlUtil sendPlaceAutocompleteRequest:@"31%20Marjanishvili" sensor:YES optional:nil];
     
      */
+    
+    NSString *message = [TXCode2MsgTranslator messageForCode:SUCCESS];
+    NSLog(@"%@", message);
+    
     
     [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
     

@@ -89,7 +89,8 @@ extern const struct TXEvents {
     
     /*************************************** GOOGLE EVENTS ****************************************************/
     
-    __unsafe_unretained NSString* GOOGLEREQUESTCOMPLETED;
+    __unsafe_unretained NSString* GOOGLE_PLACES_AUTOCOMP_REQ_COMPLETED;
+    __unsafe_unretained NSString* GOOGLE_DIRECTIONS_REQ_COMPLETED;
     
     /*************************************** Event param keys *****************************************************/
 
@@ -106,6 +107,9 @@ extern const struct TXEvents {
     __unsafe_unretained NSString* CHECK_USER_COMPLETED;
     __unsafe_unretained NSString* CHECK_PROVIDER_USER_COMPLETED;
     __unsafe_unretained NSString* CHECK_USER_FAILED;
+    
+    __unsafe_unretained NSString* CALL_CHARGE_REQUEST_COMPLETED;
+    __unsafe_unretained NSString* CALL_CHARGE_REQUEST_FAILED;
 
 } TXEvents;
 

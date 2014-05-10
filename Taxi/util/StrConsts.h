@@ -206,6 +206,9 @@ extern const struct GoogleAPIRequestConsts {
     __unsafe_unretained NSString* PLACES_RADARSEARCH;
     __unsafe_unretained NSString* PLACES_AUTOCOMPLETE;
     
+    __unsafe_unretained NSString* DIRECTIONS_BYCOORDINATES;
+    
+    
 } GoogleAPIRequestConsts;
 
 extern const struct ChangeLogConsts {
@@ -387,6 +390,7 @@ extern const struct Events {
 
 extern const struct HTTP_API {
     __unsafe_unretained NSString* USER;
+    __unsafe_unretained NSString* CALL;
 } HTTP_API;
 
 extern const struct KEYS {
@@ -400,6 +404,9 @@ extern const struct KEYS {
 
 
 extern const struct API_JSON {
+    
+    __unsafe_unretained NSString* ID;
+    __unsafe_unretained NSString* ERROR;
     
     struct {
         __unsafe_unretained NSString* OPER;
@@ -428,6 +435,13 @@ extern const struct API_JSON {
         __unsafe_unretained NSString* EMAIL;
         
     } SignUp;
+   
+    struct {
+        
+        __unsafe_unretained NSString* DISTANCE;
+        __unsafe_unretained NSString* COUNTRY;
+        
+    } Call;
     
 } API_JSON;
 

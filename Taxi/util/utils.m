@@ -20,10 +20,12 @@ NSString* TXLocalizedString(NSString* key, NSString* comment) {
     if ( bundle == nil ) {
         NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:Files.BUNDLE_PATH];
         bundle = [NSBundle bundleWithPath:path];
-        DLogI(@"Current locale: %@, AMDCom Bundle localizations: %@", [[NSLocale currentLocale] localeIdentifier], [bundle localizations]);
+        NSLog(@"Current locale: %@, AMDCom Bundle localizations: %@", [[NSLocale currentLocale] localeIdentifier], [bundle localizations]);
     }
     
-    return [bundle localizedStringForKey:key value:key table:@"InfoPlist"];
+    NSString *txt = [bundle localizedStringForKey:key value:key table:@"lang"];
+    
+    return [bundle localizedStringForKey:key value:key table:@"lang"];
 }
 
 

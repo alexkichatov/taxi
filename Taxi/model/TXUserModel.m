@@ -38,7 +38,7 @@ const int USER_OPER_OTHER = 7;
 -(TXSyncResponseDescriptor *)signUp:(TXUser *)user {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
+    NSDictionary *propertyMap = [user getProperties];
     
     NSDictionary *jsonObj = @{
                                 API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_SIGNUP],

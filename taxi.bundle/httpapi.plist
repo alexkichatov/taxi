@@ -2,7 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Directions</key>
+	<key>call</key>
+	<dict>
+		<key>local</key>
+		<true/>
+		<key>hasUrlBase</key>
+		<true/>
+		<key>url</key>
+		<string>/taxiWeb/call</string>
+		<key>httpMethod</key>
+		<string>POST</string>
+		<key>headers</key>
+		<dict>
+			<key>Authorization</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>DirectionsByCoordinates</key>
 	<dict>
 		<key>local</key>
 		<false/>

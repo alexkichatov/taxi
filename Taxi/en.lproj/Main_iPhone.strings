@@ -1,0 +1,102 @@
+
+/* Class = "IBUILabel"; text = "Mobile"; ObjectID = "0Fe-Ng-XOI"; */
+"0Fe-Ng-XOI.text" = "Mobile";
+
+/* Class = "IBUILabel"; text = "Password"; ObjectID = "3lW-wq-bN0"; */
+"3lW-wq-bN0.text" = "Password";
+
+/* Class = "IBUIButton"; normalTitle = "Zoom in"; ObjectID = "4cD-kH-27a"; */
+"4cD-kH-27a.normalTitle" = "Zoom in";
+
+/* Class = "IBUILabel"; text = "Username"; ObjectID = "6uy-8q-eCN"; */
+"6uy-8q-eCN.text" = "Username";
+
+/* Class = "IBUILabel"; text = "ID"; ObjectID = "AdD-hS-Znl"; */
+"AdD-hS-Znl.text" = "ID";
+
+/* Class = "IBUILabel"; text = "Language"; ObjectID = "Cu8-ny-SBC"; */
+"Cu8-ny-SBC.text" = "Language";
+
+/* Class = "IBUILabel"; text = "Photo URL"; ObjectID = "EHT-DY-Ffu"; */
+"EHT-DY-Ffu.text" = "Photo URL";
+
+/* Class = "IBUITextField"; placeholder = "Last Name"; ObjectID = "GHu-RK-tIw"; */
+"GHu-RK-tIw.placeholder" = "Last Name";
+
+/* Class = "IBUILabel"; text = "Surname"; ObjectID = "Ls6-k6-43o"; */
+"Ls6-k6-43o.text" = "Surname";
+
+/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "MBw-uk-z6Y"; */
+"MBw-uk-z6Y.placeholder" = "Password";
+
+/* Class = "IBUINavigationItem"; title = "Position your location"; ObjectID = "Nbe-08-BfI"; */
+"Nbe-08-BfI.title" = "Position your location";
+
+/* Class = "IBUIButton"; normalTitle = "Register"; ObjectID = "RHL-Wu-fPT"; */
+"RHL-Wu-fPT.normalTitle" = "Register";
+
+/* Class = "IBUIButton"; normalTitle = "Update"; ObjectID = "TAi-lr-7JD"; */
+"TAi-lr-7JD.normalTitle" = "Update";
+
+/* Class = "IBUIButton"; normalTitle = "Finish"; ObjectID = "Vdu-II-oPn"; */
+"Vdu-II-oPn.normalTitle" = "Finish";
+
+/* Class = "IBUIButton"; normalTitle = "Sign up"; ObjectID = "WqH-1y-SP0"; */
+"WqH-1y-SP0.normalTitle" = "Sign up";
+
+/* Class = "IBUIButton"; normalTitle = "Next >>"; ObjectID = "X4C-tJ-cRf"; */
+"X4C-tJ-cRf.normalTitle" = "Next >>";
+
+/* Class = "IBUINavigationItem"; title = "Back"; ObjectID = "aEy-Uj-gAX"; */
+"aEy-Uj-gAX.title" = "Back";
+
+/* Class = "IBUITextField"; placeholder = "First Name"; ObjectID = "bbU-NQ-PxA"; */
+"bbU-NQ-PxA.placeholder" = "First Name";
+
+/* Class = "IBUITextField"; placeholder = "Login"; ObjectID = "ccq-lJ-PkF"; */
+"ccq-lJ-PkF.placeholder" = "Login";
+
+/* Class = "IBUILabel"; text = "Email"; ObjectID = "d1A-b0-5tf"; */
+"d1A-b0-5tf.text" = "Email";
+
+/* Class = "IBUIButton"; normalTitle = "Sign in"; ObjectID = "dBs-2l-K5R"; */
+"dBs-2l-K5R.normalTitle" = "Sign in";
+
+/* Class = "IBUITextField"; placeholder = "E-mail"; ObjectID = "ddi-32-ICk"; */
+"ddi-32-ICk.placeholder" = "E-mail";
+
+/* Class = "IBUITextField"; placeholder = "E-mail or login"; ObjectID = "gRf-kX-0WJ"; */
+"gRf-kX-0WJ.placeholder" = "E-mail or login";
+
+/* Class = "IBUIButton"; normalTitle = "Forgot your password ?"; ObjectID = "gdH-y0-Te5"; */
+"gdH-y0-Te5.normalTitle" = "Forgot your password ?";
+
+/* Class = "IBUITextField"; placeholder = "Confirm password"; ObjectID = "hYV-yC-jCK"; */
+"hYV-yC-jCK.placeholder" = "Confirm password";
+
+/* Class = "IBUIButton"; normalTitle = "Zoom out"; ObjectID = "ish-Jx-jV7"; */
+"ish-Jx-jV7.normalTitle" = "Zoom out";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "oKU-S5-K9Z"; */
+"oKU-S5-K9Z.text" = "Name";
+
+/* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "qJt-LW-aAh"; */
+"qJt-LW-aAh.normalTitle" = "Login";
+
+/* Class = "IBUIButton"; normalTitle = "Sign in"; ObjectID = "spD-dH-WSl"; */
+"spD-dH-WSl.normalTitle" = "Sign in";
+
+/* Class = "IBUIButton"; normalTitle = "Next"; ObjectID = "tyZ-ND-pzq"; */
+"tyZ-ND-pzq.normalTitle" = "Next";
+
+/* Class = "IBUILabel"; text = "Note"; ObjectID = "uOi-Fy-cbj"; */
+"uOi-Fy-cbj.text" = "Note";
+
+/* Class = "IBUINavigationItem"; title = "Back"; ObjectID = "vN4-N0-jxb"; */
+"vN4-N0-jxb.title" = "Back";
+
+/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "w59-bP-5GH"; */
+"w59-bP-5GH.placeholder" = "Password";
+
+/* Class = "IBUITextField"; placeholder = "XXXXXXXXX"; ObjectID = "wJX-KD-1EG"; */
+"wJX-KD-1EG.placeholder" = "XXXXXXXXX";
