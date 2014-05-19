@@ -28,9 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.model = [TXUserModel instance];
-    [self.model addEventListener:self forEvent:TXEvents.REGISTER_USER_COMPLETED eventParams:nil];
-    [self.model addEventListener:self forEvent:TXEvents.CHECK_USER_COMPLETED eventParams:nil];
 	self.view.userInteractionEnabled = TRUE;
 }
 
@@ -65,16 +62,6 @@
     [self.view endEditing:YES];
 }
 
-/*
- * Sets the model to the controller
- */
--(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames {
-    self.model = model_;
-    for (NSString *evtName in eventNames) {
-        [self.model addEventListener:self forEvent:evtName eventParams:nil];
-    }
-}
-
 -(void) pushViewController : (TXRootVC *) viewController {
     
     CATransition *transition = [CATransition animation];
@@ -86,6 +73,7 @@
     [self.view.layer addAnimation:transition forKey:kCATransition];
     [self presentViewController:viewController animated:YES completion:nil];
     
+
 }
 
 -(TXRootVC *) viewControllerInstanceWithName: (NSString *) name {

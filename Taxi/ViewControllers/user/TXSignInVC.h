@@ -13,5 +13,7 @@
 @interface TXSignInVC : TXUserSignInBase
 
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
+@property (retain, nonatomic) IBOutlet UITextField *txtUsername;
+@property (retain, nonatomic) IBOutlet UITextField *txtPassword;
 
 @end

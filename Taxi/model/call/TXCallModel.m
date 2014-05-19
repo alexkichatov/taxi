@@ -69,8 +69,7 @@ const int CALL_OPER_CHARGEREQUEST = 1;
                                 API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:success],
                                 API_JSON.Keys.CODE    : [NSNumber numberWithInt:code],
                                 API_JSON.Keys.SOURCE  : source
-                                };
-                
+                               };
                 
                 event = [TXEvent createEvent:TXEvents.CALL_CHARGE_REQUEST_COMPLETED eventSource:self eventProps:properties];
                     

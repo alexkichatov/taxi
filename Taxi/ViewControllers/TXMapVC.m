@@ -25,6 +25,7 @@
 #import "StrConsts.h"
 #import "NSString+TXNSString.h"
 #import "TXCallModel.h"
+#import "TXSignInVC.h"
 
 const NSString *SPACE_BAR = @" ";
 
@@ -283,7 +284,16 @@ const NSString *SPACE_BAR = @" ";
 
 -(void)search:(id)sender {
     
-    [self->googleReqMgr sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
+    TXRootVC* (^vc)() = ^(){
+        
+        TXRootVC *result = [self viewControllerInstanceWithName:NSStringFromClass([TXSignInVC class])];
+        
+        return result;
+    };
+    
+    [self pushViewControllerAndPopPrevious:vc completionBlock:nil];
+    
+  //  [self->googleReqMgr sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
     
 }
 

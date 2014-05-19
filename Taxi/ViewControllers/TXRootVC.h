@@ -10,15 +10,14 @@
 #import "TXCode2MsgTranslator.h"
 #import "TXModelBase.h"
 #import "TXBaseViewController.h"
+#import "TXStackedViewController.h"
 
-@interface TXRootVC : TXBaseViewController<TXEventListener> {
+@interface TXRootVC : TXStackedViewController<TXEventListener> {
     NSDictionary *parameters;
 }
 
-@property (nonatomic, strong) TXModelBase   *model;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
--(void)setModel:(TXModelBase *) model_ eventNames:(NSArray *) eventNames;
 -(void) pushViewController : (TXRootVC *) viewController;
 -(void) alertError : (NSString *) title message : (NSString *) message;
 -(TXRootVC *) viewControllerInstanceWithName: (NSString *) name;

@@ -12,7 +12,9 @@
 #import "TXCode2MsgTranslator.h"
 #import "TXSharedObj.h"
 
-@interface TXAskUserInfoVC ()
+@interface TXAskUserInfoVC () {
+
+}
 
 -(IBAction)completeSignUp:(id)sender;
 
@@ -23,30 +25,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.model = [TXUserModel instance];
+
 }
 
 -(void)completeSignUp:(id)sender {
     
-    TXUser *user = [TXUser create];
+    TXUser *user_ = [TXUser create];
     
-    user.username = [self->parameters objectForKey:API_JSON.Authenticate.USERNAME];
-    user.password = [self->parameters objectForKey:API_JSON.Authenticate.PASSWORD];
-    user.mobile   = [self->parameters objectForKey:API_JSON.SignUp.PHONENUMBER];
-    user.providerId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID];
-    user.providerUserId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
-    user.language = @"en";
-    user.name     = self.txtName.text;
-    user.surname  = self.txtSurname.text;
-    user.email    = self.txtEmail.text;
+    user_.username = [self->parameters objectForKey:API_JSON.Authenticate.USERNAME];
+    user_.password = [self->parameters objectForKey:API_JSON.Authenticate.PASSWORD];
+    user_.mobile   = [self->parameters objectForKey:API_JSON.SignUp.PHONENUMBER];
+    user_.providerId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID];
+    user_.providerUserId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
+    user_.language = @"en";
+    user_.name     = self.txtName.text;
+    user_.surname  = self.txtSurname.text;
+    user_.email    = self.txtEmail.text;
     
     [self.activityIndicator startAnimating];
     
     TXSyncResponseDescriptor *result = nil;
-    if(user.providerId == nil) {
-        result = [((TXUserModel*)self.model) signUp:user];
+    if(user_.providerId == nil) {
+        result = [self->model signUp:user];
     } else {
-        result = [((TXUserModel*)self.model) loginWithProvider:user];
+        result = [self->model loginWithProvider:user];
     }
 
     [self.activityIndicator stopAnimating];

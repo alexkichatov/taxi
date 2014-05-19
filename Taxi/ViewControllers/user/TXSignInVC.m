@@ -17,6 +17,8 @@
     TXUser *user;
 }
 
+-(IBAction)signIn:(id)sender;
+
 @end
 
 @implementation TXSignInVC
@@ -36,7 +38,7 @@
 
 -(void)refreshInterfaceBasedOnSignIn {
    
-    [self.model addEventListener:self forEvent:TXEvents.CHECK_PROVIDER_USER_COMPLETED eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.CHECK_PROVIDER_USER_COMPLETED eventParams:nil];
     if ([self.signIn authentication]) {
         // The user is signed in.
         self.googleSignInButton.hidden = YES;
@@ -69,6 +71,12 @@
         }
         
     }
+    
+}
+
+-(IBAction)signIn:(id)sender {
+    
+    //[self->model login:self.txtUsername.text andPass:self.txtPassword];
     
 }
 

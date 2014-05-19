@@ -17,6 +17,8 @@
 #import "MenuViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "TXCode2MsgTranslator.h"
+//#import <PushApps/PushApps.h>
+#import <Parse/Parse.h>
 
 @implementation TXAppDelegate
 
@@ -33,15 +35,44 @@
     
      */
     
+    // ****************************************************************************
+    // Parse initialization
+    [Parse setApplicationId:@"Vw5Gf7cIo3blEgdNEQ4IwGoSil0PtfdH5DeoUZNe" clientKey:@"adXCcAZ1evib4nhHnOtoE1Et9261NV8px9K8Vbhg"];
+	// ****************************************************************************
+    
     NSString *message = [TXCode2MsgTranslator messageForCode:SUCCESS];
     NSLog(@"%@", message);
     
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
     
     [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
     
     
     
     return YES;
+}
+
+#pragma mark - Parse installation
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    
+    NSLog(@"%@",@"Registered successfully with parse");
+    NSLog(@"Device token : %@",deviceToken);
+}
+
+
+// Gets called when a remote notification is received while app is in the foreground.
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+   // [[PushAppsManager sharedInstance] handlePushMessageOnForeground:userInfo];
 }
 
 - (BOOL)application: (UIApplication *)application

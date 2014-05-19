@@ -50,7 +50,7 @@ const int USER_OPER_OTHER = 7;
     return [self sendSyncRequest:request];
 }
 
--(void)login:(NSString *)username andPass:(NSString *)pwd {
+-(TXSyncResponseDescriptor *)signIn:(NSString *)username andPass:(NSString *)pwd {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.USER];
 
@@ -67,7 +67,7 @@ const int USER_OPER_OTHER = 7;
                               };
     
     request.body = getJSONStr(jsonObj);
-    [self sendAsyncRequest:request];
+    return [self sendSyncRequest:request];
     
 }
 

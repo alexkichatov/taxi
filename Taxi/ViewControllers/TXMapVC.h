@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "TXRootVC.h"
 
-@interface TXMapVC : UIViewController<CLLocationManagerDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TXMapVC : TXRootVC<CLLocationManagerDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet GMSMapView *mapView_;

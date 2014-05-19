@@ -27,8 +27,6 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.model = [TXUserModel instance];
     self->userExists = YES;
     [self refreshSignUpButton];
 }
@@ -69,7 +67,7 @@
     if(sender.tag == 1) {
     
         if(sender.text.length > 0) {
-            [(TXUserModel *)self.model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
+            [self->model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
         }
         
     }
