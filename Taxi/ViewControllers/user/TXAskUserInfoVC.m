@@ -45,12 +45,8 @@
     [self.activityIndicator startAnimating];
     
     TXSyncResponseDescriptor *result = nil;
-    if(user_.providerId == nil) {
-        result = [self->model signUp:user];
-    } else {
-        result = [self->model loginWithProvider:user];
-    }
-
+    result = [self->model signUp:user_];
+    
     [self.activityIndicator stopAnimating];
     
     if(result.success) {

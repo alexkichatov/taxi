@@ -37,8 +37,7 @@
  */
 +(TXUserModel *) instance;
 -(TXSyncResponseDescriptor *)signUp:(TXUser *)user;
--(TXSyncResponseDescriptor *)signIn:(NSString *)username andPass:(NSString *)pwd;
--(TXSyncResponseDescriptor *)loginWithProvider:(TXUser *) user;
+-(TXSyncResponseDescriptor *)signIn:(TXUser *)user;
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;

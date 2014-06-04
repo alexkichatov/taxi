@@ -7,10 +7,11 @@
 //
 
 #import "TXUserSignInBase.h"
+#import <Parse/Parse.h>
 
 @class GPPSignInButton;
 
-@interface TXSignInVC : TXUserSignInBase
+@interface TXSignInVC : TXUserSignInBase<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
 @property (retain, nonatomic) IBOutlet UITextField *txtUsername;

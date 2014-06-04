@@ -50,42 +50,14 @@ const int USER_OPER_OTHER = 7;
     return [self sendSyncRequest:request];
 }
 
--(TXSyncResponseDescriptor *)signIn:(NSString *)username andPass:(NSString *)pwd {
+-(TXSyncResponseDescriptor *)signIn:(TXUser *)user {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-
-    NSDictionary *propertyMap = @{ API_JSON.Authenticate.USERNAME : username, API_JSON.Authenticate.PASSWORD : pwd };
-    
-    NSDictionary *attributes = @{
-                                 API_JSON.Authenticate.LOGINWITHPROVIDER : [NSNumber numberWithBool:NO]
+    TXRequestObj *request     = [self createRequest:HTTP_API.USER];
+    NSDictionary *propertyMap = @{ API_JSON.Keys.DATA : [user getProperties] };
+    NSDictionary *jsonObj     = @{
+                                    API_JSON.Keys.OPER : [NSNumber numberWithInt:USER_OPER_SIGNIN],
+                                    API_JSON.Keys.DATA : propertyMap
                                  };
-    
-    NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_SIGNIN],
-                              API_JSON.Keys.ATTR  : attributes,
-                              API_JSON.Keys.DATA  : propertyMap
-                              };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
-    
-}
-
--(TXSyncResponseDescriptor *)loginWithProvider:(TXUser *) user {
-    
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    
-    NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
-    
-    NSDictionary *attributes = @{
-                                    API_JSON.Authenticate.LOGINWITHPROVIDER : [NSNumber numberWithBool:YES]
-                                };
-    
-    NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_SIGNIN],
-                                API_JSON.Keys.ATTR  : attributes,
-                                API_JSON.Keys.DATA  : propertyMap
-                             };
     
     request.body = getJSONStr(jsonObj);
     return [self sendSyncRequest:request];
@@ -94,17 +66,17 @@ const int USER_OPER_OTHER = 7;
 
 -(TXSyncResponseDescriptor *)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    
+    TXRequestObj *request    = [self createRequest:HTTP_API.USER];
     NSDictionary *attributes = @{
-                                 API_JSON.Authenticate.LOGINWITHPROVIDER : [NSNumber numberWithBool:loginWithProvider]
-                                 };
+                                    API_JSON.Authenticate.LOGINWITHPROVIDER :
+                                    [NSNumber numberWithBool:loginWithProvider]
+                                };
     
     NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:CHECKPHONENUMBERISBLOCKED],
-                              API_JSON.Keys.ATTR  : attributes,
-                              API_JSON.Keys.DATA  : @{ API_JSON.SignUp.PHONENUMBER : phoneNum }
-                              };
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:CHECKPHONENUMBERISBLOCKED],
+                                API_JSON.Keys.ATTR  : attributes,
+                                API_JSON.Keys.DATA  : @{ API_JSON.SignUp.PHONENUMBER : phoneNum }
+                             };
     
     request.body = getJSONStr(jsonObj);
     return [self sendSyncRequest:request];

@@ -18,27 +18,33 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "TXCode2MsgTranslator.h"
 //#import <PushApps/PushApps.h>
+#import "TXSignInVC.h"
 #import <Parse/Parse.h>
 
 @implementation TXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    /*
-   
-    [TXFileManager instance];
-    [[TXSettings instance] initWithDefaults];
-
-    TXGoogleAPIUtil *googlUtil = [[TXGoogleAPIUtil alloc] init];
     
-    [googlUtil sendPlaceAutocompleteRequest:@"31%20Marjanishvili" sensor:YES optional:nil];
-    
-     */
-    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // ****************************************************************************
     // Parse initialization
     [Parse setApplicationId:@"Vw5Gf7cIo3blEgdNEQ4IwGoSil0PtfdH5DeoUZNe" clientKey:@"adXCcAZ1evib4nhHnOtoE1Et9261NV8px9K8Vbhg"];
 	// ****************************************************************************
+    
+    [PFFacebookUtils initializeFacebook];
+
+    // Set default ACLs
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    
+    TXSignInVC *signIn = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+    
+    self.window.rootViewController = signIn;
+    //[[UINavigationController alloc] initWithRootViewController:signIn];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     NSString *message = [TXCode2MsgTranslator messageForCode:SUCCESS];
     NSLog(@"%@", message);

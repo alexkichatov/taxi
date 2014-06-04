@@ -129,6 +129,7 @@
 		38DA7893191BCE8700269AB7 /* FDKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA7891191BCE8700269AB7 /* FDKeyChain.m */; };
 		38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38DA7894191BCF4F00269AB7 /* taxi.bundle */; };
 		38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */; };
+		38DBC3E1193A0BCB00BEF636 /* TXSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DBC3E0193A0BCB00BEF636 /* TXSignInVC.xib */; };
 		38F138DD192A454B00121441 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F138DC192A454B00121441 /* Parse.framework */; };
 		38F138DF192A470000121441 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F138DE192A470000121441 /* Social.framework */; };
 /* End PBXBuildFile section */
@@ -352,6 +353,7 @@
 		38DA7894191BCF4F00269AB7 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
 		38DABBC318D9AA72005D4AC4 /* TXGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXGoogleRequestManager.h; path = ../../util/TXGoogleRequestManager.h; sourceTree = "<group>"; };
 		38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXGoogleRequestManager.m; path = ../../util/TXGoogleRequestManager.m; sourceTree = "<group>"; };
+		38DBC3E0193A0BCB00BEF636 /* TXSignInVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXSignInVC.xib; sourceTree = "<group>"; };
 		38F138DC192A454B00121441 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		38F138DE192A470000121441 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -500,6 +502,7 @@
 				3856E04E18F58F70006F9FAE /* TXAskPhoneNumberVC.m */,
 				38841597190B0EC500E39806 /* TXUserSignInBase.h */,
 				38841598190B0EC500E39806 /* TXUserSignInBase.m */,
+				38DBC3E0193A0BCB00BEF636 /* TXSignInVC.xib */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -1004,7 +1007,7 @@
 				ORGANIZATIONNAME = 99S;
 				TargetAttributes = {
 					3865DC95188C13970044A0DC = {
-						DevelopmentTeam = 233Q42V2L2;
+						DevelopmentTeam = F8UHP9P6J6;
 					};
 					3865DCB9188C13970044A0DC = {
 						TestTargetID = 3865DC95188C13970044A0DC;
@@ -1040,6 +1043,7 @@
 				385E11A618EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib in Resources */,
 				389D4F01191D4E55005ED6E1 /* Main_iPad.storyboard in Resources */,
 				385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */,
+				38DBC3E1193A0BCB00BEF636 /* TXSignInVC.xib in Resources */,
 				3826CC4918EEFAB8003D7AD2 /* button-home.png in Resources */,
 				385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */,
 				3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */,
@@ -1219,8 +1223,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBSC_FLATTEN_NIBS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1253,7 +1259,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBSC_FLATTEN_NIBS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1279,7 +1287,7 @@
 				INFOPLIST_FILE = "Taxi/Taxi-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1302,7 +1310,7 @@
 				INFOPLIST_FILE = "Taxi/Taxi-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
