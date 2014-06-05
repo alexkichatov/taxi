@@ -29,16 +29,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // ****************************************************************************
     // Parse initialization
-    [Parse setApplicationId:@"Vw5Gf7cIo3blEgdNEQ4IwGoSil0PtfdH5DeoUZNe" clientKey:@"adXCcAZ1evib4nhHnOtoE1Et9261NV8px9K8Vbhg"];
-	// ****************************************************************************
+//    [Parse setApplicationId:@"Vw5Gf7cIo3blEgdNEQ4IwGoSil0PtfdH5DeoUZNe" clientKey:@"adXCcAZ1evib4nhHnOtoE1Et9261NV8px9K8Vbhg"];
+//	// ****************************************************************************
+//    
+//    [PFFacebookUtils initializeFacebook];
+//
+//    // Set default ACLs
+//    PFACL *defaultACL = [PFACL ACL];
+//    [defaultACL setPublicReadAccess:YES];
+//    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+//
     
-    [PFFacebookUtils initializeFacebook];
-
-    // Set default ACLs
-    PFACL *defaultACL = [PFACL ACL];
-    [defaultACL setPublicReadAccess:YES];
-    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
-    
+    [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
     TXSignInVC *signIn = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
     
     self.window.rootViewController = signIn;
@@ -53,10 +55,6 @@
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
-    
-    [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
-    
-    
     
     return YES;
 }
@@ -81,16 +79,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
    // [[PushAppsManager sharedInstance] handlePushMessageOnForeground:userInfo];
 }
 
-- (BOOL)application: (UIApplication *)application
-            openURL: (NSURL *)url
-  sourceApplication: (NSString *)sourceApplication
-         annotation: (id)annotation {
-    
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication] || [GPPURLHandler handleURL:url
-                  sourceApplication:sourceApplication
-                         annotation:annotation];
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -108,14 +96,16 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// Facebook oauth callback
+
+- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation
+{
+    return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 @end

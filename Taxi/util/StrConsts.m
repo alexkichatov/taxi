@@ -408,8 +408,8 @@ const struct API_JSON API_JSON = {
     .Authenticate = {
         .USERNAME = @"username",
         .PASSWORD = @"password",
-        .PROVIDERUSERID = @"providerUserId",
-        .PROVIDERID = @"providerId",
+        .PROVIDERUSERID = @"providerUserID",
+        .PROVIDERID = @"providerID",
         .LOGINWITHPROVIDER = @"loginWithProvider",
         .USEREXISTS = @"exists"
     },

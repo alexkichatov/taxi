@@ -53,10 +53,11 @@ const int USER_OPER_OTHER = 7;
 -(TXSyncResponseDescriptor *)signIn:(TXUser *)user {
     
     TXRequestObj *request     = [self createRequest:HTTP_API.USER];
-    NSDictionary *propertyMap = @{ API_JSON.Keys.DATA : [user getProperties] };
+
     NSDictionary *jsonObj     = @{
                                     API_JSON.Keys.OPER : [NSNumber numberWithInt:USER_OPER_SIGNIN],
-                                    API_JSON.Keys.DATA : propertyMap
+                                    API_JSON.Keys.DATA : [user getProperties],
+                                    API_JSON.Keys.ATTR : @{}
                                  };
     
     request.body = getJSONStr(jsonObj);
@@ -83,24 +84,49 @@ const int USER_OPER_OTHER = 7;
     
 }
 
--(void)checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId  {
+-(void)checkIfUserExistsAsync:(TXUser *) user {
     
     TXRequestObj *request            = [self createRequest:HTTP_API.USER];
     
     NSDictionary *propertyMap = @{
-                                   API_JSON.Authenticate.USERNAME : username != nil ? username : [NSNull null],
-                                   API_JSON.Authenticate.PROVIDERID : providerId != nil ? providerId : [NSNull null],
-                                   API_JSON.Authenticate.PROVIDERUSERID : providerUserId != nil ? providerUserId : [NSNull null]
+                                   API_JSON.Authenticate.USERNAME :
+                                       (user.username != nil ? user.username : [NSNull null]),
+                                   API_JSON.Authenticate.PROVIDERID :
+                                       (user.providerId != nil ? user.providerId : [NSNull null]),
+                                   API_JSON.Authenticate.PROVIDERUSERID :
+                                       (user.providerUserId != nil ? user.providerUserId : [NSNull null])
                                   };
     
     NSDictionary *jsonObj = @{
                               API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_CHECKUSER],
                               API_JSON.Keys.DATA  : propertyMap,
-                              API_JSON.Keys.ATTR  : @{ API_JSON.Authenticate.LOGINWITHPROVIDER : [NSNumber numberWithBool:(providerId==nil ? NO : YES)] }
+                             };
+    
+    request.body = getJSONStr(jsonObj);
+    [self sendAsyncRequest:request];
+    
+}
+
+-(TXSyncResponseDescriptor *)checkIfUserExistsSync:(TXUser *) user {
+    
+    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    
+    NSDictionary *propertyMap = @{
+                                  API_JSON.Authenticate.USERNAME :
+                                      (user.username != nil ? user.username : [NSNull null]),
+                                  API_JSON.Authenticate.PROVIDERID :
+                                      (user.providerId != nil ? user.providerId : [NSNull null]),
+                                  API_JSON.Authenticate.PROVIDERUSERID :
+                                      (user.providerUserId != nil ? user.providerUserId : [NSNull null])
+                                  };
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_CHECKUSER],
+                              API_JSON.Keys.DATA  : propertyMap,
                               };
     
     request.body = getJSONStr(jsonObj);
-    return [self sendAsyncRequest:request];
+    return [self sendSyncRequest:request];
     
 }
 

@@ -39,14 +39,14 @@
 			<string>com.99S.Taxi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1416524161929960</string>
+				<string>fb1443416269243899</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>1416524161929960</string>
+	<string>1443416269243899</string>
 	<key>FacebookDisplayName</key>
 	<string>Taxi</string>
 	<key>LSRequiresIPhoneOS</key>

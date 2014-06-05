@@ -8,6 +8,7 @@
 
 #import "TXAskPhoneNumberVC.h"
 #import "TXAskUserInfoVC.h"
+#import "TXUserModel.h"
 
 @implementation CountryCodeItem
 @synthesize name, code, image;
@@ -67,7 +68,7 @@
     
     BOOL loginWithProvider = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID] == nil ? NO : YES;
     
-    TXSyncResponseDescriptor *descriptor = [self->model checkIfPhoneNumberBlocked:self.txtPhoneNumber.text loginWithProvider:loginWithProvider];
+    TXSyncResponseDescriptor *descriptor = [[TXUserModel instance] checkIfPhoneNumberBlocked:self.txtPhoneNumber.text loginWithProvider:loginWithProvider];
     
     if(descriptor.success) {
     

@@ -41,7 +41,8 @@
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;
--(void) checkIfUserExists:(NSString *) username providerId: (NSString *) providerId providerUserId:(NSString *) providerUserId;
+-(TXSyncResponseDescriptor *)checkIfUserExistsAsync:(TXUser *) user;
+-(TXSyncResponseDescriptor *)checkIfUserExistsSync:(TXUser *) user;
 -(TXSyncResponseDescriptor *)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider;
 
 @end

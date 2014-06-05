@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXUserSignInBase.h"
+#import "TXRootVC.h"
 
-@interface TXSignUpVC : TXUserSignInBase
+@interface TXSignUpVC : TXRootVC
 
 @property (nonatomic, strong) IBOutlet UITextField *txtUsername;
 @property (nonatomic, strong) IBOutlet UITextField *txtPassword;

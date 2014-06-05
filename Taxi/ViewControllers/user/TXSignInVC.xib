@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TXSignInVC">
             <connections>
+                <outlet property="txtPassword" destination="ZUV-d4-cQb" id="w0a-PL-Pwk"/>
+                <outlet property="txtUsername" destination="kNv-Ex-ltZ" id="RfV-Dp-nij"/>
                 <outlet property="view" destination="eNi-ZK-N53" id="OEg-Kj-EaJ"/>
             </connections>
         </placeholder>
@@ -42,6 +44,9 @@
                             <integer key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="signIn:" destination="-1" eventType="touchUpInside" id="6OP-Av-WMf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUH-Tg-9eH">
                     <rect key="frame" x="20" y="134" width="280" height="30"/>

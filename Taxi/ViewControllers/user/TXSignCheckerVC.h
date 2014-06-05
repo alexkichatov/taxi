@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXUserSignInBase.h"
+#import "TXRootVC.h"
+#import <GooglePlus/GooglePlus.h>
 
-@interface TXSignCheckerVC : TXUserSignInBase
+@interface TXSignCheckerVC : TXRootVC
 
 @property (nonatomic, strong) GPPSignIn *signIn;
 

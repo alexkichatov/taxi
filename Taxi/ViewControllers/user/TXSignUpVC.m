@@ -67,7 +67,10 @@
     if(sender.tag == 1) {
     
         if(sender.text.length > 0) {
-            [self->model checkIfUserExists:sender.text providerId:nil providerUserId:nil];
+            
+            TXUser *user = [[TXUser alloc] init];
+            user.username = sender.text;
+            [[TXUserModel instance] checkIfUserExistsAsync:user];
         }
         
     }

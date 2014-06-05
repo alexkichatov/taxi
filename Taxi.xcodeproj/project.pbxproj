@@ -83,10 +83,10 @@
 		3865DCBD188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
 		3865DCBE188C13970044A0DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC9D188C13970044A0DC /* UIKit.framework */; };
 		3865DCC8188C13970044A0DC /* TaxiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3865DCC7188C13970044A0DC /* TaxiTests.m */; };
-		38841599190B0EC500E39806 /* TXUserSignInBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 38841598190B0EC500E39806 /* TXUserSignInBase.m */; };
 		388415A2190B46D500E39806 /* TXHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 388415A1190B46D500E39806 /* TXHttpRequestManager.m */; };
 		3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */; };
 		388EF80018F2D185008F3454 /* TXAskUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */; };
+		38937E35193FE729008696A1 /* TXAskPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38937E34193FE729008696A1 /* TXAskPhoneNumberVC.xib */; };
 		389D4F01191D4E55005ED6E1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389D4F03191D4E55005ED6E1 /* Main_iPad.storyboard */; };
 		389D4F08191D4E6B005ED6E1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389D4F0A191D4E6B005ED6E1 /* Main_iPhone.storyboard */; };
 		389D4F15191E4B41005ED6E1 /* TXCallModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 389D4F14191E4B41005ED6E1 /* TXCallModel.m */; };
@@ -271,14 +271,13 @@
 		3865DCBB188C13970044A0DC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3865DCC3188C13970044A0DC /* TaxiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiTests-Info.plist"; sourceTree = "<group>"; };
 		3865DCC7188C13970044A0DC /* TaxiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiTests.m; sourceTree = "<group>"; };
-		38841597190B0EC500E39806 /* TXUserSignInBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserSignInBase.h; sourceTree = "<group>"; };
-		38841598190B0EC500E39806 /* TXUserSignInBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserSignInBase.m; sourceTree = "<group>"; };
 		388415A0190B46D500E39806 /* TXHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXHttpRequestManager.h; sourceTree = "<group>"; };
 		388415A1190B46D500E39806 /* TXHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXHttpRequestManager.m; sourceTree = "<group>"; };
 		3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXCode2MsgTranslator.h; path = ../TXCode2MsgTranslator.h; sourceTree = "<group>"; };
 		3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXCode2MsgTranslator.m; path = ../TXCode2MsgTranslator.m; sourceTree = "<group>"; };
 		388EF7FE18F2D185008F3454 /* TXAskUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskUserInfoVC.h; sourceTree = "<group>"; };
 		388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAskUserInfoVC.m; sourceTree = "<group>"; };
+		38937E34193FE729008696A1 /* TXAskPhoneNumberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXAskPhoneNumberVC.xib; sourceTree = "<group>"; };
 		389D4F09191D4E6B005ED6E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		389D4F0C191D4E71005ED6E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		389D4F0E191D4E72005ED6E1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
@@ -500,9 +499,8 @@
 				388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */,
 				3856E04D18F58F70006F9FAE /* TXAskPhoneNumberVC.h */,
 				3856E04E18F58F70006F9FAE /* TXAskPhoneNumberVC.m */,
-				38841597190B0EC500E39806 /* TXUserSignInBase.h */,
-				38841598190B0EC500E39806 /* TXUserSignInBase.m */,
 				38DBC3E0193A0BCB00BEF636 /* TXSignInVC.xib */,
+				38937E34193FE729008696A1 /* TXAskPhoneNumberVC.xib */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -1058,6 +1056,7 @@
 				385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */,
 				38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */,
 				3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */,
+				38937E35193FE729008696A1 /* TXAskPhoneNumberVC.xib in Resources */,
 				3841E81E190A72C200F0FABF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,7 +1096,6 @@
 				385E11A818EC35C400AB7570 /* TXDispatchingViewController.m in Sources */,
 				38DA7888191BCE0E00269AB7 /* TXSqlGenerator.m in Sources */,
 				385E11A518EC35C400AB7570 /* TXIndeterminateProgressViewController.m in Sources */,
-				38841599190B0EC500E39806 /* TXUserSignInBase.m in Sources */,
 				3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				389EDB6418F19687005CAAE7 /* CMPopTipView.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,

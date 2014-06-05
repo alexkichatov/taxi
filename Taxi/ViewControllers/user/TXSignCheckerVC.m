@@ -67,7 +67,7 @@
             
             TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self viewControllerInstanceWithName:NSStringFromClass([TXAskPhoneNumberVC class])];
             
-            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
+//            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
             [self pushViewController:vc];
             
         }

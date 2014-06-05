@@ -13,8 +13,20 @@
 #import "TXUserModel.h"
 #import "TXSharedObj.h"
 
+typedef enum {
+    
+    _SUCCESS = 1000,
+    _INITIAL_REGISTRATION = 1020,
+    _NO_MOBILE = 1021,
+    _MOBILE_BLOCKED = 1006,
+    _USER_NOT_CONFIRMED = 1019,
+    _USER_BLOCKED = 1013,
+    
+} SignInCodes;
+
 @interface TXSignInVC ()<GPPSignInDelegate> {
     TXUser *user;
+    TXUserModel *model;
 }
 
 -(IBAction)signIn:(id)sender;
@@ -23,124 +35,100 @@
 
 @implementation TXSignInVC
 
-- (void)viewDidLoad
-{
-    self.view.userInteractionEnabled = TRUE;
-    [super viewDidLoad];
-
-}
-
 #pragma mark - UIViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if ([PFUser currentUser]) {
-//        self.welcomeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Welcome %@!", nil), [[PFUser currentUser] username]];
-    } else {
-//        self.welcomeLabel.text = NSLocalizedString(@"Not logged in", nil);
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
     }
+    return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self->model = [TXUserModel instance];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    self->model = [TXUserModel instance];
+    [self->model addEventListener:self forEvent:TXEvents.CHECK_USER_COMPLETED eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.CHECK_PROVIDER_USER_COMPLETED eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.CHECK_USER_FAILED eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.REGISTER_USER_COMPLETED eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.REGISTER_USER_FAILED eventParams:nil];
     
+    self.signIn = [GPPSignIn sharedInstance];
+    self.signIn.shouldFetchGooglePlusUser = YES;
+    self.signIn.shouldFetchGoogleUserEmail = YES;
+    self.signIn.clientID = KEYS.Google.CLIENTID;
+    self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];
+    self.signIn.delegate = self;
+}
+
+- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
     
-    if (![PFUser currentUser]) { // No user logged in
-        // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        [logInViewController setDelegate:self]; // Set ourselves as the delegate
-
-
+    if(error==nil) {
         
-        // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+        plusService.retryEnabled = YES;
+        [plusService setAuthorizer:self.signIn.authentication];
         
-        // Assign our sign up controller to be displayed from the login controller
-        [logInViewController setSignUpController:signUpViewController];
+        GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
         
-        // Present the log in view controller
-        [self presentViewController:logInViewController animated:YES completion:NULL];
+        [plusService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLPlusPerson *person, NSError *error) {
+            
+            if (error) {
+                
+                NSString *msg = [NSString stringWithFormat:@"Error: %@\nReason: %@\n%@", [error localizedDescription], [error localizedFailureReason], [error localizedRecoverySuggestion]];
+                
+                [self alertError:[error localizedDescription] message:msg];
+                
+            } else {
+                
+                self.googlePerson = person;
+                
+                self->user = [[TXUser alloc] init];
+                self->user.providerId = PROVIDERS.GOOGLE;
+                self->user.providerUserId = person.identifier;
+                
+                NSDictionary *personProps = getJSONObj(person.JSONString);
+                self->user.language = [personProps objectForKey:@"language"];
+                
+                NSArray *emails = [personProps objectForKey:@"emails"];
+                if(emails.count>0) {
+                    self->user.email = [emails[0] objectForKey:@"value"];
+                }
+                
+                NSDictionary *name = [personProps objectForKey:@"name"];
+                self->user.name = [name objectForKey:@"givenName"];
+                self->user.surname = [name objectForKey:@"familyName"];
+                
+                NSDictionary *image = [personProps objectForKey:@"image"];
+                self->user.photoURL = [image objectForKey:@"url"];
+                
+                TXSyncResponseDescriptor* response = [self->model signIn:self->user];
+                [self proccessSignIn:response];
+                
+                
+            }
+        }];
+        
+        
+    } else {
+        
+        NSString *msg = [NSString stringWithFormat:@"Error: %@\nReason: %@\n%@", [error localizedDescription], [error localizedFailureReason], [error localizedRecoverySuggestion]];
+        
+        [self alertError:[error localizedDescription] message:msg];
     }
     
 }
 
 
-#pragma mark - PFLogInViewControllerDelegate
-
-// Sent to the delegate to determine whether the log in request should be submitted to the server.
-- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
-    // Check if both fields are completed
-    if (username && password && username.length && password.length) {
-        return YES; // Begin login process
-    }
-    
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill out all of the information!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    return NO; // Interrupt login process
-}
-
-// Sent to the delegate when a PFUser is logged in.
-- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-// Sent to the delegate when the log in attempt fails.
-- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-    NSLog(@"Failed to log in...");
-}
-
-// Sent to the delegate when the log in screen is dismissed.
-- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    NSLog(@"User dismissed the logInViewController");
-}
-
-
-#pragma mark - PFSignUpViewControllerDelegate
-
-// Sent to the delegate to determine whether the sign up request should be submitted to the server.
-- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
-    BOOL informationComplete = YES;
-    
-    // loop through all of the submitted data
-    for (id key in info) {
-        NSString *field = [info objectForKey:key];
-        if (!field || !field.length) { // check completion
-            informationComplete = NO;
-            break;
-        }
-    }
-    
-    // Display an alert if a field wasn't completed
-    if (!informationComplete) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill out all of the information!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    }
-    
-    return informationComplete;
-}
-
-// Sent to the delegate when a PFUser is signed up.
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-// Sent to the delegate when the sign up attempt fails.
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
-    NSLog(@"Failed to sign up...");
-}
-
-// Sent to the delegate when the sign up screen is dismissed.
-- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
-    NSLog(@"User dismissed the signUpViewController");
-}
-
-
-#pragma mark - ()
-
-- (IBAction)logOutButtonTapAction:(id)sender {
-    [PFUser logOut];
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 -(void)refreshInterfaceBasedOnSignIn {
    
@@ -182,8 +170,103 @@
 
 -(IBAction)signIn:(id)sender {
     
-    //[self->model login:self.txtUsername.text andPass:self.txtPassword];
+    self->user = [[TXUser alloc] init];
+    self->user.username = self.txtUsername.text;
+    self->user.password = self.txtPassword.text;
     
+    [self proccessSignIn:[self->model signIn:self->user]];
+    
+}
+
+-(void) proccessSignIn:(TXSyncResponseDescriptor *) descriptor {
+    
+    NSDictionary * data = (NSDictionary*)descriptor.source;
+    int code = [[data objectForKey:API_JSON.Keys.CODE] intValue];
+    
+    switch (code) {
+            
+        case _SUCCESS:
+            
+            [self proccessSucceeded:descriptor];
+            
+            break;
+            
+        case _INITIAL_REGISTRATION:
+            
+            [self proccessSignedInFirstTime:descriptor];
+            
+            break;
+        
+         case _NO_MOBILE:
+            
+            [self proccessNoPhoneNumberSpecified:descriptor];
+            
+            break;
+            
+        case _MOBILE_BLOCKED:
+            
+            [self proccessMobileNumberIsBlocked:descriptor];
+            
+            break;
+            
+        case _USER_NOT_CONFIRMED:
+            
+            [self proccessNotActivated:descriptor];
+            
+            break;
+     
+        case _USER_BLOCKED:
+            
+            [self proccessIsBlocked:descriptor];
+            
+            break;
+    }
+    
+    
+}
+
+-(void) proccessSucceeded:(TXSyncResponseDescriptor *) descriptor {
+    
+    
+    
+}
+
+-(void) proccessSignedInFirstTime:(TXSyncResponseDescriptor *) descriptor {
+    
+    TXAskPhoneNumberVC *vc = [self getAskPhoneNumberVC];
+    
+    NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
+    
+    NSString *providerId = [source objectForKey:API_JSON.Authenticate.PROVIDERID];
+    NSString *providerUserId = [source objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
+    
+    [vc setParameters:@{
+                         API_JSON.Authenticate.PROVIDERID : providerId,
+                         API_JSON.Authenticate.PROVIDERUSERID : providerUserId
+                       }];
+    
+    [self pushViewController:vc];
+    
+}
+
+-(void) proccessNoPhoneNumberSpecified:(TXSyncResponseDescriptor *) descriptor {
+    [self proccessSignedInFirstTime:descriptor];
+}
+
+-(void) proccessNotActivated:(TXSyncResponseDescriptor *) descriptor {
+    //TODO: Display confirmation code input
+}
+
+-(void) proccessIsBlocked:(TXSyncResponseDescriptor *) descriptor {
+    [self alertError:@"Error" message:@"User is blocked !"];
+}
+
+-(void) proccessMobileNumberIsBlocked:(TXSyncResponseDescriptor *) descriptor {
+    [self alertError:@"Error" message:@"Mobile number is blocked !"];
+}
+
+-(TXAskPhoneNumberVC *) getAskPhoneNumberVC {
+    return [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
 }
 
 @end

@@ -45,18 +45,18 @@
     [self.activityIndicator startAnimating];
     
     TXSyncResponseDescriptor *result = nil;
-    result = [self->model signUp:user_];
+    result = [[TXUserModel instance] signUp:user_];
     
     [self.activityIndicator stopAnimating];
     
     if(result.success) {
         
-        if(user.providerId!=nil) {
+        if(user_.providerId!=nil) {
             
-            if([user.providerId isEqualToString:PROVIDERS.GOOGLE]) {
-                [[TXSharedObj instance].settings setGoogleUserId:user.providerId];
+            if([user_.providerId isEqualToString:PROVIDERS.GOOGLE]) {
+                [[TXSharedObj instance].settings setGoogleUserId:user_.providerId];
             } else {
-                [[TXSharedObj instance].settings setFBUserId:user.providerId];
+                [[TXSharedObj instance].settings setFBUserId:user_.providerId];
             }
             
         }
