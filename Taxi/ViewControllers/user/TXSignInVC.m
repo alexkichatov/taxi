@@ -12,6 +12,7 @@
 #import "TXMainVC.h"
 #import "TXUserModel.h"
 #import "TXSharedObj.h"
+#import "TXConfirmationVC.h"
 
 typedef enum {
     
@@ -21,12 +22,12 @@ typedef enum {
     _MOBILE_BLOCKED = 1006,
     _USER_NOT_CONFIRMED = 1019,
     _USER_BLOCKED = 1013,
+
     
 } SignInCodes;
 
 @interface TXSignInVC ()<GPPSignInDelegate> {
     TXUser *user;
-    TXUserModel *model;
 }
 
 -(IBAction)signIn:(id)sender;
@@ -36,21 +37,6 @@ typedef enum {
 @implementation TXSignInVC
 
 #pragma mark - UIViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self->model = [TXUserModel instance];
-}
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -153,11 +139,11 @@ typedef enum {
         
         if(!success && code == USERNAME_EXISTS) {
             
-            [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXMainVC class])]];
+            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
             
         } else {
             
-            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self viewControllerInstanceWithName:NSStringFromClass([TXAskPhoneNumberVC class])];
+            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
             
             [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
             [self pushViewController:vc];
@@ -237,12 +223,8 @@ typedef enum {
     
     NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
     
-    NSString *providerId = [source objectForKey:API_JSON.Authenticate.PROVIDERID];
-    NSString *providerUserId = [source objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
-    
     [vc setParameters:@{
-                         API_JSON.Authenticate.PROVIDERID : providerId,
-                         API_JSON.Authenticate.PROVIDERUSERID : providerUserId
+                            API_JSON.OBJID : [NSNumber numberWithInt:[[source objectForKey:API_JSON.OBJID] intValue]]
                        }];
     
     [self pushViewController:vc];
@@ -254,7 +236,17 @@ typedef enum {
 }
 
 -(void) proccessNotActivated:(TXSyncResponseDescriptor *) descriptor {
-    //TODO: Display confirmation code input
+    
+    TXConfirmationVC *confVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
+    
+    NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
+    
+    NSDictionary*params  = @{
+                                API_JSON.ID : [source objectForKey:API_JSON.ID]
+                            };
+    
+    [confVC setParameters:params];
+    [self pushViewController:confVC];
 }
 
 -(void) proccessIsBlocked:(TXSyncResponseDescriptor *) descriptor {

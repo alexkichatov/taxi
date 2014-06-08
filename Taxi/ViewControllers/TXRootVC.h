@@ -20,8 +20,7 @@
 
 -(void) pushViewController : (TXRootVC *) viewController;
 -(void) alertError : (NSString *) title message : (NSString *) message;
--(TXRootVC *) viewControllerInstanceWithName: (NSString *) name;
--(TXRootVC *) viewControllerInstanceFromClass: (Class) aClass;
+-(TXRootVC *) vcFromName: (NSString *) name;
 -(void)refreshInterfaceBasedOnSignIn;
 -(void) setParameters:(NSDictionary *)props;
 @end

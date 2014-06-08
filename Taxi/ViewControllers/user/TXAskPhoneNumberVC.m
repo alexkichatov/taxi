@@ -65,23 +65,29 @@
 }
 
 -(void)next:(id)sender {
+
+    int userId = [[self->parameters objectForKey:API_JSON.OBJID] intValue];
     
-    BOOL loginWithProvider = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID] == nil ? NO : YES;
+    if([self.txtPhoneNumber.text length] > 0) {
     
-    TXSyncResponseDescriptor *descriptor = [[TXUserModel instance] checkIfPhoneNumberBlocked:self.txtPhoneNumber.text loginWithProvider:loginWithProvider];
-    
-    if(descriptor.success) {
-    
-        TXRootVC *viewController = [self viewControllerInstanceFromClass:[TXAskUserInfoVC class]];
-        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self->parameters];
-        [params setObject:[NSString stringWithFormat:@"%@%@", self->selectedItem.code, self.txtPhoneNumber.text] forKey:API_JSON.SignUp.PHONENUMBER];
-        [viewController setParameters:params];
         
-        [self pushViewController:viewController];
+        TXSyncResponseDescriptor *descriptor = [self->model updateMobile:userId mobile:self.txtPhoneNumber.text];
         
-    } else {
-        
-        [self alertError:@"შეცდომა" message:@"მობილურის ნომერი დაბლოკილია !"];
+        if(descriptor.success) {
+            
+            TXAskUserInfoVC *viewController = [[TXAskUserInfoVC alloc] initWithNibName:@"TXAskUserInfoVC" bundle:nil];
+            
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self->parameters];
+            [params setObject:[NSString stringWithFormat:@"%@%@", self->selectedItem.code, self.txtPhoneNumber.text] forKey:API_JSON.SignUp.PHONENUMBER];
+            [viewController setParameters:params];
+            
+            [self pushViewController:viewController];
+            
+        } else {
+            
+            [self alertError:@"Error" message:@"Mobile number is blocked !"];
+            
+        }
         
     }
     

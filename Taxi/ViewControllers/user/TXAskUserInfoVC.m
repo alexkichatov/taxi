@@ -61,7 +61,7 @@
             
         }
 
-        [self pushViewController:[self viewControllerInstanceFromClass:[TXMainVC class]]];
+        [self pushViewController:[self vcFromName:@"TXMainVC"]];
         
     } else {
         

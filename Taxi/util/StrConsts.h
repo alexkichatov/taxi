@@ -13,8 +13,9 @@ extern const struct SettingsConst {
     __unsafe_unretained NSString* TXCRYPTOSVC_GENERIC;
     
     struct {
-        __unsafe_unretained NSString* TXCRYPTO_KEY_USER;
-        __unsafe_unretained NSString* TXCRYPTO_KEY_PWD;
+        __unsafe_unretained NSString* USERNAME;
+        __unsafe_unretained NSString* PASSWORD;
+        __unsafe_unretained NSString* NOTIFICATIONS_TOKEN;
     } CryptoKeys;
     
     
@@ -407,6 +408,8 @@ extern const struct API_JSON {
     
     __unsafe_unretained NSString* ID;
     __unsafe_unretained NSString* ERROR;
+    __unsafe_unretained NSString* OBJID;
+    __unsafe_unretained NSString* VERIFICATIONCODE;
     
     struct {
         __unsafe_unretained NSString* OPER;

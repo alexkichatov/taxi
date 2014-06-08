@@ -51,6 +51,9 @@
 -(void)setUserName:(NSString*)userName;
 -(void)setPassword:(NSString*)pwd;
 
+-(void) setNotificationsToken : (NSString *)token;
+-(NSString*)getNotificationsToken;
+
 -(void) setGoogleUserId : (NSString *)userId;
 -(NSString*)getGoogleUserId;
 -(void) setFBUserId : (NSString *)userId;

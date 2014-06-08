@@ -66,7 +66,7 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
    // [self setProperty:SettingsConst.Property.BASEURL value:@"http://localhost"]; // Me
    // [self setProperty:SettingsConst.Property.PORT value:@"8080"];
     
-    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.0.135"]; // Archvi
+    [self setProperty:SettingsConst.Property.BASEURL value:@"http://192.168.254.90"]; // Archvi
     [self setProperty:SettingsConst.Property.PORT value:@"8095"];
     
 //    [self setProperty:SettingsConst.Property.BASEURL value:@"http://46.49.122.152"]; // Server
@@ -107,22 +107,22 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 }
 
 -(NSString*)getUserName {
-    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_USER
+    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.USERNAME
                        forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(NSString*)getPassword {
-    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_PWD
+    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.PASSWORD
                        forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(void)setUserName:(NSString*)userName {
-    [FDKeychain saveItem:userName forKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_USER
+    [FDKeychain saveItem:userName forKey:SettingsConst.CryptoKeys.USERNAME
               forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(void)setPassword:(NSString*)pwd {
-    [FDKeychain saveItem:pwd forKey:SettingsConst.CryptoKeys.TXCRYPTO_KEY_PWD
+    [FDKeychain saveItem:pwd forKey:SettingsConst.CryptoKeys.PASSWORD
               forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
@@ -145,6 +145,17 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
     return [FDKeychain itemForKey:SettingsConst.SignInProviders.Facebook.USERID
                        forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
+
+-(void) setNotificationsToken : (NSString *)token {
+    [FDKeychain saveItem:token forKey:SettingsConst.CryptoKeys.NOTIFICATIONS_TOKEN
+              forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
+-(NSString*)getNotificationsToken {
+    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.NOTIFICATIONS_TOKEN
+                       forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
 -(int) getMaxHTTPConnectionsNumber {
     return [ [self getProperty:SettingsConst.Property.MAXHTTPCONNECTIONS] intValue];
 }

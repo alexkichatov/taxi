@@ -76,12 +76,8 @@
 
 }
 
--(TXRootVC *) viewControllerInstanceWithName: (NSString *) name {
-    return [[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:name];
-}
-
--(TXRootVC *) viewControllerInstanceFromClass: (Class) aClass {
-    return [[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier:NSStringFromClass(aClass)];
+-(TXRootVC *) vcFromName: (NSString *) name {
+    return [[TXRootVC alloc] initWithNibName:name bundle:nil];
 }
 
 -(void) alertError : (NSString *) title message : (NSString *) message {

@@ -9,14 +9,20 @@
 #import "TXUserModel.h"
 #import "utils.h"
 
-const int USER_OPER_SIGNUP = 1;
-const int CHECKPHONENUMBERISBLOCKED = 8;
-const int USER_OPER_SIGNIN = 9;
-const int USER_OPER_UPDATE = 3;
-const int USER_OPER_DELETE = 4;
-const int USER_OPER_LIST = 5;
-const int USER_OPER_CHECKUSER = 6;
-const int USER_OPER_OTHER = 7;
+typedef enum {
+    
+    _SIGNUP = 1,
+    _CHECKPHONENUMBERISBLOCKED = 8,
+    _SIGNIN = 9,
+    _UPDATE = 3,
+    _DELETE = 4,
+    _LIST = 5,
+    _CHECK = 6,
+    _CONFIRM = 13,
+    _OTHER = 7,
+    _GENERATECODE = 12,
+    _UPDATEMOBILE = 14,
+} OperationCodes;
 
 @implementation TXUser
 
@@ -41,7 +47,7 @@ const int USER_OPER_OTHER = 7;
     NSDictionary *propertyMap = [user getProperties];
     
     NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_SIGNUP],
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_SIGNUP],
                                 API_JSON.Keys.ATTR  : @{ API_JSON.Authenticate.LOGINWITHPROVIDER : user.providerId == nil ? [NSNumber numberWithBool:NO] : [NSNumber numberWithBool:YES] },
                                 API_JSON.Keys.DATA  : propertyMap
                              };
@@ -55,7 +61,7 @@ const int USER_OPER_OTHER = 7;
     TXRequestObj *request     = [self createRequest:HTTP_API.USER];
 
     NSDictionary *jsonObj     = @{
-                                    API_JSON.Keys.OPER : [NSNumber numberWithInt:USER_OPER_SIGNIN],
+                                    API_JSON.Keys.OPER : [NSNumber numberWithInt:_SIGNIN],
                                     API_JSON.Keys.DATA : [user getProperties],
                                     API_JSON.Keys.ATTR : @{}
                                  };
@@ -74,7 +80,7 @@ const int USER_OPER_OTHER = 7;
                                 };
     
     NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:CHECKPHONENUMBERISBLOCKED],
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECKPHONENUMBERISBLOCKED],
                                 API_JSON.Keys.ATTR  : attributes,
                                 API_JSON.Keys.DATA  : @{ API_JSON.SignUp.PHONENUMBER : phoneNum }
                              };
@@ -98,7 +104,7 @@ const int USER_OPER_OTHER = 7;
                                   };
     
     NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_CHECKUSER],
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
                               API_JSON.Keys.DATA  : propertyMap,
                              };
     
@@ -121,13 +127,74 @@ const int USER_OPER_OTHER = 7;
                                   };
     
     NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_CHECKUSER],
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
                               API_JSON.Keys.DATA  : propertyMap,
                               };
     
     request.body = getJSONStr(jsonObj);
     return [self sendSyncRequest:request];
     
+}
+
+-(TXSyncResponseDescriptor *)confirm:(int) userId code:(NSString *) code {
+    
+    if(code.length == 0) {
+        return nil;
+    }
+    
+    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    
+    NSDictionary *propertyMap = @{
+                                    API_JSON.OBJID : [NSNumber numberWithInt:userId],
+                                    API_JSON.VERIFICATIONCODE : code
+                                 };
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CONFIRM],
+                              API_JSON.Keys.DATA  : propertyMap,
+                              API_JSON.Keys.ATTR  : @{}
+                              };
+    
+    request.body = getJSONStr(jsonObj);
+    return [self sendSyncRequest:request];
+    
+}
+
+-(TXSyncResponseDescriptor *)resendVerificationCode:(int) userId {
+ 
+    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    
+    NSDictionary *propertyMap = @{
+                                    API_JSON.OBJID : [NSNumber numberWithInt:userId]
+                                };
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_GENERATECODE],
+                              API_JSON.Keys.DATA  : propertyMap,
+                              API_JSON.Keys.ATTR  : @{}
+                              };
+    
+    request.body = getJSONStr(jsonObj);
+    return [self sendSyncRequest:request];
+}
+
+-(TXSyncResponseDescriptor *)updateMobile:(int) userId mobile:(NSString *)mobile {
+    
+    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    
+    NSDictionary *propertyMap = @{
+                                    API_JSON.OBJID : [NSNumber numberWithInt:userId],
+                                    API_JSON.SignUp.PHONENUMBER : mobile
+                                  };
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_UPDATEMOBILE],
+                              API_JSON.Keys.DATA  : propertyMap,
+                              API_JSON.Keys.ATTR  : @{}
+                              };
+    
+    request.body = getJSONStr(jsonObj);
+    return [self sendSyncRequest:request];
 }
 
 -(void)logout {
@@ -141,7 +208,7 @@ const int USER_OPER_OTHER = 7;
     [propertyMap removeObjectForKey:TXPropertyConsts.User.STATUSID];
     
     NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:USER_OPER_UPDATE],
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_UPDATE],
                                 API_JSON.Keys.ATTR  : [NSNull null],
                                 API_JSON.Keys.DATA  : propertyMap
                              };
@@ -178,7 +245,7 @@ const int USER_OPER_OTHER = 7;
         
         switch (operation) {
                 
-                case USER_OPER_CHECKUSER:
+                case _CHECK:
                 
                 properties  = @{
                                  API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:success],
@@ -200,6 +267,7 @@ const int USER_OPER_OTHER = 7;
                 
                 break;
                 
+                    
             default:
                 
                 properties  = @{

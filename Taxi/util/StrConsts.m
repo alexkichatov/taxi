@@ -14,8 +14,9 @@ const struct SettingsConst  SettingsConst = {
     .TXCRYPTOSVC_GENERIC    = @"AMDCCrypto_Generic",
 
     .CryptoKeys = {
-        .TXCRYPTO_KEY_USER      = @"txUserName",
-        .TXCRYPTO_KEY_PWD       = @"txUserPwd"
+        .USERNAME      = @"txUserName",
+        .PASSWORD       = @"txUserPwd",
+        .NOTIFICATIONS_TOKEN    = @"notificationsToken"
     },
 
     .Property = {
@@ -394,6 +395,8 @@ const struct API_JSON API_JSON = {
     
     .ID = @"id",
     .ERROR = @"error",
+    .OBJID = @"objId",
+    .VERIFICATIONCODE = @"verificationCode",
     
     .Keys = {
         .OPER     = @"operation",
@@ -416,7 +419,7 @@ const struct API_JSON API_JSON = {
     
     .SignUp = {
         
-        .PHONENUMBER = @"phoneNumber",
+        .PHONENUMBER = @"mobile",
         .EMAIL = @"email"
     },
     

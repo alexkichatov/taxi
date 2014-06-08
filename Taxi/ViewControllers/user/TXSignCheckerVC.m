@@ -29,7 +29,7 @@
     if([[TXSharedObj instance].settings getGoogleUserId] == nil) {
         
         [self.activityIndicator removeFromSuperview];
-        [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXSignInVC class])]];
+        [self pushViewController:[self vcFromName:NSStringFromClass([TXSignInVC class])]];
         
     } else {
         
@@ -43,11 +43,11 @@
     
     if ([self.signIn authentication]!=nil) {
         // The user is signed in.
-        [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([SlideNavigationController class])]];
+        [self pushViewController:[self vcFromName:NSStringFromClass([SlideNavigationController class])]];
         
     } else {
         
-        [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXSignInVC class])]];
+        [self pushViewController:[self vcFromName:NSStringFromClass([TXSignInVC class])]];
         
     }
 }
@@ -61,11 +61,11 @@
         
         if(!success && code == USERNAME_EXISTS) {
             
-            [self pushViewController:[self viewControllerInstanceWithName:NSStringFromClass([TXMainVC class])]];
+            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
             
         } else {
             
-            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self viewControllerInstanceWithName:NSStringFromClass([TXAskPhoneNumberVC class])];
+            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
             
 //            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
             [self pushViewController:vc];

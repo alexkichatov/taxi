@@ -87,6 +87,13 @@
 		3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */; };
 		388EF80018F2D185008F3454 /* TXAskUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */; };
 		38937E35193FE729008696A1 /* TXAskPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38937E34193FE729008696A1 /* TXAskPhoneNumberVC.xib */; };
+		389B630C194316FF00BB364C /* NSData+StringBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 389B630B194316FF00BB364C /* NSData+StringBytes.m */; };
+		389B630E1943202F00BB364C /* TXMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389B630D1943202F00BB364C /* TXMapVC.xib */; };
+		389B6311194323F300BB364C /* DEMOCustomAutoCompleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 389B6310194323F300BB364C /* DEMOCustomAutoCompleteCell.m */; };
+		389B63141943252700BB364C /* DEMOCustomAutoCompleteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 389B63131943252700BB364C /* DEMOCustomAutoCompleteObject.m */; };
+		389B6316194463CC00BB364C /* TXConfirmationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389B6315194463CC00BB364C /* TXConfirmationVC.xib */; };
+		389B6319194467EB00BB364C /* TXConfirmationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389B6318194467EB00BB364C /* TXConfirmationVC.m */; };
+		389B631C1944735400BB364C /* TXUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389B631B1944735400BB364C /* TXUserVC.m */; };
 		389D4F01191D4E55005ED6E1 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389D4F03191D4E55005ED6E1 /* Main_iPad.storyboard */; };
 		389D4F08191D4E6B005ED6E1 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389D4F0A191D4E6B005ED6E1 /* Main_iPhone.storyboard */; };
 		389D4F15191E4B41005ED6E1 /* TXCallModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 389D4F14191E4B41005ED6E1 /* TXCallModel.m */; };
@@ -130,7 +137,6 @@
 		38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38DA7894191BCF4F00269AB7 /* taxi.bundle */; };
 		38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */; };
 		38DBC3E1193A0BCB00BEF636 /* TXSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DBC3E0193A0BCB00BEF636 /* TXSignInVC.xib */; };
-		38F138DD192A454B00121441 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F138DC192A454B00121441 /* Parse.framework */; };
 		38F138DF192A470000121441 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F138DE192A470000121441 /* Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -278,6 +284,18 @@
 		388EF7FE18F2D185008F3454 /* TXAskUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskUserInfoVC.h; sourceTree = "<group>"; };
 		388EF7FF18F2D185008F3454 /* TXAskUserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAskUserInfoVC.m; sourceTree = "<group>"; };
 		38937E34193FE729008696A1 /* TXAskPhoneNumberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXAskPhoneNumberVC.xib; sourceTree = "<group>"; };
+		389B630A194316FF00BB364C /* NSData+StringBytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+StringBytes.h"; sourceTree = "<group>"; };
+		389B630B194316FF00BB364C /* NSData+StringBytes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+StringBytes.m"; sourceTree = "<group>"; };
+		389B630D1943202F00BB364C /* TXMapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXMapVC.xib; sourceTree = "<group>"; };
+		389B630F194323F300BB364C /* DEMOCustomAutoCompleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOCustomAutoCompleteCell.h; sourceTree = "<group>"; };
+		389B6310194323F300BB364C /* DEMOCustomAutoCompleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOCustomAutoCompleteCell.m; sourceTree = "<group>"; };
+		389B63121943252700BB364C /* DEMOCustomAutoCompleteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOCustomAutoCompleteObject.h; sourceTree = "<group>"; };
+		389B63131943252700BB364C /* DEMOCustomAutoCompleteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOCustomAutoCompleteObject.m; sourceTree = "<group>"; };
+		389B6315194463CC00BB364C /* TXConfirmationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXConfirmationVC.xib; sourceTree = "<group>"; };
+		389B6317194467EB00BB364C /* TXConfirmationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXConfirmationVC.h; sourceTree = "<group>"; };
+		389B6318194467EB00BB364C /* TXConfirmationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXConfirmationVC.m; sourceTree = "<group>"; };
+		389B631A1944735400BB364C /* TXUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserVC.h; sourceTree = "<group>"; };
+		389B631B1944735400BB364C /* TXUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserVC.m; sourceTree = "<group>"; };
 		389D4F09191D4E6B005ED6E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		389D4F0C191D4E71005ED6E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		389D4F0E191D4E72005ED6E1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
@@ -312,8 +330,8 @@
 		38C0ECFA18EC596E00AFE860 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		38C0ECFC18EC636900AFE860 /* defaultbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultbg.jpg; sourceTree = "<group>"; };
 		38C4F7F118AD024000D6B2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		38C60B8818D47BEC000A3DD3 /* TXMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMapVC.h; sourceTree = "<group>"; };
-		38C60B8918D47BEC000A3DD3 /* TXMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMapVC.m; sourceTree = "<group>"; };
+		38C60B8818D47BEC000A3DD3 /* TXMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMapVC.h; path = ../TXMapVC.h; sourceTree = "<group>"; };
+		38C60B8918D47BEC000A3DD3 /* TXMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXMapVC.m; path = ../TXMapVC.m; sourceTree = "<group>"; };
 		38C9B5001927B8580088CCC5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		38C9B5021927B8740088CCC5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		38C9B5041927B8B30088CCC5 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
@@ -367,7 +385,6 @@
 				38C9B5031927B8740088CCC5 /* AudioToolbox.framework in Frameworks */,
 				38C9B5011927B8580088CCC5 /* MobileCoreServices.framework in Frameworks */,
 				3841E81C190A6FD400F0FABF /* QuartzCore.framework in Frameworks */,
-				38F138DD192A454B00121441 /* Parse.framework in Frameworks */,
 				3841E81A190A6FC700F0FABF /* OpenGLES.framework in Frameworks */,
 				3841E818190A6FBC00F0FABF /* libz.dylib in Frameworks */,
 				3841E816190A6FB400F0FABF /* libicucore.dylib in Frameworks */,
@@ -412,6 +429,9 @@
 		3826CC2A18EEC732003D7AD2 /* call */ = {
 			isa = PBXGroup;
 			children = (
+				38C60B8818D47BEC000A3DD3 /* TXMapVC.h */,
+				38C60B8918D47BEC000A3DD3 /* TXMapVC.m */,
+				389B630D1943202F00BB364C /* TXMapVC.xib */,
 			);
 			path = call;
 			sourceTree = "<group>";
@@ -480,8 +500,6 @@
 				385E113F18EC348F00AB7570 /* TXMainVC.m */,
 				3815177C18C364BA005F915C /* TXRootVC.h */,
 				3815177D18C364BA005F915C /* TXRootVC.m */,
-				38C60B8818D47BEC000A3DD3 /* TXMapVC.h */,
-				38C60B8918D47BEC000A3DD3 /* TXMapVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -501,6 +519,11 @@
 				3856E04E18F58F70006F9FAE /* TXAskPhoneNumberVC.m */,
 				38DBC3E0193A0BCB00BEF636 /* TXSignInVC.xib */,
 				38937E34193FE729008696A1 /* TXAskPhoneNumberVC.xib */,
+				389B6315194463CC00BB364C /* TXConfirmationVC.xib */,
+				389B6317194467EB00BB364C /* TXConfirmationVC.h */,
+				389B6318194467EB00BB364C /* TXConfirmationVC.m */,
+				389B631A1944735400BB364C /* TXUserVC.h */,
+				389B631B1944735400BB364C /* TXUserVC.m */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -837,6 +860,15 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		389B6309194316FF00BB364C /* NSData+Additions */ = {
+			isa = PBXGroup;
+			children = (
+				389B630A194316FF00BB364C /* NSData+StringBytes.h */,
+				389B630B194316FF00BB364C /* NSData+StringBytes.m */,
+			);
+			path = "NSData+Additions";
+			sourceTree = "<group>";
+		};
 		389D4F12191E4B20005ED6E1 /* call */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +882,10 @@
 		389D4F16191E9193005ED6E1 /* MLPAutoCompleteTextField */ = {
 			isa = PBXGroup;
 			children = (
+				389B63121943252700BB364C /* DEMOCustomAutoCompleteObject.h */,
+				389B63131943252700BB364C /* DEMOCustomAutoCompleteObject.m */,
+				389B630F194323F300BB364C /* DEMOCustomAutoCompleteCell.h */,
+				389B6310194323F300BB364C /* DEMOCustomAutoCompleteCell.m */,
 				389D4F17191E9193005ED6E1 /* MLPAutoCompleteTextField.h */,
 				389D4F18191E9193005ED6E1 /* MLPAutoCompleteTextField.m */,
 				389D4F19191E9193005ED6E1 /* MLPAutoCompleteTextFieldDataSource.h */,
@@ -937,6 +973,7 @@
 		38DABBC118D9AA43005D4AC4 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				389B6309194316FF00BB364C /* NSData+Additions */,
 				3884BFB918F6AFAC0079DB47 /* TXCode2MsgTranslator.h */,
 				3884BFBA18F6AFAC0079DB47 /* TXCode2MsgTranslator.m */,
 				38DA786A191BCDC300269AB7 /* Macro.h */,
@@ -1038,6 +1075,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3826CC4218EEDBAD003D7AD2 /* menu-button.png in Resources */,
+				389B630E1943202F00BB364C /* TXMapVC.xib in Resources */,
 				385E11A618EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib in Resources */,
 				389D4F01191D4E55005ED6E1 /* Main_iPad.storyboard in Resources */,
 				385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */,
@@ -1047,6 +1085,7 @@
 				3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */,
 				3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
+				389B6316194463CC00BB364C /* TXConfirmationVC.xib in Resources */,
 				38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */,
 				385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */,
 				389D4F08191D4E6B005ED6E1 /* Main_iPhone.storyboard in Resources */,
@@ -1077,11 +1116,13 @@
 			files = (
 				389D4F15191E4B41005ED6E1 /* TXCallModel.m in Sources */,
 				38DA7877191BCDC300269AB7 /* TXFileManager.m in Sources */,
+				389B63141943252700BB364C /* DEMOCustomAutoCompleteObject.m in Sources */,
 				385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */,
 				3826CC4718EEDF27003D7AD2 /* MenuViewController.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				38DA7862191BC8E500269AB7 /* TXGoogleObjectsCache.m in Sources */,
 				385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */,
+				389B6319194467EB00BB364C /* TXConfirmationVC.m in Sources */,
 				385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
 				385E119A18EC35C400AB7570 /* TXMenuCell.m in Sources */,
@@ -1122,7 +1163,9 @@
 				3815177E18C364BA005F915C /* TXRootVC.m in Sources */,
 				385E119018EC35C400AB7570 /* TXAlertView.m in Sources */,
 				385E114618EC34AD00AB7570 /* TXSignInVC.m in Sources */,
+				389B630C194316FF00BB364C /* NSData+StringBytes.m in Sources */,
 				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				389B6311194323F300BB364C /* DEMOCustomAutoCompleteCell.m in Sources */,
 				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
 				385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */,
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
@@ -1132,6 +1175,7 @@
 				385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */,
 				38DA7887191BCE0E00269AB7 /* TXDBHelper.m in Sources */,
 				389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */,
+				389B631C1944735400BB364C /* TXUserVC.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
 				385E11AB18EC35C400AB7570 /* SVProgressHUD.m in Sources */,
 				385E119718EC35C400AB7570 /* TXRootViewController.m in Sources */,

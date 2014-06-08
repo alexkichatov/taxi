@@ -7,11 +7,11 @@
 //
 #import "TXUserModel.h"
 #import <GooglePlus/GooglePlus.h>
-#import "TXRootVC.h"
+#import "TXUserVC.h"
 
 @class GPPSignInButton;
 
-@interface TXSignInVC : TXRootVC<GPPSignInDelegate> 
+@interface TXSignInVC : TXUserVC<GPPSignInDelegate>
 
 @property (nonatomic, strong) GPPSignIn     *signIn;
 @property (nonatomic, strong) GTLPlusPerson *googlePerson;

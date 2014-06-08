@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXRootVC.h"
+#import "TXUserVC.h"
 
-@interface TXAskUserInfoVC : TXRootVC
+@interface TXAskUserInfoVC : TXUserVC
 
 @property (nonatomic, strong) IBOutlet UITextField *txtName;
 @property (nonatomic, strong) IBOutlet UITextField *txtSurname;

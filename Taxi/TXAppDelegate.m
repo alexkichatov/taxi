@@ -17,9 +17,10 @@
 #import "MenuViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "TXCode2MsgTranslator.h"
-//#import <PushApps/PushApps.h>
+#import "TXApp.h"
 #import "TXSignInVC.h"
-#import <Parse/Parse.h>
+#import "NSData+StringBytes.h"
+#import "TXMapVC.h"
 
 @implementation TXAppDelegate
 
@@ -27,49 +28,32 @@
 {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // ****************************************************************************
-    // Parse initialization
-//    [Parse setApplicationId:@"Vw5Gf7cIo3blEgdNEQ4IwGoSil0PtfdH5DeoUZNe" clientKey:@"adXCcAZ1evib4nhHnOtoE1Et9261NV8px9K8Vbhg"];
-//	// ****************************************************************************
-//    
-//    [PFFacebookUtils initializeFacebook];
-//
-//    // Set default ACLs
-//    PFACL *defaultACL = [PFACL ACL];
-//    [defaultACL setPublicReadAccess:YES];
-//    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
-//
-    
+  
     [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
+    //TXMapVC *signIn = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
     TXSignInVC *signIn = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
     
     self.window.rootViewController = signIn;
-    //[[UINavigationController alloc] initWithRootViewController:signIn];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    NSString *message = [TXCode2MsgTranslator messageForCode:SUCCESS];
-    NSLog(@"%@", message);
+    [self registerForRemoteNotifications:application];
     
+    return YES;
+}
+
+-(void) registerForRemoteNotifications:(UIApplication *) application {
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
-    
-    return YES;
 }
 
 #pragma mark - Parse installation
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
-    
-    NSLog(@"%@",@"Registered successfully with parse");
-    NSLog(@"Device token : %@",deviceToken);
+    [[[TXApp instance] getSettings] setNotificationsToken:[deviceToken stringRepresentation]];
 }
 
 
@@ -101,7 +85,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-// Facebook oauth callback
+// Google oauth callback
 
 - (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation
 {
