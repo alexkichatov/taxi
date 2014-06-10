@@ -13,6 +13,7 @@
 #import "TXUserModel.h"
 #import "TXSharedObj.h"
 #import "TXConfirmationVC.h"
+#import "TXSignUpVC.h"
 
 typedef enum {
     
@@ -31,6 +32,7 @@ typedef enum {
 }
 
 -(IBAction)signIn:(id)sender;
+-(IBAction)signUpButtonTapped:(id)sender;
 
 @end
 
@@ -259,6 +261,11 @@ typedef enum {
 
 -(TXAskPhoneNumberVC *) getAskPhoneNumberVC {
     return [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
+}
+
+-(void)signUpButtonTapped:(id)sender {
+    TXSignUpVC *signUpVC = [[TXSignUpVC alloc] initWithNibName:@"TXSignUpVC" bundle:nil];
+    [self pushViewController:signUpVC];
 }
 
 @end

@@ -104,8 +104,9 @@ typedef enum {
                                   };
     
     NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
-                              API_JSON.Keys.DATA  : propertyMap,
+                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
+                                API_JSON.Keys.DATA  : propertyMap,
+                                API_JSON.Keys.ATTR  : @{}
                              };
     
     request.body = getJSONStr(jsonObj);
@@ -129,6 +130,7 @@ typedef enum {
     NSDictionary *jsonObj = @{
                               API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
                               API_JSON.Keys.DATA  : propertyMap,
+                              API_JSON.Keys.ATTR  : @{}
                               };
     
     request.body = getJSONStr(jsonObj);

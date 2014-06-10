@@ -38,7 +38,8 @@
         [self refreshSignUpButton];
     } else {
         
-        TXRootVC *viewController = [self vcFromName:@"TXAskPhoneNumberVC"];
+        TXAskPhoneNumberVC *viewController =  [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
+
         NSDictionary *params = @{
                                    API_JSON.Authenticate.USERNAME : self.txtUsername.text,
                                    API_JSON.Authenticate.PASSWORD : self.txtConfirmPassword.text

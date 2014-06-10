@@ -77,6 +77,9 @@
                             <integer key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="signUpButtonTapped:" destination="-1" eventType="touchDown" id="d9n-rQ-Ghz"/>
+                    </connections>
                 </button>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RRJ-Tx-CCH">
                     <rect key="frame" x="142" y="265" width="37" height="37"/>

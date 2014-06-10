@@ -235,7 +235,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
         NSMutableURLRequest* httpRequest = [request createHTTPRequest];
 		NSError* error_ = nil;
 		NSURLResponse* response;
-        //increase attempt counter
+        
         request.attemptCount++;
 		NSData* responseData = [NSURLConnection sendSynchronousRequest:httpRequest returningResponse:&response error:&error_];
         int responseStatusCode = [(NSHTTPURLResponse*)response statusCode];
@@ -260,18 +260,20 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
             NSString *respStr = [respStr_ stringByReplacingOccurrencesOfString:@"=" withString:@":"];
             NSLog(@"%@", respStr);
             
-            result.source  = getJSONObj(respStr);
-            id successObj  = [(NSDictionary *)result.source objectForKey:@"success"];
-            result.success = successObj!=nil ? [successObj boolValue] : NO;
-            if(result.success==YES) {
+            NSDictionary* responseObj = getJSONObj(respStr);
+            NSDictionary* source      = [responseObj objectForKey:@"source"];
+            id successObj             = [responseObj objectForKey:@"success"];
+            result.success            = successObj!=nil ? [successObj boolValue] : NO;
+            result.source = source;
+            
+            if(result.success == YES) {
                 result.code = 1000;
             } else {
-                NSDictionary *data = [(NSDictionary *)result.source objectForKey:@"data"];
-                result.code = [[data objectForKey:@"code"] intValue];
+                result.code = [[source objectForKey:@"code"] intValue];
             }
             
-            DLogI(@"%@ Req To Url - %@ completed", request.reqConfig.httpMethod, request.reqUrl);
-            DLogI(@"Body: %@", result.json);
+            NSLog(@"%@ Req To Url - %@ completed", request.reqConfig.httpMethod, request.reqUrl);
+
         }
 
 	}

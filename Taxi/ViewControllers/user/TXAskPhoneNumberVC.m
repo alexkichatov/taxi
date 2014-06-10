@@ -8,6 +8,7 @@
 
 #import "TXAskPhoneNumberVC.h"
 #import "TXAskUserInfoVC.h"
+#import "TXConfirmationVC.h"
 #import "TXUserModel.h"
 
 @implementation CountryCodeItem
@@ -65,27 +66,49 @@
 }
 
 -(void)next:(id)sender {
-
-    int userId = [[self->parameters objectForKey:API_JSON.OBJID] intValue];
     
     if([self.txtPhoneNumber.text length] > 0) {
-    
         
-        TXSyncResponseDescriptor *descriptor = [self->model updateMobile:userId mobile:self.txtPhoneNumber.text];
+        TXSyncResponseDescriptor* descriptor = nil;
+        id userId = [self->parameters objectForKey:API_JSON.OBJID];
         
-        if(descriptor.success) {
+        if(userId == nil) {
             
-            TXAskUserInfoVC *viewController = [[TXAskUserInfoVC alloc] initWithNibName:@"TXAskUserInfoVC" bundle:nil];
+            TXUser *user = [[TXUser alloc] init];
+            user.username = [self->parameters objectForKey:API_JSON.Authenticate.USERNAME];
+            user.password = [self->parameters objectForKey:API_JSON.Authenticate.PASSWORD];
+            user.mobile   = self.txtPhoneNumber.text;
+            user.language = @"ka";
             
-            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self->parameters];
-            [params setObject:[NSString stringWithFormat:@"%@%@", self->selectedItem.code, self.txtPhoneNumber.text] forKey:API_JSON.SignUp.PHONENUMBER];
-            [viewController setParameters:params];
+            descriptor = [self->model signUp:user];
             
-            [self pushViewController:viewController];
+            if(descriptor.success) {
+                
+                TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
+                NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
+                
+                NSDictionary*params = @{
+                                         API_JSON.ID : [source objectForKey:API_JSON.ID]
+                                         };
+
+                [confirmationVC setParameters:params];
+                [self pushViewController:confirmationVC];
+            } else {
+                
+            }
             
         } else {
             
-            [self alertError:@"Error" message:@"Mobile number is blocked !"];
+            TXSyncResponseDescriptor *descriptor = [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
+            
+            if(descriptor.success) {
+                
+            } else {
+                
+                [self alertError:@"Error" message:@"Mobile number is blocked !"];
+                
+            }
+            
             
         }
         

@@ -29,6 +29,7 @@
 		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
 		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3827824718BA023D0036238A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827824618BA023D0036238A /* FacebookSDK.framework */; };
+		383BED5619479956000A6B51 /* TXSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383BED5519479956000A6B51 /* TXSignUpVC.xib */; };
 		3841E809190A6F5100F0FABF /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E808190A6F5100F0FABF /* GoogleMaps.framework */; };
 		3841E80C190A6F6300F0FABF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E80B190A6F6300F0FABF /* CoreData.framework */; };
 		3841E80E190A6F7800F0FABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E80D190A6F7800F0FABF /* AVFoundation.framework */; };
@@ -188,6 +189,7 @@
 		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
 		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3827824618BA023D0036238A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		383BED5519479956000A6B51 /* TXSignUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXSignUpVC.xib; sourceTree = "<group>"; };
 		3841E808190A6F5100F0FABF /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		3841E80B190A6F6300F0FABF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3841E80D190A6F7800F0FABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -524,6 +526,7 @@
 				389B6318194467EB00BB364C /* TXConfirmationVC.m */,
 				389B631A1944735400BB364C /* TXUserVC.h */,
 				389B631B1944735400BB364C /* TXUserVC.m */,
+				383BED5519479956000A6B51 /* TXSignUpVC.xib */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */,
 				3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */,
 				3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */,
+				383BED5619479956000A6B51 /* TXSignUpVC.xib in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
 				389B6316194463CC00BB364C /* TXConfirmationVC.xib in Resources */,
 				38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */,
@@ -1329,7 +1333,7 @@
 				INFOPLIST_FILE = "Taxi/Taxi-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1352,7 +1356,7 @@
 				INFOPLIST_FILE = "Taxi/Taxi-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
