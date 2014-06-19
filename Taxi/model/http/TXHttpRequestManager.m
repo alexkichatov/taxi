@@ -236,6 +236,8 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 		NSError* error_ = nil;
 		NSURLResponse* response;
         
+        NSLog(@"Sent sync request to URL:%@, body:%@", request.reqUrl, request.body);
+        
         request.attemptCount++;
 		NSData* responseData = [NSURLConnection sendSynchronousRequest:httpRequest returningResponse:&response error:&error_];
         int responseStatusCode = [(NSHTTPURLResponse*)response statusCode];
@@ -249,31 +251,26 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
                                  request.reqUrl,
                                  request.body];
             
-            DLogE(@"%@", message);
+            NSLog(@"%@", message);
             
             result.error = [TXError error:TX_ERR_HTTP_REQUEST_FAILED message:[error_ domain] description:message];
             
 		} else {
-        
-            request.receivedData = (NSMutableData*)responseData;
+            
+            request.receivedData      = (NSMutableData*)responseData;
             NSMutableString *respStr_ = [[[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding] mutableCopy];
-            NSString *respStr = [respStr_ stringByReplacingOccurrencesOfString:@"=" withString:@":"];
-            NSLog(@"%@", respStr);
+            NSString        *respStr  = [respStr_ stringByReplacingOccurrencesOfString:@"=" withString:@":"];
+
+            NSLog(@"Received response from server: %@, response body: %@", request.reqUrl , respStr);
             
             NSDictionary* responseObj = getJSONObj(respStr);
-            NSDictionary* source      = [responseObj objectForKey:@"source"];
-            id successObj             = [responseObj objectForKey:@"success"];
+            id            source_     = [responseObj objectForKey:API_JSON.ResponseDescriptor.SOURCE];
+            NSDictionary* source      = source_ ? getJSONObj(source_) : nil;
+            id            successObj  = [responseObj objectForKey:API_JSON.ResponseDescriptor.SUCCESS];
             result.success            = successObj!=nil ? [successObj boolValue] : NO;
-            result.source = source;
+            result.source             = source;
+            result.code               = [[responseObj objectForKey:API_JSON.ResponseDescriptor.CODE] intValue];
             
-            if(result.success == YES) {
-                result.code = 1000;
-            } else {
-                result.code = [[source objectForKey:@"code"] intValue];
-            }
-            
-            NSLog(@"%@ Req To Url - %@ completed", request.reqConfig.httpMethod, request.reqUrl);
-
         }
 
 	}
@@ -386,7 +383,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
         NSString* statusMsg	= [NSHTTPURLResponse localizedStringForStatusCode:statusCode];
         
 		if (request.listener == nil ) {
-			DLogE(@"Async Req To Url - %@ received response with error: %@", request.reqUrl, statusMsg);
+			NSLog(@"Async Req To Url - %@ received response with error: %@", request.reqUrl, statusMsg);
 		}
 		else {
             request.statusCode = statusCode;

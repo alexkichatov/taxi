@@ -29,6 +29,7 @@
 		3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827823C18B8D5F40036238A /* TXPropertyConsts.m */; };
 		3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3827824318B8E55F0036238A /* TXUserAPITest.m */; };
 		3827824718BA023D0036238A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827824618BA023D0036238A /* FacebookSDK.framework */; };
+		3829D64E195249300013EADB /* TXResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829D64D195249300013EADB /* TXResponse.m */; };
 		383BED5619479956000A6B51 /* TXSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383BED5519479956000A6B51 /* TXSignUpVC.xib */; };
 		3841E809190A6F5100F0FABF /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E808190A6F5100F0FABF /* GoogleMaps.framework */; };
 		3841E80C190A6F6300F0FABF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3841E80B190A6F6300F0FABF /* CoreData.framework */; };
@@ -189,6 +190,8 @@
 		3827824218B8E55F0036238A /* TXUserAPITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUserAPITest.h; sourceTree = "<group>"; };
 		3827824318B8E55F0036238A /* TXUserAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUserAPITest.m; sourceTree = "<group>"; };
 		3827824618BA023D0036238A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		3829D64C195249300013EADB /* TXResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXResponse.h; sourceTree = "<group>"; };
+		3829D64D195249300013EADB /* TXResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXResponse.m; sourceTree = "<group>"; };
 		383BED5519479956000A6B51 /* TXSignUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXSignUpVC.xib; sourceTree = "<group>"; };
 		3841E808190A6F5100F0FABF /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		3841E80B190A6F6300F0FABF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -506,6 +509,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		3829D64B195248DA0013EADB /* server */ = {
+			isa = PBXGroup;
+			children = (
+				3829D64C195249300013EADB /* TXResponse.h */,
+				3829D64D195249300013EADB /* TXResponse.m */,
+			);
+			name = server;
+			sourceTree = "<group>";
+		};
 		385E113A18EC2C5600AB7570 /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,6 +776,7 @@
 		3865DC9F188C13970044A0DC /* Taxi */ = {
 			isa = PBXGroup;
 			children = (
+				3829D64B195248DA0013EADB /* server */,
 				38DA788E191BCE8700269AB7 /* 3dparty */,
 				38DA787A191BCE0E00269AB7 /* db */,
 				38DA7881191BCE0E00269AB7 /* error */,
@@ -1122,6 +1135,7 @@
 				38DA7877191BCDC300269AB7 /* TXFileManager.m in Sources */,
 				389B63141943252700BB364C /* DEMOCustomAutoCompleteObject.m in Sources */,
 				385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */,
+				3829D64E195249300013EADB /* TXResponse.m in Sources */,
 				3826CC4718EEDF27003D7AD2 /* MenuViewController.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				38DA7862191BC8E500269AB7 /* TXGoogleObjectsCache.m in Sources */,

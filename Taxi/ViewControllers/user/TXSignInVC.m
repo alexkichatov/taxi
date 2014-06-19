@@ -14,6 +14,7 @@
 #import "TXSharedObj.h"
 #import "TXConfirmationVC.h"
 #import "TXSignUpVC.h"
+#import "TXMapVC.h"
 
 typedef enum {
     
@@ -23,7 +24,7 @@ typedef enum {
     _MOBILE_BLOCKED = 1006,
     _USER_NOT_CONFIRMED = 1019,
     _USER_BLOCKED = 1013,
-
+    _AUTH_FAILED = 1008,
     
 } SignInCodes;
 
@@ -168,10 +169,7 @@ typedef enum {
 
 -(void) proccessSignIn:(TXSyncResponseDescriptor *) descriptor {
     
-    NSDictionary * data = (NSDictionary*)descriptor.source;
-    int code = [[data objectForKey:API_JSON.Keys.CODE] intValue];
-    
-    switch (code) {
+    switch (descriptor.code) {
             
         case _SUCCESS:
             
@@ -208,6 +206,12 @@ typedef enum {
             [self proccessIsBlocked:descriptor];
             
             break;
+            
+        case _AUTH_FAILED:
+            
+            [self proccessAuthorizationFailed:descriptor];
+            
+            break;
     }
     
     
@@ -215,7 +219,8 @@ typedef enum {
 
 -(void) proccessSucceeded:(TXSyncResponseDescriptor *) descriptor {
     
-    
+    TXMapVC *mapVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
+    [self pushViewController:mapVC];
     
 }
 
@@ -223,10 +228,10 @@ typedef enum {
     
     TXAskPhoneNumberVC *vc = [self getAskPhoneNumberVC];
     
-    NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
+    NSDictionary*source = (NSDictionary*)descriptor.source;
     
     [vc setParameters:@{
-                            API_JSON.OBJID : [NSNumber numberWithInt:[[source objectForKey:API_JSON.OBJID] intValue]]
+                            API_JSON.OBJID : [NSNumber numberWithInt:[[source objectForKey:API_JSON.ID] intValue]]
                        }];
     
     [self pushViewController:vc];
@@ -241,11 +246,9 @@ typedef enum {
     
     TXConfirmationVC *confVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
     
-    NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
+    NSDictionary*source = (NSDictionary*)descriptor.source;
     
-    NSDictionary*params  = @{
-                                API_JSON.ID : [source objectForKey:API_JSON.ID]
-                            };
+    NSDictionary*params  = @{ API_JSON.ID : [source objectForKey:API_JSON.ID] };
     
     [confVC setParameters:params];
     [self pushViewController:confVC];
@@ -261,6 +264,10 @@ typedef enum {
 
 -(TXAskPhoneNumberVC *) getAskPhoneNumberVC {
     return [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
+}
+
+-(void) proccessAuthorizationFailed:(TXSyncResponseDescriptor *) descriptor {
+    [self alertError:@"Error" message:@"Incorrect username or password !"];
 }
 
 -(void)signUpButtonTapped:(id)sender {

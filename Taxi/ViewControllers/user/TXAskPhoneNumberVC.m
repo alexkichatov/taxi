@@ -82,38 +82,47 @@
             
             descriptor = [self->model signUp:user];
             
-            if(descriptor.success) {
+            if(!descriptor.success) {
                 
                 TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
-                NSDictionary*source = getJSONObj([((NSDictionary*)descriptor.source) objectForKey:API_JSON.Keys.SOURCE]);
+                NSDictionary*source = (NSDictionary*)descriptor.source;
                 
                 NSDictionary*params = @{
                                          API_JSON.ID : [source objectForKey:API_JSON.ID]
-                                         };
+                                       };
 
                 [confirmationVC setParameters:params];
                 [self pushViewController:confirmationVC];
-            } else {
-                
             }
             
         } else {
             
-            TXSyncResponseDescriptor *descriptor = [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
+            descriptor = [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
             
-            if(descriptor.success) {
-                
-            } else {
+            if(!descriptor.success) {
                 
                 [self alertError:@"Error" message:@"Mobile number is blocked !"];
+                return;
                 
             }
             
-            
         }
-        
+    
+        [self pushConfirmationVC:descriptor];
     }
     
+}
+
+-(void) pushConfirmationVC:(TXSyncResponseDescriptor *) descriptor {
+    TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
+    NSDictionary*source = (NSDictionary*)descriptor.source;
+    
+    NSDictionary*params = @{
+                            API_JSON.ID : [source objectForKey:API_JSON.ID]
+                            };
+    
+    [confirmationVC setParameters:params];
+    [self pushViewController:confirmationVC];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row

@@ -446,6 +446,15 @@ extern const struct API_JSON {
         
     } Call;
     
+    struct {
+        
+        __unsafe_unretained NSString* CODE;
+        __unsafe_unretained NSString* MESSAGE;
+        __unsafe_unretained NSString* SOURCE;
+        __unsafe_unretained NSString* SUCCESS;
+        
+    } ResponseDescriptor;
+    
 } API_JSON;
 
 extern const struct LEFT_MENU {

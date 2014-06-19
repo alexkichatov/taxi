@@ -428,7 +428,16 @@ const struct API_JSON API_JSON = {
         .DISTANCE = @"distance",
         .COUNTRY = @"country"
         
-    }
+    },
+    
+    .ResponseDescriptor = {
+        
+        .CODE = @"code",
+        .MESSAGE = @"message",
+        .SOURCE = @"source",
+        .SUCCESS = @"success"
+        
+    } 
     
 };
 

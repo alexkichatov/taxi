@@ -7,6 +7,7 @@
 //
 
 #import "TXConfirmationVC.h"
+#import "TXMapVC.h"
 
 @interface TXConfirmationVC () {
     int userId;
@@ -22,18 +23,32 @@
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
     if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        self->userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
+        
     }
     
     return self;
+}
+
+-(void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self->userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
 }
 
 -(void)submit:(id)sender {
 
     TXSyncResponseDescriptor *response = [self->model confirm:self->userId code:self.txtCodeInput.text];
     
-    
-    
+    if(response.success == true) {
+        
+        TXMapVC* mainVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
+        [self pushViewController:mainVC];
+        
+    } else {
+        
+        [self alertError:@"Error" message:@"Failed to confirm user !"];
+        
+    }
     
 }
 

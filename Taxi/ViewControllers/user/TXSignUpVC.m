@@ -10,6 +10,7 @@
 #import "TXUserModel.h"
 #import "CMPopTipView.h"
 #import "TXAskPhoneNumberVC.h"
+#import "TXSignInVC.h"
 
 @interface TXSignUpVC ()<UIActionSheetDelegate> {
     NSString *lastExistingUsername;
@@ -18,6 +19,7 @@
 }
 
 -(IBAction)signUp:(id)sender;
+-(IBAction)signIn:(id)sender;
 -(IBAction)textFieldFocusLost:(UITextField *)sender;
 -(IBAction)textFieldFocusGained:(UITextField *)sender;
 
@@ -104,6 +106,11 @@
         [self.btnSignUp setEnabled:NO];
         
     }
+}
+
+-(void)signIn:(id)sender {
+    TXSignInVC *signInVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+    [self pushViewController:signInVC];
 }
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
