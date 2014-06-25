@@ -8,9 +8,11 @@
 
 #import "TXConfirmationVC.h"
 #import "TXMapVC.h"
+#import "TXApp.h"
 
 @interface TXConfirmationVC () {
     int userId;
+    TXSettings *settings;
 }
 
 -(IBAction)submit:(id)sender;
@@ -33,13 +35,19 @@
     
     [super viewDidLoad];
     self->userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
+    self->settings = [[TXApp instance] getSettings];
 }
 
 -(void)submit:(id)sender {
 
-    TXSyncResponseDescriptor *response = [self->model confirm:self->userId code:self.txtCodeInput.text];
+    [self showBusyIndicator];
+    TXSyncResponseDescriptor *descriptor = [self->model confirm:self->userId code:self.txtCodeInput.text];
+    [self hideBusyIndicator];
     
-    if(response.success == true) {
+    if(descriptor.success == true) {
+        
+        NSDictionary*source = (NSDictionary*)descriptor.source;
+        [self->settings setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
         
         TXMapVC* mainVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
         [self pushViewController:mainVC];
@@ -54,8 +62,8 @@
 
 -(void)resend:(id)sender {
     
-    int userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
-    TXSyncResponseDescriptor *response = [self->model resendVerificationCode:self->userId];
+   // int userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
+   // TXSyncResponseDescriptor *response = [self->model resendVerificationCode:self->userId];
     
     
 }

@@ -9,6 +9,7 @@
 #import "TXRootVC.h"
 #import "TXUserModel.h"
 #import "TXSharedObj.h"
+#import "SVProgressHUD.h"
 
 @interface TXRootVC ()
 
@@ -92,6 +93,19 @@
 
 -(void) setParameters:(NSDictionary *)params {
     self->parameters = params;
+}
+
+-(void) showBusyIndicator {
+    [self showBusyIndicator:nil];
+}
+
+-(void) showBusyIndicator:(NSString *)title {
+     [SVProgressHUD showWithStatus:title maskType:SVProgressHUDMaskTypeNone];
+}
+
+-(void)hideBusyIndicator {
+    if ([SVProgressHUD isVisible])
+        [SVProgressHUD dismiss];
 }
 
 /*

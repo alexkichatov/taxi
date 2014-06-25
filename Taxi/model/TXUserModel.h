@@ -18,14 +18,16 @@
 @property (nonatomic, retain) NSString* surname;
 @property (nonatomic, retain) NSString* email;
 @property (nonatomic, retain) NSString* mobile;
-@property (nonatomic, assign) int       statusId;
+@property (nonatomic, assign) int       statusID;
 @property (nonatomic, retain) NSString* note;
 @property (nonatomic, retain) NSDate  * createDate;
 @property (nonatomic, retain) NSDate  * modificationDate;
 @property (nonatomic, retain) NSString* language;
 @property (nonatomic, retain) NSString* photoURL;
-@property (nonatomic, retain) NSString* providerUserId;
-@property (nonatomic, retain) NSString* providerId;
+@property (nonatomic, retain) NSString* providerUserID;
+@property (nonatomic, retain) NSString* providerID;
+@property (nonatomic, assign) BOOL      isConfirmed;
+@property (nonatomic, retain) NSString* userToken;
 
 @end
 
@@ -38,6 +40,7 @@
 +(TXUserModel *) instance;
 -(TXSyncResponseDescriptor *)signUp:(TXUser *)user;
 -(TXSyncResponseDescriptor *)signIn:(TXUser *)user;
+-(TXSyncResponseDescriptor *)validateToken:(NSString *) userToken;
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;

@@ -12,6 +12,7 @@
     UIStoryboard *iPhoneStoryBoard;
     UIStoryboard *iPadStoryBoard;
     NSString     *deviceType;
+    TXUser       *user;
 }
 
 @end
@@ -52,6 +53,14 @@
     }
     
     return nil;
+}
+
+-(TXUser*) getUser {
+    return self->user;
+}
+
+-(void) setUser:(TXUser *)user_ {
+    self->user = user_;
 }
 
 @end

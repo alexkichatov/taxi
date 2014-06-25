@@ -80,7 +80,9 @@
             user.mobile   = self.txtPhoneNumber.text;
             user.language = @"ka";
             
+            [self showBusyIndicator];
             descriptor = [self->model signUp:user];
+            [self hideBusyIndicator];
             
             if(!descriptor.success) {
                 
@@ -97,7 +99,9 @@
             
         } else {
             
+            [self showBusyIndicator];
             descriptor = [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
+            [self hideBusyIndicator];
             
             if(!descriptor.success) {
                 

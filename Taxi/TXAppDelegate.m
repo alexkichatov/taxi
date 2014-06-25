@@ -21,6 +21,9 @@
 #import "TXSignInVC.h"
 #import "NSData+StringBytes.h"
 #import "TXMapVC.h"
+#import "TXUserModel.h"
+#import "TXApp.h"
+#import "SVProgressHUD.h"
 
 @implementation TXAppDelegate
 
@@ -28,12 +31,38 @@
 {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  
-    [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
-    //TXMapVC *signIn = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
-    TXSignInVC *signIn = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
     
-    self.window.rootViewController = signIn;
+    [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
+    
+    TXUserModel *userModel = [TXUserModel instance];
+    TXSettings  *settings  = [[TXApp instance] getSettings];
+    TXRootVC    *firstVC   = nil;
+    
+    NSString *userToken = [settings getUserToken];
+    if(userToken!=nil && ![userToken isEqual:[NSNull null]]) {
+        
+        [SVProgressHUD showWithStatus:@"" maskType:SVProgressHUDMaskTypeBlack];
+        TXSyncResponseDescriptor*descriptor = [userModel validateToken:userToken];
+        if ([SVProgressHUD isVisible])
+            [SVProgressHUD dismiss];
+        
+        if(descriptor.success) {
+            
+            NSDictionary* source = (NSDictionary*)descriptor.source;
+            TXUser *user  = [[TXUser alloc] init];
+            [user setProperties:source];
+            
+            firstVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
+            
+        } else {
+            firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+        }
+        
+    } else {
+        firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+    }
+    
+    self.window.rootViewController = firstVC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -71,8 +100,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

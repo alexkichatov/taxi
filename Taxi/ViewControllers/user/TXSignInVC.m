@@ -25,14 +25,17 @@ typedef enum {
     _USER_NOT_CONFIRMED = 1019,
     _USER_BLOCKED = 1013,
     _AUTH_FAILED = 1008,
+    _UNKNOWN_AUTH = 1018,
     
 } SignInCodes;
 
 @interface TXSignInVC ()<GPPSignInDelegate> {
     TXUser *user;
+    TXSettings *settings;
 }
 
 -(IBAction)signIn:(id)sender;
+-(IBAction)gpSignIn:(id)sender;
 -(IBAction)signUpButtonTapped:(id)sender;
 
 @end
@@ -51,12 +54,16 @@ typedef enum {
     [self->model addEventListener:self forEvent:TXEvents.REGISTER_USER_COMPLETED eventParams:nil];
     [self->model addEventListener:self forEvent:TXEvents.REGISTER_USER_FAILED eventParams:nil];
     
+    self->settings = [[TXApp instance] getSettings];
+    
     self.signIn = [GPPSignIn sharedInstance];
     self.signIn.shouldFetchGooglePlusUser = YES;
     self.signIn.shouldFetchGoogleUserEmail = YES;
     self.signIn.clientID = KEYS.Google.CLIENTID;
     self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];
     self.signIn.delegate = self;
+    
+  
 }
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
@@ -82,8 +89,8 @@ typedef enum {
                 self.googlePerson = person;
                 
                 self->user = [[TXUser alloc] init];
-                self->user.providerId = PROVIDERS.GOOGLE;
-                self->user.providerUserId = person.identifier;
+                self->user.providerID = PROVIDERS.GOOGLE;
+                self->user.providerUserID = person.identifier;
                 
                 NSDictionary *personProps = getJSONObj(person.JSONString);
                 self->user.language = [personProps objectForKey:@"language"];
@@ -148,7 +155,7 @@ typedef enum {
             
             TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
             
-            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
+            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerID, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserID }];
             [self pushViewController:vc];
             
         }
@@ -162,9 +169,11 @@ typedef enum {
     self->user = [[TXUser alloc] init];
     self->user.username = self.txtUsername.text;
     self->user.password = self.txtPassword.text;
-    
     [self proccessSignIn:[self->model signIn:self->user]];
-    
+}
+
+-(void)gpSignIn:(id)sender {
+    [self showBusyIndicator];
 }
 
 -(void) proccessSignIn:(TXSyncResponseDescriptor *) descriptor {
@@ -212,12 +221,21 @@ typedef enum {
             [self proccessAuthorizationFailed:descriptor];
             
             break;
+            
+        case _UNKNOWN_AUTH:
+            
+            [self proccessUnknownAuth:descriptor];
+            
+            break;
     }
     
-    
+    [self hideBusyIndicator];
 }
 
 -(void) proccessSucceeded:(TXSyncResponseDescriptor *) descriptor {
+    
+    NSDictionary*source = (NSDictionary*)descriptor.source;
+    [self->settings setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
     
     TXMapVC *mapVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
     [self pushViewController:mapVC];
@@ -268,6 +286,10 @@ typedef enum {
 
 -(void) proccessAuthorizationFailed:(TXSyncResponseDescriptor *) descriptor {
     [self alertError:@"Error" message:@"Incorrect username or password !"];
+}
+
+-(void) proccessUnknownAuth:(TXSyncResponseDescriptor *) descriptor {
+    [self alertError:@"Error" message:@"Unknown authorization !"];
 }
 
 -(void)signUpButtonTapped:(id)sender {

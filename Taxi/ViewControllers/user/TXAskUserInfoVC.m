@@ -35,8 +35,8 @@
     user_.username = [self->parameters objectForKey:API_JSON.Authenticate.USERNAME];
     user_.password = [self->parameters objectForKey:API_JSON.Authenticate.PASSWORD];
     user_.mobile   = [self->parameters objectForKey:API_JSON.SignUp.PHONENUMBER];
-    user_.providerId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID];
-    user_.providerUserId = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
+    user_.providerID = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERID];
+    user_.providerUserID = [self->parameters objectForKey:API_JSON.Authenticate.PROVIDERUSERID];
     user_.language = @"en";
     user_.name     = self.txtName.text;
     user_.surname  = self.txtSurname.text;
@@ -51,12 +51,12 @@
     
     if(result.success) {
         
-        if(user_.providerId!=nil) {
+        if(user_.providerID!=nil) {
             
-            if([user_.providerId isEqualToString:PROVIDERS.GOOGLE]) {
-                [[TXSharedObj instance].settings setGoogleUserId:user_.providerId];
+            if([user_.providerID isEqualToString:PROVIDERS.GOOGLE]) {
+                [[TXSharedObj instance].settings setGoogleUserId:user_.providerID];
             } else {
-                [[TXSharedObj instance].settings setFBUserId:user_.providerId];
+                [[TXSharedObj instance].settings setFBUserId:user_.providerID];
             }
             
         }

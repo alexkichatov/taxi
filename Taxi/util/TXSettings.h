@@ -51,6 +51,9 @@
 -(void)setUserName:(NSString*)userName;
 -(void)setPassword:(NSString*)pwd;
 
+-(void)setUserToken:(NSString *)token;
+-(NSString *)getUserToken;
+
 -(void) setNotificationsToken : (NSString *)token;
 -(NSString*)getNotificationsToken;
 

@@ -16,7 +16,8 @@ const struct SettingsConst  SettingsConst = {
     .CryptoKeys = {
         .USERNAME      = @"txUserName",
         .PASSWORD       = @"txUserPwd",
-        .NOTIFICATIONS_TOKEN    = @"notificationsToken"
+        .NOTIFICATIONS_TOKEN    = @"notificationsToken",
+        .USERTOKEN  = @"userToken"
     },
 
     .Property = {

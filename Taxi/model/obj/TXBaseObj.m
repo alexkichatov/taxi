@@ -55,7 +55,15 @@
     NSArray *keys = [props allKeys];
     
     for (NSString *key in keys) {
-        [self setValue:[props objectForKey:key] forKey:key];
+        
+        if(![key isEqualToString:@"serialVersionUID"]) {
+            
+            if([key isEqualToString:@"id"]) {
+                 [self setValue:[props objectForKey:key] forKey:@"objId"];
+            } else {
+                [self setValue:[props objectForKey:key] forKey:key];
+            }
+        }
     }
     
 }

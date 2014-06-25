@@ -21,5 +21,7 @@
 
 +(TXSharedObj *) instance;
 -(UIStoryboard*) currentStoryBoard;
+-(TXUser*) getUser;
+-(void) setUser:(TXUser *)user_;
 
 @end

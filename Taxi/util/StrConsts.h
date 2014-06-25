@@ -16,6 +16,7 @@ extern const struct SettingsConst {
         __unsafe_unretained NSString* USERNAME;
         __unsafe_unretained NSString* PASSWORD;
         __unsafe_unretained NSString* NOTIFICATIONS_TOKEN;
+        __unsafe_unretained NSString* USERTOKEN;
     } CryptoKeys;
     
     

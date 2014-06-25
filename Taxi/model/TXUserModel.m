@@ -22,6 +22,7 @@ typedef enum {
     _OTHER = 7,
     _GENERATECODE = 12,
     _UPDATEMOBILE = 14,
+    _VALIDATETOKEN = 15,
 } OperationCodes;
 
 @implementation TXUser
@@ -48,7 +49,7 @@ typedef enum {
     
     NSDictionary *jsonObj = @{
                                 API_JSON.Keys.OPER  : [NSNumber numberWithInt:_SIGNUP],
-                                API_JSON.Keys.ATTR  : @{ API_JSON.Authenticate.LOGINWITHPROVIDER : user.providerId == nil ? [NSNumber numberWithBool:NO] : [NSNumber numberWithBool:YES] },
+                                API_JSON.Keys.ATTR  : @{ API_JSON.Authenticate.LOGINWITHPROVIDER : user.providerID == nil ? [NSNumber numberWithBool:NO] : [NSNumber numberWithBool:YES] },
                                 API_JSON.Keys.DATA  : propertyMap
                              };
     
@@ -69,6 +70,20 @@ typedef enum {
     request.body = getJSONStr(jsonObj);
     return [self sendSyncRequest:request];
     
+}
+
+-(TXSyncResponseDescriptor *)validateToken:(NSString *) userToken {
+    TXRequestObj *request    = [self createRequest:HTTP_API.USER];
+    NSDictionary *attributes = @{};
+    
+    NSDictionary *jsonObj = @{
+                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_VALIDATETOKEN],
+                              API_JSON.Keys.ATTR  : attributes,
+                              API_JSON.Keys.DATA  : @{ SettingsConst.CryptoKeys.USERTOKEN : userToken }
+                              };
+    
+    request.body = getJSONStr(jsonObj);
+    return [self sendSyncRequest:request];
 }
 
 -(TXSyncResponseDescriptor *)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider {
@@ -98,9 +113,9 @@ typedef enum {
                                    API_JSON.Authenticate.USERNAME :
                                        (user.username != nil ? user.username : [NSNull null]),
                                    API_JSON.Authenticate.PROVIDERID :
-                                       (user.providerId != nil ? user.providerId : [NSNull null]),
+                                       (user.providerID != nil ? user.providerID : [NSNull null]),
                                    API_JSON.Authenticate.PROVIDERUSERID :
-                                       (user.providerUserId != nil ? user.providerUserId : [NSNull null])
+                                       (user.providerUserID != nil ? user.providerUserID : [NSNull null])
                                   };
     
     NSDictionary *jsonObj = @{
@@ -122,9 +137,9 @@ typedef enum {
                                   API_JSON.Authenticate.USERNAME :
                                       (user.username != nil ? user.username : [NSNull null]),
                                   API_JSON.Authenticate.PROVIDERID :
-                                      (user.providerId != nil ? user.providerId : [NSNull null]),
+                                      (user.providerID != nil ? user.providerID : [NSNull null]),
                                   API_JSON.Authenticate.PROVIDERUSERID :
-                                      (user.providerUserId != nil ? user.providerUserId : [NSNull null])
+                                      (user.providerUserID != nil ? user.providerUserID : [NSNull null])
                                   };
     
     NSDictionary *jsonObj = @{

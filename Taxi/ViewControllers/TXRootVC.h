@@ -23,4 +23,8 @@
 -(TXRootVC *) vcFromName: (NSString *) name;
 -(void)refreshInterfaceBasedOnSignIn;
 -(void) setParameters:(NSDictionary *)props;
+-(void) showBusyIndicator;
+-(void) showBusyIndicator:(NSString *)title;
+-(void) hideBusyIndicator;
+
 @end
