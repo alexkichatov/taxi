@@ -11,6 +11,7 @@
 #import "TXModelBase.h"
 #import "TXBaseViewController.h"
 #import "TXStackedViewController.h"
+#import "TXUILayers.h"
 
 @interface TXRootVC : TXStackedViewController<TXEventListener> {
     NSDictionary *parameters;

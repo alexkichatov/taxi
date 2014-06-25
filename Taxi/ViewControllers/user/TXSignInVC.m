@@ -47,6 +47,8 @@ typedef enum {
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [self configureFieldStyles];
+    
     self->model = [TXUserModel instance];
     [self->model addEventListener:self forEvent:TXEvents.CHECK_USER_COMPLETED eventParams:nil];
     [self->model addEventListener:self forEvent:TXEvents.CHECK_PROVIDER_USER_COMPLETED eventParams:nil];
@@ -65,6 +67,21 @@ typedef enum {
     
   
 }
+
+-(void) configureFieldStyles {
+    
+    [self.txtUsername setTextAlignment:NSTextAlignmentLeft];
+    [self.txtUsername setClearButtonMode:UITextFieldViewModeWhileEditing];
+    self.txtUsername.layer.shadowOpacity = 0.0;
+    [self.txtUsername.layer addSublayer:[TXUILayers layerWithRadiusTop:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    
+    [self.txtPassword setTextAlignment:NSTextAlignmentLeft];
+    [self.txtPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
+    self.txtPassword.layer.shadowOpacity = 0.0;
+    [self.txtPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    
+}
+
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
     

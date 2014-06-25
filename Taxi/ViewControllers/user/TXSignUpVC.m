@@ -30,7 +30,30 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     self->userExists = YES;
+    
+    [self configureStyles];
+    
+    
     [self refreshSignUpButton];
+}
+
+-(void) configureStyles {
+    
+    [self.txtUsername setTextAlignment:NSTextAlignmentLeft];
+    [self.txtUsername setClearButtonMode:UITextFieldViewModeWhileEditing];
+    self.txtUsername.layer.shadowOpacity = 0.0;
+    [self.txtUsername.layer addSublayer:[TXUILayers layerWithRadiusTop:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    
+    [self.txtPassword setTextAlignment:NSTextAlignmentLeft];
+    [self.txtPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
+    self.txtPassword.layer.shadowOpacity = 0.0;
+    [self.txtPassword.layer addSublayer:[TXUILayers layerWithRadiusNone:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    
+    [self.txtConfirmPassword setTextAlignment:NSTextAlignmentLeft];
+    [self.txtConfirmPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
+    self.txtConfirmPassword.layer.shadowOpacity = 0.0;
+    [self.txtConfirmPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    
 }
 
 -(IBAction)signUp:(id)sender {
