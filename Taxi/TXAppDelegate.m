@@ -38,8 +38,14 @@
     TXSettings  *settings  = [[TXApp instance] getSettings];
     TXRootVC    *firstVC   = nil;
     
+    self.window.rootViewController = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    return YES;
+    
     NSString *userToken = [settings getUserToken];
-    if(userToken!=nil && ![userToken isEqual:[NSNull null]]) {
+    if(![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
         
         [SVProgressHUD showWithStatus:@"" maskType:SVProgressHUDMaskTypeBlack];
         TXSyncResponseDescriptor*descriptor = [userModel validateToken:userToken];

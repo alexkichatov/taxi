@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TXSignUpVC">
             <connections>
+                <outlet property="btnSignUp" destination="nTZ-Yv-lL0" id="4qc-tX-K5f"/>
                 <outlet property="txtConfirmPassword" destination="qaX-bL-0iO" id="KVD-mL-6nC"/>
                 <outlet property="txtPassword" destination="X7T-vR-cKt" id="Kh6-z4-QcI"/>
                 <outlet property="txtUsername" destination="YFM-ga-zdV" id="5Jb-Qw-04q"/>
@@ -17,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultbg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Jmt-xU-qhh">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultbg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Jmt-xU-qhh">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -39,19 +40,13 @@
                         <action selector="textFieldFocusLost:" destination="-1" eventType="editingChanged" id="D24-q9-VBf"/>
                     </connections>
                 </textField>
-                <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-Yv-lL0">
-                    <rect key="frame" x="20" y="116" width="280" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-Yv-lL0">
+                    <rect key="frame" x="20" y="108" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Next">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="signUp:" destination="-1" eventType="touchDown" id="wIi-ko-dbP"/>
                     </connections>
@@ -86,6 +81,6 @@
         </view>
     </objects>
     <resources>
-        <image name="defaultbg.jpg" width="320" height="480"/>
+        <image name="defaultbg.jpg" width="640" height="960"/>
     </resources>
 </document>

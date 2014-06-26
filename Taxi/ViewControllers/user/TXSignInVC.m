@@ -26,7 +26,7 @@ typedef enum {
     _USER_BLOCKED = 1013,
     _AUTH_FAILED = 1008,
     _UNKNOWN_AUTH = 1018,
-    
+    _ERROR = 0
 } SignInCodes;
 
 @interface TXSignInVC ()<GPPSignInDelegate> {
@@ -70,15 +70,20 @@ typedef enum {
 
 -(void) configureFieldStyles {
     
+    self.txtUsername.height = 40;
     [self.txtUsername setTextAlignment:NSTextAlignmentLeft];
     [self.txtUsername setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtUsername.layer.shadowOpacity = 0.0;
     [self.txtUsername.layer addSublayer:[TXUILayers layerWithRadiusTop:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
     
+    [self.txtPassword setFrame:CGRectMake(self.txtUsername.frame.origin.x, self.txtUsername.frame.origin.y + 40.5, self.txtUsername.frame.size.width, self.txtUsername.frame.size.height)];
+    
+    self.txtPassword.height = 40;
     [self.txtPassword setTextAlignment:NSTextAlignmentLeft];
     [self.txtPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtPassword.layer.shadowOpacity = 0.0;
     [self.txtPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    
     
 }
 
@@ -244,6 +249,12 @@ typedef enum {
             [self proccessUnknownAuth:descriptor];
             
             break;
+            
+        case _ERROR:
+            
+            [self proccessGenericError];
+            
+            break;
     }
     
     [self hideBusyIndicator];
@@ -312,6 +323,10 @@ typedef enum {
 -(void)signUpButtonTapped:(id)sender {
     TXSignUpVC *signUpVC = [[TXSignUpVC alloc] initWithNibName:@"TXSignUpVC" bundle:nil];
     [self pushViewController:signUpVC];
+}
+
+-(void) proccessGenericError {
+    [self alertError:@"Error" message:@"Unknown error occured !"];
 }
 
 @end

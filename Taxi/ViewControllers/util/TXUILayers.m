@@ -14,7 +14,7 @@
     
     UIBezierPath *mask = [UIBezierPath bezierPathWithRoundedRect:bounds
                                        byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight)
-                                       cornerRadii:CGSizeMake(4.0, 4.0)];
+                                       cornerRadii:CGSizeMake(3.0, 3.0)];
     
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     layer.frame = bounds;
@@ -28,11 +28,12 @@
     
     UIBezierPath *mask = [UIBezierPath bezierPathWithRoundedRect:bounds
                                        byRoundingCorners:(UIRectCornerBottomLeft | UIRectCornerBottomRight)
-                                       cornerRadii:CGSizeMake(4.0, 4.0)];
+                                       cornerRadii:CGSizeMake(3.0, 3.0)];
     
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     layer.frame = bounds;
     layer.path = mask.CGPath;
+    layer.shadowColor = [UIColor blackColor].CGColor;
     [layer setFillColor:color];
     
     return layer;
@@ -42,7 +43,7 @@
     
     UIBezierPath *mask = [UIBezierPath bezierPathWithRoundedRect:bounds
                                                byRoundingCorners:false
-                                                     cornerRadii:CGSizeMake(4.0, 4.0)];
+                                                     cornerRadii:CGSizeMake(3.0, 3.0)];
     
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     layer.frame = bounds;

@@ -184,22 +184,6 @@ extern const struct LoggerConsts {
 
 } LoggerConsts;
 
-extern const struct FieldsConsts {
-    
-    __unsafe_unretained NSString* CLIENTID;
-    __unsafe_unretained NSString* ID;
-    __unsafe_unretained NSString* NAME;
-    __unsafe_unretained NSString* SERVERID;
-    __unsafe_unretained NSString* OBJID;
-    __unsafe_unretained NSString* TYPE;
-    __unsafe_unretained NSString* DATA;
-    __unsafe_unretained NSString* TIMESTAMP;
-    __unsafe_unretained NSString* MESSAGE;
-    __unsafe_unretained NSString* LOGTYPE;
-    __unsafe_unretained NSString* CODE;
-    __unsafe_unretained NSString* MERTIC;
-    
-} FieldsConsts;
 
 extern const struct GoogleAPIRequestConsts {
     

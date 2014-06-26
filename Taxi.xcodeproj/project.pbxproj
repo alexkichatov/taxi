@@ -100,6 +100,7 @@
 		389EDB5C18F027BD005CAAE7 /* TXSignCheckerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5B18F027BD005CAAE7 /* TXSignCheckerVC.m */; };
 		389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */; };
 		389EDB6418F19687005CAAE7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB6318F19687005CAAE7 /* CMPopTipView.m */; };
+		38C04B5E195CDA8A00BAC3A0 /* red-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C04B5D195CDA8A00BAC3A0 /* red-pin.png */; };
 		38C0ECE918EC590E00AFE860 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */; };
 		38C0ECEA18EC590F00AFE860 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */; };
 		38C0ECEB18EC590F00AFE860 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE818EC590E00AFE860 /* GooglePlus.framework */; };
@@ -111,7 +112,6 @@
 		38C0ECF718EC595B00AFE860 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECF618EC595B00AFE860 /* MediaPlayer.framework */; };
 		38C0ECF918EC596200AFE860 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECF818EC596200AFE860 /* Security.framework */; };
 		38C0ECFB18EC596E00AFE860 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECFA18EC596E00AFE860 /* SystemConfiguration.framework */; };
-		38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECFC18EC636900AFE860 /* defaultbg.jpg */; };
 		38C4F7F218AD024000D6B2CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4F7F118AD024000D6B2CC /* MapKit.framework */; };
 		38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C60B8918D47BEC000A3DD3 /* TXMapVC.m */; };
 		38C9B5011927B8580088CCC5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C9B5001927B8580088CCC5 /* MobileCoreServices.framework */; };
@@ -134,6 +134,7 @@
 		38DA7893191BCE8700269AB7 /* FDKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DA7891191BCE8700269AB7 /* FDKeyChain.m */; };
 		38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38DA7894191BCF4F00269AB7 /* taxi.bundle */; };
 		38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */; };
+		38DE08F6195B14A900E66A24 /* defaultbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38DE08F5195B14A900E66A24 /* defaultbg.jpg */; };
 		38E435E7195AFF1700E712DD /* TXAskPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E435E3195AFF1700E712DD /* TXAskPhoneNumberVC.xib */; };
 		38E435E8195AFF1700E712DD /* TXConfirmationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E435E4195AFF1700E712DD /* TXConfirmationVC.xib */; };
 		38E435E9195AFF1700E712DD /* TXSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E435E5195AFF1700E712DD /* TXSignInVC.xib */; };
@@ -318,6 +319,7 @@
 		389EDB6218F19687005CAAE7 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		389EDB6318F19687005CAAE7 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
 		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		38C04B5D195CDA8A00BAC3A0 /* red-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-pin.png"; sourceTree = "<group>"; };
 		38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		38C0ECE818EC590E00AFE860 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
@@ -329,7 +331,6 @@
 		38C0ECF618EC595B00AFE860 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		38C0ECF818EC596200AFE860 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		38C0ECFA18EC596E00AFE860 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		38C0ECFC18EC636900AFE860 /* defaultbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultbg.jpg; sourceTree = "<group>"; };
 		38C4F7F118AD024000D6B2CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		38C60B8818D47BEC000A3DD3 /* TXMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMapVC.h; path = ../TXMapVC.h; sourceTree = "<group>"; };
 		38C60B8918D47BEC000A3DD3 /* TXMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXMapVC.m; path = ../TXMapVC.m; sourceTree = "<group>"; };
@@ -371,6 +372,7 @@
 		38DA7894191BCF4F00269AB7 /* taxi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = taxi.bundle; sourceTree = "<group>"; };
 		38DABBC318D9AA72005D4AC4 /* TXGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXGoogleRequestManager.h; path = ../../util/TXGoogleRequestManager.h; sourceTree = "<group>"; };
 		38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXGoogleRequestManager.m; path = ../../util/TXGoogleRequestManager.m; sourceTree = "<group>"; };
+		38DE08F5195B14A900E66A24 /* defaultbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultbg.jpg; sourceTree = "<group>"; };
 		38E435E3195AFF1700E712DD /* TXAskPhoneNumberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXAskPhoneNumberVC.xib; sourceTree = "<group>"; };
 		38E435E4195AFF1700E712DD /* TXConfirmationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXConfirmationVC.xib; sourceTree = "<group>"; };
 		38E435E5195AFF1700E712DD /* TXSignInVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXSignInVC.xib; sourceTree = "<group>"; };
@@ -867,12 +869,13 @@
 		388D6D7818BB83880099C1C2 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				38C04B5D195CDA8A00BAC3A0 /* red-pin.png */,
+				38DE08F5195B14A900E66A24 /* defaultbg.jpg */,
 				3826CC4E18EF02A0003D7AD2 /* button-settings.png */,
 				3826CC4C18EF002E003D7AD2 /* button-signout.png */,
 				3826CC4A18EEFE08003D7AD2 /* button-profile.png */,
 				3826CC4818EEFAB8003D7AD2 /* button-home.png */,
 				3826CC2718EEC57A003D7AD2 /* menu-alt.png */,
-				38C0ECFC18EC636900AFE860 /* defaultbg.jpg */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -1113,6 +1116,7 @@
 			files = (
 				3826CC4218EEDBAD003D7AD2 /* menu-button.png in Resources */,
 				38E435E8195AFF1700E712DD /* TXConfirmationVC.xib in Resources */,
+				38DE08F6195B14A900E66A24 /* defaultbg.jpg in Resources */,
 				389B630E1943202F00BB364C /* TXMapVC.xib in Resources */,
 				385E11A618EC35C400AB7570 /* AMFIndeterminateProgressViewController.xib in Resources */,
 				389D4F01191D4E55005ED6E1 /* Main_iPad.storyboard in Resources */,
@@ -1123,7 +1127,6 @@
 				3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */,
 				3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
-				38C0ECFD18EC636900AFE860 /* defaultbg.jpg in Resources */,
 				385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */,
 				389D4F08191D4E6B005ED6E1 /* Main_iPhone.storyboard in Resources */,
 				38E435E7195AFF1700E712DD /* TXAskPhoneNumberVC.xib in Resources */,
@@ -1134,6 +1137,7 @@
 				385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */,
 				38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */,
 				3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */,
+				38C04B5E195CDA8A00BAC3A0 /* red-pin.png in Resources */,
 				3841E81E190A72C200F0FABF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1308,7 +1312,7 @@
 				IBSC_FLATTEN_NIBS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1343,7 +1347,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IBSC_FLATTEN_NIBS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "5978A211-F941-4FF2-B20C-568258F821BB";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

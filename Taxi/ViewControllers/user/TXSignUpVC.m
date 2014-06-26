@@ -34,7 +34,7 @@
     [self configureStyles];
     
     
-    [self refreshSignUpButton];
+   // [self refreshSignUpButton];
 }
 
 -(void) configureStyles {
@@ -52,7 +52,10 @@
     [self.txtConfirmPassword setTextAlignment:NSTextAlignmentLeft];
     [self.txtConfirmPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtConfirmPassword.layer.shadowOpacity = 0.0;
-    [self.txtConfirmPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    [self.txtConfirmPassword.layer addSublayer:[TXUILayers layerWithRadiusNone:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+
+    [self.btnSignUp.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.btnSignUp.bounds color:[[UIColor orangeColor] CGColor]]];
+
     
 }
 
@@ -101,7 +104,7 @@
         
     }
     
-    [self refreshSignUpButton];
+  //  [self refreshSignUpButton];
 }
 
 -(void)textFieldFocusGained:(UITextField *)sender {
@@ -110,7 +113,7 @@
         [self->popup removeFromSuperview];
     }
     
-    [self refreshSignUpButton];
+   // [self refreshSignUpButton];
 }
 
 -(void) refreshSignUpButton {

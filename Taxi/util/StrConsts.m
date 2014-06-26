@@ -181,21 +181,6 @@ const struct LoggerConsts LoggerConsts = {
 
 };
 
-const struct FieldsConsts FieldsConsts = {
-    .ID = @"id",
-    .CLIENTID = @"AMDCRowId",
-    .NAME = @"name",
-    .SERVERID = @"serverId",
-    .OBJID = @"objId",
-    .TYPE = @"type",
-    .DATA = @"data",
-    .TIMESTAMP = @"timeStamp",
-    .MESSAGE = @"message",
-    .LOGTYPE = @"logtype",
-    .CODE = @"code",
-    .MERTIC = @"messageMetric"
-};
-
 const struct GoogleAPIRequestConsts GoogleAPIRequestConsts = {
     
     .PLACES_NEARBYSEARCH = @"PlacesNearbySearch",
@@ -396,7 +381,7 @@ const struct API_JSON API_JSON = {
     
     .ID = @"id",
     .ERROR = @"error",
-    .OBJID = @"objId",
+    .OBJID = @"objID",
     .VERIFICATIONCODE = @"verificationCode",
     
     .Keys = {

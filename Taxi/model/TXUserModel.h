@@ -11,7 +11,7 @@
 
 @interface TXUser : TXBaseObj
 
-@property (nonatomic, assign) int       objId;
+@property (nonatomic, assign) int       objID;
 @property (nonatomic, retain) NSString* username;
 @property (nonatomic, retain) NSString* password;
 @property (nonatomic, retain) NSString* name;

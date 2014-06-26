@@ -10,20 +10,20 @@
 const struct TXPropertyConsts TXPropertyConsts = {
     
     .User = {
-                .OBJID = @"objId",
+                .OBJID = @"objID",
                 .USERNAME = @"username",
                 .PASSWORD = @"password",
                 .NAME = @"name",
                 .SURNAME = @"surname",
                 .EMAIL = @"email",
                 .MOBILE = @"mobile",
-                .STATUSID = @"statusId",
+                .STATUSID = @"statusID",
                 .NOTE = @"note",
                 .CREATEDATE = @"createDate",
                 .MODIFICATIONDATE = @"modificationDate",
                 .LANGUAGE = @"language",
                 .PHOTOURL = @"photoURL",
-                .PROVIDERUSERID = @"providerUserId",
-                .PROVIDERID = @"providerId",
+                .PROVIDERUSERID = @"providerUserID",
+                .PROVIDERID = @"providerID",
     }
 };

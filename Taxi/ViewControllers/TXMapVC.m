@@ -35,6 +35,7 @@ const NSString *SPACE_BAR = @" ";
     NSMutableArray *items;
     TXGoogleRequestManager *googleReqMgr;
     NSString *country;
+    CLLocationCoordinate2D pickupCoordinate;
 }
 
 -(IBAction)search:(id)sender;
@@ -120,6 +121,8 @@ const NSString *SPACE_BAR = @" ";
     
 }
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -195,10 +198,15 @@ const NSString *SPACE_BAR = @" ";
 -(void) addMarker:(CLLocationCoordinate2D) position {
 
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
-    marker.icon = [GMSMarker markerImageWithColor:[UIColor yellowColor]];
-    marker.title = @"Hello World";
+    marker.icon = [UIImage imageNamed:@"red-pin.png"]; //[GMSMarker markerImageWithColor:[UIColor yellowColor]];
     marker.map = self.mapView_;
+    marker.draggable = YES;
+    
+}
 
+- (void) mapView:(GMSMapView *)mapView didDragMarker:(GMSMarker *)marker
+{
+    self->pickupCoordinate = marker.position;
 }
 
 -(void) searchLocation {
@@ -210,6 +218,21 @@ const NSString *SPACE_BAR = @" ";
     CLLocation *location = [manager location];
     [self.mapView_ animateToLocation:location.coordinate];
     [self.locationMgr stopUpdatingLocation];
+    
+    self->pickupCoordinate = location.coordinate;
+    [self addMarker:self->pickupCoordinate];
+
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSLog(@"%.8f", currentLocation.coordinate.longitude);
+        NSLog(@"%.8f", currentLocation.coordinate.latitude);
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -235,14 +258,14 @@ const NSString *SPACE_BAR = @" ";
 }
 
 
--(void)locationManager:(CLLocationManager *)manager
-   didUpdateToLocation:(CLLocation *)newLocation
-          fromLocation:(CLLocation *)oldLocation {
-    
-    CLLocation *location = [manager location];
-    [self.mapView_ animateToLocation:location.coordinate];
-    
-}
+//-(void)locationManager:(CLLocationManager *)manager
+//   didUpdateToLocation:(CLLocation *)newLocation
+//          fromLocation:(CLLocation *)oldLocation {
+//    
+//    CLLocation *location = [manager location];
+//    [self.mapView_ animateToLocation:location.coordinate];
+//    
+//}
 
 - (void)didReceiveMemoryWarning
 {

@@ -7,6 +7,7 @@
 //
 
 #import "TXBaseObj.h"
+#import "StrConsts.h"
 #import <objc/runtime.h>
 
 @implementation TXBaseObj
@@ -59,7 +60,7 @@
         if(![key isEqualToString:@"serialVersionUID"]) {
             
             if([key isEqualToString:@"id"]) {
-                 [self setValue:[props objectForKey:key] forKey:@"objId"];
+                 [self setValue:[props objectForKey:key] forKey:API_JSON.OBJID];
             } else {
                 [self setValue:[props objectForKey:key] forKey:key];
             }
