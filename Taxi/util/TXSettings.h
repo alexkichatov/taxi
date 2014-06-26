@@ -52,6 +52,7 @@
 -(void)setPassword:(NSString*)pwd;
 
 -(void)setUserToken:(NSString *)token;
+-(void)removeUserToken;
 -(NSString *)getUserToken;
 
 -(void) setNotificationsToken : (NSString *)token;

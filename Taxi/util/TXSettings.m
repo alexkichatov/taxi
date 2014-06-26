@@ -39,17 +39,17 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 	self = [super init];
 	if ( self ) {
         NSURL* t = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-		stgPath = [[t URLByAppendingPathComponent:Files.SETTINGSFILE] path];
+		self->stgPath = [[t URLByAppendingPathComponent:Files.SETTINGSFILE] path];
 		NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:stgPath];
         
 		NSPropertyListFormat format;
 		NSString *errorString;
-		root = [NSPropertyListSerialization propertyListFromData:plistXML
+		self->root = [NSPropertyListSerialization propertyListFromData:plistXML
                                                 mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                                           format:&format
                                                 errorDescription:&errorString];
-		if (root == nil) {
-            root = [[NSMutableDictionary alloc] initWithCapacity:10];
+		if (self->root == nil) {
+            self->root = [[NSMutableDictionary alloc] initWithCapacity:10];
             [self initWithDefaults];
 		}
         
@@ -149,6 +149,11 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 -(void)setUserToken:(NSString *)token {
     [FDKeychain saveItem:token forKey:SettingsConst.CryptoKeys.USERTOKEN
               forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
+-(void)removeUserToken {
+    [FDKeychain deleteItemForKey:SettingsConst.CryptoKeys.USERTOKEN
+                forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
 -(NSString *)getUserToken {
