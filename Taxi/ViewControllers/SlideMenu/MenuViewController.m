@@ -51,6 +51,11 @@ int const MENU_ITEMS_COUNT = 4;
 -(void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    UINib *nib = [UINib nibWithNibName:@"MenuTableViewCell" bundle:nil];
+    self.cellIdentifier = @"leftMenuCell";
+    [self.tableView registerNib:nib forCellReuseIdentifier:self.cellIdentifier];
+    
     self->items = [NSMutableArray arrayWithCapacity:MENU_ITEMS_COUNT];
     
     TXSettingsMenuItem *item = [TXSettingsMenuItem create:LEFT_MENU.Names.HOME
@@ -76,6 +81,8 @@ int const MENU_ITEMS_COUNT = 4;
                        viewController:LEFT_MENU.Controllers.SIGNOUT];
     
     [items addObject:item];
+    
+    
 }
 
 #pragma mark - UITableView Delegate & Datasrouce -

@@ -23,5 +23,6 @@
 @interface MenuViewController : TXRootVC <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString *cellIdentifier;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end

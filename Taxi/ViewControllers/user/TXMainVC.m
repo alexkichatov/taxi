@@ -28,9 +28,7 @@
 {
     [super viewDidLoad];
  
-    MenuViewController *leftMenu = (MenuViewController*)[[[TXSharedObj instance] currentStoryBoard] instantiateViewControllerWithIdentifier: @"MenuViewController"];
-	leftMenu.cellIdentifier = @"leftMenuCell";
-	
+    MenuViewController *leftMenu = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:nil];
 	[SlideNavigationController sharedInstance].leftMenu = leftMenu;
 	
 	// Creating a custom bar button for right menu
@@ -39,7 +37,7 @@
 	[button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleLeftMenu) forControlEvents:UIControlEventTouchUpInside];
 	UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 	[SlideNavigationController sharedInstance].leftBarButtonItem = leftBarButtonItem;
-    
+
 }
 
 #pragma mark - SlideNavigationController Methods -
@@ -52,12 +50,6 @@
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
 {
 	return NO;
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 @end

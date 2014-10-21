@@ -24,6 +24,7 @@
 #import "TXUserModel.h"
 #import "TXApp.h"
 #import "SVProgressHUD.h"
+#import "TXMainVC.h"
 
 @implementation TXAppDelegate
 
@@ -38,9 +39,12 @@
     TXSettings  *settings  = [[TXApp instance] getSettings];
     TXRootVC    *firstVC   = nil;
     
-    self.window.rootViewController = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];;
+    firstVC = [[TXMainVC alloc] init];
+    
+    self.window.rootViewController = firstVC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
     
