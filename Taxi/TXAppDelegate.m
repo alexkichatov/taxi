@@ -45,31 +45,18 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    
-    return YES;
-    
     NSString *userToken = [settings getUserToken];
     if(![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
         
         [SVProgressHUD showWithStatus:@"" maskType:SVProgressHUDMaskTypeBlack];
-        TXSyncResponseDescriptor*descriptor = [userModel validateToken:userToken];
+        [userModel authWithToken:userToken];
         if ([SVProgressHUD isVisible])
             [SVProgressHUD dismiss];
         
-        if(descriptor.success) {
-            
-            NSDictionary* source = (NSDictionary*)descriptor.source;
-            TXUser *user  = [[TXUser alloc] init];
-            [user setProperties:source];
-            
-            firstVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
-            
-        } else {
-            firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
-        }
-        
     } else {
+        
         firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+        
     }
     
     self.window.rootViewController = firstVC;
@@ -128,6 +115,36 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation
 {
     return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+-(void) registerListeners {
+    
+}
+
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    
+    TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
+    
+    if(descriptor.success) {
+        
+        NSDictionary* source = (NSDictionary*)descriptor.source;
+        TXUser *user  = [[TXUser alloc] init];
+        [user setProperties:source];
+        
+        TXRootVC *firstVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
+        
+    } else {
+        TXRootVC *firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+    }
+    
+}
+
+-(void) onTokenValidateSucceeded:(TXEvent *) event {
+    
+}
+
+-(void) onTokenValidateFailed:(TXEvent *) event {
+    
 }
 
 @end

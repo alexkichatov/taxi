@@ -15,6 +15,9 @@
     
     if(self = [super init]) {
         self->httpMgr     = [TXHttpRequestManager instance];
+        [self addEventListener:self forEvent:TXEvents.HTTPREQUESTCOMPLETED eventParams:nil];
+        [self addEventListener:self forEvent:TXEvents.HTTPREQUESTFAILED eventParams:nil];
+        [self addEventListener:self forEvent:TXEvents.NULLHTTPRESPONSE eventParams:nil];
     }
     
     return self;
@@ -23,52 +26,43 @@
 -(void)onRequestCompleted:(id)object {
     
     TXEvent *event = nil;
-    TXRequestObj *request = nil;
+    TXRequestObj *request = (TXRequestObj*)object;
+    NSDictionary *responseObj = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
     
-    if(object!=nil) {
-    
-        request                   = (TXRequestObj*)object;
-        NSDictionary *responseObj = getJSONObj([[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding]);
+    if(responseObj!=nil) {
         
-        if(responseObj!=nil) {
+        BOOL success = [[responseObj objectForKey:API_JSON.ResponseDescriptor.SUCCESS] boolValue];
+        int  code = [[responseObj objectForKey:API_JSON.ResponseDescriptor.CODE] intValue];
+        id   source = [responseObj objectForKey:API_JSON.ResponseDescriptor.SOURCE];
+        id   message = [responseObj objectForKey:API_JSON.ResponseDescriptor.MESSAGE];
         
-            BOOL success = NO;
-            NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithCapacity:2];
-            
-            id successVal = [responseObj objectForKey:API_JSON.Keys.SUCCESS];
-            if(successVal!=nil) {
-                success = [successVal boolValue];
-                [properties setObject:[NSNumber numberWithBool:success] forKey:API_JSON.Keys.SUCCESS];
-            }
-            
-            NSString *data = [responseObj objectForKey:API_JSON.Keys.DATA];
-            
-            if(data!=nil) {
-                [properties setObject:data forKey:API_JSON.Keys.DATA];
-            }
-            
-            event = [TXEvent createEvent:TXEvents.HTTPREQUESTCOMPLETED eventSource:self eventProps:properties];
-            
-        } else {
-            
-            event = [TXEvent createEvent:TXEvents.NULLHTTPRESPONSE eventSource:self eventProps:nil];
-            
-        }
+        TXResponseDescriptor *descriptor = [TXResponseDescriptor create:success code:code message:message source:source];
+        
+        event = [TXEvent createEvent:TXEvents.HTTPREQUESTCOMPLETED
+                         eventSource:self
+                          eventProps:@{
+                                       TXEvents.Params.DESCRIPTOR : descriptor,
+                                       TXEvents.Params.REQUEST    : request
+                                       }];
         
     } else {
-
-        event = [TXEvent createEvent:TXEvents.NULLHTTPREQUEST eventSource:self eventProps:nil];
+        
+        event = [TXEvent createEvent:TXEvents.NULLHTTPRESPONSE eventSource:self eventProps:nil];
         
     }
-    
     
     [self fireEvent:event];
 }
 
 -(void)onFail:(id)object error:(TXError *)error {
     
-    NSDictionary *properties  = @{ API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:NO], API_JSON.Keys.MESSAGE : @"Http request failed !" };
-    TXEvent *event            = [TXEvent createEvent:TXEvents.HTTPREQUESTFAILED eventSource:self eventProps:properties];
+    TXResponseDescriptor *descriptor = [TXResponseDescriptor create:false code:0 message:@"Http request failed" source:nil];
+    TXEvent *event            = [TXEvent createEvent:TXEvents.HTTPREQUESTFAILED
+                                         eventSource:self
+                                         eventProps:@{
+                                                        TXEvents.Params.DESCRIPTOR : descriptor,
+                                                        TXEvents.Params.REQUEST    : object
+                                                      }];
     [self fireEvent:event];
     
 }
@@ -83,6 +77,10 @@
 
 -(id)sendSyncRequest:(TXRequestObj *) request {
     return [self->httpMgr sendSyncRequest:request];
+}
+
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    NSAssert(false, @"Subclasses should override onEvent !");
 }
 
 @end

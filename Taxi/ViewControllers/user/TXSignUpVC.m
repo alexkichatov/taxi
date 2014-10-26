@@ -16,6 +16,7 @@
     NSString *lastExistingUsername;
     BOOL userExists;
     CMPopTipView *popup;
+    
 }
 
 -(IBAction)signUp:(id)sender;
@@ -29,6 +30,8 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    self->model = [TXUserModel instance];
+    [self->model addEventListener:self forEvent:TXEvents.CHECKUSEREXISTS eventParams:nil];
     self->userExists = YES;
     
     [self configureStyles];
@@ -99,7 +102,7 @@
             
             TXUser *user = [[TXUser alloc] init];
             user.username = sender.text;
-            [[TXUserModel instance] checkIfUserExistsAsync:user];
+            [self->model checkIfUserExists:user];
         }
         
     }
@@ -141,12 +144,11 @@
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
-    if([event.name isEqualToString:TXEvents.CHECK_USER_COMPLETED]) {
+    TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
+    
+    if([event.name isEqualToString:TXEvents.CHECKUSEREXISTS]) {
         
-        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
-        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
-        
-        if(!success && code == USERNAME_EXISTS) {
+        if(!descriptor.success && descriptor.code == USERNAME_EXISTS) {
             
             self->userExists = YES;
             self->lastExistingUsername = self.txtUsername.text;
@@ -158,7 +160,7 @@
             
         }
         
-    } else if([event.name isEqualToString:TXEvents.CHECK_USER_FAILED]) {
+    } else if([event.name isEqualToString:TXEvents.HTTPREQUESTFAILED]) {
         
         // TODO: handling
         

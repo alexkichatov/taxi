@@ -9,22 +9,6 @@
 #import "TXUserModel.h"
 #import "utils.h"
 
-typedef enum {
-    
-    _SIGNUP = 1,
-    _CHECKPHONENUMBERISBLOCKED = 8,
-    _SIGNIN = 9,
-    _UPDATE = 3,
-    _DELETE = 4,
-    _LIST = 5,
-    _CHECK = 6,
-    _CONFIRM = 13,
-    _OTHER = 7,
-    _GENERATECODE = 12,
-    _UPDATEMOBILE = 14,
-    _VALIDATETOKEN = 15,
-} OperationCodes;
-
 @implementation TXUser
 
 @end
@@ -42,176 +26,88 @@ typedef enum {
     return _instance;
 }
 
--(TXSyncResponseDescriptor *)signUp:(TXUser *)user {
+-(void)signUp:(TXUser *)user {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    TXRequestObj *request            = [self createRequest:HttpAPIConsts.CREATEUSER];
     NSDictionary *propertyMap = [user getProperties];
-    
-    NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_SIGNUP],
-                                API_JSON.Keys.ATTR  : @{ API_JSON.Authenticate.LOGINWITHPROVIDER : user.providerID == nil ? [NSNumber numberWithBool:NO] : [NSNumber numberWithBool:YES] },
-                                API_JSON.Keys.DATA  : propertyMap
-                             };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
+    request.body = getJSONStr(propertyMap);
+    [self sendAsyncRequest:request];
 }
 
--(TXSyncResponseDescriptor *)signIn:(TXUser *)user {
+-(void) signIn:(NSString *)username password:(NSString *)password providerId:(NSNumber *) providerId providerUserId:(NSString*)providerUserId {
     
-    TXRequestObj *request     = [self createRequest:HTTP_API.USER];
-
-    NSDictionary *jsonObj     = @{
-                                    API_JSON.Keys.OPER : [NSNumber numberWithInt:_SIGNIN],
-                                    API_JSON.Keys.DATA : [user getProperties],
-                                    API_JSON.Keys.ATTR : @{}
-                                 };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
-    
-}
-
--(TXSyncResponseDescriptor *)validateToken:(NSString *) userToken {
-    TXRequestObj *request    = [self createRequest:HTTP_API.USER];
-    NSDictionary *attributes = @{};
-    
-    NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_VALIDATETOKEN],
-                              API_JSON.Keys.ATTR  : attributes,
-                              API_JSON.Keys.DATA  : @{ SettingsConst.CryptoKeys.USERTOKEN : userToken }
-                              };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
-}
-
--(TXSyncResponseDescriptor *)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider {
-    
-    TXRequestObj *request    = [self createRequest:HTTP_API.USER];
-    NSDictionary *attributes = @{
-                                    API_JSON.Authenticate.LOGINWITHPROVIDER :
-                                    [NSNumber numberWithBool:loginWithProvider]
-                                };
-    
-    NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECKPHONENUMBERISBLOCKED],
-                                API_JSON.Keys.ATTR  : attributes,
-                                API_JSON.Keys.DATA  : @{ API_JSON.SignUp.PHONENUMBER : phoneNum }
-                             };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
-    
-}
-
--(void)checkIfUserExistsAsync:(TXUser *) user {
-    
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    
+    TXRequestObj *request     = [self createRequest:HttpAPIConsts.LOGIN];
     NSDictionary *propertyMap = @{
-                                   API_JSON.Authenticate.USERNAME :
-                                       (user.username != nil ? user.username : [NSNull null]),
-                                   API_JSON.Authenticate.PROVIDERID :
-                                       (user.providerID != nil ? user.providerID : [NSNull null]),
-                                   API_JSON.Authenticate.PROVIDERUSERID :
-                                       (user.providerUserID != nil ? user.providerUserID : [NSNull null])
-                                  };
-    
-    NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
-                                API_JSON.Keys.DATA  : propertyMap,
-                                API_JSON.Keys.ATTR  : @{}
-                             };
-    
-    request.body = getJSONStr(jsonObj);
+                                    API_JSON.Authenticate.USERNAME : username!=nil ? username : [NSNull null],
+                                    API_JSON.Authenticate.PASSWORD : password!=nil ? password : [NSNull null],
+                                    API_JSON.Authenticate.PROVIDERID : providerId!=nil ? providerId : [NSNull null],
+                                    API_JSON.Authenticate.PROVIDERUSERID : providerUserId!=nil ? providerUserId : [NSNull null],
+                                 };
+    request.body = getJSONStr(propertyMap);
     [self sendAsyncRequest:request];
     
 }
 
--(TXSyncResponseDescriptor *)checkIfUserExistsSync:(TXUser *) user {
+-(void)authWithToken:(NSString *) userToken {
+    TXRequestObj *request    = [self createRequest:HTTP_API.USER];
+    request.body = getJSONStr(@{ SettingsConst.CryptoKeys.USERTOKEN : userToken });
+    [self sendAsyncRequest:request];
+}
+
+-(void)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    
-    NSDictionary *propertyMap = @{
-                                  API_JSON.Authenticate.USERNAME :
-                                      (user.username != nil ? user.username : [NSNull null]),
-                                  API_JSON.Authenticate.PROVIDERID :
-                                      (user.providerID != nil ? user.providerID : [NSNull null]),
-                                  API_JSON.Authenticate.PROVIDERUSERID :
-                                      (user.providerUserID != nil ? user.providerUserID : [NSNull null])
-                                  };
-    
-    NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CHECK],
-                              API_JSON.Keys.DATA  : propertyMap,
-                              API_JSON.Keys.ATTR  : @{}
-                              };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
+    TXRequestObj *request    = [self createRequest:HttpAPIConsts.CHECKMOBILEPHONEBLOCKED];
+    request.body = getJSONStr(@{ API_JSON.SignUp.PHONENUMBER : phoneNum });
+    [self sendAsyncRequest:request];
     
 }
 
--(TXSyncResponseDescriptor *)confirm:(int) userId code:(NSString *) code {
+-(void)checkIfUserExists:(TXUser *) user {
     
-    if(code.length == 0) {
-        return nil;
-    }
+    TXRequestObj *request            = [self createRequest:HttpAPIConsts.CHECKUSEREXISTS];
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    NSDictionary *propertyMap = @{
+                                    API_JSON.Authenticate.USERNAME       : (user.username != nil ? user.username : [NSNull null]),
+                                    API_JSON.Authenticate.PROVIDERID     : (user.providerID != nil ? user.providerID : [NSNull null]),
+                                    API_JSON.Authenticate.PROVIDERUSERID : (user.providerUserID != nil ? user.providerUserID : [NSNull null])
+                                  };
     
+    request.body = getJSONStr(propertyMap);
+    [self sendAsyncRequest:request];
+    
+}
+
+-(void)confirm:(int) userId code:(NSString *) code {
+    
+    TXRequestObj *request     = [self createRequest:HttpAPIConsts.CONFIRM];
     NSDictionary *propertyMap = @{
                                     API_JSON.OBJID : [NSNumber numberWithInt:userId],
                                     API_JSON.VERIFICATIONCODE : code
                                  };
     
-    NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_CONFIRM],
-                              API_JSON.Keys.DATA  : propertyMap,
-                              API_JSON.Keys.ATTR  : @{}
-                              };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
+    request.body = getJSONStr(propertyMap);
+    [self sendAsyncRequest:request];
     
 }
 
--(TXSyncResponseDescriptor *)resendVerificationCode:(int) userId {
+-(void)resendVerificationCode:(int) userId {
  
     TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    
-    NSDictionary *propertyMap = @{
-                                    API_JSON.OBJID : [NSNumber numberWithInt:userId]
-                                };
-    
-    NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_GENERATECODE],
-                              API_JSON.Keys.DATA  : propertyMap,
-                              API_JSON.Keys.ATTR  : @{}
-                              };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
+    request.body = getJSONStr(@{ API_JSON.OBJID : [NSNumber numberWithInt:userId] });
+    [self sendAsyncRequest:request];
 }
 
--(TXSyncResponseDescriptor *)updateMobile:(int) userId mobile:(NSString *)mobile {
+-(void)updateMobile:(int) userId mobile:(NSString *)mobile {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    TXRequestObj *request            = [self createRequest:HttpAPIConsts.UPDATEUSERMOBILE];
     
     NSDictionary *propertyMap = @{
                                     API_JSON.OBJID : [NSNumber numberWithInt:userId],
                                     API_JSON.SignUp.PHONENUMBER : mobile
                                   };
     
-    NSDictionary *jsonObj = @{
-                              API_JSON.Keys.OPER  : [NSNumber numberWithInt:_UPDATEMOBILE],
-                              API_JSON.Keys.DATA  : propertyMap,
-                              API_JSON.Keys.ATTR  : @{}
-                              };
-    
-    request.body = getJSONStr(jsonObj);
-    return [self sendSyncRequest:request];
+    request.body = getJSONStr(propertyMap);
+    [self sendAsyncRequest:request];
 }
 
 -(void)logout {
@@ -220,18 +116,10 @@ typedef enum {
 
 -(void)update:(TXUser *)user {
     
-    TXRequestObj *request            = [self createRequest:HTTP_API.USER];
+    TXRequestObj *request            = [self createRequest:HttpAPIConsts.UPDATEUSER];
     NSMutableDictionary *propertyMap = [[user getProperties] mutableCopy];
     [propertyMap removeObjectForKey:TXPropertyConsts.User.STATUSID];
-    
-    NSDictionary *jsonObj = @{
-                                API_JSON.Keys.OPER  : [NSNumber numberWithInt:_UPDATE],
-                                API_JSON.Keys.ATTR  : [NSNull null],
-                                API_JSON.Keys.DATA  : propertyMap
-                             };
-    
-    request.body     = getJSONStr(jsonObj);
-
+    request.body     = getJSONStr(propertyMap);
     [self->httpMgr sendAsyncRequest:request];
     
 }
@@ -240,75 +128,113 @@ typedef enum {
     
 }
 
--(void)onRequestCompleted:(id)object {
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
-    TXRequestObj *request     = (TXRequestObj*)object;
-    NSString     *responseStr = [[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding];
-    NSDictionary *responseObj = getJSONObj(responseStr);
-    TXEvent      *event = nil;
-    NSDictionary *source = nil;
-    NSDictionary *properties = nil;
-    NSDictionary *reqBody = nil;
-    
-    NSLog(@"Response: %@", responseStr);
-    
-    if(responseObj!=nil) {
+    if([event.name isEqualToString:TXEvents.HTTPREQUESTCOMPLETED]) {
         
-        BOOL success   = [[responseObj objectForKey:API_JSON.Keys.SUCCESS] boolValue];
-        int  operation = [[responseObj objectForKey:API_JSON.Keys.OPER] intValue];
-        int  code      = [[responseObj objectForKey:API_JSON.Keys.CODE] intValue];
+        TXRequestObj *request = [event getEventProperty:TXEvents.Params.REQUEST];
+        TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
         
-        source = [responseObj objectForKey:API_JSON.Keys.SOURCE];
-        
-        switch (operation) {
-                
-                case _CHECK:
-                
-                properties  = @{
-                                 API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:success],
-                                 API_JSON.Keys.CODE    : [NSNumber numberWithInt:code],
-                                 API_JSON.Keys.MESSAGE : [responseObj objectForKey:API_JSON.Keys.MESSAGE]
-                               };
-                
-                reqBody = [getJSONObj(request.body) objectForKey:API_JSON.Keys.ATTR];
-                
-                if([[reqBody objectForKey:API_JSON.Authenticate.LOGINWITHPROVIDER] boolValue] == NO) {
-                
-                    event = [TXEvent createEvent:TXEvents.CHECK_USER_COMPLETED eventSource:self eventProps:properties];
-                    
-                } else {
-                    
-                    event = [TXEvent createEvent:TXEvents.CHECK_PROVIDER_USER_COMPLETED eventSource:self eventProps:properties];
-                    
-                }
-                
-                break;
-                
-                    
-            default:
-                
-                properties  = @{
-                                API_JSON.Keys.MESSAGE : @"Unrecognized operation code received !"
-                                };
-                
-                event = [TXEvent createEvent:TXEvents.CHECK_USER_FAILED eventSource:self eventProps:properties];
-                break;
+        if([request.reqConfig.name isEqualToString:HttpAPIConsts.LOGIN]) {
+            [self onLogin:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.AUTHWITHTOKEN]) {
+            [self onAuthWithToken:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.CHECKUSEREXISTS]) {
+            [self onCheckUserExists:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.CHECKVERIFICATIONCODE]) {
+            [self onCheckVerificationCode:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.CONFIRM]) {
+            [self onConfirm:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.CREATEUSER]) {
+            [self onCreateUser:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.CHECKMOBILEPHONEBLOCKED]) {
+            [self onCheckMobilePhoneBlocked:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.GETUSER]) {
+            [self onGetUser:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.UPDATEUSER]) {
+            [self onUpdateUser:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.UPDATEUSERMOBILE]) {
+            [self onUpdateUserMobile:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.UPDATEUSERVERIFICATION]) {
+            [self onUpdateUserVerification:descriptor];
+        } else if([request.reqConfig.name isEqualToString:HttpAPIConsts.UPDATEUSERVERIFICATIONCODE]) {
+            [self onUpdateUserVerificationCode:descriptor];
         }
-        
-    } else {
-        
-        event = [TXEvent createEvent:TXEvents.NULLHTTPRESPONSE eventSource:self eventProps:properties];
         
     }
     
-    [self fireEvent:event];
 }
 
--(void)onFail:(id)object error:(TXError *)error {
+-(void)onLogin:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.LOGIN
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
 
-    NSDictionary *properties  = @{ API_JSON.Keys.SUCCESS : [NSNumber numberWithBool:NO] };
-    TXEvent *event            = [TXEvent createEvent:TXEvents.REGISTER_USER_FAILED eventSource:self eventProps:properties];
-    [self fireEvent:event];
+-(void)onAuthWithToken:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.AUTHWITHTOKEN
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onCheckUserExists:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.CHECKUSEREXISTS
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onCheckVerificationCode:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.CHECKVERIFICATIONCODE
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onConfirm:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.CONFIRM
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onCreateUser:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.CREATEUSER
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onCheckMobilePhoneBlocked:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.CHECKMOBILEPHONEBLOCKED
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onGetUser:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.GETUSER
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onUpdateUser:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.UPDATEUSER
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onUpdateUserMobile:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.UPDATEUSERMOBILE
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onUpdateUserVerification:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.UPDATEUSERVERIFICATION
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
+}
+
+-(void)onUpdateUserVerificationCode:(TXResponseDescriptor *)descriptor {
+    [self fireEvent:[TXEvent createEvent:TXEvents.UPDATEUSERVERIFICATIONCODE
+                             eventSource:self
+                             eventProps:@{ TXEvents.Params.DESCRIPTOR : descriptor }]];
 }
 
 @end

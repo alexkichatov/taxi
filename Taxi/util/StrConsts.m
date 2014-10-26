@@ -384,14 +384,9 @@ const struct API_JSON API_JSON = {
     .OBJID = @"objID",
     .VERIFICATIONCODE = @"verificationCode",
     
-    .Keys = {
-        .OPER     = @"operation",
+    .Request = {
         .ATTR     = @"attr",
-        .DATA     = @"data",
-        .SOURCE   = @"source",
-        .SUCCESS  = @"success",
-        .MESSAGE  = @"message",
-        .CODE     = @"code"
+        .DATA     = @"data"
     },
     
     .Authenticate = {
@@ -462,5 +457,28 @@ const struct PROVIDERS PROVIDERS = {
     .FACEBOOK = @"http://www.facebook.com",
     .GOOGLE   = @"http://www.google.com"
     
+};
+
+const struct HttpAPIConsts HttpAPIConsts = {
+    
+    .AUTHWITHTOKEN = @"authWithToken",
+    .UPDATEUSERVERIFICATIONCODE = @"updateUserVerificationCode",
+    .CONFIRM = @"confirm",
+    .UPDATEUSERMOBILE = @"updateUserMobile",
+    .CHECKUSEREXISTS = @"checkUserExists",
+    .CHECKMOBILEPHONEBLOCKED = @"checkMobilePhoneBlocked",
+    .GETUSER = @"getUser",
+    .CHECKVERIFICATIONCODE = @"checkVerificationCode",
+    .UPDATEUSERVERIFICATION = @"updateUserVerification",
+    .CREATEUSER = @"createUesr",
+    .UPDATEUSER = @"updateUser",
+    .LOGIN = @"login",
+    .CALL = @"call",
+    .DIRECTIONSBYCOORDINATES = @"DirectionsByCoordinates",
+    .PLACESAUTOCOMPLETE = @"PlacesAutoComplete",
+    .PLACESRADARSEARCH = @"PlacesRadarSearch",
+    .PLACESTEXTSEARCH = @"PlacesTextSearch",
+    .PLACESNEARBYSEARCH = @"PlacesNearbySearch",
+    .FBGRAPH = @"fbgraph"
 };
 

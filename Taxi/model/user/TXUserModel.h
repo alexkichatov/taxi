@@ -11,7 +11,7 @@
 
 @interface TXUser : TXBaseObj
 
-@property (nonatomic, assign) int       objID;
+//@property (nonatomic, assign) int       objID;
 @property (nonatomic, retain) NSString* username;
 @property (nonatomic, retain) NSString* password;
 @property (nonatomic, retain) NSString* name;
@@ -27,7 +27,7 @@
 @property (nonatomic, retain) NSString* providerUserID;
 @property (nonatomic, retain) NSString* providerID;
 @property (nonatomic, assign) BOOL      isConfirmed;
-@property (nonatomic, retain) NSString* userToken;
+//@property (nonatomic, retain) NSString* userToken;
 
 @end
 
@@ -38,17 +38,16 @@
  @return TXUserModel
  */
 +(TXUserModel *) instance;
--(TXSyncResponseDescriptor *)signUp:(TXUser *)user;
--(TXSyncResponseDescriptor *)signIn:(TXUser *)user;
--(TXSyncResponseDescriptor *)validateToken:(NSString *) userToken;
+-(void) signUp:(TXUser *)user;
+-(void) signIn:(NSString *)username password:(NSString *)password providerId:(NSNumber *) providerId providerUserId:(NSString*)providerUserId;
+-(void) authWithToken:(NSString *) userToken;
 -(void) update : (TXUser *) user;
 -(void) deleteUser;
 -(void) logout;
--(void)checkIfUserExistsAsync:(TXUser *) user;
--(TXSyncResponseDescriptor *)checkIfUserExistsSync:(TXUser *) user;
--(TXSyncResponseDescriptor *)checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider;
--(TXSyncResponseDescriptor *)confirm:(int) userId code:(NSString *) code;
--(TXSyncResponseDescriptor *)resendVerificationCode:(int) userId;
--(TXSyncResponseDescriptor *)updateMobile:(int) userId mobile:(NSString *)mobile;
+-(void) checkIfUserExists:(TXUser *) user;
+-(void) checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider;
+-(void) confirm:(int) userId code:(NSString *) code;
+-(void) resendVerificationCode:(int) userId;
+-(void) updateMobile:(int) userId mobile:(NSString *)mobile;
 
 @end

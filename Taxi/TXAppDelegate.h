@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TXEventTarget.h"
 
-@interface TXAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TXAppDelegate : UIResponder <UIApplicationDelegate, TXEventListener>
 
 @property (strong, nonatomic) UIWindow *window;
 

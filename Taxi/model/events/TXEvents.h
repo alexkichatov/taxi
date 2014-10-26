@@ -99,7 +99,9 @@ extern const struct TXEvents {
         __unsafe_unretained NSString* ERROR;
         __unsafe_unretained NSString* CONNECTIONTYPE;
         __unsafe_unretained NSString* GOOGLEOBJECT;
-
+        __unsafe_unretained NSString* DESCRIPTOR;
+        __unsafe_unretained NSString* REQUEST;
+        
     } Params;
     
     __unsafe_unretained NSString* REGISTER_USER_COMPLETED;
@@ -110,6 +112,19 @@ extern const struct TXEvents {
     
     __unsafe_unretained NSString* CALL_CHARGE_REQUEST_COMPLETED;
     __unsafe_unretained NSString* CALL_CHARGE_REQUEST_FAILED;
+    
+    __unsafe_unretained NSString* LOGIN;
+    __unsafe_unretained NSString* AUTHWITHTOKEN;
+    __unsafe_unretained NSString* CHECKUSEREXISTS;
+    __unsafe_unretained NSString* CHECKVERIFICATIONCODE;
+    __unsafe_unretained NSString* CONFIRM;
+    __unsafe_unretained NSString* CREATEUSER;
+    __unsafe_unretained NSString* CHECKMOBILEPHONEBLOCKED;
+    __unsafe_unretained NSString* GETUSER;
+    __unsafe_unretained NSString* UPDATEUSER;
+    __unsafe_unretained NSString* UPDATEUSERMOBILE;
+    __unsafe_unretained NSString* UPDATEUSERVERIFICATION;
+    __unsafe_unretained NSString* UPDATEUSERVERIFICATIONCODE;
 
 } TXEvents;
 

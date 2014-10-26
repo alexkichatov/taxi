@@ -26,13 +26,6 @@
 
 @end
 
-@interface TXSyncResponseDescriptor : NSObject
-@property (nonatomic, strong) NSObject     *source;
-@property (nonatomic, assign) int          code;
-@property (nonatomic, strong) TXError      *error;
-@property (nonatomic, assign) BOOL         success;
-@end
-
 /*!
  @interface AMDCReqConfig
  @discussion http request config object
@@ -208,7 +201,7 @@
  @param request
  @return TXSyncResponseDescriptor
  */
--(TXSyncResponseDescriptor*)sendSyncRequest:(TXRequestObj*)request;
+-(id)sendSyncRequest:(TXRequestObj*)request;
 
 /*!
  @function cancelRequest cancel http request corresponding to the AMDCReqObj given

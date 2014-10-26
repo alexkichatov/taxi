@@ -50,11 +50,8 @@ typedef enum {
     [self configureFieldStyles];
     
     self->model = [TXUserModel instance];
-    [self->model addEventListener:self forEvent:TXEvents.CHECK_USER_COMPLETED eventParams:nil];
-    [self->model addEventListener:self forEvent:TXEvents.CHECK_PROVIDER_USER_COMPLETED eventParams:nil];
-    [self->model addEventListener:self forEvent:TXEvents.CHECK_USER_FAILED eventParams:nil];
-    [self->model addEventListener:self forEvent:TXEvents.REGISTER_USER_COMPLETED eventParams:nil];
-    [self->model addEventListener:self forEvent:TXEvents.REGISTER_USER_FAILED eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.CHECKUSEREXISTS eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.LOGIN eventParams:nil];
     
     self->settings = [[TXApp instance] getSettings];
     
@@ -129,9 +126,7 @@ typedef enum {
                 NSDictionary *image = [personProps objectForKey:@"image"];
                 self->user.photoURL = [image objectForKey:@"url"];
                 
-                TXSyncResponseDescriptor* response = [self->model signIn:self->user];
-                [self proccessSignIn:response];
-                
+               // [self->model signIn:self->user];
                 
             }
         }];
@@ -164,25 +159,29 @@ typedef enum {
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
-    if(event!=nil && [event.name isEqualToString:TXEvents.CHECK_PROVIDER_USER_COMPLETED]) {
-        
-        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
-        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
-        
-        if(!success && code == USERNAME_EXISTS) {
-            
-            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
-            
-        } else {
-            
-            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
-            
-            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerID, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserID }];
-            [self pushViewController:vc];
-            
-        }
-        
-    }
+    TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
+    [self proccessSignIn:descriptor];
+    
+//    
+//    if(event!=nil && [event.name isEqualToString:TXEvents.CHECK_PROVIDER_USER_COMPLETED]) {
+//        
+//        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
+//        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
+//        
+//        if(!success && code == USERNAME_EXISTS) {
+//            
+//            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
+//            
+//        } else {
+//            
+//            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
+//            
+//            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerID, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserID }];
+//            [self pushViewController:vc];
+//            
+//        }
+//        
+//    }
     
 }
 
@@ -191,14 +190,14 @@ typedef enum {
     self->user = [[TXUser alloc] init];
     self->user.username = self.txtUsername.text;
     self->user.password = self.txtPassword.text;
-    [self proccessSignIn:[self->model signIn:self->user]];
+    [self->model signIn:self.txtUsername.text password:self.txtPassword.text providerId:nil providerUserId:nil];
 }
 
 -(void)gpSignIn:(id)sender {
     [self showBusyIndicator];
 }
 
--(void) proccessSignIn:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessSignIn:(TXResponseDescriptor *) descriptor {
     
     switch (descriptor.code) {
             
@@ -260,7 +259,7 @@ typedef enum {
     [self hideBusyIndicator];
 }
 
--(void) proccessSucceeded:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessSucceeded:(TXResponseDescriptor *) descriptor {
     
     NSDictionary*source = (NSDictionary*)descriptor.source;
     [self->settings setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
@@ -270,7 +269,7 @@ typedef enum {
     
 }
 
--(void) proccessSignedInFirstTime:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessSignedInFirstTime:(TXResponseDescriptor *) descriptor {
     
     TXAskPhoneNumberVC *vc = [self getAskPhoneNumberVC];
     
@@ -284,11 +283,11 @@ typedef enum {
     
 }
 
--(void) proccessNoPhoneNumberSpecified:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessNoPhoneNumberSpecified:(TXResponseDescriptor *) descriptor {
     [self proccessSignedInFirstTime:descriptor];
 }
 
--(void) proccessNotActivated:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessNotActivated:(TXResponseDescriptor *) descriptor {
     
     TXConfirmationVC *confVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
     
@@ -300,11 +299,11 @@ typedef enum {
     [self pushViewController:confVC];
 }
 
--(void) proccessIsBlocked:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessIsBlocked:(TXResponseDescriptor *) descriptor {
     [self alertError:@"Error" message:@"User is blocked !"];
 }
 
--(void) proccessMobileNumberIsBlocked:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessMobileNumberIsBlocked:(TXResponseDescriptor *) descriptor {
     [self alertError:@"Error" message:@"Mobile number is blocked !"];
 }
 
@@ -312,11 +311,11 @@ typedef enum {
     return [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
 }
 
--(void) proccessAuthorizationFailed:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessAuthorizationFailed:(TXResponseDescriptor *) descriptor {
     [self alertError:@"Error" message:@"Incorrect username or password !"];
 }
 
--(void) proccessUnknownAuth:(TXSyncResponseDescriptor *) descriptor {
+-(void) proccessUnknownAuth:(TXResponseDescriptor *) descriptor {
     [self alertError:@"Error" message:@"Unknown authorization !"];
 }
 

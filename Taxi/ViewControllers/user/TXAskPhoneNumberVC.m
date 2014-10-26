@@ -69,7 +69,6 @@
     
     if([self.txtPhoneNumber.text length] > 0) {
         
-        TXSyncResponseDescriptor* descriptor = nil;
         id userId = [self->parameters objectForKey:API_JSON.OBJID];
         
         if(userId == nil) {
@@ -81,51 +80,23 @@
             user.language = @"ka";
             
             [self showBusyIndicator];
-            descriptor = [self->model signUp:user];
-            [self hideBusyIndicator];
-            
-            if(!descriptor.success) {
-                
-                TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
-                NSDictionary*source = (NSDictionary*)descriptor.source;
-                
-                NSDictionary*params = @{
-                                         API_JSON.ID : [source objectForKey:API_JSON.ID]
-                                       };
-
-                [confirmationVC setParameters:params];
-                [self pushViewController:confirmationVC];
-            }
+            [self->model signUp:user];
             
         } else {
             
             [self showBusyIndicator];
-            descriptor = [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
-            [self hideBusyIndicator];
-            
-            if(!descriptor.success) {
-                
-                [self alertError:@"Error" message:@"Mobile number is blocked !"];
-                return;
-                
-            }
+            [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
             
         }
     
-        [self pushConfirmationVC:descriptor];
     }
     
 }
 
--(void) pushConfirmationVC:(TXSyncResponseDescriptor *) descriptor {
+-(void) pushConfirmationVC:(TXResponseDescriptor *) descriptor {
     TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
     NSDictionary*source = (NSDictionary*)descriptor.source;
-    
-    NSDictionary*params = @{
-                            API_JSON.ID : [source objectForKey:API_JSON.ID]
-                            };
-    
-    [confirmationVC setParameters:params];
+    [confirmationVC setParameters:@{ API_JSON.ID : [source objectForKey:API_JSON.ID] }];
     [self pushViewController:confirmationVC];
 }
 
@@ -133,6 +104,29 @@
       inComponent:(NSInteger)component
 {
     self->selectedItem = self->items[row];
+}
+
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    [self hideBusyIndicator];
+    TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
+    
+    if(!descriptor.success) {
+    
+        
+        if([event.name isEqualToString:TXEvents.CREATEUSER]) {
+        
+            TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
+            NSDictionary*source = (NSDictionary*)descriptor.source;
+            [confirmationVC setParameters:@{ API_JSON.ID : [source objectForKey:API_JSON.ID] }];
+            [self pushViewController:confirmationVC];
+            
+        } else if ([event.name isEqualToString:TXEvents.UPDATEUSERMOBILE]) {
+            
+        }
+        
+    } else {
+        [self alertError:@"Error" message:@"Mobile number is blocked !"];
+    }
 }
 
 @end

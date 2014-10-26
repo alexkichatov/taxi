@@ -44,32 +44,56 @@
     
     [self.activityIndicator startAnimating];
     
-    TXSyncResponseDescriptor *result = nil;
-    result = [[TXUserModel instance] signUp:user_];
+    [[TXUserModel instance] signUp:user_];
     
     [self.activityIndicator stopAnimating];
     
-    if(result.success) {
-        
-        if(user_.providerID!=nil) {
-            
-            if([user_.providerID isEqualToString:PROVIDERS.GOOGLE]) {
-                [[TXSharedObj instance].settings setGoogleUserId:user_.providerID];
-            } else {
-                [[TXSharedObj instance].settings setFBUserId:user_.providerID];
-            }
-            
-        }
+//    if(result.success) {
+//        
+//        if(user_.providerID!=nil) {
+//            
+//            if([user_.providerID isEqualToString:PROVIDERS.GOOGLE]) {
+//                [[TXSharedObj instance].settings setGoogleUserId:user_.providerID];
+//            } else {
+//                [[TXSharedObj instance].settings setFBUserId:user_.providerID];
+//            }
+//            
+//        }
+//
+//        [self pushViewController:[self vcFromName:@"TXMainVC"]];
+//        
+//    } else {
+//        
+//        [self alertError:@"Error" message:[TXCode2MsgTranslator messageForCode:result.code]];
+//        
+//    }
+    
+    
+}
 
+
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    
+    TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
+    if(descriptor.success) {
+        
+//        if(user_.providerID!=nil) {
+//            
+//            if([user_.providerID isEqualToString:PROVIDERS.GOOGLE]) {
+//                [[TXSharedObj instance].settings setGoogleUserId:user_.providerID];
+//            } else {
+//                [[TXSharedObj instance].settings setFBUserId:user_.providerID];
+//            }
+//            
+//        }
+        
         [self pushViewController:[self vcFromName:@"TXMainVC"]];
         
     } else {
         
-        [self alertError:@"Error" message:[TXCode2MsgTranslator messageForCode:result.code]];
+        [self alertError:@"Error" message:[TXCode2MsgTranslator messageForCode:descriptor.code]];
         
     }
-    
-    
 }
 
 @end

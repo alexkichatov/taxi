@@ -395,17 +395,13 @@ extern const struct API_JSON {
     __unsafe_unretained NSString* ERROR;
     __unsafe_unretained NSString* OBJID;
     __unsafe_unretained NSString* VERIFICATIONCODE;
-    
+
     struct {
-        __unsafe_unretained NSString* OPER;
+        
         __unsafe_unretained NSString* ATTR;
         __unsafe_unretained NSString* DATA;
-        __unsafe_unretained NSString* SOURCE;
-        __unsafe_unretained NSString* SUCCESS;
-        __unsafe_unretained NSString* MESSAGE;
-        __unsafe_unretained NSString* CODE;
         
-    } Keys;
+    } Request;
     
     struct {
         __unsafe_unretained NSString* USERNAME;
@@ -480,3 +476,26 @@ extern const struct PROVIDERS {
     __unsafe_unretained NSString* GOOGLE;
     
 } PROVIDERS;
+
+extern const struct HttpAPIConsts {
+    __unsafe_unretained NSString* AUTHWITHTOKEN;
+    __unsafe_unretained NSString* UPDATEUSERVERIFICATIONCODE;
+    __unsafe_unretained NSString* CONFIRM;
+    __unsafe_unretained NSString* UPDATEUSERMOBILE;
+    __unsafe_unretained NSString* CHECKUSEREXISTS;
+    __unsafe_unretained NSString* CHECKMOBILEPHONEBLOCKED;
+    __unsafe_unretained NSString* GETUSER;
+    __unsafe_unretained NSString* CHECKVERIFICATIONCODE;
+    __unsafe_unretained NSString* UPDATEUSERVERIFICATION;
+    __unsafe_unretained NSString* CREATEUSER;
+    __unsafe_unretained NSString* UPDATEUSER;
+    __unsafe_unretained NSString* LOGIN;
+    __unsafe_unretained NSString* CALL;
+    __unsafe_unretained NSString* DIRECTIONSBYCOORDINATES;
+    __unsafe_unretained NSString* PLACESAUTOCOMPLETE;
+    __unsafe_unretained NSString* PLACESRADARSEARCH;
+    __unsafe_unretained NSString* PLACESTEXTSEARCH;
+    __unsafe_unretained NSString* PLACESNEARBYSEARCH;
+    __unsafe_unretained NSString* FBGRAPH;
+    
+} HttpAPIConsts;

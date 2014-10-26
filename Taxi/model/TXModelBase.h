@@ -11,10 +11,11 @@
 #import "TXEventTarget.h"
 #import "StrConsts.h"
 #import "utils.h"
+#import "TXResponseDescriptor.h"
 
 @class TXSharedObj;
 
-@interface TXModelBase : TXEventTarget <TXHttpRequestListener> {
+@interface TXModelBase : TXEventTarget <TXHttpRequestListener, TXEventListener> {
     TXHttpRequestManager *httpMgr;
 }
 

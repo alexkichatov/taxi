@@ -19,16 +19,6 @@ static NSString* const DEFAULT_CONFIG = @"register";
 static NSString* const HDR_ACCEPT         = @"Accept";
 static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 
-@implementation TXSyncResponseDescriptor
-
-@synthesize source, error, success;
-
--(NSString *)description {
-    return [NSString stringWithFormat:@"success: %@, source: %@, error: %@", [NSNumber numberWithBool:self.success], source, error];
-}
-
-@end
-
 @implementation TXRequestConfig
 
 @synthesize name, url, httpMethod, headers, hasUrlBase, bodyTemplate;
@@ -225,13 +215,12 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 }
 
 
--(TXSyncResponseDescriptor*)sendSyncRequest:(TXRequestObj*)request {
+-(id)sendSyncRequest:(TXRequestObj*)request {
     
-    TXSyncResponseDescriptor *result = nil;
+    id result = nil;
     
     if ( request != nil )
 	{
-        result = [[TXSyncResponseDescriptor alloc] init];
         NSMutableURLRequest* httpRequest = [request createHTTPRequest];
 		NSError* error_ = nil;
 		NSURLResponse* response;
@@ -253,8 +242,6 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
             
             NSLog(@"%@", message);
             
-            result.error = [TXError error:TX_ERR_HTTP_REQUEST_FAILED message:[error_ domain] description:message];
-            
 		} else {
             
             request.receivedData      = (NSMutableData*)responseData;
@@ -263,13 +250,7 @@ static NSString* const HDR_CONTENTTYPE    = @"Content-Type";
 
             NSLog(@"Received response from server: %@, response body: %@", request.reqUrl , respStr);
             
-            NSDictionary* responseObj = getJSONObj(respStr);
-            id            source_     = [responseObj objectForKey:API_JSON.ResponseDescriptor.SOURCE];
-            NSDictionary* source      = source_ ? getJSONObj(source_) : nil;
-            id            successObj  = [responseObj objectForKey:API_JSON.ResponseDescriptor.SUCCESS];
-            result.success            = successObj!=nil ? [successObj boolValue] : NO;
-            result.source             = source;
-            result.code               = [[responseObj objectForKey:API_JSON.ResponseDescriptor.CODE] intValue];
+            result = getJSONObj(respStr);
             
         }
 

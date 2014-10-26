@@ -135,6 +135,7 @@
 		38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38DA7894191BCF4F00269AB7 /* taxi.bundle */; };
 		38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */; };
 		38DE08F6195B14A900E66A24 /* defaultbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38DE08F5195B14A900E66A24 /* defaultbg.jpg */; };
+		38DE95E819FD130600F34D71 /* TXResponseDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE95E719FD130600F34D71 /* TXResponseDescriptor.m */; };
 		38E435E7195AFF1700E712DD /* TXAskPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E435E3195AFF1700E712DD /* TXAskPhoneNumberVC.xib */; };
 		38E435E8195AFF1700E712DD /* TXConfirmationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E435E4195AFF1700E712DD /* TXConfirmationVC.xib */; };
 		38E435E9195AFF1700E712DD /* TXSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E435E5195AFF1700E712DD /* TXSignInVC.xib */; };
@@ -366,6 +367,8 @@
 		38DABBC318D9AA72005D4AC4 /* TXGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXGoogleRequestManager.h; path = ../../util/TXGoogleRequestManager.h; sourceTree = "<group>"; };
 		38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXGoogleRequestManager.m; path = ../../util/TXGoogleRequestManager.m; sourceTree = "<group>"; };
 		38DE08F5195B14A900E66A24 /* defaultbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultbg.jpg; sourceTree = "<group>"; };
+		38DE95E619FD130600F34D71 /* TXResponseDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXResponseDescriptor.h; path = model/TXResponseDescriptor.h; sourceTree = "<group>"; };
+		38DE95E719FD130600F34D71 /* TXResponseDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXResponseDescriptor.m; path = model/TXResponseDescriptor.m; sourceTree = "<group>"; };
 		38E435E3195AFF1700E712DD /* TXAskPhoneNumberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXAskPhoneNumberVC.xib; sourceTree = "<group>"; };
 		38E435E4195AFF1700E712DD /* TXConfirmationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXConfirmationVC.xib; sourceTree = "<group>"; };
 		38E435E5195AFF1700E712DD /* TXSignInVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXSignInVC.xib; sourceTree = "<group>"; };
@@ -846,6 +849,8 @@
 				3827822C18B8CE920036238A /* TXSharedObj.m */,
 				38DA788B191BCE5000269AB7 /* TXApp.h */,
 				38DA788C191BCE5000269AB7 /* TXApp.m */,
+				38DE95E619FD130600F34D71 /* TXResponseDescriptor.h */,
+				38DE95E719FD130600F34D71 /* TXResponseDescriptor.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1188,6 +1193,7 @@
 				385E114618EC34AD00AB7570 /* TXSignInVC.m in Sources */,
 				389B630C194316FF00BB364C /* NSData+StringBytes.m in Sources */,
 				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				38DE95E819FD130600F34D71 /* TXResponseDescriptor.m in Sources */,
 				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
 				385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */,
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,

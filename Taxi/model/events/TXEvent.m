@@ -91,7 +91,9 @@ const struct TXEvents TXEvents = {
     .Params = {
         .ERROR              = @"ERROR",
         .CONNECTIONTYPE     = @"connectionType",
-        .GOOGLEOBJECT       = @"googleObject"
+        .GOOGLEOBJECT       = @"googleObject",
+        .DESCRIPTOR         = @"descriptor",
+        .REQUEST            = @"request"
     },
     
     .REGISTER_USER_COMPLETED = @"registerUserCompleted",
@@ -100,5 +102,19 @@ const struct TXEvents TXEvents = {
     .CHECK_PROVIDER_USER_COMPLETED = @"checkUserWithProviderCompleted",
     .CHECK_USER_FAILED    = @"checkUserFailed",
     .CALL_CHARGE_REQUEST_COMPLETED = @"callChargeRequestCompleted",
-    .CALL_CHARGE_REQUEST_FAILED = @"callChargeRequestFailed"
+    .CALL_CHARGE_REQUEST_FAILED = @"callChargeRequestFailed",
+    
+    .LOGIN = @"login",
+    .AUTHWITHTOKEN = @"authWithToken",
+    .CHECKUSEREXISTS = @"checkUserExists",
+    .CHECKVERIFICATIONCODE = @"checkVerificationCode",
+    .CONFIRM = @"confirm",
+    .CREATEUSER = @"createUser",
+    .CHECKMOBILEPHONEBLOCKED = @"checkMobilePhoneBlocked",
+    .GETUSER = @"getUser",
+    .UPDATEUSER = @"updateUser",
+    .UPDATEUSERMOBILE = @"updateUserMobile",
+    .UPDATEUSERVERIFICATION = @"updateUserVerification",
+    .UPDATEUSERVERIFICATIONCODE = @"updateUserVerificationCode"
+    
 };

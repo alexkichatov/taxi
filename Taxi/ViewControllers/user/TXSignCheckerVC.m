@@ -56,21 +56,21 @@
     
     if(event!=nil && [event.name isEqualToString:TXEvents.CHECK_PROVIDER_USER_COMPLETED]) {
         
-        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
-        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
-        
-        if(!success && code == USERNAME_EXISTS) {
-            
-            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
-            
-        } else {
-            
-            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
-            
-//            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
-            [self pushViewController:vc];
-            
-        }
+//        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
+//        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
+//        
+//        if(!success && code == USERNAME_EXISTS) {
+//            
+//            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
+//            
+//        } else {
+//            
+//            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
+//            
+////            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerId, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserId }];
+//            [self pushViewController:vc];
+//            
+//        }
         
     }
     

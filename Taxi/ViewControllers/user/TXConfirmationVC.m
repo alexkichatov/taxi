@@ -41,22 +41,7 @@
 -(void)submit:(id)sender {
 
     [self showBusyIndicator];
-    TXSyncResponseDescriptor *descriptor = [self->model confirm:self->userId code:self.txtCodeInput.text];
-    [self hideBusyIndicator];
-    
-    if(descriptor.success == true) {
-        
-        NSDictionary*source = (NSDictionary*)descriptor.source;
-        [self->settings setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
-        
-        TXMapVC* mainVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
-        [self pushViewController:mainVC];
-        
-    } else {
-        
-        [self alertError:@"Error" message:@"Failed to confirm user !"];
-        
-    }
+    [self->model confirm:self->userId code:self.txtCodeInput.text];
     
 }
 
@@ -65,6 +50,29 @@
    // int userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
    // TXSyncResponseDescriptor *response = [self->model resendVerificationCode:self->userId];
     
+    
+}
+
+-(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+ 
+    [self hideBusyIndicator];
+    if([event.name isEqualToString:TXEvents.CONFIRM]) {
+        TXResponseDescriptor * descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
+        
+        if(descriptor.success == true) {
+            
+            NSDictionary*source = (NSDictionary*)descriptor.source;
+            [self->settings setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
+            
+            TXMapVC* mainVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
+            [self pushViewController:mainVC];
+            
+        } else {
+            
+            [self alertError:@"Error" message:@"Failed to confirm user !"];
+            
+        }
+    }
     
 }
 
