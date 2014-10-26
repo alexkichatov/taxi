@@ -13,16 +13,15 @@
 #import "TXSignInVC.h"
 
 @interface TXSignUpVC ()<UIActionSheetDelegate> {
-    NSString *lastExistingUsername;
-    BOOL userExists;
+    NSMutableArray *existingUsernames;
     CMPopTipView *popup;
-    
 }
 
 -(IBAction)signUp:(id)sender;
 -(IBAction)signIn:(id)sender;
 -(IBAction)textFieldFocusLost:(UITextField *)sender;
 -(IBAction)textFieldFocusGained:(UITextField *)sender;
+-(IBAction)textFieldValueChanged:(UITextField *)sender;
 
 @end
 
@@ -32,12 +31,8 @@
     [super viewDidLoad];
     self->model = [TXUserModel instance];
     [self->model addEventListener:self forEvent:TXEvents.CHECKUSEREXISTS eventParams:nil];
-    self->userExists = YES;
-    
     [self configureStyles];
-    
-    
-   // [self refreshSignUpButton];
+    [self refreshSignUpButton];
 }
 
 -(void) configureStyles {
@@ -64,24 +59,16 @@
 
 -(IBAction)signUp:(id)sender {
     
-    if([self->lastExistingUsername isEqualToString:self.txtUsername.text]) {
-        [self displayUserExistsPopup];
-        [self refreshSignUpButton];
-    } else {
-        
-        TXAskPhoneNumberVC *viewController =  [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
+    TXAskPhoneNumberVC *viewController =  [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
 
-        NSDictionary *params = @{
-                                   API_JSON.Authenticate.USERNAME : self.txtUsername.text,
-                                   API_JSON.Authenticate.PASSWORD : self.txtConfirmPassword.text
-                                };
-        
-        [viewController setParameters:params];
-        
-        [self pushViewController:viewController];
-        
-    }
+    NSDictionary *params = @{
+                               API_JSON.Authenticate.USERNAME : self.txtUsername.text,
+                               API_JSON.Authenticate.PASSWORD : self.txtConfirmPassword.text
+                            };
     
+    [viewController setParameters:params];
+    
+    [self pushViewController:viewController];
 }
 
 -(void) displayUserExistsPopup {
@@ -96,42 +83,44 @@
 
 -(void)textFieldFocusLost:(UITextField *)sender {
     
-    if(sender.tag == 1) {
-    
-        if(sender.text.length > 0) {
-            
+    if([sender isEqual:self.txtUsername] && sender.text.length > 0) {
+
+        if(![self->existingUsernames containsObject:self.txtUsername.text]) {
             TXUser *user = [[TXUser alloc] init];
             user.username = sender.text;
+            [self showBusyIndicator];
             [self->model checkIfUserExists:user];
+        } else {
+            [self displayUserExistsPopup];
         }
-        
     }
     
-  //  [self refreshSignUpButton];
+    [self refreshSignUpButton];
 }
 
 -(void)textFieldFocusGained:(UITextField *)sender {
-    
-    if(sender.tag == 1 && self->userExists) {
+    if([sender isEqual:self.txtUsername]) {
         [self->popup removeFromSuperview];
     }
-    
-   // [self refreshSignUpButton];
+}
+
+-(void)textFieldValueChanged:(UITextField *)sender {
+    [self refreshSignUpButton];
 }
 
 -(void) refreshSignUpButton {
-    if(!self->userExists &&
-        self.txtPassword.text.length > 0 &&
-        self.txtConfirmPassword.text.length > 0 &&
+    
+    if(self.txtPassword.text.length > 0 &&
+       self.txtConfirmPassword.text.length > 0 &&
         [self.txtPassword.text isEqualToString:self.txtConfirmPassword.text] &&
-        ![self->lastExistingUsername isEqualToString:self.txtUsername.text]) {
+        ![self->existingUsernames containsObject:[self.txtUsername.text uppercaseString]]) {
        
         [self.btnSignUp setAlpha:1];
         [self.btnSignUp setEnabled:YES];
         
     } else {
         
-        [self.btnSignUp setAlpha:0.5];
+        [self.btnSignUp setAlpha:0.3];
         [self.btnSignUp setEnabled:NO];
         
     }
@@ -144,32 +133,22 @@
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
+    [self hideBusyIndicator];
     TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
     
     if([event.name isEqualToString:TXEvents.CHECKUSEREXISTS]) {
         
-        if(!descriptor.success && descriptor.code == USERNAME_EXISTS) {
-            
-            self->userExists = YES;
-            self->lastExistingUsername = self.txtUsername.text;
+        if(descriptor.code == usernameExists) {
+            if(self->existingUsernames == nil)
+                self->existingUsernames = [NSMutableArray arrayWithCapacity:1];
+            [self->existingUsernames addObject:[self.txtUsername.text uppercaseString]];
             [self displayUserExistsPopup];
-            
-        } else {
-            
-            self->userExists = NO;
             
         }
         
-    } else if([event.name isEqualToString:TXEvents.HTTPREQUESTFAILED]) {
-        
-        // TODO: handling
-        
-    } else if([event.name isEqualToString:TXEvents.NULLHTTPRESPONSE]) {
-     
-        // TODO: handling
-        
     }
     
+    [self refreshSignUpButton];
 }
 
 @end

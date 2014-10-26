@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+
 
 @interface TXIndeterminateProgressViewController : UIViewController
 - (void)startProgressWithMessage:(NSString *)message;

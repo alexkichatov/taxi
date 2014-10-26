@@ -30,28 +30,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    [self registerForRemoteNotifications:application];
     [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
-    
-    TXUserModel *userModel = [TXUserModel instance];
     TXSettings  *settings  = [[TXApp instance] getSettings];
     TXRootVC    *firstVC   = nil;
     
-    firstVC = [[TXMainVC alloc] init];
-    
-    self.window.rootViewController = firstVC;
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
     NSString *userToken = [settings getUserToken];
-    if(![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
+    if(true) { //![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
         
-        [SVProgressHUD showWithStatus:@"" maskType:SVProgressHUDMaskTypeBlack];
-        [userModel authWithToken:userToken];
-        if ([SVProgressHUD isVisible])
-            [SVProgressHUD dismiss];
+        firstVC = [[TXMainVC alloc] initWithToken:@"asdjkajkkj"];
         
     } else {
         
@@ -60,10 +50,6 @@
     }
     
     self.window.rootViewController = firstVC;
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    [self registerForRemoteNotifications:application];
     
     return YES;
 }

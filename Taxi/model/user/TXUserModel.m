@@ -49,8 +49,8 @@
 }
 
 -(void)authWithToken:(NSString *) userToken {
-    TXRequestObj *request    = [self createRequest:HTTP_API.USER];
-    request.body = getJSONStr(@{ SettingsConst.CryptoKeys.USERTOKEN : userToken });
+    TXRequestObj *request    = [self createRequest:HttpAPIConsts.AUTHWITHTOKEN];
+    request.body = getJSONStr(@{ API_JSON.Authenticate.TOKEN : userToken });
     [self sendAsyncRequest:request];
 }
 

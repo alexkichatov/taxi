@@ -11,4 +11,6 @@
 
 @interface TXMainVC : TXRootVC<SlideNavigationControllerDelegate>
 
+- (id)initWithToken:(NSString *) token;
+
 @end

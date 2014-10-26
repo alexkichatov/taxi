@@ -16,19 +16,6 @@
 #import "TXSignUpVC.h"
 #import "TXMapVC.h"
 
-typedef enum {
-    
-    _SUCCESS = 1000,
-    _INITIAL_REGISTRATION = 1020,
-    _NO_MOBILE = 1021,
-    _MOBILE_BLOCKED = 1006,
-    _USER_NOT_CONFIRMED = 1019,
-    _USER_BLOCKED = 1013,
-    _AUTH_FAILED = 1008,
-    _UNKNOWN_AUTH = 1018,
-    _ERROR = 0
-} SignInCodes;
-
 @interface TXSignInVC ()<GPPSignInDelegate> {
     TXUser *user;
     TXSettings *settings;
@@ -201,55 +188,49 @@ typedef enum {
     
     switch (descriptor.code) {
             
-        case _SUCCESS:
+        case success:
             
             [self proccessSucceeded:descriptor];
             
             break;
             
-        case _INITIAL_REGISTRATION:
+        case initialRegistration:
             
             [self proccessSignedInFirstTime:descriptor];
             
             break;
         
-         case _NO_MOBILE:
+         case noMobile:
             
             [self proccessNoPhoneNumberSpecified:descriptor];
             
             break;
             
-        case _MOBILE_BLOCKED:
+        case mobileBlocked:
             
             [self proccessMobileNumberIsBlocked:descriptor];
             
             break;
             
-        case _USER_NOT_CONFIRMED:
+        case userNotConfirmed:
             
             [self proccessNotActivated:descriptor];
             
             break;
      
-        case _USER_BLOCKED:
+        case userBlocked:
             
             [self proccessIsBlocked:descriptor];
             
             break;
             
-        case _AUTH_FAILED:
+        case authFailed:
             
             [self proccessAuthorizationFailed:descriptor];
             
             break;
             
-        case _UNKNOWN_AUTH:
-            
-            [self proccessUnknownAuth:descriptor];
-            
-            break;
-            
-        case _ERROR:
+        case systemErr:
             
             [self proccessGenericError];
             

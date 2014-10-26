@@ -410,6 +410,7 @@ extern const struct API_JSON {
         __unsafe_unretained NSString* PROVIDERID;
         __unsafe_unretained NSString* LOGINWITHPROVIDER;
         __unsafe_unretained NSString* USEREXISTS;
+        __unsafe_unretained NSString* TOKEN;
         
     } Authenticate;
     

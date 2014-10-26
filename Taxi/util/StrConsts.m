@@ -386,7 +386,7 @@ const struct API_JSON API_JSON = {
     
     .Request = {
         .ATTR     = @"attr",
-        .DATA     = @"data"
+        .DATA     = @"data",
     },
     
     .Authenticate = {
@@ -395,7 +395,8 @@ const struct API_JSON API_JSON = {
         .PROVIDERUSERID = @"providerUserID",
         .PROVIDERID = @"providerID",
         .LOGINWITHPROVIDER = @"loginWithProvider",
-        .USEREXISTS = @"exists"
+        .USEREXISTS = @"exists",
+        .TOKEN      = @"token"
     },
     
     .SignUp = {
