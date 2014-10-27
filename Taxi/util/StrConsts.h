@@ -14,6 +14,7 @@ extern const struct SettingsConst {
     
     struct {
         __unsafe_unretained NSString* USERNAME;
+        __unsafe_unretained NSString* USERID;
         __unsafe_unretained NSString* PASSWORD;
         __unsafe_unretained NSString* NOTIFICATIONS_TOKEN;
         __unsafe_unretained NSString* USERTOKEN;
@@ -393,13 +394,13 @@ extern const struct API_JSON {
     
     __unsafe_unretained NSString* ID;
     __unsafe_unretained NSString* ERROR;
-    __unsafe_unretained NSString* OBJID;
     __unsafe_unretained NSString* VERIFICATIONCODE;
 
     struct {
         
         __unsafe_unretained NSString* ATTR;
         __unsafe_unretained NSString* DATA;
+        __unsafe_unretained NSString* USERID;
         
     } Request;
     

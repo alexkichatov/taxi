@@ -11,7 +11,19 @@
 #import "TXEventTarget.h"
 #import "StrConsts.h"
 #import "utils.h"
-#import "TXResponseDescriptor.h"
+#import "TXApp.h"
+
+@interface TXResponseDescriptor : NSObject
+
+@property (nonatomic, assign) BOOL      success;
+@property (nonatomic, assign) int       code;
+@property (nonatomic, weak)   NSString* message;
+@property (nonatomic, weak)   id        source;
+
++(id) create:(BOOL) succcess_ code:(int) code_ message:(NSString *) message_ source:(id) source_;
++(id) create:(BOOL) succcess_ code:(int) code_;
+
+@end
 
 @class TXSharedObj;
 
@@ -24,6 +36,7 @@
 -(TXRequestObj *) createRequest:(NSString *) config;
 -(void)sendAsyncRequest:(TXRequestObj *) request;
 -(id)sendSyncRequest:(TXRequestObj *) request;
+-(TXApp *)getApp;
 -(void)onRequestCompleted:(id)object;
 -(void)onFail:(id)object error:(TXError *)error;
 

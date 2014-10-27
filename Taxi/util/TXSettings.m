@@ -111,6 +111,11 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
                        forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 
+-(NSNumber*)getUserId {
+    return [FDKeychain itemForKey:SettingsConst.CryptoKeys.USERID
+                       forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
 -(NSString*)getPassword {
     return [FDKeychain itemForKey:SettingsConst.CryptoKeys.PASSWORD
                        forService:SettingsConst.TXCRYPTOSVC_GENERIC];
@@ -118,6 +123,11 @@ static NSString* const HTTPAPI_PLIST_FILE = @"httpapi";
 
 -(void)setUserName:(NSString*)userName {
     [FDKeychain saveItem:userName forKey:SettingsConst.CryptoKeys.USERNAME
+              forService:SettingsConst.TXCRYPTOSVC_GENERIC];
+}
+
+-(void)setUserId:(NSNumber*)userId {
+    [FDKeychain saveItem:userId forKey:SettingsConst.CryptoKeys.USERID
               forService:SettingsConst.TXCRYPTOSVC_GENERIC];
 }
 

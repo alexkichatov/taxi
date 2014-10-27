@@ -12,12 +12,13 @@
     UIStoryboard *iPhoneStoryBoard;
     UIStoryboard *iPadStoryBoard;
     NSString     *deviceType;
-    TXUser       *user;
 }
 
 @end
 
 @implementation TXSharedObj
+
+@synthesize user;
 
 /** Creates the single instance within the application
  
@@ -53,14 +54,6 @@
     }
     
     return nil;
-}
-
--(TXUser*) getUser {
-    return self->user;
-}
-
--(void) setUser:(TXUser *)user_ {
-    self->user = user_;
 }
 
 @end

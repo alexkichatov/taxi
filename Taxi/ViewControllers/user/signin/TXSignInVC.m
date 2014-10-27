@@ -257,7 +257,7 @@
     NSDictionary*source = (NSDictionary*)descriptor.source;
     
     [vc setParameters:@{
-                            API_JSON.OBJID : [NSNumber numberWithInt:[[source objectForKey:API_JSON.ID] intValue]]
+                            API_JSON.Request.USERID : [NSNumber numberWithInt:[[source objectForKey:API_JSON.ID] intValue]]
                        }];
     
     [self pushViewController:vc];

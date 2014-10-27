@@ -29,7 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self configurePhoneNumbers];
+    [self registerEventListeners];
+}
+
+-(void) configurePhoneNumbers {
     self->items = [NSMutableArray arrayWithCapacity:3];
     
     CountryCodeItem *item = [[CountryCodeItem alloc] init];
@@ -48,6 +52,10 @@
     [self->items addObject:item];
     
     self->selectedItem = self->items[0];
+}
+
+-(void) registerEventListeners {
+    [self->model addEventListener:self forEvent:TXEvents.CREATEUSER eventParams:nil];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -69,7 +77,7 @@
     
     if([self.txtPhoneNumber.text length] > 0) {
         
-        id userId = [self->parameters objectForKey:API_JSON.OBJID];
+        id userId = [[[self->model getApp] getSettings] getUserId];
         
         if(userId == nil) {
             
@@ -110,22 +118,20 @@
     [self hideBusyIndicator];
     TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
     
-    if(!descriptor.success) {
-    
+    if([event.name isEqualToString:TXEvents.CREATEUSER]) {
         
-        if([event.name isEqualToString:TXEvents.CREATEUSER]) {
-        
+        if(descriptor.success) {
+            
             TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
             NSDictionary*source = (NSDictionary*)descriptor.source;
-            [confirmationVC setParameters:@{ API_JSON.ID : [source objectForKey:API_JSON.ID] }];
+            [[[self->model getApp] getSettings] setUserId:[source objectForKey:API_JSON.ID]];
             [self pushViewController:confirmationVC];
             
-        } else if ([event.name isEqualToString:TXEvents.UPDATEUSERMOBILE]) {
-            
+        } else {
+            NSString *message = [TXCode2MsgTranslator messageForCode:descriptor.code];
+            [self alertError:@"Error" message:message];
         }
         
-    } else {
-        [self alertError:@"Error" message:@"Mobile number is blocked !"];
     }
 }
 

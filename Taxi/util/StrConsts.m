@@ -15,6 +15,7 @@ const struct SettingsConst  SettingsConst = {
 
     .CryptoKeys = {
         .USERNAME      = @"txUserName",
+        .USERID         = @"txUserId",
         .PASSWORD       = @"txUserPwd",
         .NOTIFICATIONS_TOKEN    = @"notificationsToken",
         .USERTOKEN  = @"userToken"
@@ -381,12 +382,12 @@ const struct API_JSON API_JSON = {
     
     .ID = @"id",
     .ERROR = @"error",
-    .OBJID = @"objID",
     .VERIFICATIONCODE = @"verificationCode",
     
     .Request = {
         .ATTR     = @"attr",
         .DATA     = @"data",
+        .USERID = @"userId"
     },
     
     .Authenticate = {
@@ -471,7 +472,7 @@ const struct HttpAPIConsts HttpAPIConsts = {
     .GETUSER = @"getUser",
     .CHECKVERIFICATIONCODE = @"checkVerificationCode",
     .UPDATEUSERVERIFICATION = @"updateUserVerification",
-    .CREATEUSER = @"createUesr",
+    .CREATEUSER = @"createUser",
     .UPDATEUSER = @"updateUser",
     .LOGIN = @"login",
     .CALL = @"call",

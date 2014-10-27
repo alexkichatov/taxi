@@ -39,9 +39,9 @@
     TXRootVC    *firstVC   = nil;
     
     NSString *userToken = [settings getUserToken];
-    if(true) { //![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
+    if(![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
         
-        firstVC = [[TXMainVC alloc] initWithToken:@"asdjkajkkj"];
+        firstVC = [[TXMainVC alloc] initWithToken:userToken];
         
     } else {
         

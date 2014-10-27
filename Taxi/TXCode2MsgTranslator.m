@@ -6,18 +6,6 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-const int SUCCESS = 1000;
-const int SYSTEM = 1001;
-const int USERNAME_EXISTS = 1003;
-const int REGISTER_REQUIRED_FIELDS = 1101;
-const int REGISTER_REQUIRED_PARAMETERS = 1102;
-const int GET_USER_NOT_EXISTS = 1103;
-const int LOGIN_FAILED = 1104;
-const int REGISTER_MOBILE_BLOCKED = 1105;
-const int GET_USERNAME_EXISTS = 1106;
-const int REGISTER_PASSWORD_LENGHT = 1107;
-const int GET_PHONENUMBER_BLOCKED = 1108;
-
 #import "TXCode2MsgTranslator.h"
 #import "utils.h"
 
@@ -46,17 +34,13 @@ const int GET_PHONENUMBER_BLOCKED = 1108;
         
         self->map = @{
                       
-                         [NSNumber numberWithInt:SUCCESS] : LocalizedStr(@"Code.success"),
-                         [NSNumber numberWithInt:SYSTEM] : @"Error occured, contact to administrator !",
-                         [NSNumber numberWithInt:USERNAME_EXISTS] : @"User already registered !",
-                         [NSNumber numberWithInt:REGISTER_REQUIRED_FIELDS] : @"Required fields inccorect !",
-                         [NSNumber numberWithInt:REGISTER_REQUIRED_PARAMETERS] : @"Parameter are null !",
-                         [NSNumber numberWithInt:GET_USER_NOT_EXISTS] : @"User does not exists !",
-                         [NSNumber numberWithInt:LOGIN_FAILED] : @"Login failed !",
-                         [NSNumber numberWithInt:REGISTER_MOBILE_BLOCKED] : @"Mobile Phone Blocked!",
-                         [NSNumber numberWithInt:GET_USERNAME_EXISTS] : @"UserName Already Registered!",
-                         [NSNumber numberWithInt:REGISTER_PASSWORD_LENGHT] : @"Password Lenght Less Then Required !",
-                         [NSNumber numberWithInt:GET_PHONENUMBER_BLOCKED] : @"Phone Number Blocked"
+                         [NSNumber numberWithInt:success] : LocalizedStr(@"Code.success"),
+                         [NSNumber numberWithInt:systemErr] : @"Error occured, contact to administrator !",
+                         [NSNumber numberWithInt:usernameExists] : @"User already registered !",
+                         [NSNumber numberWithInt:missingParameters] : @"Some Parameters are missing !",
+                         [NSNumber numberWithInt:loginFailed] : @"Login failed !",
+                         [NSNumber numberWithInt:mobileBlocked] : @"Mobile Phone Blocked!",
+                         [NSNumber numberWithInt:passwordLength] : @"Password length is less than required !"
                          
                       };
 

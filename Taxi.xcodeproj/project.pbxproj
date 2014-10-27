@@ -127,7 +127,6 @@
 		38DA7895191BCF4F00269AB7 /* taxi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38DA7894191BCF4F00269AB7 /* taxi.bundle */; };
 		38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */; };
 		38DE08F6195B14A900E66A24 /* defaultbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38DE08F5195B14A900E66A24 /* defaultbg.jpg */; };
-		38DE95E819FD130600F34D71 /* TXResponseDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE95E719FD130600F34D71 /* TXResponseDescriptor.m */; };
 		38DE95FC19FD49D100F34D71 /* TXAskPhoneNumberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE95EB19FD49D100F34D71 /* TXAskPhoneNumberVC.m */; };
 		38DE95FD19FD49D100F34D71 /* TXAskPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DE95EC19FD49D100F34D71 /* TXAskPhoneNumberVC.xib */; };
 		38DE95FE19FD49D100F34D71 /* TXUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE95EF19FD49D100F34D71 /* TXUserVC.m */; };
@@ -154,8 +153,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3815177C18C364BA005F915C /* TXRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRootVC.h; sourceTree = "<group>"; };
-		3815177D18C364BA005F915C /* TXRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRootVC.m; sourceTree = "<group>"; };
+		3815177C18C364BA005F915C /* TXRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXRootVC.h; path = ../TXRootVC.h; sourceTree = "<group>"; };
+		3815177D18C364BA005F915C /* TXRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXRootVC.m; path = ../TXRootVC.m; sourceTree = "<group>"; };
 		3826CC2718EEC57A003D7AD2 /* menu-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-alt.png"; sourceTree = "<group>"; };
 		3826CC2D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
 		3826CC2E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
@@ -350,8 +349,6 @@
 		38DABBC318D9AA72005D4AC4 /* TXGoogleRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXGoogleRequestManager.h; path = ../../util/TXGoogleRequestManager.h; sourceTree = "<group>"; };
 		38DABBC418D9AA72005D4AC4 /* TXGoogleRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXGoogleRequestManager.m; path = ../../util/TXGoogleRequestManager.m; sourceTree = "<group>"; };
 		38DE08F5195B14A900E66A24 /* defaultbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultbg.jpg; sourceTree = "<group>"; };
-		38DE95E619FD130600F34D71 /* TXResponseDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXResponseDescriptor.h; path = model/TXResponseDescriptor.h; sourceTree = "<group>"; };
-		38DE95E719FD130600F34D71 /* TXResponseDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXResponseDescriptor.m; path = model/TXResponseDescriptor.m; sourceTree = "<group>"; };
 		38DE95EA19FD49D100F34D71 /* TXAskPhoneNumberVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAskPhoneNumberVC.h; sourceTree = "<group>"; };
 		38DE95EB19FD49D100F34D71 /* TXAskPhoneNumberVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAskPhoneNumberVC.m; sourceTree = "<group>"; };
 		38DE95EC19FD49D100F34D71 /* TXAskPhoneNumberVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXAskPhoneNumberVC.xib; sourceTree = "<group>"; };
@@ -501,8 +498,6 @@
 				388D6D7818BB83880099C1C2 /* img */,
 				385E113E18EC348F00AB7570 /* TXMainVC.h */,
 				385E113F18EC348F00AB7570 /* TXMainVC.m */,
-				3815177C18C364BA005F915C /* TXRootVC.h */,
-				3815177D18C364BA005F915C /* TXRootVC.m */,
 				385A1B63196B30F80075217D /* MenuViewController.xib */,
 				385A1B65196B32440075217D /* MenuTableViewCell.xib */,
 				385A1B67196B38DB0075217D /* SlideNavController.xib */,
@@ -823,8 +818,6 @@
 				3827822C18B8CE920036238A /* TXSharedObj.m */,
 				38DA788B191BCE5000269AB7 /* TXApp.h */,
 				38DA788C191BCE5000269AB7 /* TXApp.m */,
-				38DE95E619FD130600F34D71 /* TXResponseDescriptor.h */,
-				38DE95E719FD130600F34D71 /* TXResponseDescriptor.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1022,6 +1015,8 @@
 		38DE965819FD5EE700F34D71 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3815177C18C364BA005F915C /* TXRootVC.h */,
+				3815177D18C364BA005F915C /* TXRootVC.m */,
 				38DE965919FD5EE700F34D71 /* TXIndeterminateProgressViewController.h */,
 				38DE965A19FD5EE700F34D71 /* TXIndeterminateProgressViewController.m */,
 				38DE965B19FD5EE700F34D71 /* TXIndeterminateProgressViewController.xib */,
@@ -1212,7 +1207,6 @@
 				385E119018EC35C400AB7570 /* TXAlertView.m in Sources */,
 				389B630C194316FF00BB364C /* NSData+StringBytes.m in Sources */,
 				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
-				38DE95E819FD130600F34D71 /* TXResponseDescriptor.m in Sources */,
 				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
 				385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */,
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,

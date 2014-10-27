@@ -57,13 +57,8 @@
     
     for (NSString *key in keys) {
         
-        if(![key isEqualToString:@"serialVersionUID"]) {
-            
-            if([key isEqualToString:@"id"]) {
-                 [self setValue:[props objectForKey:key] forKey:API_JSON.OBJID];
-            } else {
-                [self setValue:[props objectForKey:key] forKey:key];
-            }
+        if(![key isEqualToString:@"serialVersionUID"] && ![key isEqualToString:@"id"]) {
+            [self setValue:[props objectForKey:key] forKey:key];
         }
     }
     

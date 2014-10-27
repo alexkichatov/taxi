@@ -54,7 +54,8 @@
 -(void)setUserToken:(NSString *)token;
 -(void)removeUserToken;
 -(NSString *)getUserToken;
-
+-(void)setUserId:(NSNumber*)userId;
+-(NSNumber *)getUserId;
 -(void) setNotificationsToken : (NSString *)token;
 -(NSString*)getNotificationsToken;
 

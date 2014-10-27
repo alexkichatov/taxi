@@ -9,6 +9,27 @@
 #import "TXBaseObj.h"
 #import "TXModelBase.h"
 
+extern const struct UserConsts {
+    
+    __unsafe_unretained NSString* USERNAME;
+    __unsafe_unretained NSString* PASSWORD;
+    __unsafe_unretained NSString* NAME;
+    __unsafe_unretained NSString* SURNAME;
+    __unsafe_unretained NSString* EMAIL;
+    __unsafe_unretained NSString* MOBILE;
+    __unsafe_unretained NSString* STATUSID;
+    __unsafe_unretained NSString* NOTE;
+    __unsafe_unretained NSString* CREATEDATE;
+    __unsafe_unretained NSString* MODIFICATIONDATE;
+    __unsafe_unretained NSString* LANGUAGE;
+    __unsafe_unretained NSString* PHOTOURL;
+    __unsafe_unretained NSString* PROVIDERUSERID;
+    __unsafe_unretained NSString* PROVIDERID;
+    __unsafe_unretained NSString* ISCONFIRMED;
+    __unsafe_unretained NSString* USERTOKEN;
+    
+} UserConsts;
+
 @interface TXUser : TXBaseObj
 
 //@property (nonatomic, assign) int       objID;
@@ -27,7 +48,7 @@
 @property (nonatomic, retain) NSString* providerUserID;
 @property (nonatomic, retain) NSString* providerID;
 @property (nonatomic, assign) BOOL      isConfirmed;
-//@property (nonatomic, retain) NSString* userToken;
+@property (nonatomic, retain) NSString* userToken;
 
 @end
 
@@ -46,7 +67,7 @@
 -(void) logout;
 -(void) checkIfUserExists:(TXUser *) user;
 -(void) checkIfPhoneNumberBlocked:(NSString *) phoneNum loginWithProvider: (BOOL) loginWithProvider;
--(void) confirm:(int) userId code:(NSString *) code;
+-(void)confirm:(int) userId code:(int) code;
 -(void) resendVerificationCode:(int) userId;
 -(void) updateMobile:(int) userId mobile:(NSString *)mobile;
 

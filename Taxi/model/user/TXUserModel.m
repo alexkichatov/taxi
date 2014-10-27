@@ -9,6 +9,27 @@
 #import "TXUserModel.h"
 #import "utils.h"
 
+const struct UserConsts UserConsts = {
+    
+    .USERNAME = @"username",
+    .PASSWORD = @"password",
+    .NAME = @"name",
+    .SURNAME = @"surname",
+    .EMAIL = @"email",
+    .MOBILE = @"mobile",
+    .STATUSID = @"statusID",
+    .NOTE = @"note",
+    .CREATEDATE = @"createDate",
+    .MODIFICATIONDATE = @"modificationDate",
+    .LANGUAGE = @"language",
+    .PHOTOURL = @"photoURL",
+    .PROVIDERUSERID = @"providerUserID",
+    .PROVIDERID = @"providerID",
+    .ISCONFIRMED = @"isConfirmed",
+    .USERTOKEN = @"userToken"
+    
+};
+
 @implementation TXUser
 
 @end
@@ -29,7 +50,12 @@
 -(void)signUp:(TXUser *)user {
     
     TXRequestObj *request            = [self createRequest:HttpAPIConsts.CREATEUSER];
-    NSDictionary *propertyMap = [user getProperties];
+    NSDictionary *propertyMap = @{
+                                    UserConsts.USERNAME : user.username,
+                                    UserConsts.PASSWORD : user.password,
+                                    UserConsts.MOBILE : user.mobile,
+                                    UserConsts.LANGUAGE : @"ka"
+                                 };
     request.body = getJSONStr(propertyMap);
     [self sendAsyncRequest:request];
 }
@@ -77,12 +103,12 @@
     
 }
 
--(void)confirm:(int) userId code:(NSString *) code {
+-(void)confirm:(int) userId code:(int) code {
     
     TXRequestObj *request     = [self createRequest:HttpAPIConsts.CONFIRM];
     NSDictionary *propertyMap = @{
-                                    API_JSON.OBJID : [NSNumber numberWithInt:userId],
-                                    API_JSON.VERIFICATIONCODE : code
+                                    API_JSON.Request.USERID : [NSNumber numberWithInt:userId],
+                                    API_JSON.VERIFICATIONCODE : [NSNumber numberWithInt:code]
                                  };
     
     request.body = getJSONStr(propertyMap);
@@ -93,7 +119,7 @@
 -(void)resendVerificationCode:(int) userId {
  
     TXRequestObj *request            = [self createRequest:HTTP_API.USER];
-    request.body = getJSONStr(@{ API_JSON.OBJID : [NSNumber numberWithInt:userId] });
+    request.body = getJSONStr(@{ API_JSON.Request.USERID : [NSNumber numberWithInt:userId] });
     [self sendAsyncRequest:request];
 }
 
@@ -102,7 +128,7 @@
     TXRequestObj *request            = [self createRequest:HttpAPIConsts.UPDATEUSERMOBILE];
     
     NSDictionary *propertyMap = @{
-                                    API_JSON.OBJID : [NSNumber numberWithInt:userId],
+                                    API_JSON.Request.USERID : [NSNumber numberWithInt:userId],
                                     API_JSON.SignUp.PHONENUMBER : mobile
                                   };
     
