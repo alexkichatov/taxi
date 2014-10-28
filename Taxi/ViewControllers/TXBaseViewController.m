@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXRootVC.h"
+#import "TXBaseViewController.h"
 #import "TXUserModel.h"
 #import "TXSharedObj.h"
 #import "SVProgressHUD.h"
 
-@interface TXRootVC ()
+@interface TXBaseViewController ()
 
 @end
 
-@implementation TXRootVC
+@implementation TXBaseViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,7 +63,7 @@
     [self.view endEditing:YES];
 }
 
--(void) pushViewController : (TXRootVC *) viewController {
+-(void) pushViewController : (TXBaseViewController *) viewController {
     
     CATransition *transition = [CATransition animation];
     transition.duration = 0.25;
@@ -77,8 +77,8 @@
 
 }
 
--(TXRootVC *) vcFromName: (NSString *) name {
-    return [[TXRootVC alloc] initWithNibName:name bundle:nil];
+-(TXBaseViewController *) vcFromName: (NSString *) name {
+    return [[TXBaseViewController alloc] initWithNibName:name bundle:nil];
 }
 
 -(void) alertError : (NSString *) title message : (NSString *) message {

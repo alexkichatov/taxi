@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXRootVC.h"
+#import "TXBaseViewController.h"
 #import "TXUserModel.h"
 
-@interface TXUserVC : TXRootVC {
+@interface TXUserVC : TXBaseViewController {
     TXUserModel *model;
 }
 

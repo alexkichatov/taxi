@@ -36,7 +36,7 @@
     [self registerForRemoteNotifications:application];
     [GMSServices provideAPIKey:@"AIzaSyA-mIDdBQDMjxoQ59UOpYnyqa0ogk9m7-M"];
     TXSettings  *settings  = [[TXApp instance] getSettings];
-    TXRootVC    *firstVC   = nil;
+    TXBaseViewController    *firstVC   = nil;
     
     NSString *userToken = [settings getUserToken];
     if(![userToken isEqual:[NSNull null]] && [userToken length] > 0) {
@@ -117,10 +117,10 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         TXUser *user  = [[TXUser alloc] init];
         [user setProperties:source];
         
-        TXRootVC *firstVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
+        TXBaseViewController *firstVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
         
     } else {
-        TXRootVC *firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
+        TXBaseViewController *firstVC = [[TXSignInVC alloc] initWithNibName:@"TXSignInVC" bundle:nil];
     }
     
 }

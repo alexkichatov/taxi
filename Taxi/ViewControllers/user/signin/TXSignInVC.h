@@ -16,7 +16,7 @@
 @property (nonatomic, strong) GPPSignIn     *signIn;
 @property (nonatomic, strong) GTLPlusPerson *googlePerson;
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
-@property (retain, nonatomic) IBOutlet UITextField *txtUsername;
-@property (retain, nonatomic) IBOutlet UITextField *txtPassword;
+@property (retain, nonatomic) IBOutlet TXTextField *txtUsername;
+@property (retain, nonatomic) IBOutlet TXTextField *txtPassword;
 
 @end

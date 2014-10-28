@@ -135,14 +135,14 @@ const NSString *SPACE_BAR = @" ";
 
 -(void)search:(id)sender {
     
-    TXRootVC* (^vc)() = ^(){
-        
-        TXRootVC *result = [self vcFromName:NSStringFromClass([TXSignInVC class])];
-        
-        return result;
-    };
+//    TXRootVC* (^vc)() = ^(){
+//        
+//        TXRootVC *result = [self vcFromName:NSStringFromClass([TXSignInVC class])];
+//        
+//        return result;
+//    };
     
-    [self pushViewControllerAndPopPrevious:vc completionBlock:nil];
+    //[self pushViewControllerAndPopPrevious:vc completionBlock:nil];
     
     //  [self->googleReqMgr sendPlaceTextSearchAsync:self.txtSearch.text sensor:YES optional:nil];
     

@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 99S. All rights reserved.
 //
 
-#import "TXRootVC.h"
+#import "TXBaseViewController.h"
 #import "SlideNavigationController.h"
 
-@interface TXMainVC : TXRootVC<SlideNavigationControllerDelegate>
+@interface TXMainVC : TXBaseViewController<SlideNavigationControllerDelegate>
 
 - (id)initWithToken:(NSString *) token;
 

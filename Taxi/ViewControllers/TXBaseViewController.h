@@ -9,19 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "TXCode2MsgTranslator.h"
 #import "TXModelBase.h"
-#import "TXBaseViewController.h"
-#import "TXStackedViewController.h"
 #import "TXUILayers.h"
+#import "TXTextField.h"
 
-@interface TXRootVC : TXStackedViewController<TXEventListener> {
+@interface TXBaseViewController : UIViewController<TXEventListener> {
     NSDictionary *parameters;
 }
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
--(void) pushViewController : (TXRootVC *) viewController;
+-(void) pushViewController : (TXBaseViewController *) viewController;
 -(void) alertError : (NSString *) title message : (NSString *) message;
--(TXRootVC *) vcFromName: (NSString *) name;
+-(TXBaseViewController *) vcFromName: (NSString *) name;
 -(void)refreshInterfaceBasedOnSignIn;
 -(void) setParameters:(NSDictionary *)props;
 -(void) showBusyIndicator;

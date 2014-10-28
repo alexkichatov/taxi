@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3815177E18C364BA005F915C /* TXRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3815177D18C364BA005F915C /* TXRootVC.m */; };
+		3815177E18C364BA005F915C /* TXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3815177D18C364BA005F915C /* TXBaseViewController.m */; };
 		3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC2718EEC57A003D7AD2 /* menu-alt.png */; };
 		3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC2F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m */; };
 		3826CC3E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC3118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m */; };
@@ -46,29 +46,6 @@
 		385A1B68196B38DB0075217D /* SlideNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385A1B67196B38DB0075217D /* SlideNavController.xib */; };
 		385E113918EB0B0800AB7570 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BE647218AA7265006BD587 /* libsqlite3.dylib */; };
 		385E114018EC348F00AB7570 /* TXMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E113F18EC348F00AB7570 /* TXMainVC.m */; };
-		385E119018EC35C400AB7570 /* TXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E114F18EC35C400AB7570 /* TXAlertView.m */; };
-		385E119118EC35C400AB7570 /* TXStackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115118EC35C400AB7570 /* TXStackedViewController.m */; };
-		385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115518EC35C400AB7570 /* UIView+FindFirstResponder.m */; };
-		385E119318EC35C400AB7570 /* UIView+PSSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115718EC35C400AB7570 /* UIView+PSSizes.m */; };
-		385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115918EC35C400AB7570 /* UIViewController+FindFirstResponder.m */; };
-		385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115B18EC35C400AB7570 /* UIViewController+PSStackedView.m */; };
-		385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E115E18EC35C400AB7570 /* TXBaseViewController.m */; };
-		385E119718EC35C400AB7570 /* TXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116018EC35C400AB7570 /* TXRootViewController.m */; };
-		385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E116118EC35C400AB7570 /* AMFRootViewController.xib */; };
-		385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116418EC35C400AB7570 /* TXBaseCell.m */; };
-		385E119A18EC35C400AB7570 /* TXMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116618EC35C400AB7570 /* TXMenuCell.m */; };
-		385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E116718EC35C400AB7570 /* AMFMenuCell.xib */; };
-		385E119C18EC35C400AB7570 /* TXSimpleSubMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116918EC35C400AB7570 /* TXSimpleSubMenuCell.m */; };
-		385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E116A18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib */; };
-		385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116D18EC35C400AB7570 /* TXMenuItemObject.m */; };
-		385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E116F18EC35C400AB7570 /* TXObjectPDQ.m */; };
-		385E11A018EC35C400AB7570 /* TXObjectPDQCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117118EC35C400AB7570 /* TXObjectPDQCriteria.m */; };
-		385E11A118EC35C400AB7570 /* UIToolbar+AddItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117318EC35C400AB7570 /* UIToolbar+AddItems.m */; };
-		385E11A218EC35C400AB7570 /* UIViewController+BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117518EC35C400AB7570 /* UIViewController+BaseNavigation.m */; };
-		385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117818EC35C400AB7570 /* TXContainerView.m */; };
-		385E11A418EC35C400AB7570 /* TXStackedViewGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E117B18EC35C400AB7570 /* TXStackedViewGlobal.m */; };
-		385E11A718EC35C400AB7570 /* TXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118518EC35C400AB7570 /* TXConstants.m */; };
-		385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118B18EC35C400AB7570 /* UIView+Hierarchy.m */; };
 		385E11AA18EC35C400AB7570 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 385E118D18EC35C400AB7570 /* SVProgressHUD.bundle */; };
 		385E11AB18EC35C400AB7570 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 385E118F18EC35C400AB7570 /* SVProgressHUD.m */; };
 		3865DC9A188C13970044A0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3865DC99188C13970044A0DC /* Foundation.framework */; };
@@ -136,10 +113,9 @@
 		38DE960219FD49D100F34D71 /* TXSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DE95F719FD49D100F34D71 /* TXSignInVC.xib */; };
 		38DE960319FD49D100F34D71 /* TXSignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE95FA19FD49D100F34D71 /* TXSignUpVC.m */; };
 		38DE960419FD49D100F34D71 /* TXSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DE95FB19FD49D100F34D71 /* TXSignUpVC.xib */; };
-		38DE965C19FD5EE700F34D71 /* TXIndeterminateProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DE965A19FD5EE700F34D71 /* TXIndeterminateProgressViewController.m */; };
-		38DE965D19FD5EE700F34D71 /* TXIndeterminateProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DE965B19FD5EE700F34D71 /* TXIndeterminateProgressViewController.xib */; };
 		38E435F1195B015100E712DD /* TXUILayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E435F0195B015100E712DD /* TXUILayers.m */; };
 		38F138DF192A470000121441 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F138DE192A470000121441 /* Social.framework */; };
+		38FD39F719FFE07F003CDDD0 /* TXTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FD39F619FFE07F003CDDD0 /* TXTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,8 +129,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3815177C18C364BA005F915C /* TXRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXRootVC.h; path = ../TXRootVC.h; sourceTree = "<group>"; };
-		3815177D18C364BA005F915C /* TXRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXRootVC.m; path = ../TXRootVC.m; sourceTree = "<group>"; };
+		3815177C18C364BA005F915C /* TXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXBaseViewController.h; path = ../TXBaseViewController.h; sourceTree = "<group>"; };
+		3815177D18C364BA005F915C /* TXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXBaseViewController.m; path = ../TXBaseViewController.m; sourceTree = "<group>"; };
 		3826CC2718EEC57A003D7AD2 /* menu-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-alt.png"; sourceTree = "<group>"; };
 		3826CC2D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
 		3826CC2E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
@@ -208,54 +184,6 @@
 		385A1B67196B38DB0075217D /* SlideNavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideNavController.xib; sourceTree = "<group>"; };
 		385E113E18EC348F00AB7570 /* TXMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXMainVC.h; path = user/TXMainVC.h; sourceTree = "<group>"; };
 		385E113F18EC348F00AB7570 /* TXMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXMainVC.m; path = user/TXMainVC.m; sourceTree = "<group>"; };
-		385E114E18EC35C400AB7570 /* TXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAlertView.h; sourceTree = "<group>"; };
-		385E114F18EC35C400AB7570 /* TXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXAlertView.m; sourceTree = "<group>"; };
-		385E115018EC35C400AB7570 /* TXStackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedViewController.h; sourceTree = "<group>"; };
-		385E115118EC35C400AB7570 /* TXStackedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXStackedViewController.m; sourceTree = "<group>"; };
-		385E115218EC35C400AB7570 /* TXStackedViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedViewDelegate.h; sourceTree = "<group>"; };
-		385E115418EC35C400AB7570 /* UIView+FindFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FindFirstResponder.h"; sourceTree = "<group>"; };
-		385E115518EC35C400AB7570 /* UIView+FindFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindFirstResponder.m"; sourceTree = "<group>"; };
-		385E115618EC35C400AB7570 /* UIView+PSSizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PSSizes.h"; sourceTree = "<group>"; };
-		385E115718EC35C400AB7570 /* UIView+PSSizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PSSizes.m"; sourceTree = "<group>"; };
-		385E115818EC35C400AB7570 /* UIViewController+FindFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FindFirstResponder.h"; sourceTree = "<group>"; };
-		385E115918EC35C400AB7570 /* UIViewController+FindFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FindFirstResponder.m"; sourceTree = "<group>"; };
-		385E115A18EC35C400AB7570 /* UIViewController+PSStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PSStackedView.h"; sourceTree = "<group>"; };
-		385E115B18EC35C400AB7570 /* UIViewController+PSStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PSStackedView.m"; sourceTree = "<group>"; };
-		385E115D18EC35C400AB7570 /* TXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseViewController.h; sourceTree = "<group>"; };
-		385E115E18EC35C400AB7570 /* TXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseViewController.m; sourceTree = "<group>"; };
-		385E115F18EC35C400AB7570 /* TXRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXRootViewController.h; sourceTree = "<group>"; };
-		385E116018EC35C400AB7570 /* TXRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXRootViewController.m; sourceTree = "<group>"; };
-		385E116118EC35C400AB7570 /* AMFRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFRootViewController.xib; sourceTree = "<group>"; };
-		385E116318EC35C400AB7570 /* TXBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseCell.h; sourceTree = "<group>"; };
-		385E116418EC35C400AB7570 /* TXBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBaseCell.m; sourceTree = "<group>"; };
-		385E116518EC35C400AB7570 /* TXMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMenuCell.h; sourceTree = "<group>"; };
-		385E116618EC35C400AB7570 /* TXMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMenuCell.m; sourceTree = "<group>"; };
-		385E116718EC35C400AB7570 /* AMFMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFMenuCell.xib; sourceTree = "<group>"; };
-		385E116818EC35C400AB7570 /* TXSimpleSubMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSimpleSubMenuCell.h; sourceTree = "<group>"; };
-		385E116918EC35C400AB7570 /* TXSimpleSubMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSimpleSubMenuCell.m; sourceTree = "<group>"; };
-		385E116A18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMFSimpleSubMenuCell.xib; sourceTree = "<group>"; };
-		385E116C18EC35C400AB7570 /* TXMenuItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMenuItemObject.h; sourceTree = "<group>"; };
-		385E116D18EC35C400AB7570 /* TXMenuItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMenuItemObject.m; sourceTree = "<group>"; };
-		385E116E18EC35C400AB7570 /* TXObjectPDQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXObjectPDQ.h; sourceTree = "<group>"; };
-		385E116F18EC35C400AB7570 /* TXObjectPDQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXObjectPDQ.m; sourceTree = "<group>"; };
-		385E117018EC35C400AB7570 /* TXObjectPDQCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXObjectPDQCriteria.h; sourceTree = "<group>"; };
-		385E117118EC35C400AB7570 /* TXObjectPDQCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXObjectPDQCriteria.m; sourceTree = "<group>"; };
-		385E117218EC35C400AB7570 /* UIToolbar+AddItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+AddItems.h"; sourceTree = "<group>"; };
-		385E117318EC35C400AB7570 /* UIToolbar+AddItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+AddItems.m"; sourceTree = "<group>"; };
-		385E117418EC35C400AB7570 /* UIViewController+BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BaseNavigation.h"; sourceTree = "<group>"; };
-		385E117518EC35C400AB7570 /* UIViewController+BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BaseNavigation.m"; sourceTree = "<group>"; };
-		385E117718EC35C400AB7570 /* TXContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXContainerView.h; sourceTree = "<group>"; };
-		385E117818EC35C400AB7570 /* TXContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXContainerView.m; sourceTree = "<group>"; };
-		385E117918EC35C400AB7570 /* TXStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedView.h; sourceTree = "<group>"; };
-		385E117A18EC35C400AB7570 /* TXStackedViewGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXStackedViewGlobal.h; sourceTree = "<group>"; };
-		385E117B18EC35C400AB7570 /* TXStackedViewGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXStackedViewGlobal.m; sourceTree = "<group>"; };
-		385E117D18EC35C400AB7570 /* TXAppearanceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXAppearanceDelegate.h; sourceTree = "<group>"; };
-		385E117E18EC35C400AB7570 /* TXBaseNavigationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBaseNavigationProtocol.h; sourceTree = "<group>"; };
-		385E117F18EC35C400AB7570 /* TXDataInputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXDataInputProtocol.h; sourceTree = "<group>"; };
-		385E118418EC35C400AB7570 /* TXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXConstants.h; sourceTree = "<group>"; };
-		385E118518EC35C400AB7570 /* TXConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXConstants.m; sourceTree = "<group>"; };
-		385E118A18EC35C400AB7570 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
-		385E118B18EC35C400AB7570 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		385E118D18EC35C400AB7570 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		385E118E18EC35C400AB7570 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		385E118F18EC35C400AB7570 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -363,13 +291,12 @@
 		38DE95F919FD49D100F34D71 /* TXSignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSignUpVC.h; sourceTree = "<group>"; };
 		38DE95FA19FD49D100F34D71 /* TXSignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSignUpVC.m; sourceTree = "<group>"; };
 		38DE95FB19FD49D100F34D71 /* TXSignUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXSignUpVC.xib; sourceTree = "<group>"; };
-		38DE965919FD5EE700F34D71 /* TXIndeterminateProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXIndeterminateProgressViewController.h; sourceTree = "<group>"; };
-		38DE965A19FD5EE700F34D71 /* TXIndeterminateProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXIndeterminateProgressViewController.m; sourceTree = "<group>"; };
-		38DE965B19FD5EE700F34D71 /* TXIndeterminateProgressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXIndeterminateProgressViewController.xib; sourceTree = "<group>"; };
 		38E435EF195B015100E712DD /* TXUILayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUILayers.h; sourceTree = "<group>"; };
 		38E435F0195B015100E712DD /* TXUILayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUILayers.m; sourceTree = "<group>"; };
 		38F138DC192A454B00121441 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		38F138DE192A470000121441 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		38FD39F519FFE07F003CDDD0 /* TXTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTextField.h; sourceTree = "<group>"; };
+		38FD39F619FFE07F003CDDD0 /* TXTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,145 +469,9 @@
 			isa = PBXGroup;
 			children = (
 				389EDB6118F1967C005CAAE7 /* CMPopTipView */,
-				385E114B18EC35C400AB7570 /* PSStackedView */,
 				385E118C18EC35C400AB7570 /* SVProgressHUD */,
 			);
 			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		385E114B18EC35C400AB7570 /* PSStackedView */ = {
-			isa = PBXGroup;
-			children = (
-				385E114C18EC35C400AB7570 /* AppNavigation */,
-				385E117C18EC35C400AB7570 /* Base */,
-				385E118318EC35C400AB7570 /* Core */,
-				385E118918EC35C400AB7570 /* UIView+Hierarchy */,
-			);
-			path = PSStackedView;
-			sourceTree = "<group>";
-		};
-		385E114C18EC35C400AB7570 /* AppNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				385E114D18EC35C400AB7570 /* AMFAlertView */,
-				385E115018EC35C400AB7570 /* TXStackedViewController.h */,
-				385E115118EC35C400AB7570 /* TXStackedViewController.m */,
-				385E115218EC35C400AB7570 /* TXStackedViewDelegate.h */,
-				385E115318EC35C400AB7570 /* Helpers */,
-				385E115C18EC35C400AB7570 /* Root */,
-				385E117618EC35C400AB7570 /* Views */,
-			);
-			path = AppNavigation;
-			sourceTree = "<group>";
-		};
-		385E114D18EC35C400AB7570 /* AMFAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				385E114E18EC35C400AB7570 /* TXAlertView.h */,
-				385E114F18EC35C400AB7570 /* TXAlertView.m */,
-			);
-			path = AMFAlertView;
-			sourceTree = "<group>";
-		};
-		385E115318EC35C400AB7570 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				385E115418EC35C400AB7570 /* UIView+FindFirstResponder.h */,
-				385E115518EC35C400AB7570 /* UIView+FindFirstResponder.m */,
-				385E115618EC35C400AB7570 /* UIView+PSSizes.h */,
-				385E115718EC35C400AB7570 /* UIView+PSSizes.m */,
-				385E115818EC35C400AB7570 /* UIViewController+FindFirstResponder.h */,
-				385E115918EC35C400AB7570 /* UIViewController+FindFirstResponder.m */,
-				385E115A18EC35C400AB7570 /* UIViewController+PSStackedView.h */,
-				385E115B18EC35C400AB7570 /* UIViewController+PSStackedView.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		385E115C18EC35C400AB7570 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				385E115D18EC35C400AB7570 /* TXBaseViewController.h */,
-				385E115E18EC35C400AB7570 /* TXBaseViewController.m */,
-				385E115F18EC35C400AB7570 /* TXRootViewController.h */,
-				385E116018EC35C400AB7570 /* TXRootViewController.m */,
-				385E116118EC35C400AB7570 /* AMFRootViewController.xib */,
-				385E116218EC35C400AB7570 /* Cells */,
-				385E116B18EC35C400AB7570 /* Helpers */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		385E116218EC35C400AB7570 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				385E116318EC35C400AB7570 /* TXBaseCell.h */,
-				385E116418EC35C400AB7570 /* TXBaseCell.m */,
-				385E116518EC35C400AB7570 /* TXMenuCell.h */,
-				385E116618EC35C400AB7570 /* TXMenuCell.m */,
-				385E116718EC35C400AB7570 /* AMFMenuCell.xib */,
-				385E116818EC35C400AB7570 /* TXSimpleSubMenuCell.h */,
-				385E116918EC35C400AB7570 /* TXSimpleSubMenuCell.m */,
-				385E116A18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		385E116B18EC35C400AB7570 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				385E116C18EC35C400AB7570 /* TXMenuItemObject.h */,
-				385E116D18EC35C400AB7570 /* TXMenuItemObject.m */,
-				385E116E18EC35C400AB7570 /* TXObjectPDQ.h */,
-				385E116F18EC35C400AB7570 /* TXObjectPDQ.m */,
-				385E117018EC35C400AB7570 /* TXObjectPDQCriteria.h */,
-				385E117118EC35C400AB7570 /* TXObjectPDQCriteria.m */,
-				385E117218EC35C400AB7570 /* UIToolbar+AddItems.h */,
-				385E117318EC35C400AB7570 /* UIToolbar+AddItems.m */,
-				385E117418EC35C400AB7570 /* UIViewController+BaseNavigation.h */,
-				385E117518EC35C400AB7570 /* UIViewController+BaseNavigation.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		385E117618EC35C400AB7570 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				385E117718EC35C400AB7570 /* TXContainerView.h */,
-				385E117818EC35C400AB7570 /* TXContainerView.m */,
-				385E117918EC35C400AB7570 /* TXStackedView.h */,
-				385E117A18EC35C400AB7570 /* TXStackedViewGlobal.h */,
-				385E117B18EC35C400AB7570 /* TXStackedViewGlobal.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		385E117C18EC35C400AB7570 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				385E117D18EC35C400AB7570 /* TXAppearanceDelegate.h */,
-				385E117E18EC35C400AB7570 /* TXBaseNavigationProtocol.h */,
-				385E117F18EC35C400AB7570 /* TXDataInputProtocol.h */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		385E118318EC35C400AB7570 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				385E118418EC35C400AB7570 /* TXConstants.h */,
-				385E118518EC35C400AB7570 /* TXConstants.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		385E118918EC35C400AB7570 /* UIView+Hierarchy */ = {
-			isa = PBXGroup;
-			children = (
-				385E118A18EC35C400AB7570 /* UIView+Hierarchy.h */,
-				385E118B18EC35C400AB7570 /* UIView+Hierarchy.m */,
-			);
-			path = "UIView+Hierarchy";
 			sourceTree = "<group>";
 		};
 		385E118C18EC35C400AB7570 /* SVProgressHUD */ = {
@@ -1015,11 +806,9 @@
 		38DE965819FD5EE700F34D71 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				3815177C18C364BA005F915C /* TXRootVC.h */,
-				3815177D18C364BA005F915C /* TXRootVC.m */,
-				38DE965919FD5EE700F34D71 /* TXIndeterminateProgressViewController.h */,
-				38DE965A19FD5EE700F34D71 /* TXIndeterminateProgressViewController.m */,
-				38DE965B19FD5EE700F34D71 /* TXIndeterminateProgressViewController.xib */,
+				38FD39F419FFE064003CDDD0 /* UIParts */,
+				3815177C18C364BA005F915C /* TXBaseViewController.h */,
+				3815177D18C364BA005F915C /* TXBaseViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1031,6 +820,15 @@
 				38E435F0195B015100E712DD /* TXUILayers.m */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		38FD39F419FFE064003CDDD0 /* UIParts */ = {
+			isa = PBXGroup;
+			children = (
+				38FD39F519FFE07F003CDDD0 /* TXTextField.h */,
+				38FD39F619FFE07F003CDDD0 /* TXTextField.m */,
+			);
+			path = UIParts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1119,16 +917,12 @@
 				3886E60E195DAC2F0087CD42 /* TXDestinationsVC.xib in Resources */,
 				389B630E1943202F00BB364C /* TXMapVC.xib in Resources */,
 				389D4F01191D4E55005ED6E1 /* Main_iPad.storyboard in Resources */,
-				385E119D18EC35C400AB7570 /* AMFSimpleSubMenuCell.xib in Resources */,
 				3826CC4918EEFAB8003D7AD2 /* button-home.png in Resources */,
-				385E119B18EC35C400AB7570 /* AMFMenuCell.xib in Resources */,
 				3826CC4B18EEFE08003D7AD2 /* button-profile.png in Resources */,
-				38DE965D19FD5EE700F34D71 /* TXIndeterminateProgressViewController.xib in Resources */,
 				3826CC4F18EF02A0003D7AD2 /* button-settings.png in Resources */,
 				38DE960019FD49D100F34D71 /* TXConfirmationVC.xib in Resources */,
 				3865DCB5188C13970044A0DC /* Images.xcassets in Resources */,
 				38DE95FD19FD49D100F34D71 /* TXAskPhoneNumberVC.xib in Resources */,
-				385E119818EC35C400AB7570 /* AMFRootViewController.xib in Resources */,
 				389D4F08191D4E6B005ED6E1 /* Main_iPhone.storyboard in Resources */,
 				3886E60C195D96250087CD42 /* marker.png in Resources */,
 				3826CC4318EEDBAD003D7AD2 /* menu-button@2x.png in Resources */,
@@ -1160,24 +954,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38DE965C19FD5EE700F34D71 /* TXIndeterminateProgressViewController.m in Sources */,
 				389D4F15191E4B41005ED6E1 /* TXCallModel.m in Sources */,
 				38DA7877191BCDC300269AB7 /* TXFileManager.m in Sources */,
-				385E119618EC35C400AB7570 /* TXBaseViewController.m in Sources */,
 				3829D64E195249300013EADB /* TXResponse.m in Sources */,
 				3826CC4718EEDF27003D7AD2 /* MenuViewController.m in Sources */,
 				3865DCAA188C13970044A0DC /* TXAppDelegate.m in Sources */,
 				38DA7862191BC8E500269AB7 /* TXGoogleObjectsCache.m in Sources */,
-				385E119218EC35C400AB7570 /* UIView+FindFirstResponder.m in Sources */,
-				385E119918EC35C400AB7570 /* TXBaseCell.m in Sources */,
 				3865DCA6188C13970044A0DC /* main.m in Sources */,
-				385E119A18EC35C400AB7570 /* TXMenuCell.m in Sources */,
+				38FD39F719FFE07F003CDDD0 /* TXTextField.m in Sources */,
 				38DABBC518D9AA72005D4AC4 /* TXGoogleRequestManager.m in Sources */,
 				38DE960119FD49D100F34D71 /* TXSignInVC.m in Sources */,
-				385E119118EC35C400AB7570 /* TXStackedViewController.m in Sources */,
 				3827824018B8D5F40036238A /* TXPropertyConsts.m in Sources */,
-				385E11A018EC35C400AB7570 /* TXObjectPDQCriteria.m in Sources */,
-				385E119518EC35C400AB7570 /* UIViewController+PSStackedView.m in Sources */,
 				38DA788A191BCE0E00269AB7 /* TXErrorCodes.m in Sources */,
 				385A1B60196B2E000075217D /* TXUserModel.m in Sources */,
 				38DA7888191BCE0E00269AB7 /* TXSqlGenerator.m in Sources */,
@@ -1185,48 +972,35 @@
 				389EDB6418F19687005CAAE7 /* CMPopTipView.m in Sources */,
 				3827823018B8CE920036238A /* TXModelBase.m in Sources */,
 				38DA7879191BCDC300269AB7 /* utils.m in Sources */,
-				385E11A918EC35C400AB7570 /* UIView+Hierarchy.m in Sources */,
 				3884BFBB18F6AFAC0079DB47 /* TXCode2MsgTranslator.m in Sources */,
-				385E119F18EC35C400AB7570 /* TXObjectPDQ.m in Sources */,
 				388415A2190B46D500E39806 /* TXHttpRequestManager.m in Sources */,
 				38DA7889191BCE0E00269AB7 /* TXError.m in Sources */,
 				38DA7869191BCD6B00269AB7 /* TXEventTarget.m in Sources */,
 				38DE95FE19FD49D100F34D71 /* TXUserVC.m in Sources */,
 				38DA7868191BCD6B00269AB7 /* TXEvent.m in Sources */,
-				385E11A718EC35C400AB7570 /* TXConstants.m in Sources */,
 				38DA7875191BCDC300269AB7 /* NSString+TXNSString.m in Sources */,
 				38DA7893191BCE8700269AB7 /* FDKeyChain.m in Sources */,
-				385E119E18EC35C400AB7570 /* TXMenuItemObject.m in Sources */,
 				38DA7878191BCDC300269AB7 /* TXSettings.m in Sources */,
 				3827823218B8CE920036238A /* TXSharedObj.m in Sources */,
 				3826CC3E18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				388EF80018F2D185008F3454 /* TXAskUserInfoVC.m in Sources */,
 				38DE960319FD49D100F34D71 /* TXSignUpVC.m in Sources */,
 				3827823F18B8D5F40036238A /* TXBaseObj.m in Sources */,
-				3815177E18C364BA005F915C /* TXRootVC.m in Sources */,
-				385E119018EC35C400AB7570 /* TXAlertView.m in Sources */,
+				3815177E18C364BA005F915C /* TXBaseViewController.m in Sources */,
 				389B630C194316FF00BB364C /* NSData+StringBytes.m in Sources */,
 				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
-				385E119418EC35C400AB7570 /* UIViewController+FindFirstResponder.m in Sources */,
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
-				385E11A118EC35C400AB7570 /* UIToolbar+AddItems.m in Sources */,
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
 				38DE95FC19FD49D100F34D71 /* TXAskPhoneNumberVC.m in Sources */,
-				385E11A318EC35C400AB7570 /* TXContainerView.m in Sources */,
 				38DA7887191BCE0E00269AB7 /* TXDBHelper.m in Sources */,
 				389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */,
 				3827824418B8E55F0036238A /* TXUserAPITest.m in Sources */,
 				385E11AB18EC35C400AB7570 /* SVProgressHUD.m in Sources */,
 				38E435F1195B015100E712DD /* TXUILayers.m in Sources */,
-				385E119718EC35C400AB7570 /* TXRootViewController.m in Sources */,
-				385E119318EC35C400AB7570 /* UIView+PSSizes.m in Sources */,
-				385E11A418EC35C400AB7570 /* TXStackedViewGlobal.m in Sources */,
 				3826CC4018EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				38DA788D191BCE5000269AB7 /* TXApp.m in Sources */,
-				385E119C18EC35C400AB7570 /* TXSimpleSubMenuCell.m in Sources */,
 				38DA7876191BCDC300269AB7 /* StrConsts.m in Sources */,
-				385E11A218EC35C400AB7570 /* UIViewController+BaseNavigation.m in Sources */,
 				38DE95FF19FD49D100F34D71 /* TXConfirmationVC.m in Sources */,
 				38C60B8A18D47BEC000A3DD3 /* TXMapVC.m in Sources */,
 				38DA7886191BCE0E00269AB7 /* DBTypes.m in Sources */,
