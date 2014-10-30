@@ -32,7 +32,6 @@ extern const struct UserConsts {
 
 @interface TXUser : TXBaseObj
 
-//@property (nonatomic, assign) int       objID;
 @property (nonatomic, retain) NSString* username;
 @property (nonatomic, retain) NSString* password;
 @property (nonatomic, retain) NSString* name;
@@ -61,6 +60,7 @@ extern const struct UserConsts {
 +(TXUserModel *) instance;
 -(void) signUp:(TXUser *)user;
 -(void) signIn:(NSString *)username password:(NSString *)password providerId:(NSNumber *) providerId providerUserId:(NSString*)providerUserId;
+-(void) signIn:(TXUser *) user;
 -(void) authWithToken:(NSString *) userToken;
 -(void) update : (TXUser *) user;
 -(void) deleteUser;

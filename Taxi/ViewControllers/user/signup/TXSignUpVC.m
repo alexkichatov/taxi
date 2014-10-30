@@ -15,6 +15,7 @@
 @interface TXSignUpVC ()<UIActionSheetDelegate> {
     NSMutableArray *existingUsernames;
     CMPopTipView *popup;
+    NSString *lastFreeUsername;
 }
 
 -(IBAction)signUp:(id)sender;
@@ -27,16 +28,39 @@
 
 @implementation TXSignUpVC
 
--(void)viewDidLoad {
-    [super viewDidLoad];
+-(void) configure {
+    [super configure];
     self->model = [TXUserModel instance];
     [self->model addEventListener:self forEvent:TXEvents.CHECKUSEREXISTS eventParams:nil];
     [self configureStyles];
     [self refreshSignUpButton];
 }
 
+-(UIImage *)imageResize :(UIImage*)img andResizeTo:(CGSize)newSize
+{
+    CGFloat scale = [[UIScreen mainScreen]scale];
+    /*You can remove the below comment if you dont want to scale the image in retina   device .Dont forget to comment UIGraphicsBeginImageContextWithOptions*/
+    //UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, scale);
+    [img drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+-(void) setAcceptedUsernameIcon {
+    [self.txtUsername setRightViewMode:UITextFieldViewModeAlways];
+    UIImage *image_ = [UIImage imageNamed:@"accepted.png"];
+    UIImage *image = [self imageResize:image_ andResizeTo:CGSizeMake(15, 15)];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    self.txtUsername.rightViewMode = UITextFieldViewModeAlways;
+    self.txtUsername.rightView = imageView;
+
+}
+
 -(void) configureStyles {
     
+    [super configureStyles];
     [self.txtUsername setTextAlignment:NSTextAlignmentLeft];
     [self.txtUsername setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtUsername.layer.shadowOpacity = 0.0;
@@ -50,11 +74,8 @@
     [self.txtConfirmPassword setTextAlignment:NSTextAlignmentLeft];
     [self.txtConfirmPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtConfirmPassword.layer.shadowOpacity = 0.0;
-    [self.txtConfirmPassword.layer addSublayer:[TXUILayers layerWithRadiusNone:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
+    [self.txtConfirmPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
 
-    [self.btnSignUp.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.btnSignUp.bounds color:[[UIColor orangeColor] CGColor]]];
-
-    
 }
 
 -(IBAction)signUp:(id)sender {
@@ -85,10 +106,10 @@
     
     if([sender isEqual:self.txtUsername] && sender.text.length > 0) {
 
-        if(![self->existingUsernames containsObject:self.txtUsername.text]) {
+        if(![self->existingUsernames containsObject:self.txtUsername.text] && ![sender.text isEqualToString:self->lastFreeUsername]) {
             TXUser *user = [[TXUser alloc] init];
             user.username = sender.text;
-            [self showBusyIndicator];
+            [self showBusyIndicator:@"Checking username ... "];
             [self->model checkIfUserExists:user];
         } else {
             [self displayUserExistsPopup];
@@ -101,6 +122,9 @@
 -(void)textFieldFocusGained:(UITextField *)sender {
     if([sender isEqual:self.txtUsername]) {
         [self->popup removeFromSuperview];
+        
+        if(![sender.text isEqualToString:self->lastFreeUsername])
+            [self.txtUsername setRightViewMode:UITextFieldViewModeNever];
     }
 }
 
@@ -143,7 +167,10 @@
                 self->existingUsernames = [NSMutableArray arrayWithCapacity:1];
             [self->existingUsernames addObject:[self.txtUsername.text uppercaseString]];
             [self displayUserExistsPopup];
-            
+            [self.txtUsername setRightViewMode:UITextFieldViewModeNever];
+        } else {
+            self->lastFreeUsername = self.txtUsername.text;
+            [self setAcceptedUsernameIcon];
         }
         
     }

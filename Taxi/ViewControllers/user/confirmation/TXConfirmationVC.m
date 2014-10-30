@@ -8,6 +8,7 @@
 
 #import "TXConfirmationVC.h"
 #import "TXMapVC.h"
+#import "TXAskPhoneNumberVC.h"
 
 @interface TXConfirmationVC () {
     int userId;
@@ -29,10 +30,10 @@
     return self;
 }
 
--(void)viewDidLoad {
-    
-    [super viewDidLoad];
+-(void)configure {
+    [super configure];
     self->userId = [[[[self->model getApp] getSettings] getUserId] intValue];
+    [self->model addEventListener:self forEvent:TXEvents.CONFIRM eventParams:nil];
 }
 
 -(void)submit:(id)sender {
@@ -45,11 +46,8 @@
 }
 
 -(void)resend:(id)sender {
-    
-   // int userId = [[self->parameters objectForKey:API_JSON.ID] intValue];
-   // TXSyncResponseDescriptor *response = [self->model resendVerificationCode:self->userId];
-    
-    
+    TXAskPhoneNumberVC *viewCtrl = [[TXAskPhoneNumberVC alloc] initWithNibName:@"TXAskPhoneNumberVC" bundle:nil];
+    [self pushViewController:viewCtrl];
 }
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {

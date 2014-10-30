@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381290151A02621400F83769 /* TXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 381290141A02621400F83769 /* TXButton.m */; };
+		381290171A026FCA00F83769 /* accepted.png in Resources */ = {isa = PBXBuildFile; fileRef = 381290161A026FCA00F83769 /* accepted.png */; };
 		3815177E18C364BA005F915C /* TXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3815177D18C364BA005F915C /* TXBaseViewController.m */; };
 		3826CC2818EEC57A003D7AD2 /* menu-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 3826CC2718EEC57A003D7AD2 /* menu-alt.png */; };
 		3826CC3D18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 3826CC2F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorFade.m */; };
@@ -129,6 +131,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		381290131A02621400F83769 /* TXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXButton.h; sourceTree = "<group>"; };
+		381290141A02621400F83769 /* TXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXButton.m; sourceTree = "<group>"; };
+		381290161A026FCA00F83769 /* accepted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accepted.png; sourceTree = "<group>"; };
 		3815177C18C364BA005F915C /* TXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXBaseViewController.h; path = ../TXBaseViewController.h; sourceTree = "<group>"; };
 		3815177D18C364BA005F915C /* TXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXBaseViewController.m; path = ../TXBaseViewController.m; sourceTree = "<group>"; };
 		3826CC2718EEC57A003D7AD2 /* menu-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-alt.png"; sourceTree = "<group>"; };
@@ -638,6 +643,7 @@
 		388D6D7818BB83880099C1C2 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				381290161A026FCA00F83769 /* accepted.png */,
 				3886E60B195D96250087CD42 /* marker.png */,
 				38DE08F5195B14A900E66A24 /* defaultbg.jpg */,
 				3826CC4E18EF02A0003D7AD2 /* button-settings.png */,
@@ -827,6 +833,8 @@
 			children = (
 				38FD39F519FFE07F003CDDD0 /* TXTextField.h */,
 				38FD39F619FFE07F003CDDD0 /* TXTextField.m */,
+				381290131A02621400F83769 /* TXButton.h */,
+				381290141A02621400F83769 /* TXButton.m */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -912,6 +920,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381290171A026FCA00F83769 /* accepted.png in Resources */,
 				3826CC4218EEDBAD003D7AD2 /* menu-button.png in Resources */,
 				38DE08F6195B14A900E66A24 /* defaultbg.jpg in Resources */,
 				3886E60E195DAC2F0087CD42 /* TXDestinationsVC.xib in Resources */,
@@ -990,6 +999,7 @@
 				389B630C194316FF00BB364C /* NSData+StringBytes.m in Sources */,
 				3826CC4118EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				3826CC4418EEDBAD003D7AD2 /* SlideNavigationController.m in Sources */,
+				381290151A02621400F83769 /* TXButton.m in Sources */,
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
 				38DE95FC19FD49D100F34D71 /* TXAskPhoneNumberVC.m in Sources */,

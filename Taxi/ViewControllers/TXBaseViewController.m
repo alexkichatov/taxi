@@ -11,7 +11,9 @@
 #import "TXSharedObj.h"
 #import "SVProgressHUD.h"
 
-@interface TXBaseViewController ()
+@interface TXBaseViewController () {
+    UIView *backgroundView;
+}
 
 @end
 
@@ -30,17 +32,33 @@
 {
     [super viewDidLoad];
 	self.view.userInteractionEnabled = TRUE;
+    [self configure];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-   
+    [self configureStyles];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) configure {
+    
+    self->x = self.view.frame.origin.x;
+    self->y = self.view.frame.origin.y;
+    self->width = self.view.frame.size.width;
+    self->height = self.view.frame.size.height;
+    
+    self->backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"defaultbg.jpg"]];
+    self->backgroundView.frame = self.view.bounds;
+    [[self view] addSubview:self->backgroundView];
+    [[self view] sendSubviewToBack:self->backgroundView];
+}
+
+-(UIView *)backroundView {
+    return self->backgroundView;
+}
+
+-(void) configureStyles {
+   
 }
 
 /*
@@ -73,7 +91,6 @@
     
     [self.view.layer addAnimation:transition forKey:kCATransition];
     [self presentViewController:viewController animated:YES completion:nil];
-    
 
 }
 

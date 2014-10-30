@@ -18,6 +18,7 @@
 @interface TXAskPhoneNumberVC () {
     NSMutableArray *items;
     CountryCodeItem *selectedItem;
+    NSNumber *userId;
 }
 
 -(IBAction)next:(id)sender;
@@ -26,11 +27,12 @@
 
 @implementation TXAskPhoneNumberVC
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self configurePhoneNumbers];
+-(void) configure {
+    [super configure];
     [self registerEventListeners];
+    [self configurePhoneNumbers];
+    self->userId = [[[self->model getApp] getSettings] getUserId];
+    [self.btnNext setTitle:self->userId!=nil ? @"Update mobile" : @"Proceed to confirm" forState:UIControlStateNormal];
 }
 
 -(void) configurePhoneNumbers {
@@ -56,6 +58,7 @@
 
 -(void) registerEventListeners {
     [self->model addEventListener:self forEvent:TXEvents.CREATEUSER eventParams:nil];
+    [self->model addEventListener:self forEvent:TXEvents.UPDATEUSERMOBILE eventParams:nil];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -77,9 +80,7 @@
     
     if([self.txtPhoneNumber.text length] > 0) {
         
-        id userId = [[[self->model getApp] getSettings] getUserId];
-        
-        if(userId == nil) {
+        if(self->userId == nil) {
             
             TXUser *user = [[TXUser alloc] init];
             user.username = [self->parameters objectForKey:API_JSON.Authenticate.USERNAME];
@@ -87,13 +88,13 @@
             user.mobile   = self.txtPhoneNumber.text;
             user.language = @"ka";
             
-            [self showBusyIndicator];
+            [self showBusyIndicator:@"Completing sign up ... "];
             [self->model signUp:user];
             
         } else {
             
-            [self showBusyIndicator];
-            [self->model updateMobile:[userId intValue] mobile:self.txtPhoneNumber.text];
+            [self showBusyIndicator:@"Updating mobile ... "];
+            [self->model updateMobile:[self->userId intValue] mobile:self.txtPhoneNumber.text];
             
         }
     
@@ -115,24 +116,22 @@
 }
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
+    
     [self hideBusyIndicator];
     TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
     
-    if([event.name isEqualToString:TXEvents.CREATEUSER]) {
+    if(descriptor.success) {
         
-        if(descriptor.success) {
-            
-            TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
-            NSDictionary*source = (NSDictionary*)descriptor.source;
-            [[[self->model getApp] getSettings] setUserId:[source objectForKey:API_JSON.ID]];
-            [self pushViewController:confirmationVC];
-            
-        } else {
-            NSString *message = [TXCode2MsgTranslator messageForCode:descriptor.code];
-            [self alertError:@"Error" message:message];
-        }
+        TXConfirmationVC *confirmationVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
+        NSDictionary*source = (NSDictionary*)descriptor.source;
+        [[[self->model getApp] getSettings] setUserId:[source objectForKey:API_JSON.ID]];
+        [self pushViewController:confirmationVC];
         
+    } else {
+        NSString *message = [TXCode2MsgTranslator messageForCode:descriptor.code];
+        [self alertError:@"Error" message:message];
     }
+
 }
 
 @end

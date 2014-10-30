@@ -14,6 +14,7 @@
 @property (nonatomic, strong) IBOutlet TXTextField *txtPassword;
 @property (nonatomic, strong) IBOutlet TXTextField *txtConfirmPassword;
 @property (nonatomic, strong) IBOutlet TXTextField *txtEmail;
-@property (nonatomic, strong) IBOutlet UIButton    *btnSignUp;
+@property (nonatomic, strong) IBOutlet TXButton    *btnSignUp;
+@property (nonatomic, strong) IBOutlet TXButton    *btnSignIn;
 
 @end

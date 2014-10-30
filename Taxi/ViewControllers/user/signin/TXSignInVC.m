@@ -16,10 +16,7 @@
 #import "TXSignUpVC.h"
 #import "TXMapVC.h"
 
-@interface TXSignInVC ()<GPPSignInDelegate> {
-    TXUser *user;
-    TXSettings *settings;
-}
+@interface TXSignInVC ()<GPPSignInDelegate>
 
 -(IBAction)signIn:(id)sender;
 -(IBAction)gpSignIn:(id)sender;
@@ -31,25 +28,28 @@
 
 #pragma mark - UIViewController
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
+-(void)configureStyles {
+    [super configureStyles];
     [self configureFieldStyles];
-    
-    self->model = [TXUserModel instance];
+}
+
+-(void) configure {
+    [super configure];
+    [[[self->model getApp] getSettings] setUserId:nil];
     [self->model addEventListener:self forEvent:TXEvents.CHECKUSEREXISTS eventParams:nil];
     [self->model addEventListener:self forEvent:TXEvents.LOGIN eventParams:nil];
-    
-    self->settings = [[TXApp instance] getSettings];
-    
+
     self.signIn = [GPPSignIn sharedInstance];
     self.signIn.shouldFetchGooglePlusUser = YES;
     self.signIn.shouldFetchGoogleUserEmail = YES;
     self.signIn.clientID = KEYS.Google.CLIENTID;
     self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];
     self.signIn.delegate = self;
-    
-  
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self configureFieldStyles];
 }
 
 -(void) configureFieldStyles {
@@ -91,30 +91,7 @@
                 [self alertError:[error localizedDescription] message:msg];
                 
             } else {
-                
-                self.googlePerson = person;
-                
-                self->user = [[TXUser alloc] init];
-                self->user.providerID = PROVIDERS.GOOGLE;
-                self->user.providerUserID = person.identifier;
-                
-                NSDictionary *personProps = getJSONObj(person.JSONString);
-                self->user.language = [personProps objectForKey:@"language"];
-                
-                NSArray *emails = [personProps objectForKey:@"emails"];
-                if(emails.count>0) {
-                    self->user.email = [emails[0] objectForKey:@"value"];
-                }
-                
-                NSDictionary *name = [personProps objectForKey:@"name"];
-                self->user.name = [name objectForKey:@"givenName"];
-                self->user.surname = [name objectForKey:@"familyName"];
-                
-                NSDictionary *image = [personProps objectForKey:@"image"];
-                self->user.photoURL = [image objectForKey:@"url"];
-                
-               // [self->model signIn:self->user];
-                
+                [self proceedWithGoogleSignIn:person];
             }
         }];
         
@@ -128,7 +105,31 @@
     
 }
 
-
+-(void) proceedWithGoogleSignIn:(GTLPlusPerson *)person {
+    
+    self.googlePerson = person;
+    
+    TXUser *user = [[TXUser alloc] init];
+    user.providerID = PROVIDERS.GOOGLE;
+    user.providerUserID = person.identifier;
+    
+    NSDictionary *personProps = getJSONObj(person.JSONString);
+    user.language = [personProps objectForKey:@"language"];
+    
+    NSArray *emails = [personProps objectForKey:@"emails"];
+    if(emails.count>0) {
+        user.email = [emails[0] objectForKey:@"value"];
+    }
+    
+    NSDictionary *name = [personProps objectForKey:@"name"];
+    user.name = [name objectForKey:@"givenName"];
+    user.surname = [name objectForKey:@"familyName"];
+    
+    NSDictionary *image = [personProps objectForKey:@"image"];
+    user.photoURL = [image objectForKey:@"url"];
+    
+    [self->model signIn:user];
+}
 
 -(void)refreshInterfaceBasedOnSignIn {
    
@@ -146,37 +147,19 @@
 
 -(void)onEvent:(TXEvent *)event eventParams:(id)subscriptionParams {
     
+    [self hideBusyIndicator];
     TXResponseDescriptor *descriptor = [event getEventProperty:TXEvents.Params.DESCRIPTOR];
     [self proccessSignIn:descriptor];
-    
-//    
-//    if(event!=nil && [event.name isEqualToString:TXEvents.CHECK_PROVIDER_USER_COMPLETED]) {
-//        
-//        BOOL success = [[event getEventProperty:API_JSON.Keys.SUCCESS] boolValue];
-//        int code     = [[event getEventProperty:API_JSON.Keys.CODE] intValue];
-//        
-//        if(!success && code == USERNAME_EXISTS) {
-//            
-//            [self pushViewController:[self vcFromName:NSStringFromClass([TXMainVC class])]];
-//            
-//        } else {
-//            
-//            TXAskPhoneNumberVC *vc = (TXAskPhoneNumberVC *)[self vcFromName:NSStringFromClass([TXAskPhoneNumberVC class])];
-//            
-//            [vc setParameters:@{ API_JSON.Authenticate.PROVIDERID : user.providerID, API_JSON.Authenticate.PROVIDERUSERID : user.providerUserID }];
-//            [self pushViewController:vc];
-//            
-//        }
-//        
-//    }
     
 }
 
 -(IBAction)signIn:(id)sender {
     
-    self->user = [[TXUser alloc] init];
-    self->user.username = self.txtUsername.text;
-    self->user.password = self.txtPassword.text;
+    TXUser *user = [[TXUser alloc] init];
+    user.username = self.txtUsername.text;
+    user.password = self.txtPassword.text;
+    
+    [self showBusyIndicator:@"Authenticating ... "];
     [self->model signIn:self.txtUsername.text password:self.txtPassword.text providerId:nil providerUserId:nil];
 }
 
@@ -243,7 +226,8 @@
 -(void) proccessSucceeded:(TXResponseDescriptor *) descriptor {
     
     NSDictionary*source = (NSDictionary*)descriptor.source;
-    [self->settings setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
+    [[[TXApp instance] getSettings] setUserToken:[source objectForKey:SettingsConst.CryptoKeys.USERTOKEN]];
+    [[[TXApp instance] getSettings] setUserId:[source objectForKey:API_JSON.ID]];
     
     TXMapVC *mapVC = [[TXMapVC alloc] initWithNibName:@"TXMapVC" bundle:nil];
     [self pushViewController:mapVC];
@@ -271,12 +255,8 @@
 -(void) proccessNotActivated:(TXResponseDescriptor *) descriptor {
     
     TXConfirmationVC *confVC = [[TXConfirmationVC alloc] initWithNibName:@"TXConfirmationVC" bundle:nil];
-    
     NSDictionary*source = (NSDictionary*)descriptor.source;
-    
-    NSDictionary*params  = @{ API_JSON.ID : [source objectForKey:API_JSON.ID] };
-    
-    [confVC setParameters:params];
+    [[[self->model getApp] getSettings] setUserId:[source objectForKey:API_JSON.ID]];
     [self pushViewController:confVC];
 }
 

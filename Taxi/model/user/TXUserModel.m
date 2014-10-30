@@ -26,7 +26,7 @@ const struct UserConsts UserConsts = {
     .PROVIDERUSERID = @"providerUserID",
     .PROVIDERID = @"providerID",
     .ISCONFIRMED = @"isConfirmed",
-    .USERTOKEN = @"userToken"
+    .USERTOKEN = @"accessToken"
     
 };
 
@@ -62,13 +62,20 @@ const struct UserConsts UserConsts = {
 
 -(void) signIn:(NSString *)username password:(NSString *)password providerId:(NSNumber *) providerId providerUserId:(NSString*)providerUserId {
     
-    TXRequestObj *request     = [self createRequest:HttpAPIConsts.LOGIN];
-    NSDictionary *propertyMap = @{
+    TXUser *user = [TXUser create:@{
                                     API_JSON.Authenticate.USERNAME : username!=nil ? username : [NSNull null],
                                     API_JSON.Authenticate.PASSWORD : password!=nil ? password : [NSNull null],
                                     API_JSON.Authenticate.PROVIDERID : providerId!=nil ? providerId : [NSNull null],
                                     API_JSON.Authenticate.PROVIDERUSERID : providerUserId!=nil ? providerUserId : [NSNull null],
-                                 };
+                                    }];
+    [self signIn:user];
+    
+}
+
+-(void) signIn:(TXUser *) user {
+    
+    TXRequestObj *request     = [self createRequest:HttpAPIConsts.LOGIN];
+    NSDictionary *propertyMap = [user getProperties];
     request.body = getJSONStr(propertyMap);
     [self sendAsyncRequest:request];
     

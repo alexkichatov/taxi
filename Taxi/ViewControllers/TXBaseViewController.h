@@ -11,9 +11,14 @@
 #import "TXModelBase.h"
 #import "TXUILayers.h"
 #import "TXTextField.h"
+#import "TXButton.h"
 
 @interface TXBaseViewController : UIViewController<TXEventListener> {
     NSDictionary *parameters;
+    float x;
+    float y;
+    float width;
+    float height;
 }
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -26,5 +31,7 @@
 -(void) showBusyIndicator;
 -(void) showBusyIndicator:(NSString *)title;
 -(void) hideBusyIndicator;
-
+-(void) configure;
+-(void) configureStyles;
+-(UIView*)backroundView;
 @end

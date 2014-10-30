@@ -49,19 +49,9 @@ const NSString *SPACE_BAR = @" ";
     
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	
+-(void)configure {
+    [super configure];
+    
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationMgr = [[CLLocationManager alloc] init];
         self.locationMgr.delegate = self;
@@ -86,7 +76,7 @@ const NSString *SPACE_BAR = @" ";
     self.mapView_.camera = camera;
     self.mapView_.delegate=self;
     
-
+    
     self.mapView_.myLocationEnabled = YES;
     
     self.mapView_.settings.myLocationButton = YES;
@@ -95,6 +85,7 @@ const NSString *SPACE_BAR = @" ";
     [self.btnSelectDest.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     
     [self.mapView_ bringSubviewToFront:self.btnSelectDest];
+
 }
 
 #pragma mark - Actions

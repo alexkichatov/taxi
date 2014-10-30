@@ -11,5 +11,7 @@
 @interface TXConfirmationVC : TXUserVC
 
 @property (nonatomic, strong) IBOutlet UITextField* txtCodeInput;
+@property (nonatomic, strong) IBOutlet TXButton* btnSubmit;
+@property (nonatomic, strong) IBOutlet TXButton* btnResend;
 
 @end

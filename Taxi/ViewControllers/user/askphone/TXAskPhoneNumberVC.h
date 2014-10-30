@@ -15,5 +15,6 @@
 @end
 
 @interface TXAskPhoneNumberVC : TXUserVC<UIPickerViewDelegate, UIPickerViewDataSource>
+@property (retain, nonatomic) IBOutlet TXButton    *btnNext;
 @property (nonatomic, strong) IBOutlet UITextField *txtPhoneNumber;
 @end

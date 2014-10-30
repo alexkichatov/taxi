@@ -18,5 +18,7 @@
 @property (retain, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
 @property (retain, nonatomic) IBOutlet TXTextField *txtUsername;
 @property (retain, nonatomic) IBOutlet TXTextField *txtPassword;
+@property (retain, nonatomic) IBOutlet TXButton    *btnSignIn;
+@property (retain, nonatomic) IBOutlet TXButton    *btnSignUp;
 
 @end
