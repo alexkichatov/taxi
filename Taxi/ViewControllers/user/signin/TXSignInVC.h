@@ -20,5 +20,6 @@
 @property (retain, nonatomic) IBOutlet TXTextField *txtPassword;
 @property (retain, nonatomic) IBOutlet TXButton    *btnSignIn;
 @property (retain, nonatomic) IBOutlet TXButton    *btnSignUp;
+@property (retain, nonatomic) IBOutlet TXButton    *btnForgotPassword;
 
 @end

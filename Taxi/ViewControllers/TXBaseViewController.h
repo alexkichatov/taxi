@@ -12,6 +12,7 @@
 #import "TXUILayers.h"
 #import "TXTextField.h"
 #import "TXButton.h"
+#import "UIUtil.h"
 
 @interface TXBaseViewController : UIViewController<TXEventListener> {
     NSDictionary *parameters;
@@ -34,4 +35,5 @@
 -(void) configure;
 -(void) configureStyles;
 -(UIView*)backroundView;
+
 @end

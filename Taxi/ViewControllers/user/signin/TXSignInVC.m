@@ -20,7 +20,8 @@
 
 -(IBAction)signIn:(id)sender;
 -(IBAction)gpSignIn:(id)sender;
--(IBAction)signUpButtonTapped:(id)sender;
+-(IBAction)signUp:(id)sender;
+-(IBAction)didBeginEditing:(id)sender;
 
 @end
 
@@ -35,6 +36,8 @@
 
 -(void) configure {
     [super configure];
+    [self initControls];
+    
     [[[self->model getApp] getSettings] setUserId:nil];
     [self->model addEventListener:self forEvent:TXEvents.CHECKUSEREXISTS eventParams:nil];
     [self->model addEventListener:self forEvent:TXEvents.LOGIN eventParams:nil];
@@ -47,6 +50,56 @@
     self.signIn.delegate = self;
 }
 
+-(void) initControls {
+    self.txtUsername = [[TXTextField alloc]
+                        initWithFrame:CGRectMake(kDefaultPaddingFromLeft,
+                                                 self.view.frame.origin.y + kDefaultPaddingFromTopScreen,
+                                                 self.view.frame.size.width - kDefaultPaddingFromLeft * 2,
+                                                 kTextFieldDefaultHeight)];
+    self.txtUsername.placeholder = @"Username";
+    self.txtUsername.opaque = NO;
+    self.txtUsername.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:self.txtUsername];
+    
+    self.txtPassword = [[TXTextField alloc] initUnder:self.txtUsername dim:0.3];
+    self.txtPassword.placeholder = @"Password";
+    self.txtPassword.secureTextEntry = true;
+    [self.view addSubview:self.txtPassword];
+    
+    self.btnSignIn = [[TXButton alloc] initUnder:self.txtPassword dim:3];
+    [self.btnSignIn setBackgroundColor:colorFromRGB(102, 178, 255, 1)];
+    [self.btnSignIn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btnSignIn setTitle:@"Sign in" forState:UIControlStateNormal];
+    [self.btnSignIn addTarget:self action:@selector(signIn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.btnSignIn];
+    
+    self.btnForgotPassword = [[TXButton alloc] initUnder:self.btnSignIn dim:2];
+    [self.btnForgotPassword setTintColor:[UIColor blueColor]];
+    [self.btnForgotPassword setTitle:@"Forgot your password" forState:UIControlStateNormal];
+//    [self.btnSignIn addTarget:self action:@selector(signIn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.btnForgotPassword];
+    
+    self.googleSignInButton = [[GPPSignInButton alloc]
+                               initWithFrame:CGRectMake(self.btnForgotPassword.frame.origin.x,
+                                                        (self.btnForgotPassword.frame.origin.y + self.btnForgotPassword.frame.size.height + 2),
+                                                        self.btnForgotPassword.frame.size.width,
+                                                        self.btnForgotPassword.frame.size.height)];
+    [self.googleSignInButton addTarget:self action:@selector(gpSignIn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.googleSignInButton];
+    
+    self.btnSignUp = [[TXButton alloc]
+                      initWithFrame:CGRectMake(kDefaultPaddingFromLeft,
+                                               (self.view.frame.size.height - kDefaultPaddingFromBottomScreen - kButtonDefaultHeight),
+                                               (self.view.frame.size.width - kDefaultPaddingFromLeft * 2),
+                                               kButtonDefaultHeight)];
+    [self.btnSignUp setBackgroundColor:colorFromRGB(102, 0, 102, 1)];
+    [self.btnSignUp setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btnSignUp setTitle:@"Sign up" forState:UIControlStateNormal];
+    [self.btnSignUp addTarget:self action:@selector(signUp:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.btnSignUp];
+   
+}
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self configureFieldStyles];
@@ -54,23 +107,23 @@
 
 -(void) configureFieldStyles {
     
-    self.txtUsername.height = 40;
+    UIColor *bgColor = [UIColor whiteColor];
+    
+    [super configureStyles];
     [self.txtUsername setTextAlignment:NSTextAlignmentLeft];
     [self.txtUsername setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtUsername.layer.shadowOpacity = 0.0;
-    [self.txtUsername.layer addSublayer:[TXUILayers layerWithRadiusTop:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
-    
-    [self.txtPassword setFrame:CGRectMake(self.txtUsername.frame.origin.x, self.txtUsername.frame.origin.y + 40.5, self.txtUsername.frame.size.width, self.txtUsername.frame.size.height)];
-    
-    self.txtPassword.height = 40;
+    [self.txtUsername.layer addSublayer:[TXUILayers layerWithRadiusTop:self.txtUsername.bounds color:[bgColor CGColor]]];
     [self.txtPassword setTextAlignment:NSTextAlignmentLeft];
     [self.txtPassword setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.txtPassword.layer.shadowOpacity = 0.0;
-    [self.txtPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[[UIColor whiteColor] CGColor]]];
-    
+    [self.txtPassword.layer addSublayer:[TXUILayers layerWithRadiusBottom:self.txtUsername.bounds color:[bgColor CGColor]]];
     
 }
 
+-(void)didBeginEditing:(id)sender {
+    [self configureFieldStyles];
+}
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error {
     
@@ -280,7 +333,7 @@
     [self alertError:@"Error" message:@"Unknown authorization !"];
 }
 
--(void)signUpButtonTapped:(id)sender {
+-(void)signUp:(id)sender {
     TXSignUpVC *signUpVC = [[TXSignUpVC alloc] initWithNibName:@"TXSignUpVC" bundle:nil];
     [self pushViewController:signUpVC];
 }

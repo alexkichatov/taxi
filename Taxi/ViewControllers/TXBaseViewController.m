@@ -48,6 +48,7 @@
     self->height = self.view.frame.size.height;
     
     self->backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"defaultbg.jpg"]];
+    //[self.view setBackgroundColor:colorFromRGB(255,229,204,1)];
     self->backgroundView.frame = self.view.bounds;
     [[self view] addSubview:self->backgroundView];
     [[self view] sendSubviewToBack:self->backgroundView];

@@ -72,6 +72,7 @@
 		389D4F15191E4B41005ED6E1 /* TXCallModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 389D4F14191E4B41005ED6E1 /* TXCallModel.m */; };
 		389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */; };
 		389EDB6418F19687005CAAE7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 389EDB6318F19687005CAAE7 /* CMPopTipView.m */; };
+		38B8BD1B1A0429DC000D37CF /* UIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B8BD1A1A0429DC000D37CF /* UIUtil.m */; };
 		38C0ECE918EC590E00AFE860 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */; };
 		38C0ECEA18EC590F00AFE860 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */; };
 		38C0ECEB18EC590F00AFE860 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C0ECE818EC590E00AFE860 /* GooglePlus.framework */; };
@@ -228,6 +229,9 @@
 		389EDB5F18F02DD6005CAAE7 /* TXViewControllersCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXViewControllersCache.m; sourceTree = "<group>"; };
 		389EDB6218F19687005CAAE7 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		389EDB6318F19687005CAAE7 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
+		38B8BD161A040A15000D37CF /* UIConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConsts.h; sourceTree = "<group>"; };
+		38B8BD191A0429DC000D37CF /* UIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtil.h; sourceTree = "<group>"; };
+		38B8BD1A1A0429DC000D37CF /* UIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtil.m; sourceTree = "<group>"; };
 		38BE647218AA7265006BD587 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		38C0ECE618EC590E00AFE860 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		38C0ECE718EC590E00AFE860 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
@@ -831,10 +835,13 @@
 		38FD39F419FFE064003CDDD0 /* UIParts */ = {
 			isa = PBXGroup;
 			children = (
+				38B8BD161A040A15000D37CF /* UIConsts.h */,
 				38FD39F519FFE07F003CDDD0 /* TXTextField.h */,
 				38FD39F619FFE07F003CDDD0 /* TXTextField.m */,
 				381290131A02621400F83769 /* TXButton.h */,
 				381290141A02621400F83769 /* TXButton.m */,
+				38B8BD191A0429DC000D37CF /* UIUtil.h */,
+				38B8BD1A1A0429DC000D37CF /* UIUtil.m */,
 			);
 			path = UIParts;
 			sourceTree = "<group>";
@@ -1002,6 +1009,7 @@
 				381290151A02621400F83769 /* TXButton.m in Sources */,
 				3826CC3F18EEDBAD003D7AD2 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				385E114018EC348F00AB7570 /* TXMainVC.m in Sources */,
+				38B8BD1B1A0429DC000D37CF /* UIUtil.m in Sources */,
 				38DE95FC19FD49D100F34D71 /* TXAskPhoneNumberVC.m in Sources */,
 				38DA7887191BCE0E00269AB7 /* TXDBHelper.m in Sources */,
 				389EDB6018F02DD6005CAAE7 /* TXViewControllersCache.m in Sources */,
@@ -1074,8 +1082,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1094,7 +1102,7 @@
 				IBSC_FLATTEN_NIBS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2250F849-2024-4140-B108-8B072097349C";
+				PROVISIONING_PROFILE = "b59f9e8f-278c-4de1-a3bc-03df7908bbd1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1116,8 +1124,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Irakli Vashakidze (ZM87UD7W4V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Irakli Vashakidze (ZM87UD7W4V)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1129,7 +1137,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IBSC_FLATTEN_NIBS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "2250F849-2024-4140-B108-8B072097349C";
+				PROVISIONING_PROFILE = "b59f9e8f-278c-4de1-a3bc-03df7908bbd1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1142,8 +1150,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/iraklivasha/Desktop/Taxi,
@@ -1153,9 +1161,10 @@
 				GCC_PREFIX_HEADER = "Taxi/Taxi-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "Taxi/Taxi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2250F849-2024-4140-B108-8B072097349C";
+				PROVISIONING_PROFILE = "b59f9e8f-278c-4de1-a3bc-03df7908bbd1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1166,8 +1175,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Irakli Vashakidze (ZM87UD7W4V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Irakli Vashakidze (ZM87UD7W4V)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Irakli Vashakidze (F8UHP9P6J6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/iraklivasha/Desktop/Taxi,
@@ -1176,9 +1185,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taxi/Taxi-Prefix.pch";
 				INFOPLIST_FILE = "Taxi/Taxi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2250F849-2024-4140-B108-8B072097349C";
+				PROVISIONING_PROFILE = "b59f9e8f-278c-4de1-a3bc-03df7908bbd1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
