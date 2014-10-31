@@ -58,7 +58,6 @@
                                                  kTextFieldDefaultHeight)];
     self.txtUsername.placeholder = @"Username";
     self.txtUsername.opaque = NO;
-    self.txtUsername.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.txtUsername];
     
     self.txtPassword = [[TXTextField alloc] initUnder:self.txtUsername dim:0.3];
