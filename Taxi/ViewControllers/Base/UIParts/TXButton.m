@@ -33,40 +33,32 @@
     return self;
 }
 
-- (id)initUnder:(UIView *) view dim:(float) pix;
-{
+-(id) initUnderOrOnTop:(UIView *) view dim:(float) pix under:(BOOL)under {
+    
     self = [self initWithFrame:view.frame];
     
     if(self) {
         
         CGRect viewFrame = view.frame;
+        float y = under ? ((viewFrame.origin.y + viewFrame.size.height + pix)) : (viewFrame.origin.y - viewFrame.size.height - pix);
         self.frame = CGRectMake(viewFrame.origin.x,
-                                (viewFrame.origin.y + viewFrame.size.height + pix),
+                                y,
                                 viewFrame.size.width,
                                 viewFrame.size.height);
         
     }
     
     return self;
-    
+}
+
+- (id)initUnder:(UIView *) view dim:(float) pix;
+{
+    return [self initUnderOrOnTop:view dim:pix under:true];
 }
 
 - (id)initOnTopOf:(UIView *) view dim:(float) pix;
 {
-    self = [self initWithFrame:view.frame];
-    
-    if(self) {
-        
-        CGRect viewFrame = view.frame;
-        self.frame = CGRectMake(viewFrame.origin.x,
-                                (viewFrame.origin.y - viewFrame.size.height - pix),
-                                viewFrame.size.width,
-                                viewFrame.size.height);
-        
-    }
-    
-    return self;
-    
+    return [self initUnderOrOnTop:view dim:pix under:false];
 }
 
 @end
